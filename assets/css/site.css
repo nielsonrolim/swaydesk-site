@@ -95,6 +95,16 @@ h1 { margin: 0 0 .875rem; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
 .gallery figure { margin: 0; }
 .gallery figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 
+.component { display: grid; grid-template-columns: minmax(0, 15rem) 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.component h3 { grid-column: 1 / -1; margin: 0; }
+.component__shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line-strong); border-radius: var(--frame); }
+.component__body > :first-child { margin-top: 0; }
+.component__body p { margin: 0 0 .5rem; }
+.component__keys { color: var(--ink); font-size: .85rem; }
+.component__meta { color: var(--muted); font-size: .75rem; }
+.component:not(:has(.component__shot)) { grid-template-columns: 1fr; }
+@media (max-width: 40rem) { .component { grid-template-columns: 1fr; } }
+
 footer { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 footer .cursor { display: inline-block; width: .55em; height: 1.1em; background: var(--ruby); vertical-align: text-bottom; animation: blink 1.1s steps(1) infinite; }
 footer .license { margin-left: auto; }

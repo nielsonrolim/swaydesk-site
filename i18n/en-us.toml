@@ -21,3 +21,15 @@ other = 'Text and images under <a href="https://creativecommons.org/licenses/by/
 
 [soon]
 other = "coming soon"
+
+[in_the_guide]
+other = "More in the guide"
+
+[tech_script]
+other = "script"
+
+[source]
+other = "source"
+
+[turn_off]
+other = "turn off"

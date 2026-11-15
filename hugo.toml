@@ -8,6 +8,9 @@ enableRobotsTXT = true
 [params]
   name = "Swaydesk"
   repo = "https://github.com/nielsonrolim/swaydesk-site"
+  # O repositório público do código (nielsonrolim/swaydesk): vazio até ele existir; com ele, os componentes
+  # ganham o link para o código
+  code_repo = ""
 
 [languages]
   [languages.pt-BR]
@@ -36,8 +39,8 @@ enableRobotsTXT = true
       pageRef = "/shortcuts"
       weight = 5
     [[languages.pt-BR.menus.main]]
-      name = "apps"
-      pageRef = "/apps"
+      name = "componentes"
+      pageRef = "/components"
       weight = 6
   [languages.en-US]
     languageName = "EN-US"
@@ -65,8 +68,8 @@ enableRobotsTXT = true
       pageRef = "/shortcuts"
       weight = 5
     [[languages.en-US.menus.main]]
-      name = "apps"
-      pageRef = "/apps"
+      name = "components"
+      pageRef = "/components"
       weight = 6
 
 [markup.goldmark.renderer]

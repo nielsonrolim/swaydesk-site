@@ -21,3 +21,15 @@ other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4
 
 [soon]
 other = "em breve"
+
+[in_the_guide]
+other = "Mais no guia"
+
+[tech_script]
+other = "script"
+
+[source]
+other = "código"
+
+[turn_off]
+other = "desligar"
