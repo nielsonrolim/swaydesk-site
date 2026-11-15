@@ -28,6 +28,7 @@ No Ubuntu e no Mint, troque `Debian_13` por `xUbuntu_26.04` na primeira linha.
 ```
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
+[ "$(gpg --show-keys --with-colons "$key" | grep -c '^pub:')" = 1 ] &&
 gpg --show-keys --with-colons "$key" | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
 sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
