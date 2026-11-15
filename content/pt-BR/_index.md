@@ -4,7 +4,7 @@ aliases: ["/pt-BR/"]
 facts:
   - {k: base, v: "Sway, o compositor Wayland em mosaico"}
   - {k: stack, v: "Rust, GTK 4, layer-shell"}
-  - {k: distros, v: "Debian 13, Ubuntu 26.04, Arch Linux"}
+  - {k: distros, v: "Debian 13, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
   - {k: status, v: "em desenvolvimento; pacotes em breve"}
 ---
 O Swaydesk transforma o [Sway](https://swaywm.org/) num desktop completo, sem perder o que ele tem de bom: é leve, rápido e todo pelo teclado quando você quer.
