@@ -44,7 +44,7 @@ sudo apt install swaydesk-archive-keyring swaydesk-desktop
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
 [ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
-sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc && rm -f "$key" &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
   sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
 sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
@@ -85,7 +85,7 @@ sudo apt install swaydesk-archive-keyring swaydesk-desktop
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
 [ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
-sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc && rm -f "$key" &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
   sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
 sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
@@ -119,7 +119,7 @@ sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< oneline text="Os mesmos passos, encadeados: se a chave baixada não tiver a impressão digital certa, nada é adicionado nem instalado." >}}
 key=$(mktemp) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o "$key" &&
 [ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
-sudo pacman-key --add "$key" &&
+sudo pacman-key --add "$key" && rm -f "$key" &&
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
