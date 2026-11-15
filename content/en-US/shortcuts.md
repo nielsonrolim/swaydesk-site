@@ -47,7 +47,7 @@ The shortcuts follow KDE Plasma with Krohnkite. `Super` is the logo key.
 
 | Shortcut | What it does |
 | --- | --- |
-| `Super`+`]` | Cycles side by side, stacked and tabbed |
+| `Super`+`]` | Cycles side by side, one above the other, stacked and tabbed |
 | `Super`+`Ctrl`+`T` | Back to side by side |
 | `Super`+`Ctrl`+`Enter` | Toggles the next split between horizontal and vertical |
 | `Super`+`Ctrl`+`X` / `Z` | More or less space between windows |

@@ -47,7 +47,7 @@ Os atalhos seguem os do KDE Plasma com o Krohnkite. `Super` é a tecla do logoti
 
 | Atalho | O que faz |
 | --- | --- |
-| `Super`+`]` | Alterna entre lado a lado, empilhado e em abas |
+| `Super`+`]` | Alterna entre lado a lado, um sobre o outro, empilhado e em abas |
 | `Super`+`Ctrl`+`T` | Volta ao lado a lado |
 | `Super`+`Ctrl`+`Enter` | Alterna a próxima divisão entre horizontal e vertical |
 | `Super`+`Ctrl`+`X` / `Z` | Aumenta ou diminui o espaço entre as janelas |
