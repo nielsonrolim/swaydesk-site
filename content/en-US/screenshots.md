@@ -18,5 +18,9 @@ Swaydesk on Debian 13, with the dark Adwaita theme and the default accent color.
 {{< shot "capture" "The screenshot panel" >}}
 {{< shot "session" "The session menu" >}}
 {{< shot "theme" "The Desktop Theme app" >}}
+{{< shot "launcher-web" "The launcher, on the Web tab" >}}
+{{< shot "system" "The system popup" >}}
+{{< shot "weather" "The weather" >}}
+{{< shot "media" "The media popup" >}}
 {{< shot "greeter" "The login screen" >}}
 {{< /gallery >}}

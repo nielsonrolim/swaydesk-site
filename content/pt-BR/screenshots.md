@@ -18,5 +18,9 @@ O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de destaque padrão. 
 {{< shot "capture" "O painel de captura de tela" >}}
 {{< shot "session" "O menu de sessão" >}}
 {{< shot "theme" "O app Tema do Desktop" >}}
+{{< shot "launcher-web" "O lançador, na aba Web" >}}
+{{< shot "system" "O popup do sistema" >}}
+{{< shot "weather" "O clima" >}}
+{{< shot "media" "O popup de mídia" >}}
 {{< shot "greeter" "A tela de login" >}}
 {{< /gallery >}}

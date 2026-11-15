@@ -18,17 +18,17 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 {{< component title="Bateria" keys="Clique na bateria" guide="guide/desktop/#a-barra" bin="swaydesk-battery-popup" tech="rust" >}}Carga, tempo restante, consumo, saúde, um gráfico das últimas 12 horas e o perfil de energia.{{< /component >}}
 
-{{< component title="Brilho e luz noturna" keys="Clique no ícone de brilho; teclas de brilho" guide="guide/desktop/#a-barra" bin="swaydesk-brightness-popup" tech="rust" >}}O brilho da tela e a luz noturna: desligada, ligada ou no horário que você escolher.{{< /component >}}
+{{< component title="Brilho e luz noturna" shot="brightness" keys="Clique no ícone de brilho; teclas de brilho" guide="guide/desktop/#a-barra" bin="swaydesk-brightness-popup" tech="rust" >}}O brilho da tela e a luz noturna: desligada, ligada ou no horário que você escolher.{{< /component >}}
 
-{{< component title="Mídia" keys="Clique no ícone de mídia (só aparece com algo tocando)" guide="guide/desktop/#a-barra" bin="swaydesk-media-popup" tech="rust" >}}Capa, título, progresso e os controles do player que estiver tocando.{{< /component >}}
+{{< component title="Mídia" shot="media" keys="Clique no ícone de mídia (só aparece com algo tocando)" guide="guide/desktop/#a-barra" bin="swaydesk-media-popup" tech="rust" >}}Capa, título, progresso e os controles do player que estiver tocando.{{< /component >}}
 
-{{< component title="Clima" keys="Clique na temperatura" guide="guide/desktop/#a-barra" bin="swaydesk-weather-popup" tech="rust" >}}A previsão do dia e dos próximos, da cidade escolhida ou da que vem pelo seu IP.{{< /component >}}
+{{< component title="Clima" shot="weather" keys="Clique na temperatura" guide="guide/desktop/#a-barra" bin="swaydesk-weather-popup" tech="rust" >}}A previsão do dia e dos próximos, da cidade escolhida ou da que vem pelo seu IP.{{< /component >}}
 
 {{< component title="Calendário" shot="calendar" keys="Clique na data" guide="guide/desktop/#a-barra" bin="swaydesk-calendar" tech="rust" >}}O mês, com os feriados do seu país.{{< /component >}}
 
-{{< component title="Sistema" keys="Clique no ícone do sistema" guide="guide/desktop/#a-barra" bin="swaydesk-system-popup" tech="rust" >}}CPU, memória, disco, temperatura e os processos que mais consomem, com "Encerrar". O ícone fica laranja quando algo aperta.{{< /component >}}
+{{< component title="Sistema" shot="system" keys="Clique no ícone do sistema" guide="guide/desktop/#a-barra" bin="swaydesk-system-popup" tech="rust" >}}CPU, memória, disco, temperatura e os processos que mais consomem, com "Encerrar". O ícone fica laranja quando algo aperta.{{< /component >}}
 
-{{< component title="Cafeína" keys="Clique na xícara" guide="guide/desktop/#a-barra" bin="swaydesk-caffeine-popup" tech="rust" >}}Impede o bloqueio e a suspensão por 1 hora, 2 horas ou sempre.{{< /component >}}
+{{< component title="Cafeína" shot="caffeine" keys="Clique na xícara" guide="guide/desktop/#a-barra" bin="swaydesk-caffeine-popup" tech="rust" >}}Impede o bloqueio e a suspensão por 1 hora, 2 horas ou sempre.{{< /component >}}
 
 {{< component title="Central de notificações" shot="notifications" keys="`Super`+`C`; clique no sino" guide="guide/desktop/#notificações" bin="swaydesk-notifications-popup" tech="rust" >}}As notificações por app, com as ações de cada uma e o Não perturbe.{{< /component >}}
 
@@ -41,7 +41,7 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 {{< component title="Grade de apps" shot="drawer" keys="`Super`" guide="guide/desktop/#a-grade-de-apps" bin="swaydesk-drawer" tech="rust" >}}Todos os apps instalados, com busca, grupos e favoritos. A busca também faz contas, e com o `qalc` converte unidades.{{< /component >}}
 
-{{< component title="Lançador" keys="`Alt`+`Espaço`" guide="guide/desktop/#o-lançador" bin="sway-launcher (rofi)" tech="script" >}}O rofi com quatro abas: apps, janelas abertas, área de transferência e busca na web (com prefixos como `w` para a Wikipédia).{{< /component >}}
+{{< component title="Lançador" shot="launcher-apps" keys="`Alt`+`Espaço`" guide="guide/desktop/#o-lançador" bin="sway-launcher (rofi)" tech="script" >}}O rofi com quatro abas: apps, janelas abertas, área de transferência e busca na web (com prefixos como `w` para a Wikipédia).{{< /component >}}
 
 {{< component title="Troca de janelas" shot="switcher" keys="`Alt`+`Tab`" guide="guide/desktop/#troca-de-janelas" bin="swaydesk-switcher" tech="rust" >}}As janelas na ordem de uso, de todos os workspaces, num cartão no meio da tela.{{< /component >}}
 
@@ -50,7 +50,7 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 {{< component title="Notificações" guide="guide/desktop/#notificações" bin="swaydesk-notifd" tech="rust" >}}O serviço que recebe as notificações dos apps e mostra os avisos no canto da tela.{{< /component >}}
 
-{{< component title="Indicador de volume e brilho" keys="Teclas de volume e de brilho" bin="swaydesk-osd-bar" tech="rust" >}}Ícone, barra e porcentagem no meio da tela por um segundo.{{< /component >}}
+{{< component title="Indicador de volume e brilho" shot="osd" keys="Teclas de volume e de brilho" bin="swaydesk-osd-bar" tech="rust" >}}Ícone, barra e porcentagem no meio da tela por um segundo.{{< /component >}}
 
 {{< component title="Menu de sessão" shot="session" keys="`Ctrl`+`Alt`+`Delete`; botão de energia da barra" guide="guide/desktop/#menu-de-sessão" bin="swaydesk-session-menu" tech="rust" >}}Bloquear, sair, suspender, reiniciar e desligar.{{< /component >}}
 
@@ -69,7 +69,7 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 {{< component title="Captura de tela" shot="capture" keys="`Super`+`Shift`+`E`; `Print`" guide="guide/desktop/#capturas-e-gravação" bin="swaydesk-capture" tech="rust" >}}Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar.{{< /component >}}
 
-{{< component title="Gravação de tela" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#capturas-e-gravação" bin="swaydesk-capture" tech="rust" >}}Região, tela inteira ou janela, com o som do sistema, o microfone ou sem áudio. O vídeo vai para `~/Vídeos/Screencasts`.{{< /component >}}
+{{< component title="Gravação de tela" shot="recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#capturas-e-gravação" bin="swaydesk-capture" tech="rust" >}}Região, tela inteira ou janela, com o som do sistema, o microfone ou sem áudio. O vídeo vai para `~/Vídeos/Screencasts`.{{< /component >}}
 
 {{< component title="Telas" keys="Na grade de apps" tech="rust" soon="true" >}}A posição, a resolução, a escala e a rotação de cada monitor. Até ele chegar, o nwg-displays faz o mesmo.{{< /component >}}
 
