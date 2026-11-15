@@ -9,23 +9,34 @@ Com os pacotes instalados, o Swaydesk aparece como uma sessão a mais na tela de
 
 ## Entrar na sessão
 
-Na tela de login, escolha a sessão **Sway Desktop** e entre com a sua senha. Se aparecer também uma sessão chamada só **Sway**, ela é a do pacote do Sway, sem o Swaydesk: use a **Sway Desktop**.
+Se você já usa uma tela de login, como a do GNOME (GDM), a do KDE (SDDM) ou a do Mint e do Xfce (LightDM), **não precisa fazer nada além de escolher a sessão**. O Swaydesk entra nela como mais uma opção, e o desktop que você já tinha continua lá:
 
-Com o pacote `swaydesk-greeter`, a tela de login é a do próprio Swaydesk, com o mesmo visual da tela de bloqueio:
+- **GDM:** clique no seu nome e, antes de digitar a senha, no ícone de engrenagem no canto de baixo à direita;
+- **SDDM:** use o menu de sessão, no canto de baixo à esquerda;
+- **LightDM:** use o ícone ou o menu de sessão (no Mint, ao lado do nome; em outros temas, no painel de cima).
+
+Escolha **Sway Desktop** e entre com a sua senha. A tela de login lembra a escolha para a próxima vez. Se aparecer também uma sessão chamada só **Sway**, ela é a do pacote do Sway, sem o Swaydesk: use a **Sway Desktop**.
+
+### Opcional: a tela de login do Swaydesk
+
+O Swaydesk também tem uma tela de login própria, o pacote `swaydesk-greeter`, com o mesmo visual da tela de bloqueio. Ela é opcional:
 
 - mostra as contas da máquina com a foto de cada uma, e **Outro usuário…** para digitar o nome;
 - lembra a última conta e a sessão que cada pessoa usou, com a **Sway Desktop** primeiro na lista;
 - depois da senha, pergunta o que mais o sistema pedir, como um código ou a troca de uma senha vencida;
 - usa o teclado e o idioma do sistema e tem os botões de suspender, reiniciar e desligar.
 
-Ela roda sobre o greetd. No Debian e no Ubuntu, o greetd se liga sozinho quando a máquina não tem outra tela de login. Com o GDM ou o SDDM, nada muda até você trocar:
+Ela roda sobre o greetd. No Debian e no Ubuntu, o greetd se liga sozinho só quando a máquina não tem outra tela de login; com o GDM, o SDDM ou o LightDM, nada muda até você trocar:
 
 ```
-sudo systemctl disable gdm      # ou sddm
+sudo apt install swaydesk-greeter
+sudo systemctl disable gdm      # ou sddm, ou lightdm
 sudo systemctl enable greetd
 ```
 
-No Arch, o pacman não liga serviços: rode `sudo systemctl enable greetd`. O aviso da instalação mostra as linhas do `pam_gnome_keyring` que você deve pôr em `/etc/pam.d/greetd` para o chaveiro abrir junto com o login.
+No Arch, o pacman não liga serviços: depois de instalar, rode `sudo systemctl enable greetd`. O aviso da instalação mostra as linhas do `pam_gnome_keyring` que você deve pôr em `/etc/pam.d/greetd` para o chaveiro abrir junto com o login.
+
+Para voltar à tela de login de antes, desligue o greetd e ligue a outra (`sudo systemctl disable greetd` e `sudo systemctl enable gdm`, por exemplo). Veja também as [perguntas frequentes](/pt-br/guide/faq/#como-volto-para-a-tela-de-login-que-eu-usava-antes).
 
 ## O que você vê
 

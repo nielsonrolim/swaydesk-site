@@ -9,23 +9,34 @@ Once the packages are installed, Swaydesk shows up as one more session on the lo
 
 ## Logging in
 
-On the login screen, pick the **Sway Desktop** session and enter your password. If you also see a session called just **Sway**, that one comes from the Sway package and has none of Swaydesk: use **Sway Desktop**.
+If you already use a login screen, such as GNOME's (GDM), KDE's (SDDM) or Mint's and Xfce's (LightDM), **there's nothing to do but pick the session**. Swaydesk shows up there as one more option, and the desktop you already had stays:
 
-With the `swaydesk-greeter` package, the login screen is Swaydesk's own, with the same look as the lock screen:
+- **GDM:** click your name and, before typing the password, the gear icon in the bottom right corner;
+- **SDDM:** use the session menu in the bottom left corner;
+- **LightDM:** use the session icon or menu (on Mint, next to your name; in other themes, on the top panel).
+
+Pick **Sway Desktop** and enter your password. The login screen remembers the choice for next time. If you also see a session called just **Sway**, that one comes from the Sway package and has none of Swaydesk: use **Sway Desktop**.
+
+### Optional: the Swaydesk login screen
+
+Swaydesk also has a login screen of its own, the `swaydesk-greeter` package, with the same look as the lock screen. It's optional:
 
 - it lists the accounts on the machine with their pictures, plus **Other user…** to type a name;
 - it remembers the last account and each person's session, with **Sway Desktop** at the top of the list;
 - after the password, it asks whatever else the system needs, such as a code or a new password when the old one has expired;
 - it uses the system keyboard layout and language, and has suspend, restart and shut down buttons.
 
-It runs on top of greetd. On Debian and Ubuntu, greetd turns itself on when the machine has no other login screen. If you use GDM or SDDM, nothing changes until you switch:
+It runs on top of greetd. On Debian and Ubuntu, greetd only turns itself on when the machine has no other login screen; with GDM, SDDM or LightDM, nothing changes until you switch:
 
 ```
-sudo systemctl disable gdm      # or sddm
+sudo apt install swaydesk-greeter
+sudo systemctl disable gdm      # or sddm, or lightdm
 sudo systemctl enable greetd
 ```
 
-On Arch, pacman doesn't enable services: run `sudo systemctl enable greetd`. The install message shows the `pam_gnome_keyring` lines to add to `/etc/pam.d/greetd` so your keyring unlocks when you log in.
+On Arch, pacman doesn't enable services: after installing, run `sudo systemctl enable greetd`. The install message shows the `pam_gnome_keyring` lines to add to `/etc/pam.d/greetd` so your keyring unlocks when you log in.
+
+To go back to the login screen you had, disable greetd and enable the other one (`sudo systemctl disable greetd` and `sudo systemctl enable gdm`, for example). See also the [FAQ](/en-us/guide/faq/#how-do-i-go-back-to-the-login-screen-i-used-before).
 
 ## What you'll see
 
