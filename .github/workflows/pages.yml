@@ -34,7 +34,9 @@ jobs:
       - id: pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
       - name: Build
-        run: hugo build --minify --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: hugo build --minify --panicOnWarning --baseURL "${BASE_URL}/"
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: public
