@@ -17,7 +17,7 @@ other = "um desktop completo sobre o Sway"
 other = "Swaydesk: um desktop completo e leve sobre o Sway, para Debian, Ubuntu, Linux Mint e Arch."
 
 [license]
-other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>'
+other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>; as capturas mostram ícones de terceiros, sob as licenças deles'
 
 [soon]
 other = "em breve"

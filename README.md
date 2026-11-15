@@ -27,4 +27,4 @@ docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src ghcr.io/gohugoio/h
 
 ## License
 
-The text and the images are under the [Creative Commons Attribution 4.0](LICENSE) license (CC BY 4.0). The Fira Code font in `static/fonts/` is under the [SIL Open Font License 1.1](static/fonts/OFL.txt).
+The text and the images are under the [Creative Commons Attribution 4.0](LICENSE) license (CC BY 4.0). The screenshots show third-party icons and app logos, which keep their own licenses. The Fira Code font in `static/fonts/` is under the [SIL Open Font License 1.1](static/fonts/OFL.txt).
