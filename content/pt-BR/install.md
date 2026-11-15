@@ -23,7 +23,7 @@ Confira que a chave baixada tem esta impressão digital, antes de confiar nela:
 
 ## Debian 13, Ubuntu 26.04 e Linux Mint 27
 
-No Ubuntu e no Mint, troque `Debian_13` por `xUbuntu_26.04` na primeira linha.
+Precisa do `curl` e do `gpg` (num sistema mínimo: `sudo apt install curl gpg`). No Ubuntu e no Mint, troque `Debian_13` por `xUbuntu_26.04` na primeira linha.
 
 ```
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13

@@ -23,7 +23,7 @@ It's a 4096-bit RSA key, the project's key on OBS, valid until 2029-01-23.
 
 ## Debian 13, Ubuntu 26.04 and Linux Mint 27
 
-On Ubuntu and Mint, replace `Debian_13` with `xUbuntu_26.04` in the first line.
+You need `curl` and `gpg` (on a minimal system: `sudo apt install curl gpg`). On Ubuntu and Mint, replace `Debian_13` with `xUbuntu_26.04` in the first line.
 
 ```
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
