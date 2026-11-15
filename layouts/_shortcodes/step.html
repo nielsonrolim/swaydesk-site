@@ -1,6 +1,6 @@
 {{- /* Um passo: {{< step text="O que faz, em Markdown" fpr="plain|spaced" >}}um comando{{< /step >}}.
   fpr mostra a impressão digital (params.fingerprint) em destaque, no formato que o comando do passo imprime:
-  plain (gpg --show-keys) ou spaced (pacman-key --finger). */ -}}
+  plain (gpg --show-keys) ou spaced (pacman-key --finger, com o espaço duplo no meio, como no terminal). */ -}}
 <li class="step">
 <p class="step__text">{{ .Get "text" | markdownify }}</p>
 {{ partial "cmd.html" (strings.Trim .Inner "\n") }}
@@ -8,7 +8,7 @@
 {{- $f := site.Params.fingerprint }}
 <div class="fpr">
 <p class="fpr__label">{{ i18n "fpr_must" }}</p>
-<p class="fpr__value"><code>{{ if eq . "spaced" }}{{ range $i, $c := split $f "" }}{{ if and $i (eq (mod $i 4) 0) }} {{ end }}{{ $c }}{{ end }}{{ else }}{{ $f }}{{ end }}</code></p>
+<p class="fpr__value"><code>{{ if eq . "spaced" }}{{ range $i, $c := split $f "" }}{{ if and $i (eq (mod $i 4) 0) }} {{ if eq $i 20 }}&nbsp;{{ end }}{{ end }}{{ $c }}{{ end }}{{ else }}{{ $f }}{{ end }}</code></p>
 <p class="fpr__stop">{{ i18n "fpr_stop" }}</p>
 <p class="fpr__meta">{{ i18n "key_meta" }}</p>
 </div>

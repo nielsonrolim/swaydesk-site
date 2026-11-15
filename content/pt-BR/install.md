@@ -20,8 +20,11 @@ curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_
 {{< step text="Mostre a impressão digital da chave baixada." fpr="plain" >}}
 gpg --show-keys ~/swaydesk.key
 {{< /step >}}
-{{< step text="Instale a chave no lugar que o apt usa." >}}
-sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< step text="Instale a chave no lugar que o apt usa. O comando confere a impressão digital de novo e recusa qualquer outra chave." >}}
+[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -c '^pub:')" = 1 ] &&
+gpg --show-keys --with-colons ~/swaydesk.key | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+rm ~/swaydesk.key
 {{< /step >}}
 {{< step text="Adicione o repositório." >}}
 sudo tee /etc/apt/sources.list.d/swaydesk.sources <<'EOF'
@@ -60,8 +63,11 @@ curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu
 {{< step text="Mostre a impressão digital da chave baixada." fpr="plain" >}}
 gpg --show-keys ~/swaydesk.key
 {{< /step >}}
-{{< step text="Instale a chave no lugar que o apt usa." >}}
-sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< step text="Instale a chave no lugar que o apt usa. O comando confere a impressão digital de novo e recusa qualquer outra chave." >}}
+[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -c '^pub:')" = 1 ] &&
+gpg --show-keys --with-colons ~/swaydesk.key | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+rm ~/swaydesk.key
 {{< /step >}}
 {{< step text="Adicione o repositório." >}}
 sudo tee /etc/apt/sources.list.d/swaydesk.sources <<'EOF'
@@ -91,7 +97,7 @@ sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
 {{< /distro >}}
 {{< distro id="arch" name="Arch Linux" >}}
 {{< steps >}}
-{{< step text="Adicione o repositório ao fim do `/etc/pacman.conf`." >}}
+{{< step text="Adicione o repositório ao fim do `/etc/pacman.conf` (uma vez só)." >}}
 sudo tee -a /etc/pacman.conf <<'EOF'
 
 [home_nielsonrolim_Arch]
