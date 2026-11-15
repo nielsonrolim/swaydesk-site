@@ -113,7 +113,7 @@ sudo pacman-key --finger 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
 {{< step text="Assine a chave localmente, para o pacman confiar nela." >}}
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
 {{< /step >}}
-{{< step text="Instale o Swaydesk. O `noto-fonts` e o `pipewire-jack` no fim respondem de antemão às duas escolhas que o pacman perguntaria (uma fonte e o provedor do JACK): o Swaydesk já usa a Noto, e o áudio dele é o PipeWire." >}}
+{{< step text="Instale o Swaydesk. O `noto-fonts` e o `pipewire-jack` no fim respondem de antemão às duas escolhas que o pacman perguntaria (uma fonte e o provedor do JACK): o Swaydesk já usa a Noto, e o áudio dele é o PipeWire. Se você já tem o `jack2` e o pacman perguntar se pode removê-lo, responda s." >}}
 sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< /step >}}
 {{< /steps >}}
