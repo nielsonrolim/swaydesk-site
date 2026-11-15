@@ -1,5 +1,5 @@
 {{ define "main" }}
-<p class="prompt">whoami</p>
+<p class="prompt" aria-hidden="true">whoami</p>
 <h1>{{ site.Params.name }}</h1>
 {{ with .Params.facts }}<dl class="facts">{{ range . }}<div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>{{ end }}</dl>{{ end }}
 <div class="content">{{ .Content }}</div>

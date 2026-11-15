@@ -44,6 +44,7 @@ a:hover { color: var(--ruby-ink); }
 .topbar__path::before { content: "$ "; color: var(--ruby); }
 .topbar__tools { display: inline-flex; align-items: center; gap: .75rem; }
 .theme-toggle { display: inline-flex; width: 2.25rem; height: 2.25rem; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: var(--frame); background: none; color: var(--muted); cursor: pointer; font: inherit; }
+.theme-toggle[hidden] { display: none; }
 .theme-toggle:hover { border-color: var(--line-strong); color: var(--ink); }
 .theme-toggle svg { width: 1.1rem; height: 1.1rem; }
 .theme-toggle .moon, :root[data-theme="dark"] .theme-toggle .sun { display: none; }

@@ -1,6 +1,90 @@
 ---
 title: Atalhos
-prompt: "cat ~/.config/sway/config | grep bindsym"
+prompt: "grep bindsym ~/.config/sway/config"
 crumb: shortcuts
+description: Todos os atalhos de teclado da sessão Swaydesk.
 ---
-Em construção.
+Os atalhos seguem os do KDE Plasma com o Krohnkite. `Super` é a tecla do logotipo.
+
+> Esta tabela foi escrita a partir da configuração do Sway. Em breve ela será gerada das mesmas descrições que o app **Ajuda** mostra.
+
+## Sessão e apps
+
+| Atalho | O que faz |
+| --- | --- |
+| `Super` (sozinho) | Mostra ou esconde a grade de apps |
+| `Alt`+`Espaço` | Lançador: busca de apps, calculadora e web |
+| `Super`+`'` (à esquerda do 1) | Lista das janelas abertas, para buscar |
+| `Ctrl`+`Alt`+`T` | Terminal |
+| `Ctrl`+`Alt`+`E` | Gerenciador de arquivos |
+| `Super`+`C` | Central de notificações |
+| `Super`+`V` | Histórico da área de transferência |
+| `Super`+`Espaço` | Troca o layout do teclado |
+| `Ctrl`+`Alt`+`L` | Bloqueia a tela |
+| `Ctrl`+`Alt`+`Delete` | Menu de sessão: bloquear, sair, suspender, reiniciar, desligar |
+| `Super`+`R` | Recarrega a configuração do Sway |
+| `Super`+`Shift`+`O` | Liga a tela de novo, se ela não voltar (vale com a tela bloqueada) |
+
+## Janelas
+
+| Atalho | O que faz |
+| --- | --- |
+| `Alt`+`Tab` / `Alt`+`Shift`+`Tab` | Troca de janela na ordem de uso, com o seletor na tela |
+| `Super`+`Tab` / `Super`+`Shift`+`Tab` | Próxima ou anterior na ordem da tela |
+| `Super`+`H` `J` `K` `L` ou `Super`+`Alt`+setas | Foca a janela à esquerda, abaixo, acima ou à direita |
+| `Super`+`Shift`+`H` `J` `K` `L` | Move a janela |
+| `Super`+`Ctrl`+`H` `J` `K` `L` | Redimensiona a janela |
+| `Super`+`Enter` | Troca a janela com a primeira do workspace (a "principal") |
+| `Super`+`Q` ou `Super`+`Ctrl`+`Esc` | Fecha a janela |
+| `Super`+`F` | Solta ou prende a janela (flutuante) |
+| `Super`+`Shift`+`F` | Solta ou prende todas as janelas do workspace |
+| `Super`+`M`, `Super`+`Page Up` ou `Super`+`Ctrl`+`F` | Tela cheia |
+| `Super`+`Page Down` | Guarda a janela de lado (o "minimizar" do Sway) |
+| `Super`+`Backspace` ou `Super`+`Z` | Traz de volta a janela guardada |
+| `Super`+`Shift`+`G` | Fixa a janela flutuante em todos os workspaces |
+
+## Layout
+
+| Atalho | O que faz |
+| --- | --- |
+| `Super`+`]` | Alterna entre lado a lado, empilhado e em abas |
+| `Super`+`Ctrl`+`T` | Volta ao lado a lado |
+| `Super`+`Ctrl`+`Enter` | Alterna a próxima divisão entre horizontal e vertical |
+| `Super`+`Ctrl`+`X` / `Z` | Aumenta ou diminui o espaço entre as janelas |
+| `Super`+`Ctrl`+`R` | Liga ou desliga o espaço entre as janelas |
+
+## Workspaces e monitores
+
+| Atalho | O que faz |
+| --- | --- |
+| `Super`+`1`…`9` | Vai ao workspace |
+| `Super`+`Ctrl`+`1`…`9` | Leva a janela ao workspace, e vai junto |
+| `Super`+`←` / `→` | Workspace anterior ou seguinte, mesmo vazio |
+| `Super`+`Ctrl`+`←` / `→` | Leva a janela ao workspace anterior ou seguinte |
+| `Super`+rolagem do mouse | Workspace anterior ou seguinte |
+| `Super`+`W` / `E` | Foca o monitor da esquerda ou da direita |
+| `Super`+`Ctrl`+`W` / `E` ou `Super`+`Shift`+`←` / `→` | Leva a janela ao outro monitor |
+
+## Captura e gravação
+
+| Atalho | O que faz |
+| --- | --- |
+| `Print` | Captura uma região |
+| `Shift`+`Print` | Captura a tela inteira |
+| `Super`+`Print` | Captura a janela |
+| `Ctrl` + qualquer um dos três | O mesmo, e abre a captura no Gradia para editar |
+| `Super`+`Shift`+`E` | Painel de captura |
+| `Super`+`Shift`+`R` | Painel de gravação; durante a gravação, para |
+
+Nos painéis, as teclas são as iniciais em inglês: `R` região, `S` tela, `W` janela, `Esc` fecha. Na captura, `G` liga ou desliga o Gradia e `D` muda o atraso. Na gravação, `Shift`+tecla grava com o som do sistema, `Ctrl`+tecla com o microfone, e `A` muda o áudio.
+
+## Mídia e brilho
+
+Funcionam também com a tela bloqueada.
+
+| Tecla | O que faz |
+| --- | --- |
+| Volume +, −, mudo | Volume, com o indicador na tela |
+| Microfone mudo | Liga ou desliga o microfone |
+| Tocar, próxima, anterior | Controla o player que estiver tocando |
+| Brilho +, − | Brilho, com o indicador na tela |

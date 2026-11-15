@@ -8,6 +8,7 @@
 <title>{{ if .IsHome }}{{ site.Params.name }} — {{ i18n "tagline" }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ i18n "description" }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
+<link rel="alternate" hreflang="x-default" href="{{ "/" | absURL }}">
 {{- range .AllTranslations }}
 <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
 {{- end }}

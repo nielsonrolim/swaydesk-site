@@ -6,7 +6,7 @@
   const apply = (theme) => {
     root.dataset.theme = theme;
     const button = document.querySelector("[data-theme-toggle]");
-    if (button) button.setAttribute("aria-pressed", String(theme === "dark"));
+    if (button) { button.setAttribute("aria-pressed", String(theme === "dark")); button.hidden = false; } // sem JS o botão fica escondido
   };
   apply(stored() || (media.matches ? "dark" : "light"));
   document.addEventListener("DOMContentLoaded", () => apply(root.dataset.theme));
