@@ -2,13 +2,71 @@
 title: Instalar
 prompt: "sudo apt install swaydesk-desktop"
 crumb: install
-description: Como instalar o Swaydesk pelos pacotes.
+description: Como instalar o Swaydesk pelos pacotes, no Debian 13, no Ubuntu 26.04, no Linux Mint 27 e no Arch Linux.
 ---
-{{< soon >}}
-
-Os pacotes para o Debian 13, o Ubuntu 26.04 (e o Linux Mint 27, que é baseado nele) e o Arch Linux vão sair por um repositório no [Open Build Service](https://build.opensuse.org/). Assim que ele passar nos testes, as instruções completas aparecem aqui.
+Os pacotes do Swaydesk vêm de um repositório no [Open Build Service](https://build.opensuse.org/), assinado com a chave do projeto. O desktop que você já tem continua na tela de login, e as atualizações chegam com o `apt upgrade` ou o `pacman -Syu` de sempre.
 
 ## O que você vai precisar
 
-- Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch Linux, com ou sem outro desktop instalado. O desktop que você já tem continua na tela de login.
+- Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch Linux, de 64 bits (x86_64), com ou sem outro desktop instalado.
 - Uma placa de vídeo Intel, AMD ou NVIDIA com driver para Wayland.
+
+## A chave do repositório
+
+Confira que a chave baixada tem esta impressão digital, antes de confiar nela:
+
+```
+71A5 E6CB 39B9 844E 42CE  42D3 5815 F0B6 5BE1 CFB9
+```
+
+É uma chave RSA de 4096 bits, a do projeto no OBS, válida até 23/01/2029.
+
+## Debian 13, Ubuntu 26.04 e Linux Mint 27
+
+No Ubuntu e no Mint, troque `Debian_13` por `xUbuntu_26.04` na primeira linha.
+
+```
+repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
+curl -fsSL "$repo/Release.key" | sudo tee /usr/share/keyrings/swaydesk-archive-keyring.asc >/dev/null
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" \
+  | sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null
+sudo apt update
+sudo apt install swaydesk-archive-keyring swaydesk-desktop
+```
+
+O `gpg --show-keys` mostra a impressão digital: ela tem de ser a de cima. Daí em diante, o pacote `swaydesk-archive-keyring` cuida da chave e do repositório e os mantém atualizados.
+
+## Arch Linux
+
+Acrescente ao `/etc/pacman.conf`:
+
+```
+[home_nielsonrolim_Arch]
+Server = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch
+```
+
+Depois importe a chave, confira a impressão digital e instale:
+
+```
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add -
+sudo pacman-key --finger 5815F0B65BE1CFB9
+sudo pacman-key --lsign-key 5815F0B65BE1CFB9
+sudo pacman -Syu swaydesk-desktop
+```
+
+## Depois de instalar
+
+Saia da sessão e, na tela de login que você já usa, escolha a sessão **Sway Desktop**. Os [primeiros passos](/pt-br/guide/first-steps/) mostram o resto.
+
+Quer também a tela de login do Swaydesk? Ela é opcional: instale o pacote `swaydesk-greeter` (no Arch, ligue depois o greetd com `sudo systemctl enable greetd`). Veja [como ela funciona e como voltar à tela anterior](/pt-br/guide/first-steps/#opcional-a-tela-de-login-do-swaydesk).
+
+## Os pacotes
+
+| Pacote | O que traz |
+| --- | --- |
+| `swaydesk-desktop` | A sessão completa, "Sway Desktop" na tela de login, com todos os componentes |
+| `swaydesk-greeter` | Opcional: a tela de login do Swaydesk, sobre o greetd |
+| `swaydesk-archive-keyring` | Só no Debian, no Ubuntu e no Mint: a chave e o repositório, sempre em dia |
+
+Os pacotes ainda são retratos do desenvolvimento (versões `0.1.0~git…`) até o lançamento da 0.1.0.
