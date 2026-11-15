@@ -62,7 +62,9 @@ Aperte e solte `Super` para abrir a grade, ou clique no botão da dock. Ela most
 
 ## O lançador
 
-`Alt`+`Espaço` abre o lançador, uma caixa de busca no centro da tela, com abas para os apps, as janelas abertas e a área de transferência. `Tab` passa de uma aba para a outra, e `Enter` abre o item escolhido. `Super`+`'` (a tecla à esquerda do 1) abre direto a lista de janelas. O mesmo atalho fecha o lançador.
+`Alt`+`Espaço` abre o lançador, uma caixa de busca no centro da tela, com quatro abas: os apps, as janelas abertas, a área de transferência e a web. `Tab` passa de uma aba para a outra, e `Enter` abre o item escolhido. `Super`+`'` (a tecla à esquerda do 1) abre direto a lista de janelas. O mesmo atalho fecha o lançador.
+
+Na aba **Web**, o que você digita vira uma busca. Um prefixo e um espaço escolhem o site: `g` Google, `d` DuckDuckGo, `w` Wikipédia, `yt` YouTube, `gt` Google Tradutor, `cl` Claude e `gpt` ChatGPT. O que parece um endereço, como `kde.org`, abre direto, e o texto sem prefixo vai para o Google. O texto só vai para um serviço de IA (Claude ou ChatGPT) quando você usa o prefixo `cl` ou `gpt`. Dá para acrescentar buscas suas e trocar a padrão nos [ajustes do lançador](/pt-br/guide/config/#buscas-do-lançador).
 
 ## Troca de janelas
 

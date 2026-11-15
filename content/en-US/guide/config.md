@@ -98,6 +98,19 @@ A few tips:
 - Swaydesk generates `00-accent.conf` and `00-font.conf` in the same folder: don't edit them, since they get rewritten.
 - The full reference for these commands is in `man 5 sway` and `man 5 sway-input`.
 
+## Launcher searches
+
+The searches in the launcher's **Web** tab can be changed in `~/.config/sway-desktop/launcher.conf`, one `key = value` per line (`#` starts a comment):
+
+```
+# a prefix and the search address; %s is the text you type
+search = gh https://github.com/search?q=%s
+# the search for text without a prefix (without this line, Google)
+default = d
+```
+
+A `search` line with a new prefix adds a search, and one with an existing prefix (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) replaces it. The change takes effect the next time you open the launcher.
+
 ## Displays
 
 The easiest way to set the resolution, position and scale of your screens is `nwg-displays`, in the app grid. It saves your setup to `~/.config/sway/outputs` and each screen's workspaces to `~/.config/sway/workspaces`. Sway reads these two files after everything else, so they win over an `output` line in `50-local.conf`.

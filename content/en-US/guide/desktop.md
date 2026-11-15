@@ -62,7 +62,9 @@ Press and release `Super` to open the grid, or click the dock button. It shows e
 
 ## The launcher
 
-`Alt`+`Space` opens the launcher, a search box in the middle of the screen with tabs for apps, open windows and the clipboard history. `Tab` moves between tabs, and `Enter` opens the selected item. `Super`+`` ` `` (the key left of 1) goes straight to the window list. The same shortcut closes the launcher.
+`Alt`+`Space` opens the launcher, a search box in the middle of the screen with four tabs: apps, open windows, the clipboard history and the web. `Tab` moves between tabs, and `Enter` opens the selected item. `Super`+`` ` `` (the key left of 1) goes straight to the window list. The same shortcut closes the launcher.
+
+In the **Web** tab, what you type becomes a search. A prefix and a space pick the site: `g` Google, `d` DuckDuckGo, `w` Wikipedia, `yt` YouTube, `gt` Google Translate, `cl` Claude and `gpt` ChatGPT. Something that looks like an address, such as `kde.org`, opens directly, and plain text goes to Google. Your text only goes to an AI service (Claude or ChatGPT) when you type the `cl` or `gpt` prefix. You can add your own searches and change the default one in [the launcher settings](/en-us/guide/config/#launcher-searches).
 
 ## Switching windows
 

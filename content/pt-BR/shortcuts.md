@@ -13,7 +13,7 @@ Os atalhos seguem os do KDE Plasma com o Krohnkite. `Super` é a tecla do logoti
 | Atalho | O que faz |
 | --- | --- |
 | `Super` (sozinho) | Mostra ou esconde a grade de apps |
-| `Alt`+`Espaço` | Lançador: apps, janelas abertas e área de transferência |
+| `Alt`+`Espaço` | Lançador: apps, janelas abertas, área de transferência e busca na web |
 | `Super`+`'` (à esquerda do 1) | Lista das janelas abertas, para buscar |
 | `Ctrl`+`Alt`+`T` | Terminal |
 | `Ctrl`+`Alt`+`E` | Gerenciador de arquivos |

@@ -98,6 +98,19 @@ Algumas dicas:
 - Os arquivos `00-accent.conf` e `00-font.conf` da mesma pasta são gerados pelo Swaydesk: não os edite, porque eles são regravados.
 - A documentação completa dos comandos está em `man 5 sway` e `man 5 sway-input`.
 
+## Buscas do lançador
+
+As buscas da aba **Web** do lançador mudam no `~/.config/sway-desktop/launcher.conf`, uma linha `chave = valor` por ajuste (`#` comenta):
+
+```
+# um prefixo e o endereço da busca; %s é o texto digitado
+search = gh https://github.com/search?q=%s
+# a busca do texto sem prefixo (sem esta linha, o Google)
+default = d
+```
+
+Uma linha `search` com um prefixo novo acrescenta uma busca, e uma com um prefixo que já existe (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) troca a dele. A mudança vale na próxima vez que você abrir o lançador.
+
 ## Monitores
 
 O jeito mais fácil de acertar a resolução, a posição e a escala das telas é o `nwg-displays`, na grade de apps. Ele grava a escolha em `~/.config/sway/outputs` e os workspaces de cada tela em `~/.config/sway/workspaces`. O Sway lê esses dois arquivos depois de todos os outros, então eles valem mais que uma linha `output` no `50-local.conf`.
