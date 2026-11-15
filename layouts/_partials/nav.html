@@ -1,0 +1,7 @@
+<nav class="nav" aria-label="{{ i18n "sections" }}">
+{{- $current := . }}
+{{- range site.Menus.main }}
+{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+<a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end }}
+</nav>

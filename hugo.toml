@@ -1,0 +1,89 @@
+baseURL = "https://swaydesk.nielsonrolim.com/"
+title = "Swaydesk"
+defaultContentLanguage = "pt-BR"
+defaultContentLanguageInSubdir = true
+disableKinds = ["taxonomy", "term", "rss"]
+enableRobotsTXT = true
+
+[params]
+  name = "Swaydesk"
+  repo = "https://github.com/nielsonrolim/swaydesk-site"
+
+[languages]
+  [languages.pt-BR]
+    languageName = "PT-BR"
+    languageCode = "pt-BR"
+    weight = 1
+    contentDir = "content/pt-BR"
+    [[languages.pt-BR.menus.main]]
+      name = "início"
+      pageRef = "/"
+      weight = 1
+    [[languages.pt-BR.menus.main]]
+      name = "capturas"
+      pageRef = "/screenshots"
+      weight = 2
+    [[languages.pt-BR.menus.main]]
+      name = "instalar"
+      pageRef = "/install"
+      weight = 3
+    [[languages.pt-BR.menus.main]]
+      name = "guia"
+      pageRef = "/guide"
+      weight = 4
+    [[languages.pt-BR.menus.main]]
+      name = "atalhos"
+      pageRef = "/shortcuts"
+      weight = 5
+    [[languages.pt-BR.menus.main]]
+      name = "apps"
+      pageRef = "/apps"
+      weight = 6
+  [languages.en-US]
+    languageName = "EN-US"
+    languageCode = "en-US"
+    weight = 2
+    contentDir = "content/en-US"
+    [[languages.en-US.menus.main]]
+      name = "home"
+      pageRef = "/"
+      weight = 1
+    [[languages.en-US.menus.main]]
+      name = "screenshots"
+      pageRef = "/screenshots"
+      weight = 2
+    [[languages.en-US.menus.main]]
+      name = "install"
+      pageRef = "/install"
+      weight = 3
+    [[languages.en-US.menus.main]]
+      name = "guide"
+      pageRef = "/guide"
+      weight = 4
+    [[languages.en-US.menus.main]]
+      name = "shortcuts"
+      pageRef = "/shortcuts"
+      weight = 5
+    [[languages.en-US.menus.main]]
+      name = "apps"
+      pageRef = "/apps"
+      weight = 6
+
+[markup.goldmark.renderer]
+  unsafe = false
+[markup.highlight]
+  codeFences = false
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = true

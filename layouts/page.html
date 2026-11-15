@@ -1,0 +1,4 @@
+{{ define "main" }}
+<h1 class="prompt">{{ with .Params.prompt }}<span aria-hidden="true">{{ . }}</span><span class="sr-only">{{ $.Title }}</span>{{ else }}{{ .Title }}{{ end }}</h1>
+<div class="content">{{ .Content }}</div>
+{{ end }}

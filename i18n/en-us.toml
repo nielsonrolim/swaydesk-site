@@ -1,0 +1,23 @@
+[skip]
+other = "Skip to content"
+
+[theme]
+other = "Toggle light/dark theme"
+
+[language]
+other = "Language"
+
+[sections]
+other = "Sections"
+
+[tagline]
+other = "a complete desktop on top of Sway"
+
+[description]
+other = "Swaydesk: a complete, lightweight desktop on top of Sway, for Debian, Ubuntu and Arch."
+
+[license]
+other = 'Text and images under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>'
+
+[soon]
+other = "coming soon"

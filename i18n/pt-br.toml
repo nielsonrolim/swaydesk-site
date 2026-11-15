@@ -1,0 +1,23 @@
+[skip]
+other = "Pular para o conteúdo"
+
+[theme]
+other = "Alternar tema claro/escuro"
+
+[language]
+other = "Idioma"
+
+[sections]
+other = "Seções"
+
+[tagline]
+other = "um desktop completo sobre o Sway"
+
+[description]
+other = "Swaydesk: um desktop completo e leve sobre o Sway, para Debian, Ubuntu e Arch."
+
+[license]
+other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>'
+
+[soon]
+other = "em breve"
