@@ -90,8 +90,8 @@
     if (action) {
       const what = action.dataset.lb;
       if (what === "close") close(); else go(what === "next" ? 1 : -1);
-    } else if (event.target !== img) {
-      close(); // clique fora da imagem
+    } else if (event.target !== img && !event.target.closest(".lightbox__bar")) {
+      close(); // clique fora da imagem (a legenda não fecha, para dar para selecionar o texto)
     }
   });
   dialog.addEventListener("cancel", (event) => { event.preventDefault(); close(); }); // Esc
