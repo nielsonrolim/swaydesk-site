@@ -10,7 +10,7 @@ Swaydesk is made of components of its own, nearly all written in Rust with GTK 4
 
 ## Bar and popups
 
-{{< component title="Network" keys="Click the network icon" guide="guide/desktop/#the-bar" bin="swaydesk-network-popup" tech="rust" >}}Wi-Fi, wired and VPN: turn them on and off, connect, enter the password and see the details. Works with NetworkManager, and also with iwd and systemd-networkd.{{< /component >}}
+{{< component title="Network" keys="Click the network icon" guide="guide/desktop/#the-bar" bin="swaydesk-network-popup" tech="rust" >}}Wi-Fi, wired and VPN: turn them on and off, connect, enter the password and see the details. Works with NetworkManager, and also with iwd and systemd-networkd (VPN only with NetworkManager).{{< /component >}}
 
 {{< component title="Bluetooth" keys="Click the Bluetooth icon" guide="guide/desktop/#the-bar" bin="swaydesk-bluetooth-popup" tech="rust" >}}Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files.{{< /component >}}
 
@@ -71,9 +71,9 @@ Swaydesk is made of components of its own, nearly all written in Rust with GTK 4
 
 {{< component title="Screen recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#screenshots-and-recording" bin="swaydesk-capture" tech="rust" >}}A region, the whole screen or a window, with the system sound, the microphone or no audio. The video goes to `~/Videos/Screencasts`.{{< /component >}}
 
-{{< component title="Displays" keys="In the app grid" bin="swaydesk-displays" tech="rust" soon="true" >}}The position, resolution, scale and rotation of each monitor. Until it arrives, nwg-displays does the same.{{< /component >}}
+{{< component title="Displays" keys="In the app grid" tech="rust" soon="true" >}}The position, resolution, scale and rotation of each monitor. Until it arrives, nwg-displays does the same.{{< /component >}}
 
-{{< component title="Help" keys="In the app grid" bin="swaydesk-help" tech="rust" soon="true" >}}The session's keyboard shortcuts, with search, taken from the Sway configuration itself.{{< /component >}}
+{{< component title="Help" keys="In the app grid" tech="rust" soon="true" >}}The session's keyboard shortcuts, with search, taken from the Sway configuration itself.{{< /component >}}
 
 
 ## Apps that come along

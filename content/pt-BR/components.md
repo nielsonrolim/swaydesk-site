@@ -10,7 +10,7 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 ## Barra e popups
 
-{{< component title="Rede" keys="Clique no ícone de rede" guide="guide/desktop/#a-barra" bin="swaydesk-network-popup" tech="rust" >}}Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd.{{< /component >}}
+{{< component title="Rede" keys="Clique no ícone de rede" guide="guide/desktop/#a-barra" bin="swaydesk-network-popup" tech="rust" >}}Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd (a VPN, só com o NetworkManager).{{< /component >}}
 
 {{< component title="Bluetooth" keys="Clique no ícone de Bluetooth" guide="guide/desktop/#a-barra" bin="swaydesk-bluetooth-popup" tech="rust" >}}Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos.{{< /component >}}
 
@@ -71,9 +71,9 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 {{< component title="Gravação de tela" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#capturas-e-gravação" bin="swaydesk-capture" tech="rust" >}}Região, tela inteira ou janela, com o som do sistema, o microfone ou sem áudio. O vídeo vai para `~/Vídeos/Screencasts`.{{< /component >}}
 
-{{< component title="Telas" keys="Na grade de apps" bin="swaydesk-displays" tech="rust" soon="true" >}}A posição, a resolução, a escala e a rotação de cada monitor. Até ele chegar, o nwg-displays faz o mesmo.{{< /component >}}
+{{< component title="Telas" keys="Na grade de apps" tech="rust" soon="true" >}}A posição, a resolução, a escala e a rotação de cada monitor. Até ele chegar, o nwg-displays faz o mesmo.{{< /component >}}
 
-{{< component title="Ajuda" keys="Na grade de apps" bin="swaydesk-help" tech="rust" soon="true" >}}Os atalhos de teclado da sessão, com busca, tirados da própria configuração do Sway.{{< /component >}}
+{{< component title="Ajuda" keys="Na grade de apps" tech="rust" soon="true" >}}Os atalhos de teclado da sessão, com busca, tirados da própria configuração do Sway.{{< /component >}}
 
 
 ## Apps que acompanham
