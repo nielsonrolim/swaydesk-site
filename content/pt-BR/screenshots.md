@@ -14,6 +14,11 @@ O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de destaque padrão. 
 {{< shot "notifications" "A central de notificações, com o Não perturbe" >}}
 {{< shot "calendar" "O calendário, com os feriados" >}}
 {{< shot "audio" "O popup de áudio: saída e entrada" >}}
+{{< shot "network" "O popup de rede: Wi-Fi, cabo e VPN" >}}
+{{< shot "bluetooth" "O popup do Bluetooth: dispositivos pareados e próximos" >}}
+{{< shot "battery" "O popup da bateria: tempo restante, consumo e o perfil de energia" >}}
+{{< shot "battery-charging" "O mesmo, carregando" >}}
+{{< shot "brightness" "Brilho e luz noturna" >}}
 {{< shot "clipboard" "O histórico da área de transferência" >}}
 {{< shot "capture" "O painel de captura de tela" >}}
 {{< shot "session" "O menu de sessão" >}}

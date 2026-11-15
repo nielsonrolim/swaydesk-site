@@ -10,13 +10,13 @@ Swaydesk is made of components of its own, nearly all written in Rust with GTK 4
 
 ## Bar and popups
 
-{{< component title="Network" keys="Click the network icon" guide="guide/desktop/#the-bar" bin="swaydesk-network-popup" src="rust/network-popup" tech="rust" >}}Wi-Fi, wired and VPN: turn them on and off, connect, enter the password and see the details. Works with NetworkManager, and also with iwd and systemd-networkd (VPN only with NetworkManager).{{< /component >}}
+{{< component title="Network" shot="network" keys="Click the network icon" guide="guide/desktop/#the-bar" bin="swaydesk-network-popup" src="rust/network-popup" tech="rust" >}}Wi-Fi, wired and VPN: turn them on and off, connect, enter the password and see the details. Works with NetworkManager, and also with iwd and systemd-networkd (VPN only with NetworkManager).{{< /component >}}
 
-{{< component title="Bluetooth" keys="Click the Bluetooth icon" guide="guide/desktop/#the-bar" bin="swaydesk-bluetooth-popup" src="rust/bluetooth-popup" tech="rust" >}}Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files.{{< /component >}}
+{{< component title="Bluetooth" shot="bluetooth" keys="Click the Bluetooth icon" guide="guide/desktop/#the-bar" bin="swaydesk-bluetooth-popup" src="rust/bluetooth-popup" tech="rust" >}}Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files.{{< /component >}}
 
 {{< component title="Audio" shot="audio" keys="Click the volume (middle click: pavucontrol)" guide="guide/desktop/#the-bar" bin="swaydesk-audio-popup" src="rust/audio-popup" tech="rust" >}}Volume and mute for the output and the microphone, and which device each one uses.{{< /component >}}
 
-{{< component title="Battery" keys="Click the battery" guide="guide/desktop/#the-bar" bin="swaydesk-battery-popup" src="rust/battery-popup" tech="rust" >}}Charge, time left, power draw, health, a 12-hour graph and the power profile.{{< /component >}}
+{{< component title="Battery" shot="battery" keys="Click the battery" guide="guide/desktop/#the-bar" bin="swaydesk-battery-popup" src="rust/battery-popup" tech="rust" >}}Charge, time left, power draw, health, a 12-hour graph and the power profile.{{< /component >}}
 
 {{< component title="Brightness and night light" shot="brightness" keys="Click the brightness icon; brightness keys" guide="guide/desktop/#the-bar" bin="swaydesk-brightness-popup" src="rust/brightness-popup" tech="rust" >}}Screen brightness and the night light: off, on, or on the schedule you pick.{{< /component >}}
 

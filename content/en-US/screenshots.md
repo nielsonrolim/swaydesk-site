@@ -14,6 +14,11 @@ Swaydesk on Debian 13, with the dark Adwaita theme and the default accent color.
 {{< shot "notifications" "The notification center, with Do Not Disturb" >}}
 {{< shot "calendar" "The calendar, with holidays" >}}
 {{< shot "audio" "The audio popup: output and input" >}}
+{{< shot "network" "The network popup: Wi-Fi, wired and VPN" >}}
+{{< shot "bluetooth" "The Bluetooth popup: paired and nearby devices" >}}
+{{< shot "battery" "The battery popup: time left, power draw and the power profile" >}}
+{{< shot "battery-charging" "The same, while charging" >}}
+{{< shot "brightness" "Brightness and the night light" >}}
 {{< shot "clipboard" "The clipboard history" >}}
 {{< shot "capture" "The screenshot panel" >}}
 {{< shot "session" "The session menu" >}}

@@ -10,13 +10,13 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 ## Barra e popups
 
-{{< component title="Rede" keys="Clique no ícone de rede" guide="guide/desktop/#a-barra" bin="swaydesk-network-popup" src="rust/network-popup" tech="rust" >}}Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd (a VPN, só com o NetworkManager).{{< /component >}}
+{{< component title="Rede" shot="network" keys="Clique no ícone de rede" guide="guide/desktop/#a-barra" bin="swaydesk-network-popup" src="rust/network-popup" tech="rust" >}}Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd (a VPN, só com o NetworkManager).{{< /component >}}
 
-{{< component title="Bluetooth" keys="Clique no ícone de Bluetooth" guide="guide/desktop/#a-barra" bin="swaydesk-bluetooth-popup" src="rust/bluetooth-popup" tech="rust" >}}Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos.{{< /component >}}
+{{< component title="Bluetooth" shot="bluetooth" keys="Clique no ícone de Bluetooth" guide="guide/desktop/#a-barra" bin="swaydesk-bluetooth-popup" src="rust/bluetooth-popup" tech="rust" >}}Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos.{{< /component >}}
 
 {{< component title="Áudio" shot="audio" keys="Clique no volume (clique do meio: pavucontrol)" guide="guide/desktop/#a-barra" bin="swaydesk-audio-popup" src="rust/audio-popup" tech="rust" >}}Volume e mudo da saída e do microfone, e a escolha de cada dispositivo.{{< /component >}}
 
-{{< component title="Bateria" keys="Clique na bateria" guide="guide/desktop/#a-barra" bin="swaydesk-battery-popup" src="rust/battery-popup" tech="rust" >}}Carga, tempo restante, consumo, saúde, um gráfico das últimas 12 horas e o perfil de energia.{{< /component >}}
+{{< component title="Bateria" shot="battery" keys="Clique na bateria" guide="guide/desktop/#a-barra" bin="swaydesk-battery-popup" src="rust/battery-popup" tech="rust" >}}Carga, tempo restante, consumo, saúde, um gráfico das últimas 12 horas e o perfil de energia.{{< /component >}}
 
 {{< component title="Brilho e luz noturna" shot="brightness" keys="Clique no ícone de brilho; teclas de brilho" guide="guide/desktop/#a-barra" bin="swaydesk-brightness-popup" src="rust/brightness-popup" tech="rust" >}}O brilho da tela e a luz noturna: desligada, ligada ou no horário que você escolher.{{< /component >}}
 
