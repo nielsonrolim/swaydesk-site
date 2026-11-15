@@ -1,0 +1,55 @@
+---
+title: Primeiros passos
+prompt: "swaydesk-desktop-config setup"
+crumb: guide/first-steps
+weight: 1
+description: Como entrar na sessão do Swaydesk e o que fazer no primeiro login.
+---
+Com os pacotes instalados, o Swaydesk aparece como uma sessão a mais na tela de login. O desktop que você já tinha continua lá, e as configurações dos dois não se misturam.
+
+## Entrar na sessão
+
+Na tela de login, escolha a sessão **Sway Desktop** e entre com a sua senha. Se aparecer também uma sessão chamada só **Sway**, ela é a do pacote do Sway, sem o Swaydesk: use a **Sway Desktop**.
+
+Com o pacote `swaydesk-greeter`, a tela de login é a do próprio Swaydesk, com o mesmo visual da tela de bloqueio:
+
+- mostra as contas da máquina com a foto de cada uma, e **Outro usuário…** para digitar o nome;
+- lembra a última conta e a sessão que cada pessoa usou, com a **Sway Desktop** primeiro na lista;
+- depois da senha, pergunta o que mais o sistema pedir, como um código ou a troca de uma senha vencida;
+- usa o teclado e o idioma do sistema e tem os botões de suspender, reiniciar e desligar.
+
+Ela roda sobre o greetd. No Debian e no Ubuntu, o greetd se liga sozinho quando a máquina não tem outra tela de login. Com o GDM ou o SDDM, nada muda até você trocar:
+
+```
+sudo systemctl disable gdm      # ou sddm
+sudo systemctl enable greetd
+```
+
+No Arch, o pacman não liga serviços: rode `sudo systemctl enable greetd`. O aviso da instalação mostra as linhas do `pam_gnome_keyring` que você deve pôr em `/etc/pam.d/greetd` para o chaveiro abrir junto com o login.
+
+## O que você vê
+
+- **A barra no topo:** os workspaces de 1 a 9 à esquerda, o tempo e o relógio no centro e, à direita, os ícones da bandeja, da área de transferência, do teclado, do sistema, do brilho, da cafeína, do Bluetooth, da rede, do volume, da bateria e o botão de energia. Cada ícone abre um popup com um clique.
+- **A dock embaixo:** os apps fixados, os abertos e o botão da grade de apps. Ela some quando uma janela ocupa o espaço dela e volta quando você encosta o ponteiro no meio da borda de baixo.
+- **A grade de apps:** aperte e solte `Super` (a tecla do logotipo) para mostrar ou esconder todos os apps instalados, com busca.
+
+Os atalhos seguem os do KDE Plasma com o Krohnkite. A lista completa está em [atalhos](/pt-br/shortcuts/), e o passeio por cada peça, em [O desktop](/pt-br/guide/desktop/).
+
+## O que o primeiro login prepara
+
+No primeiro login, a sessão copia para a sua pasta pessoal os arquivos que ainda não existem. Nada que você já tenha é sobrescrito, e o que ela copia passa a ser seu:
+
+- `~/.config/sway-desktop/config.toml`, a configuração do desktop: idioma, tema, ícones e cor de destaque. Se o tema padrão não estiver instalado, ela já começa com o `Adwaita-dark`;
+- `~/.config/sway/config.d/50-local.conf`, o arquivo com os ajustes desta máquina, com exemplos comentados e o layout de teclado do sistema;
+- a lista inicial de apps fixados na dock: o gerenciador de arquivos e o terminal.
+
+Ela também aplica o tema e a cor de destaque aos apps GTK, à barra, à dock e aos popups. Os detalhes estão em [Configuração](/pt-br/guide/config/).
+
+## Primeiras coisas a fazer
+
+- **Tema e cor de destaque:** abra o app **Tema do Desktop** pela grade de apps. Escolha a família do tema, claro ou escuro, e a cor; **Aplicar** muda tudo de uma vez, e a janela continua aberta para você testar outra combinação.
+- **Monitores:** com o `nwg-displays` instalado, abra-o pela grade de apps para acertar a resolução, a posição e a escala das telas. Ele grava a escolha, que vale nos próximos logins.
+- **Teclado:** o Swaydesk começa com o layout do sistema. Para usar dois layouts, como o `br` ABNT2 e o `us` internacional, edite o `50-local.conf` (veja [Configuração](/pt-br/guide/config/)). `Super`+`Espaço` troca o layout, e o ícone do teclado na barra mostra o atual.
+- **Wi-Fi:** clique no ícone de rede na barra, escolha a rede e digite a senha.
+- **Bluetooth:** clique no ícone de Bluetooth, ligue-o e use a busca para parear um aparelho novo.
+- **Som:** clique no ícone de volume para escolher a saída e o microfone.

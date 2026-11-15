@@ -13,7 +13,7 @@ The shortcuts follow KDE Plasma with Krohnkite. `Super` is the logo key.
 | Shortcut | What it does |
 | --- | --- |
 | `Super` (alone) | Shows or hides the app grid |
-| `Alt`+`Space` | Launcher: apps, calculator and web search |
+| `Alt`+`Space` | Launcher: apps, open windows and clipboard |
 | `Super`+`` ` `` (left of 1) | List of open windows, to search |
 | `Ctrl`+`Alt`+`T` | Terminal |
 | `Ctrl`+`Alt`+`E` | File manager |
