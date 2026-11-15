@@ -3,7 +3,7 @@
 {{- with resources.Get (printf "images/shots/%s.webp" $name) }}
 {{- $img := . | fingerprint }}
 <figure>
-<a href="{{ $img.RelPermalink }}"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $caption }}" loading="lazy" decoding="async"></a>
+<a href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $caption }}" loading="lazy" decoding="async"></a>
 <figcaption>{{ $caption }}</figcaption>
 </figure>
 {{- else }}{{ errorf "shot: images/shots/%s.webp não existe" $name }}{{ end }}

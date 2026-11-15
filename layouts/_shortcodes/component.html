@@ -9,7 +9,7 @@
 {{- with .Get "shot" }}
 {{- with resources.Get (printf "images/shots/%s.webp" .) }}
 {{- $img := . | fingerprint }}
-<a class="component__shot" href="{{ $img.RelPermalink }}"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $title }}" loading="lazy" decoding="async"></a>
+<a class="component__shot" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $title }}" loading="lazy" decoding="async"></a>
 {{- else }}{{ errorf "component: images/shots/%s.webp não existe" . }}{{ end }}
 {{- end }}
 <div class="component__body">

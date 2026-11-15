@@ -116,3 +116,31 @@ footer .license { margin-left: auto; }
   .topbar { flex-wrap: wrap; }
   .facts div { grid-template-columns: 1fr; gap: 0; }
 }
+
+/* O carrossel (lightbox.js): uma camada escura nos dois temas, com a imagem inteira */
+html.lb-open { overflow: hidden; }
+.lightbox { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 3.5rem 4rem 4.5rem; border: 0; background: rgba(10, 9, 8, .97); color: #f2efe8; }
+.lightbox:not([open]) { display: none; }
+.lightbox::backdrop { background: transparent; }
+.lightbox__stage { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; margin: 0; }
+.lightbox__img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: var(--frame); touch-action: pan-y pinch-zoom; }
+.lightbox__bar { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; margin: 0; text-align: center; font-size: .8rem; line-height: 1.4; }
+.lightbox__count { color: #b5ad9f; margin-right: .5rem; white-space: nowrap; }
+.lightbox__btn { position: absolute; display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid #57534b; border-radius: var(--frame); background: rgba(27, 26, 23, .85); color: #f2efe8; font: inherit; font-size: 1.25rem; cursor: pointer; }
+.lightbox__btn:hover { border-color: #cfc9bf; }
+.lightbox__btn:focus-visible { outline: 2px solid #f3e4a8; outline-offset: 2px; }
+.lightbox__close { top: .75rem; right: .75rem; }
+.lightbox__prev, .lightbox__next { top: 50%; transform: translateY(-50%); }
+.lightbox__prev { left: .75rem; }
+.lightbox__next { right: .75rem; }
+.lightbox__btn[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] { animation: lb-in .15s ease-out; }
+  .lightbox__img.is-new { animation: lb-in .15s ease-out; }
+}
+@keyframes lb-in { from { opacity: 0; } }
+@media (max-width: 40rem) {
+  .lightbox { padding: 3.5rem .5rem 5.5rem; }
+  .lightbox__prev, .lightbox__next { top: auto; bottom: .75rem; transform: none; }
+  .lightbox__bar { left: 4rem; right: 4rem; bottom: .75rem; }
+}

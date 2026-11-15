@@ -33,3 +33,15 @@ other = "source"
 
 [turn_off]
 other = "turn off"
+
+[lb_viewer]
+other = "Image viewer"
+
+[lb_close]
+other = "Close"
+
+[lb_prev]
+other = "Previous image"
+
+[lb_next]
+other = "Next image"

@@ -30,5 +30,16 @@
 <span class="license">{{ i18n "license" | safeHTML }}</span>
 </footer>
 </div>
+{{- if or (.HasShortcode "shot") (.HasShortcode "component") }}
+{{- /* O carrossel: sem JS, os links abrem a imagem; com JS, lightbox.js abre esta janela */}}
+<dialog class="lightbox" aria-label="{{ i18n "lb_viewer" }}" aria-describedby="lightbox-caption" hidden>
+<figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>
+<p class="lightbox__bar"><span class="lightbox__count" aria-live="polite"></span> <span id="lightbox-caption" class="lightbox__caption"></span></p>
+<button type="button" class="lightbox__btn lightbox__close" data-lb="close" aria-label="{{ i18n "lb_close" }}">×</button>
+<button type="button" class="lightbox__btn lightbox__prev" data-lb="prev" aria-label="{{ i18n "lb_prev" }}">←</button>
+<button type="button" class="lightbox__btn lightbox__next" data-lb="next" aria-label="{{ i18n "lb_next" }}">→</button>
+</dialog>
+<script src="/js/lightbox.js" defer></script>
+{{- end }}
 </body>
 </html>

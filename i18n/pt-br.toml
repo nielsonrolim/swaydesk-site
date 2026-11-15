@@ -33,3 +33,15 @@ other = "código"
 
 [turn_off]
 other = "desligar"
+
+[lb_viewer]
+other = "Visualizador de imagens"
+
+[lb_close]
+other = "Fechar"
+
+[lb_prev]
+other = "Imagem anterior"
+
+[lb_next]
+other = "Próxima imagem"
