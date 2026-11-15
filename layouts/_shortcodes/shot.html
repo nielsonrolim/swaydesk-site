@@ -1,0 +1,9 @@
+{{- /* Uma captura de assets/images/shots: {{< shot "nome" "legenda" >}}. A legenda também é o texto alternativo. */ -}}
+{{- $name := .Get 0 }}{{ $caption := .Get 1 }}
+{{- with resources.Get (printf "images/shots/%s.webp" $name) }}
+{{- $img := . | fingerprint }}
+<figure>
+<a href="{{ $img.RelPermalink }}"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $caption }}" loading="lazy" decoding="async"></a>
+<figcaption>{{ $caption }}</figcaption>
+</figure>
+{{- else }}{{ errorf "shot: images/shots/%s.webp não existe" $name }}{{ end }}
