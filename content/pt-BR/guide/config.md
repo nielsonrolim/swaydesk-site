@@ -109,7 +109,7 @@ search = gh https://github.com/search?q=%s
 default = d
 ```
 
-Uma linha `search` com um prefixo novo acrescenta uma busca, e uma com um prefixo que já existe (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) troca a dele. A mudança vale na próxima vez que você abrir o lançador.
+Uma linha `search` com um prefixo novo acrescenta uma busca, e uma com um prefixo que já existe (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) troca a dele. O endereço precisa começar com `http://` ou `https://`, ter o `%s` e nenhum espaço; senão a linha é ignorada, e um `default` com um prefixo que não existe volta ao Google. A mudança vale na próxima vez que você abrir o lançador.
 
 ## Monitores
 

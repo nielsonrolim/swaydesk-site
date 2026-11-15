@@ -109,7 +109,7 @@ search = gh https://github.com/search?q=%s
 default = d
 ```
 
-A `search` line with a new prefix adds a search, and one with an existing prefix (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) replaces it. The change takes effect the next time you open the launcher.
+A `search` line with a new prefix adds a search, and one with an existing prefix (`g`, `d`, `w`, `yt`, `gt`, `cl`, `gpt`) replaces it. The address must start with `http://` or `https://`, contain `%s` and have no spaces, or the line is ignored; a `default` with an unknown prefix falls back to Google. The change takes effect the next time you open the launcher.
 
 ## Displays
 
