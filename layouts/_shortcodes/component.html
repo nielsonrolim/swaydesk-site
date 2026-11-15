@@ -1,7 +1,8 @@
 {{- /* Um componente na página Componentes:
   {{< component title="Rede" shot="network" keys="Clique no ícone de rede" guide="guide/desktop/#a-barra" bin="swaydesk-network-popup" tech="rust" off="" soon=false >}}Texto em Markdown{{< /component >}}
   shot: uma imagem de assets/images/shots (opcional). tech: rust, script ou outro texto. off: a chave que desliga
-  o componente; vazia, a linha diz "em breve". O link para o código só aparece com params.code_repo. */ -}}
+  o componente; vazia, a linha diz "em breve". src: a pasta (rust/…) ou o script (home/…) no repositório do
+  código, ligados só com params.code_repo. */ -}}
 {{- $title := .Get "title" }}
 <article class="component">
 <h3>{{ $title }}{{ if eq (.Get "soon") "true" }} <span class="soon">{{ i18n "soon" }}</span>{{ end }}</h3>
@@ -18,7 +19,7 @@
 <p class="component__meta">
 {{- with .Get "bin" }}<code>{{ . }}</code> · {{ end -}}
 {{- $tech := .Get "tech" }}{{ if eq $tech "rust" }}Rust + GTK 4{{ else if eq $tech "script" }}{{ i18n "tech_script" }}{{ else }}{{ $tech }}{{ end }}
-{{- with site.Params.code_repo }}{{ with $.Get "src" }} · <a href="{{ site.Params.code_repo }}/tree/main/{{ . }}">{{ i18n "source" }}</a>{{ end }}{{ end }}
+{{- with site.Params.code_repo }}{{ with $.Get "src" }}{{ $kind := cond (strings.HasPrefix . "home/") "blob" "tree" }} · <a href="{{ site.Params.code_repo }}/{{ $kind }}/main/{{ . }}">{{ i18n "source" }}</a>{{ end }}{{ end }}
 {{- with .Get "off" }} · {{ i18n "turn_off" }}: <code>{{ . }}</code>{{ else }} · {{ i18n "turn_off" }}: {{ i18n "soon" }}{{ end }}
 </p>
 </div>

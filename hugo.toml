@@ -8,9 +8,8 @@ enableRobotsTXT = true
 [params]
   name = "Swaydesk"
   repo = "https://github.com/nielsonrolim/swaydesk-site"
-  # O repositório público do código (nielsonrolim/swaydesk): vazio até ele existir; com ele, os componentes
-  # ganham o link para o código
-  code_repo = ""
+  # O repositório público do código: os componentes têm o link para a pasta de cada um
+  code_repo = "https://github.com/nielsonrolim/swaydesk"
 
 [languages]
   [languages.pt-BR]
