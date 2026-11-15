@@ -4,28 +4,41 @@ prompt: "sudo apt install swaydesk-desktop"
 crumb: install
 description: How to install Swaydesk from the packages, on Debian 13, Ubuntu 26.04, Linux Mint 27 and Arch Linux.
 ---
-Swaydesk's packages come from a repository on the [Open Build Service](https://build.opensuse.org/), signed with the project's key. The desktop you already have stays on the login screen, and updates come with your usual `apt upgrade` or `pacman -Syu`.
+The packages come from a repository on the [Open Build Service](https://build.opensuse.org/), signed with the project's key. The desktop you already have stays on the login screen, and updates come with your usual `apt upgrade` or `pacman -Syu`.
 
-## What you need
+You need Debian 13, Ubuntu 26.04, Linux Mint 27 or Arch Linux, 64-bit (x86_64), and an Intel, AMD or NVIDIA graphics card with a Wayland driver. Pick your distribution and run one step at a time:
 
-- Debian 13, Ubuntu 26.04, Linux Mint 27 or Arch Linux, 64-bit (x86_64), with or without another desktop.
-- An Intel, AMD or NVIDIA graphics card with a Wayland driver.
-
-## The repository key
-
-Check that the key you download has this fingerprint before you trust it:
-
-```
-71A5 E6CB 39B9 844E 42CE  42D3 5815 F0B6 5BE1 CFB9
-```
-
-It's a 4096-bit RSA key, the project's key on OBS, valid until 2029-01-23.
-
-## Debian 13, Ubuntu 26.04 and Linux Mint 27
-
-You need `curl` and `gpg` (on a minimal system: `sudo apt install curl gpg`). On Ubuntu and Mint, replace `Debian_13` with `xUbuntu_26.04` in the first line.
-
-```
+{{< distros >}}
+{{< distro id="debian" name="Debian 13" >}}
+{{< steps >}}
+{{< step text="Install `curl` and `gpg`, which download and check the key." >}}
+sudo apt install curl gpg
+{{< /step >}}
+{{< step text="Download the repository key." >}}
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/Release.key -o ~/swaydesk.key
+{{< /step >}}
+{{< step text="Show the downloaded key's fingerprint." fpr="plain" >}}
+gpg --show-keys ~/swaydesk.key
+{{< /step >}}
+{{< step text="Install the key where apt looks for it." >}}
+sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
+{{< step text="Add the repository." >}}
+sudo tee /etc/apt/sources.list.d/swaydesk.sources <<'EOF'
+Types: deb
+URIs: https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/
+Suites: ./
+Signed-By: /usr/share/keyrings/swaydesk-archive-keyring.asc
+EOF
+{{< /step >}}
+{{< step text="Update the package list." >}}
+sudo apt update
+{{< /step >}}
+{{< step text="Install Swaydesk. From then on, the `swaydesk-archive-keyring` package takes care of the key and the repository." >}}
+sudo apt install swaydesk-archive-keyring swaydesk-desktop
+{{< /step >}}
+{{< /steps >}}
+{{< oneline text="After step 1 (curl and gpg), the other steps chained: if the downloaded key doesn't have the right fingerprint, nothing gets installed." >}}
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
 [ "$(gpg --show-keys --with-colons "$key" | grep -c '^pub:')" = 1 ] &&
@@ -34,33 +47,84 @@ sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
   sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
 sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
-```
+{{< /oneline >}}
+{{< /distro >}}
+{{< distro id="ubuntu" name="Ubuntu 26.04 / Mint 27" >}}
+{{< steps >}}
+{{< step text="Install `curl` and `gpg`, which download and check the key." >}}
+sudo apt install curl gpg
+{{< /step >}}
+{{< step text="Download the repository key." >}}
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/Release.key -o ~/swaydesk.key
+{{< /step >}}
+{{< step text="Show the downloaded key's fingerprint." fpr="plain" >}}
+gpg --show-keys ~/swaydesk.key
+{{< /step >}}
+{{< step text="Install the key where apt looks for it." >}}
+sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
+{{< step text="Add the repository." >}}
+sudo tee /etc/apt/sources.list.d/swaydesk.sources <<'EOF'
+Types: deb
+URIs: https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/
+Suites: ./
+Signed-By: /usr/share/keyrings/swaydesk-archive-keyring.asc
+EOF
+{{< /step >}}
+{{< step text="Update the package list." >}}
+sudo apt update
+{{< /step >}}
+{{< step text="Install Swaydesk. From then on, the `swaydesk-archive-keyring` package takes care of the key and the repository." >}}
+sudo apt install swaydesk-archive-keyring swaydesk-desktop
+{{< /step >}}
+{{< /steps >}}
+{{< oneline text="After step 1 (curl and gpg), the other steps chained: if the downloaded key doesn't have the right fingerprint, nothing gets installed." >}}
+repo=https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04
+key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
+[ "$(gpg --show-keys --with-colons "$key" | grep -c '^pub:')" = 1 ] &&
+gpg --show-keys --with-colons "$key" | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
+  sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
+sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
+{{< /oneline >}}
+{{< /distro >}}
+{{< distro id="arch" name="Arch Linux" >}}
+{{< steps >}}
+{{< step text="Add the repository to the end of `/etc/pacman.conf`." >}}
+sudo tee -a /etc/pacman.conf <<'EOF'
 
-The commands are chained: if the downloaded key doesn't have the fingerprint above, nothing gets installed. From then on, the `swaydesk-archive-keyring` package takes care of the key and the repository and keeps them up to date.
-
-## Arch Linux
-
-Add to `/etc/pacman.conf`:
-
-```
 [home_nielsonrolim_Arch]
 Server = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch
-```
-
-Then import the key and install. `--lsign-key` with the full fingerprint only accepts the right key:
-
-```
+EOF
+{{< /step >}}
+{{< step text="Import the repository key." >}}
 curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add -
+{{< /step >}}
+{{< step text="Show the imported key's fingerprint." fpr="spaced" >}}
 sudo pacman-key --finger 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
+{{< /step >}}
+{{< step text="Sign the key locally, so pacman trusts it." >}}
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
+{{< /step >}}
+{{< step text="Install Swaydesk." >}}
 sudo pacman -Syu swaydesk-desktop
-```
+{{< /step >}}
+{{< /steps >}}
+{{< oneline text="The same steps, chained: `--lsign-key` with the full fingerprint only accepts the right key." >}}
+printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add - &&
+sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
+sudo pacman -Syu swaydesk-desktop
+{{< /oneline >}}
+{{< /distro >}}
+{{< /distros >}}
 
 ## After installing
 
-Log out and pick the **Sway Desktop** session on the login screen you already use. The [first steps](/en-us/guide/first-steps/) cover the rest.
+Log out and pick **Sway Desktop** on the login screen you already use. The [first steps](/en-us/guide/first-steps/) cover the rest.
 
-Want Swaydesk's own login screen too? It's optional: install the `swaydesk-greeter` package (on Arch, then enable greetd with `sudo systemctl enable greetd`). See [how it works and how to go back](/en-us/guide/first-steps/#optional-the-swaydesk-login-screen).
+Swaydesk's own login screen is optional: see [how to install it and how to go back](/en-us/guide/first-steps/#optional-the-swaydesk-login-screen).
 
 ## The packages
 

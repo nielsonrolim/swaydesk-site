@@ -1,0 +1,6 @@
+{{- /* A cadeia de comandos inteira, recolhida: {{< oneline text="Markdown" >}}comandos{{< /oneline >}} */ -}}
+<details class="oneline">
+<summary>{{ i18n "all_in_one" }}</summary>
+{{ with .Get "text" }}<p>{{ . | markdownify }}</p>{{ end }}
+{{ partial "cmd.html" (strings.Trim .Inner "\n") }}
+</details>

@@ -144,3 +144,37 @@ html.lb-open { overflow: hidden; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: .75rem; transform: none; }
   .lightbox__bar { left: 4rem; right: 4rem; bottom: .75rem; }
 }
+
+/* Página Instalar: abas por distro (install.js), passos numerados, blocos de comando com botão de copiar */
+.tabs { display: flex; flex-wrap: wrap; gap: .25rem; margin: 1.5rem 0 0; border-bottom: 1px solid var(--line-strong); }
+.tabs__tab { margin-bottom: -1px; padding: .5rem .9rem; border: 1px solid transparent; border-bottom-color: var(--line-strong); border-radius: var(--frame) var(--frame) 0 0; background: none; color: var(--ink-soft); font: inherit; font-size: .9rem; cursor: pointer; }
+.tabs__tab:hover { color: var(--ink); }
+.tabs__tab[aria-selected="true"] { border-color: var(--line-strong); border-bottom-color: var(--paper); background: var(--paper); color: var(--ruby); font-weight: 700; }
+.distro { padding-top: .25rem; }
+.distro:focus-visible { outline-offset: 4px; }
+.distro + .distro { margin-top: 2.5rem; }
+.steps { padding-left: 1.75rem; }
+.steps > li { margin: 1.25rem 0; padding-left: .25rem; }
+.steps > li::marker { color: var(--ruby); font-weight: 700; }
+.step__text { margin: 0 0 .4rem; }
+.cmd { display: flex; align-items: flex-start; gap: .4rem; }
+.cmd pre { flex: 1; min-width: 0; margin: 0; }
+.content .cmd pre { margin: 0; }
+.cmd__copy { flex: none; padding: .45rem .6rem; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--paper); color: var(--ink-soft); font: inherit; font-size: .75rem; cursor: pointer; }
+.cmd__copy:hover { border-color: var(--line-stronger); color: var(--ink); }
+@media (max-width: 30rem) {
+  .cmd { flex-direction: column; align-items: stretch; }
+  .cmd__copy { order: -1; align-self: flex-end; padding: .2rem .6rem; }
+  .tabs { border-bottom: 0; gap: .4rem; }
+  .tabs__tab, .tabs__tab[aria-selected="true"] { margin: 0; border: 1px solid var(--line-strong); border-radius: var(--frame); }
+  .tabs__tab[aria-selected="true"] { border-color: var(--ruby); }
+}
+.fpr { margin-top: .6rem; padding: .75rem 1rem; border: 1px solid var(--ruby); border-left-width: 4px; border-radius: var(--frame); }
+.fpr p { margin: 0; }
+.fpr__value { margin: .35rem 0 !important; font-size: 1.05rem; font-weight: 700; overflow-wrap: anywhere; }
+.fpr__value code { white-space: pre-wrap; }
+.fpr__stop { color: var(--ruby); font-weight: 700; }
+.fpr__meta { margin-top: .35rem !important; color: var(--muted); font-size: .75rem; }
+.oneline { margin: 1.5rem 0; }
+.oneline summary { cursor: pointer; color: var(--ruby); }
+.oneline > p { margin: .5rem 0; font-size: .9rem; }

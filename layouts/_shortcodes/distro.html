@@ -1,0 +1,5 @@
+{{- $id := .Get "id" }}
+<section class="distro" id="{{ $id }}" aria-labelledby="{{ $id }}-title">
+<h2 id="{{ $id }}-title" class="distro__title">{{ .Get "name" }}</h2>
+{{ .Inner }}
+</section>

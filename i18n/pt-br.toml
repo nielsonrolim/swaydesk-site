@@ -45,3 +45,24 @@ other = "Imagem anterior"
 
 [lb_next]
 other = "Próxima imagem"
+
+[copy]
+other = "Copiar"
+
+[copied]
+other = "Copiado"
+
+[distro_tabs]
+other = "Distribuição"
+
+[all_in_one]
+other = "Tudo em um comando"
+
+[fpr_must]
+other = "Tem de aparecer uma chave só, com esta impressão digital:"
+
+[fpr_stop]
+other = "Se for diferente, pare aqui e não continue."
+
+[key_meta]
+other = "A chave do projeto no OBS: RSA de 4096 bits, válida até 23/01/2029."

@@ -1,0 +1,5 @@
+{{- /* As abas por distro da página Instalar: {{< distros >}}{{< distro id="debian" name="Debian 13" >}}…{{< /distro >}}{{< /distros >}}.
+  Sem JS, as seções ficam uma embaixo da outra; install.js as transforma em abas. */ -}}
+<div class="distros" data-tabs data-label="{{ i18n "distro_tabs" }}">
+{{ .Inner }}
+</div>

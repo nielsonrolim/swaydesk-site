@@ -10,6 +10,8 @@ enableRobotsTXT = true
   repo = "https://github.com/nielsonrolim/swaydesk-site"
   # O repositório público do código: os componentes têm o link para a pasta de cada um
   code_repo = "https://github.com/nielsonrolim/swaydesk"
+  # A impressão digital da chave do projeto no OBS (página Instalar)
+  fingerprint = "71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9"
 
 [languages]
   [languages.pt-BR]

@@ -45,3 +45,24 @@ other = "Previous image"
 
 [lb_next]
 other = "Next image"
+
+[copy]
+other = "Copy"
+
+[copied]
+other = "Copied"
+
+[distro_tabs]
+other = "Distribution"
+
+[all_in_one]
+other = "All in one command"
+
+[fpr_must]
+other = "Exactly one key must show up, with this fingerprint:"
+
+[fpr_stop]
+other = "If it's different, stop here and don't go on."
+
+[key_meta]
+other = "The project's key on OBS: RSA, 4096 bits, valid until 2029-01-23."
