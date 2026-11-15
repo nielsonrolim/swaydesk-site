@@ -1,0 +1,53 @@
+# Builds the site with Hugo and publishes it on GitHub Pages, on every push to main.
+# The actions are pinned by commit and Hugo by checksum.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: 0.147.0
+  HUGO_SHA256: c8b17cd9f603279e6b92ba51729778f9b280350b22db3991de921ad464576e8c
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Install Hugo
+        run: |
+          curl -sSfL -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HUGO_SHA256}  hugo.tar.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/hugo" && tar -xzf hugo.tar.gz -C "$RUNNER_TEMP/hugo" hugo && rm hugo.tar.gz
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
+      - id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - name: Build
+        run: hugo build --minify --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
