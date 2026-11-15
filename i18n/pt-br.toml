@@ -59,7 +59,7 @@ other = "Distribuição"
 other = "Tudo em um comando"
 
 [fpr_must]
-other = "Tem de aparecer uma chave só, com esta impressão digital:"
+other = "Tem de aparecer uma chave só (uma linha pub, nenhuma sub), com esta impressão digital logo abaixo do pub:"
 
 [fpr_stop]
 other = "Se for diferente, pare aqui e não continue."

@@ -59,7 +59,7 @@ other = "Distribution"
 other = "All in one command"
 
 [fpr_must]
-other = "Exactly one key must show up, with this fingerprint:"
+other = "Exactly one key must show up (one pub line, no sub line), with this fingerprint right under pub:"
 
 [fpr_stop]
 other = "If it's different, stop here and don't go on."

@@ -20,9 +20,8 @@ curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_
 {{< step text="Mostre a impressão digital da chave baixada." fpr="plain" >}}
 gpg --show-keys ~/swaydesk.key
 {{< /step >}}
-{{< step text="Instale a chave no lugar que o apt usa. O comando confere a impressão digital de novo e recusa qualquer outra chave." >}}
-[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -c '^pub:')" = 1 ] &&
-gpg --show-keys --with-colons ~/swaydesk.key | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+{{< step text="Instale a chave no lugar que o apt usa. O comando confere a chave de novo e recusa qualquer outra: uma chave só, com essa impressão digital logo abaixo do `pub`, e sem subchaves." >}}
+[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
 sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 rm ~/swaydesk.key
 {{< /step >}}
@@ -44,8 +43,7 @@ sudo apt install swaydesk-archive-keyring swaydesk-desktop
 {{< oneline text="Depois do passo 1 (curl e gpg), os outros passos encadeados: se a chave baixada não tiver a impressão digital certa, nada é instalado." >}}
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
-[ "$(gpg --show-keys --with-colons "$key" | grep -c '^pub:')" = 1 ] &&
-gpg --show-keys --with-colons "$key" | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+[ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
 sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
   sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
@@ -63,9 +61,8 @@ curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu
 {{< step text="Mostre a impressão digital da chave baixada." fpr="plain" >}}
 gpg --show-keys ~/swaydesk.key
 {{< /step >}}
-{{< step text="Instale a chave no lugar que o apt usa. O comando confere a impressão digital de novo e recusa qualquer outra chave." >}}
-[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -c '^pub:')" = 1 ] &&
-gpg --show-keys --with-colons ~/swaydesk.key | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+{{< step text="Instale a chave no lugar que o apt usa. O comando confere a chave de novo e recusa qualquer outra: uma chave só, com essa impressão digital logo abaixo do `pub`, e sem subchaves." >}}
+[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
 sudo install -m644 ~/swaydesk.key /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 rm ~/swaydesk.key
 {{< /step >}}
@@ -87,8 +84,7 @@ sudo apt install swaydesk-archive-keyring swaydesk-desktop
 {{< oneline text="Depois do passo 1 (curl e gpg), os outros passos encadeados: se a chave baixada não tiver a impressão digital certa, nada é instalado." >}}
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04
 key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
-[ "$(gpg --show-keys --with-colons "$key" | grep -c '^pub:')" = 1 ] &&
-gpg --show-keys --with-colons "$key" | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+[ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
 sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
 printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
   sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
@@ -104,23 +100,28 @@ sudo tee -a /etc/pacman.conf <<'EOF'
 Server = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch
 EOF
 {{< /step >}}
-{{< step text="Importe a chave do repositório." >}}
-curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add -
+{{< step text="Baixe a chave do repositório." >}}
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o ~/swaydesk.key
 {{< /step >}}
-{{< step text="Mostre a impressão digital da chave importada." fpr="spaced" >}}
-sudo pacman-key --finger 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
+{{< step text="Mostre a impressão digital da chave baixada." fpr="plain" >}}
+gpg --show-keys ~/swaydesk.key
 {{< /step >}}
-{{< step text="Assine a chave localmente, para o pacman confiar nela." >}}
-sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
+{{< step text="Adicione a chave ao chaveiro do pacman e assine-a localmente, para o pacman confiar nela. Antes, o comando confere a chave de novo e recusa qualquer outra, como no passo 3." >}}
+[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
+sudo pacman-key --add ~/swaydesk.key &&
+sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
+rm ~/swaydesk.key
 {{< /step >}}
 {{< step text="Instale o Swaydesk. O `noto-fonts` e o `pipewire-jack` no fim respondem de antemão às duas escolhas que o pacman perguntaria (uma fonte e o provedor do JACK): o Swaydesk já usa a Noto, e o áudio dele é o PipeWire. Se você já tem o `jack2` e o pacman perguntar se pode removê-lo, responda s." >}}
 sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< /step >}}
 {{< /steps >}}
-{{< oneline text="Os mesmos passos, encadeados: `--lsign-key` com a impressão digital completa só aceita a chave certa." >}}
-printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
-curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add - &&
+{{< oneline text="Os mesmos passos, encadeados: se a chave baixada não tiver a impressão digital certa, nada é adicionado nem instalado." >}}
+key=$(mktemp) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o "$key" &&
+[ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
+sudo pacman-key --add "$key" &&
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
+printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< /oneline >}}
 {{< /distro >}}
