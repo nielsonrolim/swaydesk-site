@@ -113,15 +113,15 @@ sudo pacman-key --finger 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
 {{< step text="Assine a chave localmente, para o pacman confiar nela." >}}
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
 {{< /step >}}
-{{< step text="Instale o Swaydesk." >}}
-sudo pacman -Syu swaydesk-desktop
+{{< step text="Instale o Swaydesk. O `noto-fonts` e o `pipewire-jack` no fim respondem de antemão às duas escolhas que o pacman perguntaria (uma fonte e o provedor do JACK): o Swaydesk já usa a Noto, e o áudio dele é o PipeWire." >}}
+sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Os mesmos passos, encadeados: `--lsign-key` com a impressão digital completa só aceita a chave certa." >}}
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add - &&
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
-sudo pacman -Syu swaydesk-desktop
+sudo pacman -Syu swaydesk-desktop noto-fonts pipewire-jack
 {{< /oneline >}}
 {{< /distro >}}
 {{< /distros >}}
