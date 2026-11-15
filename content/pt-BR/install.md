@@ -27,15 +27,15 @@ No Ubuntu e no Mint, troque `Debian_13` por `xUbuntu_26.04` na primeira linha.
 
 ```
 repo=https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13
-curl -fsSL "$repo/Release.key" | sudo tee /usr/share/keyrings/swaydesk-archive-keyring.asc >/dev/null
-gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
-printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" \
-  | sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null
-sudo apt update
-sudo apt install swaydesk-archive-keyring swaydesk-desktop
+key=$(mktemp) && curl -fsSL "$repo/Release.key" -o "$key" &&
+gpg --show-keys --with-colons "$key" | grep -q '^fpr:::::::::71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9:$' &&
+sudo install -m644 "$key" /usr/share/keyrings/swaydesk-archive-keyring.asc &&
+printf 'Types: deb\nURIs: %s/\nSuites: ./\nSigned-By: /usr/share/keyrings/swaydesk-archive-keyring.asc\n' "$repo" |
+  sudo tee /etc/apt/sources.list.d/swaydesk.sources >/dev/null &&
+sudo apt update && sudo apt install swaydesk-archive-keyring swaydesk-desktop
 ```
 
-O `gpg --show-keys` mostra a impressão digital: ela tem de ser a de cima. Daí em diante, o pacote `swaydesk-archive-keyring` cuida da chave e do repositório e os mantém atualizados.
+Os comandos vão em cadeia: se a chave baixada não tiver a impressão digital de cima, nada é instalado. Daí em diante, o pacote `swaydesk-archive-keyring` cuida da chave e do repositório e os mantém atualizados.
 
 ## Arch Linux
 
@@ -46,12 +46,12 @@ Acrescente ao `/etc/pacman.conf`:
 Server = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch
 ```
 
-Depois importe a chave, confira a impressão digital e instale:
+Depois importe a chave e instale. O `--lsign-key` com a impressão digital inteira só aceita a chave certa:
 
 ```
 curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key | sudo pacman-key --add -
-sudo pacman-key --finger 5815F0B65BE1CFB9
-sudo pacman-key --lsign-key 5815F0B65BE1CFB9
+sudo pacman-key --finger 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
+sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9
 sudo pacman -Syu swaydesk-desktop
 ```
 
