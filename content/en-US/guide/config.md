@@ -135,6 +135,34 @@ outputs = ["eDP-1"]     # monitors with a dock; empty: all of them
 
 Pinned apps are listed in `~/.local/share/sway-dock/pinned`, but it's simpler to pin them with a right-click on the dock or in the app grid. The app grid keeps its groups and favorites in `~/.local/share/sway-drawer/`.
 
+## SwayFX on Arch (optional)
+
+[SwayFX](https://github.com/WillPower3309/swayfx) is Sway with rounded corners, blur and shadows. On Arch it can take Sway's place, with the same configuration. It comes from the AUR, through an AUR helper:
+
+```
+yay -S swayfx           # or: paru -S swayfx; pacman swaps sway for it
+sudo pacman -S sway     # to go back to Sway
+```
+
+`swaydesk-desktop` stays installed either way, because `swayfx` provides `sway`.
+
+**Warning:** SwayFX comes from the AUR and is maintained by third parties, outside the project's support. It can lag behind Sway releases, and a `pacman -Syu` that brings a new wlroots can break it until the AUR catches up. If the session doesn't start after an update, go back to Sway with `sudo pacman -S sway` from a text console (Ctrl+Alt+F2).
+
+Swaydesk turns the effects on by itself at the next login. It notices SwayFX and writes `~/.config/sway/config.d/10-effects.conf`; with plain Sway the file holds only a comment. The file is written again at every login, when the theme changes, and with `sway-desktop-config generate` (then run `swaymsg reload`).
+
+The effects live in the `[effects]` section of `~/.config/sway-desktop/config.toml`. A missing key keeps its default:
+
+```
+[effects]
+corner_radius = 10      # window and layer corners, in pixels, from 0 (square) to 30
+blur = true             # blur behind transparent windows
+shadows = true          # a light shadow on windows
+layer_blur = false      # blur behind the bar, the dock, popups, notifications and menus
+dim_inactive = 0.0      # darken unfocused windows, from 0.0 (not at all) to 1.0
+```
+
+The blur behind the bar, the dock and the popups is off by default, because it showed visual garbage in a virtual machine (virgl). Turn it on with `layer_blur = true`. Two things never get blur: the invisible layer that closes popups when you click outside them, and the screenshot picker, which has to show the screen sharp.
+
 ## The login screen
 
 With `swaydesk-greeter`, the login screen has its own settings, for the whole machine:

@@ -135,6 +135,34 @@ outputs = ["eDP-1"]     # monitores com dock; vazio: todos
 
 Os apps fixados ficam em `~/.local/share/sway-dock/pinned`, mas é mais simples fixar pelo clique direito na dock ou na grade de apps. Os grupos e os favoritos da grade ficam em `~/.local/share/sway-drawer/`.
 
+## SwayFX no Arch (opcional)
+
+O [SwayFX](https://github.com/WillPower3309/swayfx) é o Sway com cantos arredondados, blur e sombras. No Arch, ele pode substituir o Sway, com a mesma configuração. Ele vem do AUR, por um AUR helper:
+
+```
+yay -S swayfx           # ou: paru -S swayfx; o pacman troca o sway por ele
+sudo pacman -S sway     # para voltar ao Sway
+```
+
+O `swaydesk-desktop` continua instalado nos dois casos, porque o `swayfx` provê o `sway`.
+
+**Aviso:** o SwayFX vem do AUR e é mantido por terceiros, fora do suporte do projeto. Ele pode atrasar em relação às versões do Sway, e um `pacman -Syu` que traga um wlroots novo pode quebrá-lo até o AUR acompanhar. Se a sessão não abrir depois de uma atualização, volte ao Sway com `sudo pacman -S sway`, num console de texto (Ctrl+Alt+F2).
+
+O Swaydesk liga os efeitos sozinho, no próximo login. Ele percebe o SwayFX e grava o `~/.config/sway/config.d/10-effects.conf`; com o Sway comum, o arquivo fica só com um comentário. O arquivo é gravado de novo a cada login, quando o tema muda e com o `sway-desktop-config generate` (depois, rode `swaymsg reload`).
+
+Os efeitos ficam na seção `[effects]` do `~/.config/sway-desktop/config.toml`. Uma chave ausente fica com o padrão:
+
+```
+[effects]
+corner_radius = 10      # cantos das janelas e das camadas, em pixels, de 0 (retos) a 30
+blur = true             # blur atrás das janelas transparentes
+shadows = true          # uma sombra leve nas janelas
+layer_blur = false      # blur atrás da barra, da dock, dos popups, das notificações e dos menus
+dim_inactive = 0.0      # escurecer as janelas sem o foco, de 0.0 (nada) a 1.0
+```
+
+O blur atrás da barra, da dock e dos popups vem desligado por padrão, porque apareceu lixo visual numa máquina virtual (virgl). Ligue com `layer_blur = true`. Duas coisas nunca ficam com blur: a camada invisível que fecha os popups quando você clica fora, e a escolha da captura de tela, que precisa mostrar a tela nítida.
+
 ## A tela de login
 
 Com o `swaydesk-greeter`, a tela de login tem os próprios ajustes, para a máquina toda:
