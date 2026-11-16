@@ -1,5 +1,9 @@
 # The Download page (shortcode iso). One place for both languages. While a value is empty, the card says
 # "coming soon" where it would go; the page goes live only with the three ISOs and the user's OK.
+# Before publishing (coordinator, 16/11): the three ISOs in the Release with tag, size and SHA-256 here; the
+# login notice of swaydesk-extras (sway-desktop #188) in all three ISOs, Arch included; and its VM test in
+# each: offline with the codecs box -> the notice; "sudo swaydesk-extras" with network -> it goes away;
+# without the box -> nothing. Then the user's OK.
 # The files are assets of the GitHub Release `tag` in params.code_repo (nielsonrolim/swaydesk).
 tag = ""            # e.g. "v0.1.0"
 
