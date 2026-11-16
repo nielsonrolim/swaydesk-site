@@ -12,6 +12,8 @@ The tables below come from the same files and descriptions the **Help** app (`Su
 
 {{< profiles >}}
 
+**Inside the capture and recording panels**, the same in every profile: `R` region, `S` screen, `W` window, `Esc` closes. In the screenshot panel, `G` turns Gradia on or off and `D` changes the delay. In the recording panel, `Shift`+key records with the system sound, `Ctrl`+key with the microphone, and `A` changes the audio.
+
 ## Customize shortcuts
 
 Your shortcuts live in `~/.config/sway/config.d/50-local.conf`. The file is created at your first login, with only comments and examples, and it's yours: neither updates nor a reinstall overwrite it. Sway reads it after Swaydesk's shortcuts and the shortcut profile you chose, so whatever it holds wins.

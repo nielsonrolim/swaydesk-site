@@ -12,6 +12,8 @@ As tabelas abaixo vêm dos mesmos arquivos e descrições que o app **Ajuda** (`
 
 {{< profiles >}}
 
+**Dentro dos painéis de captura e gravação**, iguais em todos os perfis, as teclas são as iniciais em inglês: `R` região, `S` tela, `W` janela, `Esc` fecha. Na captura, `G` liga ou desliga o Gradia e `D` muda o atraso. Na gravação, `Shift`+tecla grava com o som do sistema, `Ctrl`+tecla com o microfone, e `A` muda o áudio.
+
 ## Personalizar atalhos
 
 Os seus atalhos ficam em `~/.config/sway/config.d/50-local.conf`. O arquivo é criado no primeiro login, só com comentários e exemplos, e é seu: nem as atualizações nem a reinstalação o sobrescrevem. O Sway o lê depois dos atalhos do Swaydesk e do perfil de atalhos escolhido, então o que estiver nele vale mais.
