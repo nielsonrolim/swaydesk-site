@@ -100,7 +100,7 @@ Your shortcuts live in `~/.config/sway/config.d/50-local.conf`. The file is crea
 bindsym --no-warn Ctrl+Alt+t exec foot
 ```
 
-**Remove a shortcut:** use `unbindsym` with the key exactly as the active profile defines it. Removing a key that has no shortcut is a config error.
+**Remove a shortcut:** use `unbindsym` with the key exactly as the active profile defines it, including flags such as `--locked`. Removing a key that has no shortcut is a config error.
 
 ```
 unbindsym Print

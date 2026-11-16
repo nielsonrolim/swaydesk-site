@@ -100,7 +100,7 @@ Os seus atalhos ficam em `~/.config/sway/config.d/50-local.conf`. O arquivo é c
 bindsym --no-warn Ctrl+Alt+t exec foot
 ```
 
-**Tirar um atalho:** use `unbindsym` com a tecla exatamente como o perfil em uso a define. Tirar uma tecla que não tem atalho é um erro de config.
+**Tirar um atalho:** use `unbindsym` com a tecla exatamente como o perfil em uso a define, inclusive opções como `--locked`. Tirar uma tecla que não tem atalho é um erro de config.
 
 ```
 unbindsym Print
