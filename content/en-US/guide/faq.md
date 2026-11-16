@@ -29,7 +29,7 @@ greetd goes back to `/etc/greetd/config.toml` on the next boot. If you used GDM 
 
 ### The session asked for my keyring password on the first login. Is that normal?
 
-Yes, once, on Debian 13. Its gnome-keyring 48 creates the keyring locked on the first login, so Swaydesk shows a notice and then asks for your login password once; after that, the keyring unlocks on its own. Ubuntu 26.04 and Arch don't ask. See [the first steps](/en-us/guide/first-steps/#what-the-first-login-sets-up).
+Yes, once, on Debian 13. Its gnome-keyring 48 creates the keyring on the first login but doesn't make it available to apps; Swaydesk reopens it, and to do that it shows a notice and asks for your login password once. After that, the keyring unlocks on its own. Ubuntu 26.04 and Arch don't ask. See [the first steps](/en-us/guide/first-steps/#what-the-first-login-sets-up).
 
 ## Screen and power
 
