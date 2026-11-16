@@ -1,0 +1,27 @@
+{{- /* Os atalhos de cada perfil, uma aba por perfil: {{< profiles >}}. Os dados vêm de data/shortcuts.json, que
+  scripts/shortcuts.py gera dos keys/*.conf do código, como a Ajuda os lê. Sem JS, os perfis ficam um embaixo
+  do outro; install.js os transforma em abas. */ -}}
+{{- $data := site.Data.shortcuts }}
+{{- if not $data }}{{ errorf "profiles: data/shortcuts.json não existe; rode scripts/shortcuts.py" }}{{ end }}
+{{- $lang := cond (strings.HasPrefix (lower site.Language.Lang) "pt") "pt" "en" }}
+<div class="distros profiles" data-tabs data-label="{{ i18n "profile_tabs" }}">
+{{- range $data.profiles }}
+{{- $id := printf "profile-%s" . }}
+<section class="distro" id="{{ $id }}" aria-labelledby="{{ $id }}-title">
+<h2 id="{{ $id }}-title" class="distro__title">{{ i18n (printf "profile_%s" .) }}</h2>
+{{- with i18n (printf "profile_%s_note" .) }}<p class="profile__note">{{ . }}</p>{{ end }}
+{{- range index $data $lang . }}
+<h3>{{ .title }}</h3>
+<table class="keys">
+<thead><tr><th scope="col">{{ i18n "keys_action" }}</th><th scope="col">{{ i18n "keys_shortcut" }}</th></tr></thead>
+<tbody>
+{{- range .rows }}
+<tr><td>{{ if .raw }}<code>{{ .text }}</code>{{ else }}{{ .text }}{{ end }}{{ if .locked }} <span class="keys__locked">{{ i18n "keys_locked" }}</span>{{ end }}</td>
+<td>{{ range $i, $c := .chords }}{{ if $i }} <span class="keys__or">{{ i18n "keys_or" }}</span> {{ end }}<span class="keys__chord">{{ range $j, $k := $c }}{{ if $j }}+{{ end }}<code>{{ $k }}</code>{{ end }}</span>{{ end }}</td></tr>
+{{- end }}
+</tbody>
+</table>
+{{- end }}
+</section>
+{{- end }}
+</div>

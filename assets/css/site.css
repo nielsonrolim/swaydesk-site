@@ -178,3 +178,11 @@ html.lb-open { overflow: hidden; }
 .oneline { margin: 1.5rem 0; }
 .oneline summary { cursor: pointer; color: var(--ruby); }
 .oneline > p { margin: .5rem 0; font-size: .9rem; }
+
+/* Página Atalhos: as abas dos perfis */
+.profile__note { margin: .75rem 0 1rem; padding: .75rem 1rem; border: 1px solid var(--ruby); border-left-width: 4px; border-radius: var(--frame); }
+.profiles h3 { margin: 1.75rem 0 .5rem; font-size: .9rem; }
+.keys { width: 100%; }
+.keys td:last-child { white-space: normal; }
+.keys__chord { white-space: nowrap; }
+.keys__or, .keys__locked { color: var(--muted); font-size: .8rem; }

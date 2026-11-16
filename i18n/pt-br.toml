@@ -66,3 +66,36 @@ other = "Se for diferente, pare aqui e não continue."
 
 [key_meta]
 other = "A chave do projeto no OBS: RSA de 4096 bits, válida até 23/01/2029."
+
+[profile_tabs]
+other = "Perfis de atalhos"
+
+[profile_swaydesk]
+other = "Swaydesk"
+
+[profile_i3]
+other = "i3"
+
+[profile_hyprland]
+other = "Hyprland"
+
+[profile_niri]
+other = "niri"
+
+[profile_dwm]
+other = "dwm"
+
+[profile_dwm_note]
+other = "Perfil dwm: o Mod é Alt, como no dwm, e não Super. Por isso, alguns atalhos dos apps com Alt (como o Alt+F, que abre o menu Arquivo) deixam de chegar a eles. Dois atalhos mudam só aqui: os cartões de janelas (Alt+Tab e Alt+Shift+Tab nos outros perfis) vão para Super+Tab e Super+Shift+Tab, porque Alt+Tab volta ao último workspace; e o lançador (Alt+Space) vai para Super+Space, porque Alt+Space troca o layout das janelas. As ações do Swaydesk que o dwm não tem (notificações, área de transferência, busca de janelas, captura e gravação) ficam em Super. Janela flutuante com o mouse: Alt+arrastar. O layout do teclado: Super+Ctrl+Space."
+
+[keys_action]
+other = "O que faz"
+
+[keys_shortcut]
+other = "Atalho"
+
+[keys_locked]
+other = "(também na tela bloqueada)"
+
+[keys_or]
+other = "ou"

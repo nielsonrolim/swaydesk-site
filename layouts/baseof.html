@@ -41,7 +41,7 @@
 </dialog>
 <script src="/js/lightbox.js" defer></script>
 {{- end }}
-{{- if .HasShortcode "distros" }}
+{{- if or (.HasShortcode "distros") (.HasShortcode "profiles") }}
 <script src="/js/install.js" defer></script>
 {{- end }}
 </body>

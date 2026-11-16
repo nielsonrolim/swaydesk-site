@@ -66,3 +66,36 @@ other = "If it's different, stop here and don't go on."
 
 [key_meta]
 other = "The project's key on OBS: RSA, 4096 bits, valid until 2029-01-23."
+
+[profile_tabs]
+other = "Shortcut profiles"
+
+[profile_swaydesk]
+other = "Swaydesk"
+
+[profile_i3]
+other = "i3"
+
+[profile_hyprland]
+other = "Hyprland"
+
+[profile_niri]
+other = "niri"
+
+[profile_dwm]
+other = "dwm"
+
+[profile_dwm_note]
+other = "dwm profile: the modifier is Alt, as in dwm, not Super. Some app shortcuts with Alt (like Alt+F, which opens the File menu) no longer reach the apps. Two shortcuts change only here: the window cards (Alt+Tab and Alt+Shift+Tab in the other profiles) move to Super+Tab and Super+Shift+Tab, because Alt+Tab goes back to the last workspace; and the launcher (Alt+Space) moves to Super+Space, because Alt+Space switches the window layout. The Swaydesk actions that dwm doesn't have (notifications, clipboard, window search, capture and recording) stay on Super. Floating windows with the mouse: Alt+drag. The keyboard layout: Super+Ctrl+Space."
+
+[keys_action]
+other = "What it does"
+
+[keys_shortcut]
+other = "Shortcut"
+
+[keys_locked]
+other = "(also on the lock screen)"
+
+[keys_or]
+other = "or"
