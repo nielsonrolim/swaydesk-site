@@ -56,6 +56,8 @@ No primeiro login, a sessão copia para a sua pasta pessoal os arquivos que aind
 
 Ela também aplica o tema e a cor de destaque aos apps GTK, à barra, à dock e aos popups. Os detalhes estão em [Configuração](/pt-br/guide/config/).
 
+**O chaveiro no Debian 13:** no primeiro login de cada usuário aparece um aviso ("Primeiro login: digite sua senha uma vez para ativar o chaveiro. Nos próximos logins ele abre sozinho.") e, logo depois, o pedido de senha do chaveiro (**Unlock Login Keyring**). Digite a mesma senha do login. Isso acontece uma vez só: nos logins seguintes, o chaveiro abre sozinho. É uma limitação do gnome-keyring 48 do Debian; o Ubuntu 26.04 e o Arch não têm.
+
 ## Primeiras coisas a fazer
 
 - **Tema e cor de destaque:** abra o app **Tema do Desktop** pela grade de apps. Escolha a família do tema, claro ou escuro, e a cor; **Aplicar** muda tudo de uma vez, e a janela continua aberta para você testar outra combinação.

@@ -56,6 +56,8 @@ The first time you log in, the session copies into your home folder whatever fil
 
 It also applies the theme and the accent color to GTK apps, the bar, the dock and the popups. See [Configuration](/en-us/guide/config/) for the details.
 
+**The keyring on Debian 13:** on each user's first login, a notice ("First login: type your password once to turn on the keyring. From the next login on, it opens by itself.") is followed by the keyring password prompt (**Unlock Login Keyring**). Type your login password. It happens only once: from the next login on, the keyring opens by itself. This is a limitation of gnome-keyring 48 in Debian; Ubuntu 26.04 and Arch are not affected.
+
 ## First things to do
 
 - **Theme and accent color:** open the **Desktop Theme** app from the app grid. Pick a theme family, light or dark, and a color; **Apply** changes everything at once, and the window stays open so you can try another combination.

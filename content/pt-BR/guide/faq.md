@@ -29,7 +29,7 @@ O greetd volta a usar o `/etc/greetd/config.toml` no próximo boot. Se você usa
 
 ### A sessão pediu a senha do chaveiro no primeiro login. Isso é normal?
 
-Sim, uma vez. Em algumas telas de login sem desktop, como o greetd, o chaveiro criado no primeiro login fica fechado. O Swaydesk percebe isso e pede a senha uma vez; nos logins seguintes ele abre sozinho.
+Sim, uma vez, no Debian 13. O gnome-keyring 48 dele cria o chaveiro fechado no primeiro login, então o Swaydesk mostra um aviso e depois pede a senha do login uma vez; nos logins seguintes o chaveiro abre sozinho. O Ubuntu 26.04 e o Arch não pedem. Veja [os primeiros passos](/pt-br/guide/first-steps/#o-que-o-primeiro-login-prepara).
 
 ## Tela e energia
 
