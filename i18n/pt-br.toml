@@ -102,3 +102,21 @@ other = "(também na tela bloqueada)"
 
 [keys_or]
 other = "ou"
+
+[iso_file]
+other = "Arquivo"
+
+[iso_size]
+other = "Tamanho"
+
+[iso_sb_on]
+other = "funciona com o Secure Boot ligado"
+
+[iso_sb_off]
+other = "desligue o Secure Boot"
+
+[iso_download]
+other = "Baixar"
+
+[iso_check]
+other = "Confira o download (na pasta onde ele está; tem de aparecer OK):"

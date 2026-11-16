@@ -186,3 +186,18 @@ html.lb-open { overflow: hidden; }
 .keys td:last-child { white-space: normal; }
 .keys__chord { white-space: nowrap; }
 .keys__or, .keys__locked { color: var(--muted); font-size: .8rem; }
+
+/* Página Baixar: um cartão por ISO */
+.isos { display: grid; gap: 1rem; margin: 1rem 0 2rem; }
+.iso { min-width: 0; padding: 1rem 1.25rem; border: 1px solid var(--line-strong); border-radius: var(--frame); }
+.content .iso__name { margin: 0 0 .5rem; }
+.iso__facts { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem; margin: 0 0 .75rem; font-size: .9rem; }
+.iso__facts dt { color: var(--muted); }
+.iso__facts dd { margin: 0; overflow-wrap: anywhere; }
+.iso__get { display: inline-block; padding: .4rem .9rem; border: 1px solid var(--ruby); border-radius: var(--frame); font-weight: 700; }
+.iso__label { margin: .75rem 0 .2rem; color: var(--muted); font-size: .8rem; }
+.iso__sha { margin: 0; overflow-wrap: anywhere; }
+.iso__sha code { white-space: pre-wrap; }
+.iso__notes { margin-top: .75rem; }
+.iso__notes > :first-child { margin-top: 0; }
+.iso__notes > :last-child { margin-bottom: 0; }

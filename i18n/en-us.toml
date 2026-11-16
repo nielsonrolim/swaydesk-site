@@ -102,3 +102,21 @@ other = "(also on the lock screen)"
 
 [keys_or]
 other = "or"
+
+[iso_file]
+other = "File"
+
+[iso_size]
+other = "Size"
+
+[iso_sb_on]
+other = "works with Secure Boot on"
+
+[iso_sb_off]
+other = "turn Secure Boot off"
+
+[iso_download]
+other = "Download"
+
+[iso_check]
+other = "Check the download (in the folder where it is; it must print OK):"

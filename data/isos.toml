@@ -1,0 +1,25 @@
+# The Download page (shortcode iso). One place for both languages. While a value is empty, the card says
+# "coming soon" where it would go; the page goes live only with the three ISOs and the user's OK.
+# The files are assets of the GitHub Release `tag` in params.code_repo (nielsonrolim/swaydesk).
+tag = ""            # e.g. "v0.1.0"
+
+[debian]
+name = "Debian 13"
+file = "swaydesk-debian13-amd64.hybrid.iso"
+size = ""           # e.g. "1.7 GB"
+sha256 = ""
+secure_boot = true
+
+[ubuntu]
+name = "Ubuntu 26.04"
+file = "swaydesk-ubuntu2604.iso"
+size = ""
+sha256 = ""
+secure_boot = true
+
+[arch]
+name = "Arch Linux"
+file = ""           # builder4's Arch ISO: name still to come
+size = ""
+sha256 = ""
+secure_boot = false
