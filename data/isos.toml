@@ -19,7 +19,7 @@ secure_boot = true
 
 [arch]
 name = "Arch Linux"
-file = ""           # builder4's Arch ISO: name still to come
+file = "swaydesk-arch-x86_64.iso"
 size = ""
 sha256 = ""
 secure_boot = false
