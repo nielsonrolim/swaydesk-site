@@ -141,4 +141,4 @@ A tela de login do Swaydesk é opcional: veja [como instalar e como voltar](/pt-
 | `swaydesk-greeter` | Opcional: a tela de login do Swaydesk, sobre o greetd |
 | `swaydesk-archive-keyring` | Só Debian, Ubuntu e Mint: a chave e o repositório, sempre em dia |
 
-Os pacotes são versões de desenvolvimento (`0.1.0~git…`) até o lançamento da 0.1.0.
+Os pacotes estão na versão 0.1.0, estável: veja as [notas do lançamento](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.0) e o [histórico de mudanças](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). As versões novas chegam como atualizações.
