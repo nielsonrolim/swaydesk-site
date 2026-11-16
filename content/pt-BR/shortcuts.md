@@ -42,6 +42,6 @@ O comentário `##` logo acima do atalho é a descrição que aparece na Ajuda.
 
 **Aplicar:** salve o arquivo e rode `swaymsg reload` num terminal, ou entre de novo na sessão. Se algo estiver errado, o Sway mostra uma barra no topo da tela com a linha do problema.
 
-**Conferir:** a Ajuda do Swaydesk (`Super`+`F1`) mostra os atalhos em uso, já com as suas mudanças. No fim da aba Atalhos dela, o botão **Abrir** abre o arquivo no editor.
+**Conferir:** a Ajuda do Swaydesk (`Super`+`F1`) mostra os atalhos em uso, já com as suas mudanças. No fim da aba Atalhos, a Ajuda mostra o caminho do arquivo e, quando ele existe, o botão **Abrir**, que o abre no editor padrão.
 
 O mesmo arquivo também guarda os ajustes desta máquina: tela, teclado, mouse, programas ao entrar e apps nos workspaces. Os exemplos estão nos comentários, e o [guia de configuração](/pt-br/guide/config/#os-ajustes-da-máquina) explica cada um.

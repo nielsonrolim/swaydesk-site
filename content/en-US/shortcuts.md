@@ -42,6 +42,6 @@ The `##` comment right above a shortcut is the description the Help shows.
 
 **Apply:** save the file and run `swaymsg reload` in a terminal, or log in again. If something is wrong, Sway shows a bar at the top of the screen with the offending line.
 
-**Check:** the Swaydesk Help (`Super`+`F1`) shows the shortcuts in use, including your changes. At the bottom of its Shortcuts tab, the **Open** button opens the file in your editor.
+**Check:** the Swaydesk Help (`Super`+`F1`) shows the shortcuts in use, including your changes. At the bottom of the Shortcuts tab, the Help shows the file's path and, once the file exists, an **Open** button that opens it in your default editor.
 
 The same file also holds this machine's settings: screen, keyboard, mouse, startup programs and apps on workspaces. The examples are in its comments, and the [configuration guide](/en-us/guide/config/#machine-settings) covers them.
