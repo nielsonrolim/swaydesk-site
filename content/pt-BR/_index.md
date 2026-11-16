@@ -15,7 +15,7 @@ Em cima do Sway vêm as peças que um desktop precisa: barra com popups de rede,
 
 ## O que você encontra
 
-- **Atalhos do KDE:** quem vem do Plasma com o Krohnkite se sente em casa. Veja os [atalhos](/pt-br/shortcuts/).
+- **Atalhos que você já conhece:** os do KDE Plasma com o Krohnkite, por padrão, ou os do i3, do Hyprland, do niri ou do dwm. Veja os [atalhos](/pt-br/shortcuts/).
 - **Mosaico sem esforço:** as janelas se organizam sozinhas, e ainda dá para soltar uma janela, colocá-la em tela cheia ou guardá-la de lado.
 - **Um visual só:** o tema, os ícones e a cor de destaque mudam juntos na barra, na dock, nos popups e nos apps GTK e libadwaita.
 - **Sem surpresas:** a sessão tem agente de senhas, chaveiro, portal para compartilhar a tela e avisos de atualização, como nos desktops maiores.

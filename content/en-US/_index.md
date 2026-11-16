@@ -15,7 +15,7 @@ On top of Sway come the pieces a desktop needs: a bar with network, Bluetooth, a
 
 ## What you get
 
-- **KDE shortcuts:** if you come from Plasma with Krohnkite, you will feel at home. See the [shortcuts](/en-us/shortcuts/).
+- **Shortcuts you already know:** KDE Plasma with Krohnkite by default, or the i3, Hyprland, niri or dwm keys. See the [shortcuts](/en-us/shortcuts/).
 - **Effortless tiling:** windows arrange themselves, and you can still float a window, make it fullscreen or put it aside.
 - **One look:** the theme, the icons and the accent color change together in the bar, the dock, the popups and in GTK and libadwaita apps.
 - **No surprises:** the session has a password agent, a keyring, a portal for screen sharing and update notices, like the bigger desktops.

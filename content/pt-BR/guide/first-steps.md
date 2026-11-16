@@ -44,7 +44,7 @@ Para voltar à tela de login de antes, desligue o greetd e ligue a outra (`sudo 
 - **A dock embaixo:** os apps fixados, os abertos e o botão da grade de apps. Ela some quando uma janela ocupa o espaço dela e volta quando você encosta o ponteiro no meio da borda de baixo.
 - **A grade de apps:** aperte e solte `Super` (a tecla do logotipo) para mostrar ou esconder todos os apps instalados, com busca.
 
-Os atalhos seguem os do KDE Plasma com o Krohnkite. A lista completa está em [atalhos](/pt-br/shortcuts/), e o passeio por cada peça, em [O desktop](/pt-br/guide/desktop/).
+Os atalhos seguem os do KDE Plasma com o Krohnkite, e dá para trocá-los pelos do i3, do Hyprland, do niri ou do dwm. A lista completa, perfil por perfil, está em [atalhos](/pt-br/shortcuts/), e o passeio por cada peça, em [O desktop](/pt-br/guide/desktop/).
 
 ## O que o primeiro login prepara
 
