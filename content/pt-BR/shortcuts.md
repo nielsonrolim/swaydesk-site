@@ -88,3 +88,35 @@ Funcionam também com a tela bloqueada.
 | Microfone mudo | Liga ou desliga o microfone |
 | Tocar, próxima, anterior | Controla o player que estiver tocando |
 | Brilho +, − | Brilho, com o indicador na tela |
+
+## Personalizar atalhos
+
+Os seus atalhos ficam em `~/.config/sway/config.d/50-local.conf`. O arquivo é criado no primeiro login, só com comentários e exemplos, e é seu: nem as atualizações nem a reinstalação o sobrescrevem. O Sway o lê depois dos atalhos do Swaydesk e do perfil de atalhos escolhido, então o que estiver nele vale mais.
+
+**Trocar o que um atalho faz:** repita a tecla com `--no-warn`. Sem ele, o Sway avisa que a tecla já tinha um atalho.
+
+```
+## Open foot
+bindsym --no-warn Ctrl+Alt+t exec foot
+```
+
+**Tirar um atalho:** use `unbindsym` com a tecla exatamente como o perfil em uso a define. Tirar uma tecla que não tem atalho é um erro de config.
+
+```
+unbindsym Print
+```
+
+**Criar um atalho:** escolha uma tecla livre. `Super`+`F2` a `Super`+`F12` e `Super`+`Ctrl`+`Alt`+uma letra estão livres em todos os perfis.
+
+```
+## Open another terminal
+bindsym Mod4+F12 exec kitty
+```
+
+O comentário `##` logo acima do atalho é a descrição que aparece na Ajuda.
+
+**Aplicar:** salve o arquivo e rode `swaymsg reload` num terminal, ou entre de novo na sessão. Se algo estiver errado, o Sway mostra uma barra no topo da tela com a linha do problema.
+
+**Conferir:** a Ajuda do Swaydesk (`Super`+`F1`) mostra os atalhos em uso, já com as suas mudanças.
+
+O mesmo arquivo também guarda os ajustes desta máquina: tela, teclado, mouse, programas ao entrar e apps nos workspaces. Os exemplos estão nos comentários, e o [guia de configuração](/pt-br/guide/config/#os-ajustes-da-máquina) explica cada um.

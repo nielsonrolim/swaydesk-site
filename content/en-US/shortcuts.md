@@ -88,3 +88,35 @@ They also work while the screen is locked.
 | Microphone mute | Turns the microphone on or off |
 | Play, next, previous | Controls the player that is playing |
 | Brightness +, − | Brightness, with the on-screen indicator |
+
+## Customize shortcuts
+
+Your shortcuts live in `~/.config/sway/config.d/50-local.conf`. The file is created at your first login, with only comments and examples, and it's yours: neither updates nor a reinstall overwrite it. Sway reads it after Swaydesk's shortcuts and the shortcut profile you chose, so whatever it holds wins.
+
+**Change what a shortcut does:** repeat the key with `--no-warn`. Without it, Sway warns that the key already had a shortcut.
+
+```
+## Open foot
+bindsym --no-warn Ctrl+Alt+t exec foot
+```
+
+**Remove a shortcut:** use `unbindsym` with the key exactly as the active profile defines it. Removing a key that has no shortcut is a config error.
+
+```
+unbindsym Print
+```
+
+**Add a shortcut:** pick a free key. `Super`+`F2` to `Super`+`F12` and `Super`+`Ctrl`+`Alt`+a letter are free in every profile.
+
+```
+## Open another terminal
+bindsym Mod4+F12 exec kitty
+```
+
+The `##` comment right above a shortcut is the description the Help shows.
+
+**Apply:** save the file and run `swaymsg reload` in a terminal, or log in again. If something is wrong, Sway shows a bar at the top of the screen with the offending line.
+
+**Check:** the Swaydesk Help (`Super`+`F1`) shows the shortcuts in use, including your changes.
+
+The same file also holds this machine's settings: screen, keyboard, mouse, startup programs and apps on workspaces. The examples are in its comments, and the [configuration guide](/en-us/guide/config/#machine-settings) covers them.
