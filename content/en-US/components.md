@@ -89,7 +89,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Screen recording" shot="recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#screenshots-and-recording" bin="swaydesk-capture" src="rust/capture" tech="rust" >}}A region, the whole screen or a window, with the system sound, the microphone or no audio. The video goes to `~/Videos/Screencasts`.{{< /component >}}
 
-{{< component title="Desktop configuration" keys="In the terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Reads `~/.config/sway-desktop/config.toml` and writes the files that Sway, the bar and the apps use. After editing the file by hand, `swaydesk-desktop-config apply` applies the accent color, and `swaydesk-desktop-config generate` writes the rest.{{< /component >}}
+{{< component title="Desktop configuration" keys="In the terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Reads `~/.config/sway-desktop/config.toml` and writes the files that Sway, the bar and the apps use. After editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files.{{< /component >}}
 
 
 ## Apps that come along
@@ -103,7 +103,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 | Blueman | Bluetooth pairing (PIN and confirmation requests) |
 | pavucontrol | Fine-grained audio settings, beyond the bar popup (middle-click the volume) |
 | gammastep | The night light |
-| mate-polkit | The administrator password window (on Debian, lxpolkit works too) |
-| gnome-text-editor | The Help's **Open** button, which edits `50-local.conf`; without it, the Help opens an editor in the terminal. Optional on Arch |
+| mate-polkit | The administrator password window (on Debian and Ubuntu, lxpolkit works too) |
+| gnome-text-editor | The Help's **Open** button, which edits `50-local.conf`; without it, the Help opens an editor in the terminal. Recommended on Debian and Ubuntu; optional on Arch |
 | grim, slurp and wf-recorder | Screenshots and screen recording |
 | swaylock | The fallback lock screen; on Debian 13, the one in use |
