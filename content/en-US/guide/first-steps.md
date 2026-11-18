@@ -61,7 +61,7 @@ It also applies the theme and the accent color to GTK apps, the bar, the dock an
 ## First things to do
 
 - **Theme and accent color:** open the **Desktop Theme** app from the app grid. Pick a theme family, light or dark, and a color; **Apply** changes everything at once, and the window stays open so you can try another combination.
-- **Displays:** if `nwg-displays` is installed, open it from the app grid to set the resolution, position and scale of your screens. It saves your choice for the next logins.
+- **Displays:** open the **Displays** app from the app grid to set the position, resolution and scale of your screens. Each set of monitors keeps your choice, which comes back by itself when you plug in the same screens.
 - **Keyboard:** Swaydesk starts with the system layout. To use two layouts, say US and US International, edit `50-local.conf` (see [Configuration](/en-us/guide/config/)). `Super`+`Space` switches between them, and the keyboard icon on the bar shows the current one.
 - **Wi-Fi:** click the network icon on the bar, pick the network and type the password.
 - **Bluetooth:** click the Bluetooth icon, turn it on and search to pair a new device.

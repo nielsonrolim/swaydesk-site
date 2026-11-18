@@ -9,9 +9,9 @@ A configuração do Sway e da barra vem do pacote e é atualizada com ele. O que
 
 | Arquivo | O que guarda |
 | --- | --- |
-| `~/.config/sway-desktop/config.toml` | Idioma, tema, ícones, cor de destaque, cidade do tempo, feriados e gerenciador de arquivos |
+| `~/.config/sway-desktop/config.toml` | Idioma, tema, ícones, cor de destaque, cidade do tempo, feriados, gerenciador de arquivos, perfil de atalhos e os componentes desligados |
 | `~/.config/sway/config.d/50-local.conf` | Monitores, teclado, mouse, programas ao entrar e apps nos workspaces |
-| `~/.config/sway/outputs` | As telas, gravadas pelo `nwg-displays` |
+| `~/.config/sway-desktop/displays.json` | As telas de cada conjunto de monitores, gravadas pelo app **Telas** |
 | `~/.config/sway-dock/config.toml` | O modo e o tamanho da dock |
 
 ## A configuração do desktop
@@ -57,6 +57,37 @@ Os programas leem o arquivo quando abrem. Depois de editar à mão:
 - para o idioma, a cidade e os feriados, saia e entre de novo na sessão.
 
 Um valor inválido não quebra nada: a peça usa o padrão daquela chave.
+
+## Ligar e desligar componentes
+
+Cada componente do Swaydesk vem ligado. Para desligar um, ponha a chave dele com `false` na seção `[enabled]` do `~/.config/sway-desktop/config.toml`; os módulos da barra ficam na `[enabled.bar]`:
+
+```
+[enabled]
+dock = false            # a dock
+bing_wallpaper = false  # o papel de parede do dia
+
+[enabled.bar]
+weather = false         # o clima na barra
+```
+
+| Chave do `[enabled]` | O que desliga |
+| --- | --- |
+| `dock` | A dock |
+| `app_grid` | A grade de apps (o toque no `Super`) |
+| `switcher` | O cartão do `Alt`+`Tab` |
+| `notifications` | O serviço de notificações |
+| `osd` | O indicador de volume e brilho |
+| `clipboard_history` | O histórico da área de transferência |
+| `nightlight` | A luz noturna |
+| `bing_wallpaper` | O papel de parede do dia |
+| `polkit_agent` | O agente de polkit (a senha de administrador) |
+| `update_notifier` | O aviso de atualizações |
+| `displays` | Os perfis automáticos das telas; o app **Telas** continua |
+
+As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` e `power`. Os workspaces e a bandeja ficam sempre.
+
+A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
 
 ## Os ajustes da máquina
 
@@ -113,7 +144,9 @@ Uma linha `search` com um prefixo novo acrescenta uma busca, e uma com um prefix
 
 ## Monitores
 
-O jeito mais fácil de acertar a resolução, a posição e a escala das telas é o `nwg-displays`, na grade de apps. Ele grava a escolha em `~/.config/sway/outputs` e os workspaces de cada tela em `~/.config/sway/workspaces`. O Sway lê esses dois arquivos depois de todos os outros, então eles valem mais que uma linha `output` no `50-local.conf`.
+O jeito mais fácil de acertar as telas é o app **Telas**, na grade de apps. Arraste as telas no mapa, escolha a resolução, a taxa, a escala e a rotação de cada uma e clique em **Aplicar**. Sem um clique em **Manter** em 15 segundos, tudo volta ao que era.
+
+Cada conjunto de monitores (o notebook sozinho, o notebook com o monitor do escritório…) guarda o seu layout em `~/.config/sway-desktop/displays.json`, aplicado sozinho quando você pluga ou despluga uma tela. Com a tampa fechada e um monitor ligado, a tela do notebook desliga. O último layout mantido também vai para `~/.config/sway/config.d/90-displays.conf`, lido depois do `50-local.conf`: ele vale mais que uma linha `output` de lá. Não edite esse arquivo à mão, porque o próximo **Manter** o regrava.
 
 ## A dock
 

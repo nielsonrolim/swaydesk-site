@@ -9,9 +9,9 @@ The Sway and bar configuration comes with the package and is updated with it. Wh
 
 | File | What it holds |
 | --- | --- |
-| `~/.config/sway-desktop/config.toml` | Language, theme, icons, accent color, weather city, holidays and file manager |
+| `~/.config/sway-desktop/config.toml` | Language, theme, icons, accent color, weather city, holidays, file manager, shortcut profile and the components turned off |
 | `~/.config/sway/config.d/50-local.conf` | Monitors, keyboard, mouse, startup apps and app workspaces |
-| `~/.config/sway/outputs` | Your displays, saved by `nwg-displays` |
+| `~/.config/sway-desktop/displays.json` | Your screens for each set of monitors, saved by the **Displays** app |
 | `~/.config/sway-dock/config.toml` | The dock mode and size |
 
 ## Desktop settings
@@ -57,6 +57,37 @@ Programs read the file when they start. After editing it by hand:
 - for the language, the city and the holidays, log out and back in.
 
 A bad value doesn't break anything: that piece just uses the default for that key.
+
+## Turning components off
+
+Every Swaydesk component starts on. To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/sway-desktop/config.toml`; the bar modules go in `[enabled.bar]`:
+
+```
+[enabled]
+dock = false            # the dock
+bing_wallpaper = false  # the wallpaper of the day
+
+[enabled.bar]
+weather = false         # the weather on the bar
+```
+
+| `[enabled]` key | What it turns off |
+| --- | --- |
+| `dock` | The dock |
+| `app_grid` | The app grid (tapping `Super`) |
+| `switcher` | The `Alt`+`Tab` card |
+| `notifications` | The notification service |
+| `osd` | The volume and brightness indicator |
+| `clipboard_history` | The clipboard history |
+| `nightlight` | The night light |
+| `bing_wallpaper` | The wallpaper of the day |
+| `polkit_agent` | The polkit agent (the administrator password) |
+| `update_notifier` | The update notifier |
+| `displays` | The automatic screen profiles; the **Displays** app stays |
+
+The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` and `power`. The workspaces and the tray are always there.
+
+A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
 
 ## Machine settings
 
@@ -113,7 +144,9 @@ A `search` line with a new prefix adds a search, and one with an existing prefix
 
 ## Displays
 
-The easiest way to set the resolution, position and scale of your screens is `nwg-displays`, in the app grid. It saves your setup to `~/.config/sway/outputs` and each screen's workspaces to `~/.config/sway/workspaces`. Sway reads these two files after everything else, so they win over an `output` line in `50-local.conf`.
+The easiest way to set up your screens is the **Displays** app, in the app grid. Drag the screens on the map, pick each one's resolution, refresh rate, scale and rotation, and click **Apply**. Without a click on **Keep** within 15 seconds, everything goes back to how it was.
+
+Each set of monitors (the laptop alone, the laptop with the office monitor…) keeps its own layout in `~/.config/sway-desktop/displays.json`, applied by itself when you plug or unplug a screen. With the lid closed and an external monitor on, the laptop screen turns off. The last layout you kept also goes to `~/.config/sway/config.d/90-displays.conf`, read after `50-local.conf`, so it wins over an `output` line there. Don't edit that file by hand: the next **Keep** rewrites it.
 
 ## The dock
 

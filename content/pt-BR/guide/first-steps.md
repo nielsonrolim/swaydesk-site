@@ -61,7 +61,7 @@ Ela também aplica o tema e a cor de destaque aos apps GTK, à barra, à dock e 
 ## Primeiras coisas a fazer
 
 - **Tema e cor de destaque:** abra o app **Tema do Desktop** pela grade de apps. Escolha a família do tema, claro ou escuro, e a cor; **Aplicar** muda tudo de uma vez, e a janela continua aberta para você testar outra combinação.
-- **Monitores:** com o `nwg-displays` instalado, abra-o pela grade de apps para acertar a resolução, a posição e a escala das telas. Ele grava a escolha, que vale nos próximos logins.
+- **Monitores:** abra o app **Telas** pela grade de apps para acertar a posição, a resolução e a escala das telas. Cada conjunto de monitores guarda a sua escolha, que volta sozinha quando você pluga as mesmas telas.
 - **Teclado:** o Swaydesk começa com o layout do sistema. Para usar dois layouts, como o `br` ABNT2 e o `us` internacional, edite o `50-local.conf` (veja [Configuração](/pt-br/guide/config/)). `Super`+`Espaço` troca o layout, e o ícone do teclado na barra mostra o atual.
 - **Wi-Fi:** clique no ícone de rede na barra, escolha a rede e digite a senha.
 - **Bluetooth:** clique no ícone de Bluetooth, ligue-o e use a busca para parear um aparelho novo.
