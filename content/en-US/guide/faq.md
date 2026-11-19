@@ -124,3 +124,7 @@ By default, the city comes from your IP address. Set `weather_location` in the [
 ### The notification bell turned red
 
 The notification service isn't responding, and notifications are getting lost. It usually comes back by itself within a second. If it doesn't, check whether another notification service, such as mako or dunst, is running in the session: only one can work at a time.
+
+### I picked a network printer and the dialog is stuck on "Getting printer information…"
+
+That's normal the first time: CUPS is creating the printer's queue and asking the printer what it can do, which takes up to about 30 seconds. Then it prints normally, and later selections are quick. To keep a permanent queue, add the printer in **Print Settings**, which comes with the ISOs.

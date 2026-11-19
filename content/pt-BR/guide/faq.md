@@ -124,3 +124,7 @@ Sem configuração, a cidade vem do seu IP. Defina `weather_location` na [config
 ### O sino das notificações ficou vermelho
 
 O serviço de notificações não está respondendo, e as notificações se perdem. Em geral ele volta sozinho em um segundo. Se continuar, veja se outro serviço de notificações, como o mako ou o dunst, está rodando na sessão: só um pode funcionar por vez.
+
+### Escolhi uma impressora da rede e o diálogo ficou em "Obtendo informações da impressora…"
+
+É normal na primeira vez: o CUPS está criando a fila da impressora e perguntando a ela o que ela sabe fazer, o que leva até uns 30 segundos. Depois a impressão sai normalmente, e nas próximas vezes a impressora aparece pronta logo. Para ter uma fila fixa, adicione a impressora em **Configurações da impressão**, que vem nas ISOs.
