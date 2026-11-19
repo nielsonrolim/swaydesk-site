@@ -19,22 +19,22 @@ sums = "SHA256SUMS"
 published = true
 name = "Debian 13"
 file = "swaydesk-0.1.1-debian13-amd64.iso"
-size = ""           # e.g. "1.7 GB"
-sha256 = ""
+size = "1.8 GB"
+sha256 = "9bbab20fb112c77d6a1b91e9a00f5e2f3bb0837d5b69b6842b944007f5a238ad"
 secure_boot = true
 
 [ubuntu]
 published = true
 name = "Ubuntu 26.04"
 file = "swaydesk-0.1.1-ubuntu26.04-amd64.iso"
-size = ""
-sha256 = ""
+size = "1.9 GB"
+sha256 = "1930fd51976a0ea85acb43fe2c210a098a589bc6af7b40bf867a3d4c92297ec7"
 secure_boot = true
 
 [arch]
 published = true
 name = "Arch Linux"
 file = "swaydesk-0.1.1-arch-x86_64.iso"
-size = ""
-sha256 = ""
+size = "1.8 GB"
+sha256 = "bb551dc4d041dd395303e8672f984817b1a1914a271f075a253bed9e785f2607"
 secure_boot = false
