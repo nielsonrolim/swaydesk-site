@@ -117,6 +117,3 @@ other = "turn Secure Boot off"
 
 [iso_download]
 other = "Download"
-
-[iso_check]
-other = "Check the download (in the folder where it is; it must print OK):"

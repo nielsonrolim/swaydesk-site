@@ -194,6 +194,7 @@ html.lb-open { overflow: hidden; }
 .iso__facts { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem; margin: 0 0 .75rem; font-size: .9rem; }
 .iso__facts dt { color: var(--muted); }
 .iso__facts dd { margin: 0; overflow-wrap: anywhere; }
+.iso__links { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
 .iso__get { display: inline-block; padding: .4rem .9rem; border: 1px solid var(--ruby); border-radius: var(--frame); font-weight: 700; }
 .iso__label { margin: .75rem 0 .2rem; color: var(--muted); font-size: .8rem; }
 .iso__sha { margin: 0; overflow-wrap: anywhere; }

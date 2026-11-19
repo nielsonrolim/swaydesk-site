@@ -1,29 +1,39 @@
-# The Download page (shortcode iso). One place for both languages. While a value is empty, the card says
-# "coming soon" where it would go; the page goes live only with the three ISOs and the user's OK.
-# Before publishing (coordinator, 16/11): the three ISOs in the Release with tag, size and SHA-256 here; the
-# login notice of swaydesk-extras (sway-desktop #188) in all three ISOs, Arch included; and its VM test in
-# each: offline with the codecs box -> the notice; "sudo swaydesk-extras" with network -> it goes away;
-# without the box -> nothing. Then the user's OK.
-# The files are assets of the GitHub Release `tag` in params.code_repo (nielsonrolim/swaydesk).
-tag = ""            # e.g. "v0.1.0"
+# The Download page (shortcodes isos/iso). One place for both languages.
+# The files are assets of the GitHub Release `tag` in params.code_repo (nielsonrolim/swaydesk), made by
+# packaging/release-isos.sh in sway-desktop, with `sums` (SHA-256 only) next to them.
+# Per ISO:
+#   published = false -> the card and its notes disappear from the page (an ISO that wasn't attached to the
+#                        Release, such as one over 2 GB). Nothing else on the page names a single ISO.
+#   published = true  -> a card; while size or sha256 is empty it says "coming soon" and has no link.
+# The sha256 comes from the Release's SHA256SUMS, copied here so the check doesn't depend on GitHub alone.
+# Before publishing (coordinator, 16/11; builder3's checklist): the published ISOs in the Release, with size and
+# SHA-256 here; the login notice of swaydesk-extras (sway-desktop #188, wording after #224; Ubuntu with the
+# Error-Mode fix) in each ISO, Arch included; and its VM test in each: offline with the codecs box -> the
+# notice; "sudo swaydesk-extras" with network -> it goes away; without the box -> nothing.
+# Then it goes live only on the coordinator's signal.
+tag = "v0.1.1"
+sums = "SHA256SUMS"
 
 [debian]
+published = true
 name = "Debian 13"
-file = "swaydesk-debian13-amd64.hybrid.iso"
+file = "swaydesk-0.1.1-debian13-amd64.iso"
 size = ""           # e.g. "1.7 GB"
 sha256 = ""
 secure_boot = true
 
 [ubuntu]
+published = true
 name = "Ubuntu 26.04"
-file = "swaydesk-ubuntu2604.iso"
+file = "swaydesk-0.1.1-ubuntu26.04-amd64.iso"
 size = ""
 sha256 = ""
 secure_boot = true
 
 [arch]
+published = true
 name = "Arch Linux"
-file = "swaydesk-arch-x86_64.iso"
+file = "swaydesk-0.1.1-arch-x86_64.iso"
 size = ""
 sha256 = ""
 secure_boot = false

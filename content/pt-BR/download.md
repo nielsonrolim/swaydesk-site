@@ -1,10 +1,10 @@
 ---
 title: Baixar
-prompt: "sha256sum -c swaydesk.iso.sha256"
+prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
-description: As ISOs live do Swaydesk para Debian 13, Ubuntu 26.04 e Arch Linux, com instalador.
+description: As ISOs live do Swaydesk, versão 0.1.1 estável, com instalador.
 ---
-Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. Já tem Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa.
+Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.1, a mesma dos pacotes. Já tem Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Linux Mint 27 não tem ISO do Swaydesk; nele, o Swaydesk entra só pelos pacotes.
 
 ## Requisitos
 
@@ -17,24 +17,34 @@ Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se
 
 {{< isos >}}
 {{< iso id="debian" >}}
-Debian 13 com o Swaydesk.
+Debian 13 com o Swaydesk. Com o Secure Boot ligado, o instalador não instala o driver da NVIDIA (o módulo dele não é assinado): desligue o Secure Boot, ou registre uma chave MOK, e rode `sudo swaydesk-extras`.
 {{< /iso >}}
 {{< iso id="ubuntu" >}}
-Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`.
+Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`. O driver da NVIDIA vem assinado e funciona com o Secure Boot ligado.
 {{< /iso >}}
 {{< iso id="arch" >}}
-Arch Linux com o Swaydesk. Desligue o Secure Boot nas configurações do firmware antes de dar o boot.
+Arch Linux com o Swaydesk. Desligue o Secure Boot nas configurações do firmware antes de dar o boot. O driver da NVIDIA (nvidia-open) entra só para placas Turing (GTX 16xx, RTX 20xx) e mais novas; as mais antigas ficam no nouveau.
 {{< /iso >}}
 {{< /isos >}}
+
+## Conferir o download
+
+Baixe também o `SHA256SUMS` (o link fica ao lado de cada ISO) para a mesma pasta da ISO e, nessa pasta, rode:
+
+```
+sha256sum -c --ignore-missing SHA256SUMS
+```
+
+Tem de aparecer o nome da ISO seguido de `OK`. Se aparecer `FAILED`, ou nada, apague a ISO e baixe de novo. O SHA-256 de cada ISO também está no cartão dela, acima: tem de ser igual à linha da ISO no `SHA256SUMS`. Este site e o Release do GitHub são lugares separados, então os dois iguais mostram que nenhum dos dois foi trocado.
 
 ## Gravar num pendrive
 
 A ISO é gravada como está, byte a byte, no pendrive inteiro, e **tudo o que houver no pendrive é apagado**. Copiar o arquivo para dentro do pendrive não funciona.
 
-No Linux, descubra o nome do pendrive com `lsblk` (como `/dev/sdb`; nunca uma partição como `/dev/sdb1`, e confira o tamanho para não escolher o seu disco) e rode:
+No Linux, descubra o nome do pendrive com `lsblk` (como `/dev/sdb`; nunca uma partição como `/dev/sdb1`, e confira o tamanho para não escolher o seu disco) e rode o comando abaixo, trocando `swaydesk.iso` pelo nome da ISO que você baixou e `/dev/sdX` pelo pendrive:
 
 ```
-sudo dd if=swaydesk-debian13-amd64.hybrid.iso of=/dev/sdX bs=4M status=progress oflag=sync
+sudo dd if=swaydesk.iso of=/dev/sdX bs=4M status=progress oflag=sync
 ```
 
 No Windows ou no macOS, o [balenaEtcher](https://etcher.balena.io/) faz o mesmo com uma janela: escolha a ISO, o pendrive e grave. O [Rufus](https://rufus.ie/), no Windows, também serve: quando ele perguntar, escolha o modo **imagem DD**.
@@ -45,6 +55,10 @@ No Windows ou no macOS, o [balenaEtcher](https://etcher.balena.io/) faz o mesmo 
 2. A sessão live abre sozinha, sem senha e sem bloqueio automático.
 3. O ícone **Instalar o Swaydesk** na dock abre o instalador. Ele escolhe o fuso horário pelo seu endereço IP (sem rede, America/Sao_Paulo; dá para trocar) e tem uma caixa de codecs e drivers proprietários, desmarcada por padrão. Essa caixa precisa de rede durante a instalação; sem rede, o sistema instalado lembra você no login, e dá para rodar `sudo swaydesk-extras` depois.
 
-**Secure Boot:** as ISOs do Debian e do Ubuntu dão o boot com ele ligado. Com o Secure Boot ligado, o instalador do Debian não instala o driver da NVIDIA (o módulo dele não é assinado): desligue o Secure Boot, ou registre uma chave MOK, e rode `sudo swaydesk-extras`. A ISO do Arch precisa do Secure Boot desligado.
+A impressão e o scanner já vêm prontos (CUPS, impressoras da rede pelo avahi e o Digitalizador de documentos), assim como as páginas de manual (`man`).
 
-Depois de instalar, os [primeiros passos](/pt-br/guide/first-steps/) cobrem o resto. As ISOs e os pacotes são a versão 0.1.0.
+### Junto com outro sistema (dual boot)
+
+O GRUB do sistema instalado lista os outros sistemas dos discos. A opção do instalador de instalar ao lado do outro sistema só aparece quando o disco tem espaço para o Swaydesk (20 GB e uma folga) e encolhe a partição do outro sistema. Num disco apertado, o instalador pode estimar errado o mínimo dessa partição: o redimensionamento falha antes de mudar qualquer coisa, os dados ficam como estavam e a instalação para. Para evitar isso, encolha o outro sistema antes, pelas ferramentas dele, e instale no espaço livre.
+
+Depois de instalar, os [primeiros passos](/pt-br/guide/first-steps/) cobrem o resto.

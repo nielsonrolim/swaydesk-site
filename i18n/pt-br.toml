@@ -117,6 +117,3 @@ other = "desligue o Secure Boot"
 
 [iso_download]
 other = "Baixar"
-
-[iso_check]
-other = "Confira o download (na pasta onde ele está; tem de aparecer OK):"

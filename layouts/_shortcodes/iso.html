@@ -1,24 +1,26 @@
 {{- /* Um cartão da página Baixar: {{< iso id="debian" >}}notas em Markdown{{< /iso >}}.
-  Os valores vêm de data/isos.toml; o que ainda está vazio aparece como "em breve". O SHA-256 e o comando de
-  conferir saem deste site, e não do Release, para a conferência não depender só do GitHub. */ -}}
+  Os valores vêm de data/isos.toml. published = false tira o cartão (e as notas) da página; o que ainda está
+  vazio aparece como "em breve", sem link. O SHA-256 também sai deste site, e não só do SHA256SUMS do
+  Release, para a conferência não depender só do GitHub. */ -}}
 {{- $id := .Get "id" }}
 {{- $iso := index site.Data.isos $id }}
 {{- if not $iso }}{{ errorf "iso: %q não está em data/isos.toml" $id }}{{ end }}
+{{- if $iso.published }}
 {{- $tag := site.Data.isos.tag }}
+{{- $base := printf "%s/releases/download/%s" site.Params.code_repo $tag }}
 {{- $ready := and $tag $iso.file $iso.size $iso.sha256 }}
 <article class="iso" id="{{ $id }}">
 <h2 class="iso__name">{{ $iso.name }}{{ if not $ready }} <span class="soon">{{ i18n "soon" }}</span>{{ end }}</h2>
 <dl class="iso__facts">
-<dt>{{ i18n "iso_file" }}</dt><dd>{{ with $iso.file }}<code>{{ . }}</code>{{ else }}{{ i18n "soon" }}{{ end }}</dd>
+<dt>{{ i18n "iso_file" }}</dt><dd><code>{{ $iso.file }}</code></dd>
 <dt>{{ i18n "iso_size" }}</dt><dd>{{ with $iso.size }}{{ . }}{{ else }}{{ i18n "soon" }}{{ end }}</dd>
 <dt>Secure Boot</dt><dd>{{ if $iso.secure_boot }}{{ i18n "iso_sb_on" }}{{ else }}{{ i18n "iso_sb_off" }}{{ end }}</dd>
 </dl>
 {{- if $ready }}
-<p><a class="iso__get" href="{{ site.Params.code_repo }}/releases/download/{{ $tag }}/{{ $iso.file }}">{{ i18n "iso_download" }} {{ $iso.name }}</a></p>
+<p class="iso__links"><a class="iso__get" href="{{ $base }}/{{ $iso.file }}">{{ i18n "iso_download" }} {{ $iso.name }}</a> <a href="{{ $base }}/{{ site.Data.isos.sums }}">{{ site.Data.isos.sums }}</a></p>
 <p class="iso__label">SHA-256</p>
 <p class="iso__sha"><code>{{ $iso.sha256 }}</code></p>
-<p class="iso__label">{{ i18n "iso_check" }}</p>
-{{ partial "cmd.html" (printf "echo '%s  %s' | sha256sum -c" $iso.sha256 $iso.file) }}
 {{- end }}
 {{- with .Inner }}<div class="iso__notes">{{ . | markdownify }}</div>{{ end }}
 </article>
+{{- end }}
