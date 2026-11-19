@@ -141,4 +141,4 @@ Swaydesk's own login screen is optional: see [how to install it and how to go ba
 | `swaydesk-greeter` | Optional: Swaydesk's login screen, on top of greetd |
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
-The packages are version 0.1.0, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.0) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
+The packages are version 0.1.1, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.1) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
