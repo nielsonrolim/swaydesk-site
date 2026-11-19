@@ -14,6 +14,7 @@
 # Then it goes live only on the coordinator's signal.
 # An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
 # SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
+# When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
 tag = "v0.1.2"
 sums = "SHA256SUMS"
 
