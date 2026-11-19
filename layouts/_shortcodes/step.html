@@ -1,5 +1,6 @@
 {{- /* Um passo: {{< step text="O que faz, em Markdown" fpr="plain" >}}um comando{{< /step >}}.
-  fpr mostra a impressão digital (params.fingerprint) em destaque, como o gpg --show-keys a imprime. */ -}}
+  fpr mostra a impressão digital (params.fingerprint) em destaque, como o gpg --show-keys a imprime: "plain"
+  antes de instalar (com o "pare aqui"), "installed" para conferir a chave já instalada (sem ele). */ -}}
 <li class="step">
 <p class="step__text">{{ .Get "text" | markdownify }}</p>
 {{ partial "cmd.html" (strings.Trim .Inner "\n") }}
@@ -8,7 +9,9 @@
 <div class="fpr">
 <p class="fpr__label">{{ i18n "fpr_must" }}</p>
 <p class="fpr__value"><code>{{ $f }}</code></p>
+{{- if ne . "installed" }}
 <p class="fpr__stop">{{ i18n "fpr_stop" }}</p>
+{{- end }}
 <p class="fpr__meta">{{ i18n "key_meta" }}</p>
 </div>
 {{- end }}
