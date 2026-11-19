@@ -64,6 +64,9 @@ other = "Exactly one key must show up (one pub line, no sub line), with this fin
 [fpr_stop]
 other = "If it's different, stop here and don't go on."
 
+[fpr_purge]
+other = "If it's different, remove the repository and its key, and don't use the packages: `sudo apt purge swaydesk-archive-keyring`."
+
 [key_meta]
 other = "The project's key on OBS: RSA, 4096 bits, valid until 2029-01-23."
 

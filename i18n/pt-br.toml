@@ -64,6 +64,9 @@ other = "Tem de aparecer uma chave só (uma linha pub, nenhuma sub), com esta im
 [fpr_stop]
 other = "Se for diferente, pare aqui e não continue."
 
+[fpr_purge]
+other = "Se for diferente, remova o repositório e a chave, e não use os pacotes: `sudo apt purge swaydesk-archive-keyring`."
+
 [key_meta]
 other = "A chave do projeto no OBS: RSA de 4096 bits, válida até 23/01/2029."
 
