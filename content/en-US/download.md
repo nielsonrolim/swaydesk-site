@@ -10,14 +10,14 @@ Each ISO boots a live Swaydesk session: try it without touching the disk and, if
 
 - A 64-bit PC (x86_64), with UEFI or BIOS
 - 2 GB of RAM
-- 20 GB of disk
+- 22 GB of disk
 - An Intel, AMD or NVIDIA graphics card with a Wayland driver
 
 ## The ISOs
 
 {{< isos >}}
 {{< iso id="debian" >}}
-Debian 13 with Swaydesk. With Secure Boot on, the installer doesn't install the NVIDIA driver (its module isn't signed): turn Secure Boot off, or enroll a MOK key, and run `sudo swaydesk-extras`.
+Debian 13 with Swaydesk. With Secure Boot on, the installer doesn't install the NVIDIA driver (its module isn't signed): turn Secure Boot off and run `sudo swaydesk-extras`.
 {{< /iso >}}
 {{< iso id="ubuntu" >}}
 Ubuntu 26.04 with Swaydesk, without telemetry. It keeps the Ubuntu Pro client without its ads: Ubuntu Pro (extended security updates for universe, free for personal use on up to 5 machines) is off until you run `sudo pro attach`. The NVIDIA driver comes signed and works with Secure Boot on.
@@ -35,7 +35,7 @@ Also download `SHA256SUMS` (the link is next to each ISO) into the same folder a
 sha256sum -c --ignore-missing SHA256SUMS
 ```
 
-It must print the ISO's name followed by `OK`. If it prints `FAILED`, or nothing, delete the ISO and download it again. Each ISO's SHA-256 is also on its card above: it must match the ISO's line in `SHA256SUMS`. This site and the GitHub Release are separate places, so both matching shows that neither was swapped.
+It must print the ISO's name followed by `OK`. If it prints `FAILED`, or nothing, delete the ISO and download it again. Each ISO's SHA-256 is also on its card above: it must match the ISO's line in `SHA256SUMS`. This catches a corrupted or incomplete download; it is not a signature (both are published from the same GitHub account).
 
 ## Writing it to a USB stick
 
@@ -59,6 +59,6 @@ Printing and scanning come ready (CUPS, network printers through avahi, and Docu
 
 ### Next to another system (dual boot)
 
-The installed system's GRUB lists the other systems on the disks. The installer's **Install alongside** option shows only when the disk has room for Swaydesk (20 GB plus a margin), and it shrinks the other system's partition. On a tight disk the installer can misjudge that partition's minimum: the resize fails before anything changes, the data stays as it was, and the installation stops. To avoid that, shrink the other system first, with its own tools, and install into the free space.
+The installed system's GRUB lists the other systems on the disks. The installer's **Install alongside** option shows only when the disk has room for Swaydesk (22 GB plus a margin), and it shrinks the other system's partition. On a tight disk the installer can misjudge that partition's minimum: the resize fails before anything changes, the data stays as it was, and the installation stops. To avoid that, shrink the other system first, with its own tools, and install into the free space.
 
 After installing, the [first steps](/en-us/guide/first-steps/) cover the rest.

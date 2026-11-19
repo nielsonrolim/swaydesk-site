@@ -1,7 +1,7 @@
 {{- /* Um cartão da página Baixar: {{< iso id="debian" >}}notas em Markdown{{< /iso >}}.
   Os valores vêm de data/isos.toml. published = false tira o cartão (e as notas) da página; o que ainda está
-  vazio aparece como "em breve", sem link. O SHA-256 também sai deste site, e não só do SHA256SUMS do
-  Release, para a conferência não depender só do GitHub. */ -}}
+  vazio aparece como "em breve", sem link. O SHA-256 também aparece no cartão, igual ao do SHA256SUMS
+  do Release: pega download corrompido, não é assinatura (site e Release saem da mesma conta do GitHub). */ -}}
 {{- $id := .Get "id" }}
 {{- $iso := index site.Data.isos $id }}
 {{- if not $iso }}{{ errorf "iso: %q não está em data/isos.toml" $id }}{{ end }}

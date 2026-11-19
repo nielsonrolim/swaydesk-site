@@ -10,14 +10,14 @@ Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se
 
 - Um PC de 64 bits (x86_64), com UEFI ou BIOS
 - 2 GB de RAM
-- 20 GB de disco
+- 22 GB de disco
 - Placa de vídeo Intel, AMD ou NVIDIA com driver para Wayland
 
 ## As ISOs
 
 {{< isos >}}
 {{< iso id="debian" >}}
-Debian 13 com o Swaydesk. Com o Secure Boot ligado, o instalador não instala o driver da NVIDIA (o módulo dele não é assinado): desligue o Secure Boot, ou registre uma chave MOK, e rode `sudo swaydesk-extras`.
+Debian 13 com o Swaydesk. Com o Secure Boot ligado, o instalador não instala o driver da NVIDIA (o módulo dele não é assinado): desligue o Secure Boot e rode `sudo swaydesk-extras`.
 {{< /iso >}}
 {{< iso id="ubuntu" >}}
 Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`. O driver da NVIDIA vem assinado e funciona com o Secure Boot ligado.
@@ -35,7 +35,7 @@ Baixe também o `SHA256SUMS` (o link fica ao lado de cada ISO) para a mesma past
 sha256sum -c --ignore-missing SHA256SUMS
 ```
 
-Tem de aparecer o nome da ISO seguido de `OK`. Se aparecer `FAILED`, ou nada, apague a ISO e baixe de novo. O SHA-256 de cada ISO também está no cartão dela, acima: tem de ser igual à linha da ISO no `SHA256SUMS`. Este site e o Release do GitHub são lugares separados, então os dois iguais mostram que nenhum dos dois foi trocado.
+Tem de aparecer o nome da ISO seguido de `OK`. Se aparecer `FAILED`, ou nada, apague a ISO e baixe de novo. O SHA-256 de cada ISO também está no cartão dela, acima: tem de ser igual à linha da ISO no `SHA256SUMS`. Isso pega um download corrompido ou incompleto; não é uma assinatura (os dois são publicados pela mesma conta do GitHub).
 
 ## Gravar num pendrive
 
@@ -59,6 +59,6 @@ A impressão e o scanner já vêm prontos (CUPS, impressoras da rede pelo avahi 
 
 ### Junto com outro sistema (dual boot)
 
-O GRUB do sistema instalado lista os outros sistemas dos discos. A opção do instalador de instalar ao lado do outro sistema só aparece quando o disco tem espaço para o Swaydesk (20 GB e uma folga) e encolhe a partição do outro sistema. Num disco apertado, o instalador pode estimar errado o mínimo dessa partição: o redimensionamento falha antes de mudar qualquer coisa, os dados ficam como estavam e a instalação para. Para evitar isso, encolha o outro sistema antes, pelas ferramentas dele, e instale no espaço livre.
+O GRUB do sistema instalado lista os outros sistemas dos discos. A opção do instalador de instalar ao lado do outro sistema só aparece quando o disco tem espaço para o Swaydesk (22 GB e uma folga) e encolhe a partição do outro sistema. Num disco apertado, o instalador pode estimar errado o mínimo dessa partição: o redimensionamento falha antes de mudar qualquer coisa, os dados ficam como estavam e a instalação para. Para evitar isso, encolha o outro sistema antes, pelas ferramentas dele, e instale no espaço livre.
 
 Depois de instalar, os [primeiros passos](/pt-br/guide/first-steps/) cobrem o resto.
