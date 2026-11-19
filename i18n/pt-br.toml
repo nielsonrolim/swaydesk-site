@@ -115,5 +115,8 @@ other = "funciona com o Secure Boot ligado"
 [iso_sb_off]
 other = "desligue o Secure Boot"
 
+[iso_older]
+other = "Imagem {{ .old }}; depois de instalar, atualiza para a {{ .new }}."
+
 [iso_download]
 other = "Baixar"

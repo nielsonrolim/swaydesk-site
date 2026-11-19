@@ -199,6 +199,7 @@ html.lb-open { overflow: hidden; }
 .iso__label { margin: .75rem 0 .2rem; color: var(--muted); font-size: .8rem; }
 .iso__sha { margin: 0; overflow-wrap: anywhere; }
 .iso__sha code { white-space: pre-wrap; }
+.iso__older { margin: .75rem 0 0; color: var(--muted); }
 .iso__notes { margin-top: .75rem; }
 .iso__notes > :first-child { margin-top: 0; }
 .iso__notes > :last-child { margin-bottom: 0; }

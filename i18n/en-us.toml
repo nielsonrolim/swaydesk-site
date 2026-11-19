@@ -115,5 +115,8 @@ other = "works with Secure Boot on"
 [iso_sb_off]
 other = "turn Secure Boot off"
 
+[iso_older]
+other = "{{ .old }} image; it updates to {{ .new }} after install."
+
 [iso_download]
 other = "Download"

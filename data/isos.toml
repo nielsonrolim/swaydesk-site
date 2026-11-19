@@ -12,26 +12,29 @@
 # Error-Mode fix) in each ISO, Arch included; and its VM test in each: offline with the codecs box -> the
 # notice; "sudo swaydesk-extras" with network -> it goes away; without the box -> nothing.
 # Then it goes live only on the coordinator's signal.
-tag = "v0.1.1"
+# An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
+# SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
+tag = "v0.1.2"
 sums = "SHA256SUMS"
 
 [debian]
 published = true
 name = "Debian 13"
-file = "swaydesk-0.1.1-debian13-amd64.iso"
-size = "1.8 GB"
-sha256 = "9bbab20fb112c77d6a1b91e9a00f5e2f3bb0837d5b69b6842b944007f5a238ad"
+file = "swaydesk-0.1.2-debian13-amd64.iso"
+size = ""
+sha256 = ""
 secure_boot = true
 
 [ubuntu]
 published = true
 name = "Ubuntu 26.04"
-file = "swaydesk-0.1.1-ubuntu26.04-amd64.iso"
-size = "1.9 GB"
-sha256 = "1930fd51976a0ea85acb43fe2c210a098a589bc6af7b40bf867a3d4c92297ec7"
+file = "swaydesk-0.1.2-ubuntu26.04-amd64.iso"
+size = ""
+sha256 = ""
 secure_boot = true
 
 [arch]
+tag = "v0.1.1"
 published = true
 name = "Arch Linux"
 file = "swaydesk-0.1.1-arch-x86_64.iso"

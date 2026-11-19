@@ -1,12 +1,14 @@
 {{- /* Um cartão da página Baixar: {{< iso id="debian" >}}notas em Markdown{{< /iso >}}.
   Os valores vêm de data/isos.toml. published = false tira o cartão (e as notas) da página; o que ainda está
   vazio aparece como "em breve", sem link. O SHA-256 também aparece no cartão, igual ao do SHA256SUMS
-  do Release: pega download corrompido, não é assinatura (site e Release saem da mesma conta do GitHub). */ -}}
+  do Release: pega download corrompido, não é assinatura (site e Release saem da mesma conta do GitHub).
+  Um tag no próprio ISO (de um Release mais velho) vale para o link dele e o do SHA256SUMS, com o aviso
+  iso_older. */ -}}
 {{- $id := .Get "id" }}
 {{- $iso := index site.Data.isos $id }}
 {{- if not $iso }}{{ errorf "iso: %q não está em data/isos.toml" $id }}{{ end }}
 {{- if $iso.published }}
-{{- $tag := site.Data.isos.tag }}
+{{- $tag := $iso.tag | default site.Data.isos.tag }}
 {{- $base := printf "%s/releases/download/%s" site.Params.code_repo $tag }}
 {{- $ready := and $tag $iso.file $iso.size $iso.sha256 }}
 <article class="iso" id="{{ $id }}">
@@ -21,6 +23,7 @@
 <p class="iso__label">SHA-256</p>
 <p class="iso__sha"><code>{{ $iso.sha256 }}</code></p>
 {{- end }}
+{{- if ne $tag site.Data.isos.tag }}<p class="iso__older">{{ i18n "iso_older" (dict "old" (strings.TrimPrefix "v" $tag) "new" (strings.TrimPrefix "v" site.Data.isos.tag)) }}</p>{{ end }}
 {{- with .Inner }}<div class="iso__notes">{{ . | markdownify }}</div>{{ end }}
 </article>
 {{- end }}
