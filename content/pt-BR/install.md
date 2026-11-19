@@ -23,11 +23,11 @@ echo "5b8a2cb8af4a051bf5d3decdcf66fb0f4fcbb66d2728656969e1d673e4c00821  $HOME/sw
 {{< step text="Instale-o. Ele põe a chave em `/usr/share/keyrings/` e o repositório em `/etc/apt/sources.list.d/swaydesk.sources`, e daí em diante mantém os dois atualizados." >}}
 sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
 {{< /step >}}
+{{< step text="Opcional, antes do passo 6: veja a impressão digital da chave instalada (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
 {{< step text="Atualize a lista de pacotes e instale o Swaydesk." >}}
 sudo apt update && sudo apt install swaydesk-desktop
-{{< /step >}}
-{{< step text="Opcional: veja a impressão digital da chave (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
-gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Depois do passo 1 (curl), os outros passos encadeados: se o arquivo baixado não for o esperado, nada é instalado." >}}
@@ -51,11 +51,11 @@ echo "b22f785fbd083685c60bdc90ffb2e1d0e91c93db8513c3fc850e62ab36044767  $HOME/sw
 {{< step text="Instale-o. Ele põe a chave em `/usr/share/keyrings/` e o repositório em `/etc/apt/sources.list.d/swaydesk.sources`, e daí em diante mantém os dois atualizados." >}}
 sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
 {{< /step >}}
+{{< step text="Opcional, antes do passo 6: veja a impressão digital da chave instalada (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
 {{< step text="Atualize a lista de pacotes e instale o Swaydesk." >}}
 sudo apt update && sudo apt install swaydesk-desktop
-{{< /step >}}
-{{< step text="Opcional: veja a impressão digital da chave (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
-gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Depois do passo 1 (curl), os outros passos encadeados: se o arquivo baixado não for o esperado, nada é instalado." >}}

@@ -23,11 +23,11 @@ echo "5b8a2cb8af4a051bf5d3decdcf66fb0f4fcbb66d2728656969e1d673e4c00821  $HOME/sw
 {{< step text="Install it. It puts the key in `/usr/share/keyrings/` and the repository in `/etc/apt/sources.list.d/swaydesk.sources`, and from then on keeps both up to date." >}}
 sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
 {{< /step >}}
+{{< step text="Optional, before step 6: see the installed key's fingerprint (needs `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
 {{< step text="Update the package list and install Swaydesk." >}}
 sudo apt update && sudo apt install swaydesk-desktop
-{{< /step >}}
-{{< step text="Optional: see the key's fingerprint (needs `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
-gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="After step 1 (curl), the other steps chained: if the downloaded file isn't the expected one, nothing gets installed." >}}
@@ -51,11 +51,11 @@ echo "b22f785fbd083685c60bdc90ffb2e1d0e91c93db8513c3fc850e62ab36044767  $HOME/sw
 {{< step text="Install it. It puts the key in `/usr/share/keyrings/` and the repository in `/etc/apt/sources.list.d/swaydesk.sources`, and from then on keeps both up to date." >}}
 sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
 {{< /step >}}
+{{< step text="Optional, before step 6: see the installed key's fingerprint (needs `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
 {{< step text="Update the package list and install Swaydesk." >}}
 sudo apt update && sudo apt install swaydesk-desktop
-{{< /step >}}
-{{< step text="Optional: see the key's fingerprint (needs `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
-gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="After step 1 (curl), the other steps chained: if the downloaded file isn't the expected one, nothing gets installed." >}}
