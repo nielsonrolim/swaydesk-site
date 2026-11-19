@@ -127,4 +127,4 @@ O serviço de notificações não está respondendo, e as notificações se perd
 
 ### Escolhi uma impressora da rede e o diálogo ficou em "Obtendo informações da impressora…"
 
-É normal na primeira vez: o CUPS está criando a fila da impressora e perguntando a ela o que ela sabe fazer, o que leva até uns 30 segundos. Depois a impressão sai normalmente, e nas próximas vezes a impressora aparece pronta logo. Para ter uma fila fixa, adicione a impressora em **Configurações da impressão**, que vem nas ISOs.
+É normal na primeira vez: o CUPS está criando a fila da impressora e perguntando a ela o que ela sabe fazer, o que leva até uns 30 segundos. Depois a impressão sai normalmente. O CUPS apaga essa fila temporária depois de um tempo sem uso, então a espera pode voltar; para evitar, adicione a impressora de vez em **Configurações da impressão** (no Ubuntu, **Impressoras**), que vem nas ISOs.

@@ -127,4 +127,4 @@ The notification service isn't responding, and notifications are getting lost. I
 
 ### I picked a network printer and the dialog is stuck on "Getting printer information…"
 
-That's normal the first time: CUPS is creating the printer's queue and asking the printer what it can do, which takes up to about 30 seconds. Then it prints normally, and later selections are quick. To keep a permanent queue, add the printer in **Print Settings**, which comes with the ISOs.
+That's normal the first time: CUPS is creating the printer's queue and asking the printer what it can do, which takes up to about 30 seconds. Then it prints normally. CUPS removes that temporary queue after a while unused, so the wait can come back; to avoid it, add the printer permanently in **Print Settings** (called **Printers** on Ubuntu), which comes with the ISOs.
