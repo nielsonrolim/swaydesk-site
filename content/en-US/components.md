@@ -38,7 +38,7 @@ Nearly every component can be turned off. The last line of each one shows the ke
 
 {{< component title="Clipboard" shot="clipboard" keys="`Super`+`V`" guide="guide/desktop/#clipboard-history" bin="swaydesk-clipboard-popup" src="rust/clipboard-popup" tech="rust" off="clipboard_history" >}}The history of what you copied, with search, thumbnails and pinned items. Turned off, nothing more is saved to the history.{{< /component >}}
 
-The bar also shows the keyboard layout when there are two or more; a click switches the layout. To take it off the bar: `[enabled.bar] language = false`.
+The bar also shows the keyboard layout when there are two or more; a click switches the layout. To take it off the bar: `[enabled.bar] language = false`. On Arch, it also shows the number of updates, when there are any; `[enabled.bar] updates = false` takes it off.
 
 
 ## Windows and apps
@@ -58,7 +58,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Volume and brightness indicator" shot="osd" keys="Volume and brightness keys" bin="swaydesk-osd-bar" src="rust/osd-bar" tech="rust" off="osd" >}}Icon, bar and percentage on screen for a second.{{< /component >}}
 
-{{< component title="Session menu" shot="session" keys="`Ctrl`+`Alt`+`Delete`; the bar's power button" guide="guide/desktop/#session-menu" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Lock, log out, suspend, restart and shut down.{{< /component >}}
+{{< component title="Session menu" shot="session" keys="`Ctrl`+`Alt`+`Delete`; the bar's power button" guide="guide/desktop/#session-menu" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Lock, log out, suspend, restart and shut down. When an app asks to restart or shut down, such as the store's **Restart & Update**, it asks first, with a 60-second countdown and a button to cancel.{{< /component >}}
 
 {{< component title="Lock screen" shot="lock" keys="`Ctrl`+`Alt`+`L`; on its own after 10 minutes" guide="guide/desktop/#lock-screen-and-idle" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Time, date and the password field on every monitor, over the blurred wallpaper. It needs gtk4-layer-shell 1.2; before that, as on Debian 13, swaylock locks the screen.{{< /component >}}
 
@@ -68,7 +68,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Administrator password" keys="When an app asks for permission" guide="guide/desktop/#passwords-and-keyring" bin="sway-polkit-agent (mate-polkit)" src="home/.local/bin/sway-polkit-agent" tech="script" off="polkit_agent" >}}Starts the polkit agent: the window that asks for your password for administrator actions, such as mounting a disk. With no agent installed, a notification says so.{{< /component >}}
 
-{{< component title="Update notifier" keys="At login" bin="sway-update-notifier" src="home/.local/bin/sway-update-notifier" tech="script" off="update_notifier" >}}Starts the distro's update notifier, which Sway doesn't start by itself: GNOME Software's, Ubuntu's Software Updater or Discover's. With none of them, it does nothing.{{< /component >}}
+{{< component title="Update notifier" keys="At login" bin="sway-update-notifier" src="home/.local/bin/sway-update-notifier" tech="script" off="update_notifier" >}}Starts the distro's update notifier, which Sway doesn't start by itself: GNOME Software's, Ubuntu's Software Updater or Discover's. On Arch, Swaydesk has its own notice, with an icon in the bar: the official repositories, the AUR (through paru or yay, if installed), Flatpak apps and firmware; see [Updates on Arch](/en-us/guide/config/#updates-on-arch). Nothing is updated on its own.{{< /component >}}
 
 {{< component title="Night light" keys="In the brightness popup" guide="guide/desktop/#the-bar" bin="sway-nightlight (gammastep)" src="home/.local/bin/sway-nightlight" tech="script" off="nightlight" >}}Warms up the colors at night through gammastep, and comes back in its last mode when you log in.{{< /component >}}
 
@@ -77,7 +77,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 ## Apps of its own
 
-{{< component title="Desktop Theme" shot="theme" keys="In the app grid" guide="guide/config/" bin="swaydesk-theme-app" src="rust/theme-app" tech="rust" >}}Picks the GTK theme, the icons and the accent color, and applies them all at once, GTK and libadwaita apps included.{{< /component >}}
+{{< component title="Desktop Theme" shot="theme" keys="In the app grid" guide="guide/config/" bin="swaydesk-theme-app" src="rust/theme-app" tech="rust" >}}Picks the GTK theme, the icons and the accent color, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off.{{< /component >}}
 
 {{< component title="Displays" shot="displays" keys="In the app grid" guide="guide/config/#displays" bin="swaydesk-displays" src="rust/displays" tech="rust" off="displays" >}}Your screens on a map, to drag around, with each one's resolution, refresh rate, scale and rotation, and whether it's on. A change undoes itself after 15 seconds unless you keep it. Each set of monitors keeps its own layout, applied when you plug or unplug a screen, and the laptop screen turns off with the lid closed and an external monitor on. The key turns off only these automatic profiles; the app stays.{{< /component >}}
 
@@ -107,3 +107,5 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 | gnome-text-editor | The Help's **Open** button, which edits `50-local.conf`; without it, the Help opens an editor in the terminal. Recommended on Debian and Ubuntu; optional on Arch |
 | grim, slurp and wf-recorder | Screenshots and screen recording |
 | swaylock | The fallback lock screen; on Debian 13, the one in use |
+
+The install images also bring an app store, GNOME Software, with Flathub. On Debian and Ubuntu it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.

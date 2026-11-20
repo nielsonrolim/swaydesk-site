@@ -5,7 +5,7 @@ facts:
   - {k: base, v: "Sway, the tiling Wayland compositor"}
   - {k: stack, v: "Rust, GTK 4, layer-shell"}
   - {k: distros, v: "Debian 13 / testing, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
-  - {k: status, v: "0.1.2, stable; packages on OBS"}
+  - {k: status, v: "0.1.3, stable; packages on OBS"}
 ---
 Swaydesk turns [Sway](https://swaywm.org/) into a complete desktop without losing what makes it good: it is light, fast and fully driven by the keyboard when you want it.
 
@@ -22,6 +22,7 @@ A tour of the bar, the dock, the app grid, the launcher, the popups, the theme, 
 - **Shortcuts you already know:** KDE Plasma with Krohnkite by default, or the i3, Hyprland, niri or dwm keys. See the [shortcuts](/en-us/shortcuts/).
 - **Effortless tiling:** windows arrange themselves, and you can still float a window, make it fullscreen or put it aside.
 - **One look:** the theme, the icons and the accent color change together in the bar, the dock, the popups and in GTK and libadwaita apps.
+- **In your language:** English, Brazilian Portuguese and Spanish, in the desktop and in the installer.
 - **No surprises:** the session has a password agent, a keyring, a portal for screen sharing and update notices, like the bigger desktops.
 
 ## Next steps

@@ -2,9 +2,9 @@
 title: Download
 prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
-description: Swaydesk's live ISOs, stable version 0.1.2, with an installer.
+description: Swaydesk's live ISOs, stable version 0.1.3, with an installer.
 ---
-Each ISO boots a live Swaydesk session: try it without touching the disk and, if you like it, install it with the **Install Swaydesk** icon in the dock. These are stable ISOs, version 0.1.2, the same as the packages. Already have Debian 13 or testing, Ubuntu 26.04, Linux Mint 27 or Arch? Then you don't need an ISO: [install the packages](/en-us/install/) on the system you have. Linux Mint 27 has no Swaydesk ISO; there, Swaydesk comes only through the packages.
+Each ISO boots a live Swaydesk session: try it without touching the disk and, if you like it, install it with the **Install Swaydesk** icon in the dock. These are stable ISOs, version 0.1.3, the same as the packages. Already have Debian 13 or testing, Ubuntu 26.04, Linux Mint 27 or Arch? Then you don't need an ISO: [install the packages](/en-us/install/) on the system you have. Linux Mint 27 has no Swaydesk ISO; there, Swaydesk comes only through the packages.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ Each ISO boots a live Swaydesk session: try it without touching the disk and, if
 
 {{< isos >}}
 {{< iso id="debian" >}}
-Debian 13 with Swaydesk. With Secure Boot on, the installer doesn't install the NVIDIA driver (its module isn't signed): turn Secure Boot off and run `sudo swaydesk-extras`.
+Debian 13 with Swaydesk. With Secure Boot on, the NVIDIA driver is installed too, signed with a key of your computer: after the first login a notice asks you to run `sudo swaydesk-extras`, which shows a one-time password, and at the next restart you enroll the key on a blue screen (MokManager) with that password.
 {{< /iso >}}
 {{< iso id="ubuntu" >}}
 Ubuntu 26.04 with Swaydesk, without telemetry. It keeps the Ubuntu Pro client without its ads: Ubuntu Pro (extended security updates for universe, free for personal use on up to 5 machines) is off until you run `sudo pro attach`. The NVIDIA driver comes signed and works with Secure Boot on.

@@ -93,7 +93,7 @@ Swaydesk keeps a history of what you copy: text, images and other content up to 
 
 ## Session menu
 
-`Ctrl`+`Alt`+`Delete`, or the power button on the bar, opens the session menu in the middle of the screen: **Lock**, **Log out**, **Suspend**, **Restart** and **Shut down**, also on the `L`, `E`, `S`, `R` and `P` keys. The arrow keys and `Tab` move between buttons, and `Esc` or a click outside closes the menu. There's no confirmation: clicking **Shut down** shuts down.
+`Ctrl`+`Alt`+`Delete`, or the power button on the bar, opens the session menu in the middle of the screen: **Lock**, **Log out**, **Suspend**, **Restart** and **Shut down**, also on the `L`, `E`, `S`, `R` and `P` keys. The arrow keys and `Tab` move between buttons, and `Esc` or a click outside closes the menu. There's no confirmation: clicking **Shut down** shuts down. When an app asks to restart or shut down, such as the store's **Restart & Update**, Swaydesk asks first, with a 60-second countdown and a button to cancel; cancelling keeps the update for the next restart.
 
 ## Lock screen and idle
 

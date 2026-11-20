@@ -43,6 +43,9 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
+# true (the default): the accent color comes from the wallpaper and changes with it
+accent_auto = true
+
 # Papirus folder color, such as "teal". Empty: the closest to the accent
 folder_color = ""
 
@@ -52,7 +55,7 @@ file_manager = "thunar"
 
 Programs read the file when they start. After editing it by hand:
 
-- for the accent color, run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
+- for the accent color, first set `accent_auto = false`, or the next wallpaper brings its own color back; then run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
 - for the language, the city and the holidays, log out and back in.
 
@@ -85,7 +88,7 @@ weather = false         # the weather on the bar
 | `update_notifier` | The update notifier |
 | `displays` | The automatic screen profiles; the **Displays** app stays |
 
-The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` and `power`. The workspaces and the tray are always there.
+The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` and, on Arch, `updates`. The workspaces and the tray are always there.
 
 A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
 

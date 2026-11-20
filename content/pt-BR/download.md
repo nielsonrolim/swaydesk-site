@@ -2,9 +2,9 @@
 title: Baixar
 prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
-description: As ISOs live do Swaydesk, versão 0.1.2 estável, com instalador.
+description: As ISOs live do Swaydesk, versão 0.1.3 estável, com instalador.
 ---
-Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.2, a mesma dos pacotes. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Linux Mint 27 não tem ISO do Swaydesk; nele, o Swaydesk entra só pelos pacotes.
+Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.3, a mesma dos pacotes. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Linux Mint 27 não tem ISO do Swaydesk; nele, o Swaydesk entra só pelos pacotes.
 
 ## Requisitos
 
@@ -17,7 +17,7 @@ Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se
 
 {{< isos >}}
 {{< iso id="debian" >}}
-Debian 13 com o Swaydesk. Com o Secure Boot ligado, o instalador não instala o driver da NVIDIA (o módulo dele não é assinado): desligue o Secure Boot e rode `sudo swaydesk-extras`.
+Debian 13 com o Swaydesk. Com o Secure Boot ligado, o driver da NVIDIA também é instalado, assinado com uma chave do seu computador: depois do primeiro login, um aviso pede para rodar `sudo swaydesk-extras`, que mostra uma senha de uso único, e no reinício seguinte você cadastra a chave numa tela azul (o MokManager) com essa senha.
 {{< /iso >}}
 {{< iso id="ubuntu" >}}
 Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`. O driver da NVIDIA vem assinado e funciona com o Secure Boot ligado.

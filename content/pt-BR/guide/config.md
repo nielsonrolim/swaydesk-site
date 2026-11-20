@@ -43,6 +43,9 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
+# true (o padrão): a cor de destaque vem do papel de parede e muda com ele
+accent_auto = true
+
 # Cor das pastas do Papirus, como "teal". Vazio: a mais perto do destaque
 folder_color = ""
 
@@ -52,7 +55,7 @@ file_manager = "thunar"
 
 Os programas leem o arquivo quando abrem. Depois de editar à mão:
 
-- para a cor de destaque, rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
+- para a cor de destaque, ponha antes `accent_auto = false`, senão o próximo papel de parede traz a cor dele de volta; depois rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
 - para o idioma, a cidade e os feriados, saia e entre de novo na sessão.
 
@@ -85,7 +88,7 @@ weather = false         # o clima na barra
 | `update_notifier` | O aviso de atualizações |
 | `displays` | Os perfis automáticos das telas; o app **Telas** continua |
 
-As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` e `power`. Os workspaces e a bandeja ficam sempre.
+As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` e, no Arch, `updates`. Os workspaces e a bandeja ficam sempre.
 
 A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
 
