@@ -38,7 +38,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
 {{< distro id="debian-testing" name="Debian testing" >}}
-<p class="distro__note">O Debian testing é melhor esforço: numa transição de bibliotecas do testing, os pacotes podem quebrar por alguns dias, até uma revisão nova.</p>
+<p class="distro__note">Distribuição contínua: o Swaydesk é testado nela a cada lançamento, mas atualizações da própria distribuição podem exigir correções depois.</p>
 {{< steps >}}
 {{< step text="Instale o `curl`, que baixa o pacote do repositório." >}}
 sudo apt install curl
@@ -95,6 +95,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
 {{< distro id="arch" name="Arch Linux" >}}
+<p class="distro__note">Distribuição contínua: o Swaydesk é testado nela a cada lançamento, mas atualizações da própria distribuição podem exigir correções depois.</p>
 {{< steps >}}
 {{< step text="Adicione o repositório ao fim do `/etc/pacman.conf` (uma vez só)." >}}
 sudo tee -a /etc/pacman.conf <<'EOF'
