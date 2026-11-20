@@ -6,6 +6,12 @@ description: Swaydesk on Debian 13, with the dark Adwaita theme and the default 
 ---
 Swaydesk on Debian 13, with the dark Adwaita theme and the default accent color. Click an image to see it full size.
 
+## On video
+
+{{< demo >}}
+
+## Images
+
 {{< gallery >}}
 {{< shot "desktop" "The desktop: the bar on top, the dock at the bottom and three windows side by side" >}}
 {{< shot "desktop-light" "The same, with the light theme and the orange accent color" >}}

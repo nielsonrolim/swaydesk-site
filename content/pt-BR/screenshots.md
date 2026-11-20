@@ -6,6 +6,12 @@ description: O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de desta
 ---
 O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de destaque padrão. Clique numa imagem para vê-la inteira.
 
+## Em vídeo
+
+{{< demo >}}
+
+## Imagens
+
 {{< gallery >}}
 {{< shot "desktop" "A área de trabalho: barra no topo, dock embaixo e três janelas lado a lado" >}}
 {{< shot "desktop-light" "O mesmo, com o tema claro e a cor de destaque laranja" >}}

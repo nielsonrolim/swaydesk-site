@@ -120,3 +120,12 @@ other = "{{ .old }} image; it updates to {{ .new }} after install."
 
 [iso_download]
 other = "Download"
+
+[demo_caption]
+other = "Recorded in a VM ({{ .duration }}, no sound); Bluetooth, battery and brightness are simulated."
+
+[demo_chapters]
+other = "Chapters ({{ .count }})"
+
+[demo_fallback]
+other = "Download the video (MP4)"

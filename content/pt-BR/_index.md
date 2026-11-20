@@ -11,7 +11,11 @@ O Swaydesk transforma o [Sway](https://swaywm.org/) num desktop completo, sem pe
 
 Em cima do Sway vêm as peças que um desktop precisa: barra com popups de rede, Bluetooth, áudio, bateria, brilho e calendário; dock com os apps fixados e abertos; grade de apps; central de notificações; histórico da área de transferência; tela de bloqueio; tela de login; troca de janelas com Alt+Tab; captura e gravação de tela; e um app para escolher o tema e a cor de destaque. Os componentes são programas próprios, escritos em Rust com GTK 4.
 
-{{< shot "desktop" "A área de trabalho do Swaydesk: barra no topo, dock embaixo e três janelas lado a lado" >}}
+## Veja em ação
+
+Um passeio pela barra, a dock, a grade de apps, o lançador, os popups, o tema, as telas, a ajuda e a tela de bloqueio. Os capítulos, embaixo do vídeo, pulam direto para cada parte.
+
+{{< demo >}}
 
 ## O que você encontra
 

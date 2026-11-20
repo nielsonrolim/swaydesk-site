@@ -203,3 +203,14 @@ html.lb-open { overflow: hidden; }
 .iso__notes { margin-top: .75rem; }
 .iso__notes > :first-child { margin-top: 0; }
 .iso__notes > :last-child { margin-bottom: 0; }
+
+/* O vídeo de demonstração e os capítulos */
+.demo { margin: 1.5rem 0 .5rem; }
+.demo__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line-strong); border-radius: var(--frame); }
+.demo__chapters { margin: 0 0 2rem; }
+.demo__chapters summary { cursor: pointer; font-weight: 700; }
+.demo__chapters ol { list-style: none; padding: 0; margin: .5rem 0 0; columns: 16rem auto; column-gap: 2rem; font-size: .9rem; }
+.demo__chapters li { break-inside: avoid; margin: 0 0 .2rem; }
+.demo__chapters a { text-decoration: none; }
+.demo__l { text-decoration: underline; }
+.demo__t { display: inline-block; min-width: 2.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }

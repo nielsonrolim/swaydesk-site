@@ -1,0 +1,22 @@
+{{- /* The demo video for the page's language, from data/demo.toml: {{< demo >}}. preload="none": nothing of the
+  21 MB loads before play (Chrome's "metadata" fetched 10 MB on a fast link); the poster and the caption's
+  duration stand in. The MP4 has faststart, so playback starts at once. The chapters are links to the
+  file with #t=; with JS, demo.js seeks the player instead. Only one per page (one id). */ -}}
+{{- $v := index site.Data.demo (lower site.Language.Lang) }}
+{{- if not $v }}{{ errorf "demo: no %q in data/demo.toml" site.Language.Lang }}{{ end }}
+{{- $poster := resources.Get $v.poster | fingerprint }}
+<figure class="demo">
+<video id="demo-video" class="demo__video" controls preload="none" playsinline poster="{{ $poster.RelPermalink }}" width="{{ $poster.Width }}" height="{{ $poster.Height }}" aria-describedby="demo-caption">
+<source src="{{ $v.file }}" type="video/mp4">
+<a href="{{ $v.file }}">{{ i18n "demo_fallback" }}</a>
+</video>
+<figcaption id="demo-caption">{{ i18n "demo_caption" (dict "duration" $v.duration) }}</figcaption>
+</figure>
+<details class="demo__chapters">
+<summary>{{ i18n "demo_chapters" (dict "count" (len $v.chapters)) }}</summary>
+<ol>
+{{- range $v.chapters }}
+<li><a href="{{ $v.file }}#t={{ .t }}" data-t="{{ .t }}"><span class="demo__t">{{ printf "%d:%02d" (div .t 60) (mod .t 60) }}</span> <span class="demo__l">{{ .label }}</span></a></li>
+{{- end }}
+</ol>
+</details>

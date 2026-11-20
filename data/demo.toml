@@ -1,0 +1,252 @@
+# The demo video (shortcode demo): one per language. Chapters come from vm-manager's .txt files
+# (time of each part); t is in seconds. Recorded in a VM with dbusmock (BlueZ) and test_power.
+
+[pt-br]
+file = "/video/swaydesk-demo-pt-BR.mp4"
+poster = "images/video/demo-pt-BR.webp"
+duration = "5:09"
+[[pt-br.chapters]]
+t = 0
+label = "Greeter e login"
+[[pt-br.chapters]]
+t = 11
+label = "Barra: relógio e calendário"
+[[pt-br.chapters]]
+t = 19
+label = "Barra: clima"
+[[pt-br.chapters]]
+t = 26
+label = "Barra: mídia"
+[[pt-br.chapters]]
+t = 34
+label = "Barra: notificações"
+[[pt-br.chapters]]
+t = 40
+label = "Barra: sistema"
+[[pt-br.chapters]]
+t = 47
+label = "Barra: brilho e luz noturna"
+[[pt-br.chapters]]
+t = 54
+label = "Barra: cafeína"
+[[pt-br.chapters]]
+t = 61
+label = "Barra: Bluetooth (BlueZ simulado)"
+[[pt-br.chapters]]
+t = 68
+label = "Barra: rede"
+[[pt-br.chapters]]
+t = 75
+label = "Barra: áudio"
+[[pt-br.chapters]]
+t = 82
+label = "Barra: bateria (bateria simulada, test_power)"
+[[pt-br.chapters]]
+t = 89
+label = "Dock"
+[[pt-br.chapters]]
+t = 99
+label = "Grade de apps"
+[[pt-br.chapters]]
+t = 104
+label = "Grade: busca"
+[[pt-br.chapters]]
+t = 108
+label = "Grade: calculadora"
+[[pt-br.chapters]]
+t = 114
+label = "Grade: arquivos"
+[[pt-br.chapters]]
+t = 122
+label = "Lançador rofi: apps"
+[[pt-br.chapters]]
+t = 130
+label = "Lançador rofi: janelas"
+[[pt-br.chapters]]
+t = 134
+label = "Lançador rofi: área de transferência"
+[[pt-br.chapters]]
+t = 138
+label = "Lançador rofi: web"
+[[pt-br.chapters]]
+t = 144
+label = "Lançador rofi: clique fora fecha"
+[[pt-br.chapters]]
+t = 148
+label = "Alt+Tab"
+[[pt-br.chapters]]
+t = 154
+label = "OSD de volume"
+[[pt-br.chapters]]
+t = 161
+label = "OSD de brilho (simulado: a VM não tem backlight)"
+[[pt-br.chapters]]
+t = 166
+label = "Histórico da área de transferência"
+[[pt-br.chapters]]
+t = 171
+label = "Notificação"
+[[pt-br.chapters]]
+t = 175
+label = "Não perturbe"
+[[pt-br.chapters]]
+t = 195
+label = "Captura de tela"
+[[pt-br.chapters]]
+t = 204
+label = "Gravação de tela"
+[[pt-br.chapters]]
+t = 220
+label = "Tema do Desktop"
+[[pt-br.chapters]]
+t = 222
+label = "Tema: cor de destaque e claro"
+[[pt-br.chapters]]
+t = 236
+label = "Tema: os apps abertos no claro"
+[[pt-br.chapters]]
+t = 242
+label = "Tema: escuro e a cor de volta"
+[[pt-br.chapters]]
+t = 254
+label = "Telas (duas telas)"
+[[pt-br.chapters]]
+t = 271
+label = "Ajuda: atalhos"
+[[pt-br.chapters]]
+t = 276
+label = "Ajuda: perfil i3"
+[[pt-br.chapters]]
+t = 284
+label = "Ajuda: de volta ao Swaydesk"
+[[pt-br.chapters]]
+t = 293
+label = "Menu da sessão"
+[[pt-br.chapters]]
+t = 298
+label = "Tela de bloqueio"
+
+[en-us]
+file = "/video/swaydesk-demo-en-US.mp4"
+poster = "images/video/demo-en-US.webp"
+duration = "4:44"
+[[en-us.chapters]]
+t = 0
+label = "Greeter and login"
+[[en-us.chapters]]
+t = 10
+label = "Bar: clock and calendar"
+[[en-us.chapters]]
+t = 17
+label = "Bar: weather"
+[[en-us.chapters]]
+t = 23
+label = "Bar: media"
+[[en-us.chapters]]
+t = 30
+label = "Bar: notifications"
+[[en-us.chapters]]
+t = 36
+label = "Bar: system"
+[[en-us.chapters]]
+t = 43
+label = "Bar: brightness and night light"
+[[en-us.chapters]]
+t = 49
+label = "Bar: caffeine"
+[[en-us.chapters]]
+t = 55
+label = "Bar: Bluetooth (simulated BlueZ)"
+[[en-us.chapters]]
+t = 62
+label = "Bar: network"
+[[en-us.chapters]]
+t = 68
+label = "Bar: audio"
+[[en-us.chapters]]
+t = 75
+label = "Bar: battery (simulated battery, test_power)"
+[[en-us.chapters]]
+t = 82
+label = "Dock"
+[[en-us.chapters]]
+t = 90
+label = "App grid"
+[[en-us.chapters]]
+t = 94
+label = "App grid: search"
+[[en-us.chapters]]
+t = 98
+label = "App grid: calculator"
+[[en-us.chapters]]
+t = 103
+label = "App grid: files"
+[[en-us.chapters]]
+t = 110
+label = "Rofi launcher: apps"
+[[en-us.chapters]]
+t = 117
+label = "Rofi launcher: windows"
+[[en-us.chapters]]
+t = 121
+label = "Rofi launcher: clipboard"
+[[en-us.chapters]]
+t = 125
+label = "Rofi launcher: web"
+[[en-us.chapters]]
+t = 131
+label = "Rofi launcher: clicking outside closes it"
+[[en-us.chapters]]
+t = 134
+label = "Alt+Tab"
+[[en-us.chapters]]
+t = 140
+label = "Volume OSD"
+[[en-us.chapters]]
+t = 146
+label = "Brightness OSD (simulated: the VM has no backlight)"
+[[en-us.chapters]]
+t = 150
+label = "Clipboard history"
+[[en-us.chapters]]
+t = 155
+label = "Notification"
+[[en-us.chapters]]
+t = 159
+label = "Do not disturb"
+[[en-us.chapters]]
+t = 178
+label = "Screenshot"
+[[en-us.chapters]]
+t = 187
+label = "Screen recording"
+[[en-us.chapters]]
+t = 201
+label = "Desktop Theme"
+[[en-us.chapters]]
+t = 203
+label = "Theme: accent color and light style"
+[[en-us.chapters]]
+t = 216
+label = "Theme: open apps in the light style"
+[[en-us.chapters]]
+t = 222
+label = "Theme: dark style and the color back"
+[[en-us.chapters]]
+t = 232
+label = "Displays (two screens)"
+[[en-us.chapters]]
+t = 247
+label = "Help: shortcuts"
+[[en-us.chapters]]
+t = 251
+label = "Help: i3 profile"
+[[en-us.chapters]]
+t = 260
+label = "Help: back to Swaydesk"
+[[en-us.chapters]]
+t = 268
+label = "Session menu"
+[[en-us.chapters]]
+t = 273
+label = "Lock screen"

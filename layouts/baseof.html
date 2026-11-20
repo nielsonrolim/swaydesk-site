@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>{{ if .IsHome }}{{ site.Params.name }} — {{ i18n "tagline" }}{{ else }}{{ .Title }} · {{ site.Params.name }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ i18n "description" }}{{ end }}">
@@ -40,6 +40,9 @@
 <button type="button" class="lightbox__btn lightbox__next" data-lb="next" aria-label="{{ i18n "lb_next" }}">→</button>
 </dialog>
 <script src="/js/lightbox.js" defer></script>
+{{- end }}
+{{- if .HasShortcode "demo" }}
+<script src="/js/demo.js" defer></script>
 {{- end }}
 {{- if or (.HasShortcode "distros") (.HasShortcode "profiles") (.HasShortcode "iso") }}
 <script src="/js/install.js" defer></script>
