@@ -5,7 +5,7 @@ facts:
   - {k: base, v: "Sway, o compositor Wayland em mosaico"}
   - {k: stack, v: "Rust, GTK 4, layer-shell"}
   - {k: distros, v: "Debian 13 / testing, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
-  - {k: status, v: "0.1.2, estável; pacotes no OBS"}
+  - {k: status, v: "0.1.3, estável; pacotes no OBS"}
 ---
 O Swaydesk transforma o [Sway](https://swaywm.org/) num desktop completo, sem perder o que ele tem de bom: é leve, rápido e todo pelo teclado quando você quer.
 
@@ -22,6 +22,7 @@ Um passeio pela barra, a dock, a grade de apps, o lançador, os popups, o tema, 
 - **Atalhos que você já conhece:** os do KDE Plasma com o Krohnkite, por padrão, ou os do i3, do Hyprland, do niri ou do dwm. Veja os [atalhos](/pt-br/shortcuts/).
 - **Mosaico sem esforço:** as janelas se organizam sozinhas, e ainda dá para soltar uma janela, colocá-la em tela cheia ou guardá-la de lado.
 - **Um visual só:** o tema, os ícones e a cor de destaque mudam juntos na barra, na dock, nos popups e nos apps GTK e libadwaita.
+- **No seu idioma:** inglês, português do Brasil e espanhol, no desktop e no instalador.
 - **Sem surpresas:** a sessão tem agente de senhas, chaveiro, portal para compartilhar a tela e avisos de atualização, como nos desktops maiores.
 
 ## Próximos passos

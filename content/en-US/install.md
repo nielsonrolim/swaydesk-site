@@ -127,6 +127,7 @@ sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop
 {{< /oneline >}}
+<p class="distro__note">On Arch, the Swaydesk update notice covers the repositories, the AUR, Flatpak apps and firmware, so the store’s updates part comes turned off. <a href="/en-us/guide/config/#updates-on-arch">How to change that</a>.</p>
 {{< /distro >}}
 {{< /distros >}}
 
@@ -144,4 +145,4 @@ Swaydesk's own login screen is optional: see [how to install it and how to go ba
 | `swaydesk-greeter` | Optional: Swaydesk's login screen, on top of greetd |
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
-The packages are version 0.1.2, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.2) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
+The packages are version 0.1.3, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.3) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.

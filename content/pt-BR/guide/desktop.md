@@ -93,7 +93,7 @@ O Swaydesk guarda o histórico do que você copia: textos, imagens e outros cont
 
 ## Menu de sessão
 
-`Ctrl`+`Alt`+`Delete`, ou o botão de energia da barra, abre o menu de sessão no centro da tela: **Bloquear**, **Sair**, **Suspender**, **Reiniciar** e **Desligar**. As teclas são as iniciais dos nomes em inglês: `L`, `E`, `S`, `R` e `P`. As setas e o `Tab` andam entre os botões, e `Esc` ou um clique fora fecha. Não há confirmação: o clique em **Desligar** desliga.
+`Ctrl`+`Alt`+`Delete`, ou o botão de energia da barra, abre o menu de sessão no centro da tela: **Bloquear**, **Sair**, **Suspender**, **Reiniciar** e **Desligar**. As teclas são as iniciais dos nomes em inglês: `L`, `E`, `S`, `R` e `P`. As setas e o `Tab` andam entre os botões, e `Esc` ou um clique fora fecha. Não há confirmação: o clique em **Desligar** desliga. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, o Swaydesk pergunta antes, com uma contagem de 60 segundos e um botão para cancelar; cancelar não instala nada e a atualização continua baixada.
 
 ## Bloqueio e inatividade
 

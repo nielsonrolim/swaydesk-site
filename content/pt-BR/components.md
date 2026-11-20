@@ -38,7 +38,7 @@ Quase todo componente pode ser desligado. A última linha de cada um mostra a ch
 
 {{< component title="Área de transferência" shot="clipboard" keys="`Super`+`V`" guide="guide/desktop/#área-de-transferência" bin="swaydesk-clipboard-popup" src="rust/clipboard-popup" tech="rust" off="clipboard_history" >}}O histórico do que você copiou, com busca, miniaturas e itens fixados. Desligado, nada mais é gravado no histórico.{{< /component >}}
 
-A barra também mostra o layout do teclado, quando há dois ou mais; um clique troca o layout. Para tirá-lo da barra: `[enabled.bar] language = false`.
+A barra também mostra o layout do teclado, quando há dois ou mais; um clique troca o layout. Para tirá-lo da barra: `[enabled.bar] language = false`. No Arch, mostra também a quantidade de atualizações, quando há alguma; `[enabled.bar] updates = false` a tira.
 
 
 ## Janelas e apps
@@ -58,7 +58,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 {{< component title="Indicador de volume e brilho" shot="osd" keys="Teclas de volume e de brilho" bin="swaydesk-osd-bar" src="rust/osd-bar" tech="rust" off="osd" >}}Ícone, barra e porcentagem no meio da tela por um segundo.{{< /component >}}
 
-{{< component title="Menu de sessão" shot="session" keys="`Ctrl`+`Alt`+`Delete`; botão de energia da barra" guide="guide/desktop/#menu-de-sessão" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Bloquear, sair, suspender, reiniciar e desligar.{{< /component >}}
+{{< component title="Menu de sessão" shot="session" keys="`Ctrl`+`Alt`+`Delete`; botão de energia da barra" guide="guide/desktop/#menu-de-sessão" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Bloquear, sair, suspender, reiniciar e desligar. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, ele pergunta antes, com uma contagem de 60 segundos e um botão para cancelar.{{< /component >}}
 
 {{< component title="Bloqueio de tela" shot="lock" keys="`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos" guide="guide/desktop/#bloqueio-e-inatividade" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. Precisa do gtk4-layer-shell 1.2; antes dele, como no Debian 13, quem bloqueia é o swaylock.{{< /component >}}
 
@@ -68,7 +68,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 {{< component title="Senha de administrador" keys="Quando um app pede permissão" guide="guide/desktop/#senhas-e-chaveiro" bin="sway-polkit-agent (mate-polkit)" src="home/.local/bin/sway-polkit-agent" tech="script" off="polkit_agent" >}}Inicia o agente de polkit: a janela que pede a sua senha nas ações de administrador, como montar um disco. Sem nenhum agente instalado, uma notificação avisa.{{< /component >}}
 
-{{< component title="Aviso de atualizações" keys="No login" bin="sway-update-notifier" src="home/.local/bin/sway-update-notifier" tech="script" off="update_notifier" >}}Inicia o aviso de atualizações da distro, que no Sway não abre sozinho: o do GNOME Software, o Atualizador de Programas do Ubuntu ou o do Discover. Sem nenhum deles, não faz nada.{{< /component >}}
+{{< component title="Aviso de atualizações" keys="No login" bin="sway-update-notifier" src="home/.local/bin/sway-update-notifier" tech="script" off="update_notifier" >}}Inicia o aviso de atualizações da distro, que no Sway não abre sozinho: o do GNOME Software, o Atualizador de Programas do Ubuntu ou o do Discover. No Arch, o Swaydesk tem um aviso próprio, com um ícone na barra: os repositórios oficiais, o AUR (pelo paru ou yay, se instalado), os apps Flatpak e o firmware; veja [Atualizações no Arch](/pt-br/guide/config/#atualizações-no-arch). Nada é atualizado sozinho.{{< /component >}}
 
 {{< component title="Luz noturna" keys="No popup de brilho" guide="guide/desktop/#a-barra" bin="sway-nightlight (gammastep)" src="home/.local/bin/sway-nightlight" tech="script" off="nightlight" >}}Deixa as cores mais quentes à noite, pelo gammastep, e volta ao último modo no login.{{< /component >}}
 
@@ -77,7 +77,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 ## Apps próprios
 
-{{< component title="Tema do Desktop" shot="theme" keys="Na grade de apps" guide="guide/config/" bin="swaydesk-theme-app" src="rust/theme-app" tech="rust" >}}Escolhe o tema GTK, os ícones e a cor de destaque, e aplica tudo de uma vez, também nos apps GTK e libadwaita.{{< /component >}}
+{{< component title="Tema do Desktop" shot="theme" keys="Na grade de apps" guide="guide/config/" bin="swaydesk-theme-app" src="rust/theme-app" tech="rust" >}}Escolhe o tema GTK, os ícones e a cor de destaque, e aplica tudo de uma vez, também nos apps GTK e libadwaita. Por padrão, a cor de destaque acompanha o papel de parede, inclusive o do dia (**Usar a cor do papel de parede**); escolher uma cor à mão desliga isso.{{< /component >}}
 
 {{< component title="Telas" shot="displays" keys="Na grade de apps" guide="guide/config/#monitores" bin="swaydesk-displays" src="rust/displays" tech="rust" off="displays" >}}As telas num mapa, para arrastar, com a resolução, a taxa, a escala e a rotação de cada uma, e se ela fica ligada. Uma mudança se desfaz sozinha em 15 segundos, se você não a mantiver. Cada conjunto de monitores guarda o seu layout, aplicado quando você pluga ou despluga uma tela, e a tela do notebook desliga com a tampa fechada e um monitor ligado. A chave desliga só esses perfis automáticos; o app continua.{{< /component >}}
 
@@ -107,3 +107,5 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 | gnome-text-editor | O botão **Abrir** da Ajuda, que edita o `50-local.conf`; sem ele, a Ajuda abre um editor no terminal. Recomendado no Debian e no Ubuntu; opcional no Arch |
 | grim, slurp e wf-recorder | A captura e a gravação de tela |
 | swaylock | O bloqueio de reserva; no Debian 13, o bloqueio de sempre |
+
+As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian e no Ubuntu, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.

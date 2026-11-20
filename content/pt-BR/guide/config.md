@@ -43,6 +43,9 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
+# true (o padrão): a cor de destaque vem do papel de parede e muda com ele
+accent_auto = true
+
 # Cor das pastas do Papirus, como "teal". Vazio: a mais perto do destaque
 folder_color = ""
 
@@ -52,7 +55,7 @@ file_manager = "thunar"
 
 Os programas leem o arquivo quando abrem. Depois de editar à mão:
 
-- para a cor de destaque, rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
+- para a cor de destaque, ponha antes `accent_auto = false`, senão o próximo papel de parede traz a cor dele de volta; depois rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
 - para o idioma, a cidade e os feriados, saia e entre de novo na sessão.
 
@@ -85,7 +88,7 @@ weather = false         # o clima na barra
 | `update_notifier` | O aviso de atualizações |
 | `displays` | Os perfis automáticos das telas; o app **Telas** continua |
 
-As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` e `power`. Os workspaces e a bandeja ficam sempre.
+As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` e, no Arch, `updates`. Os workspaces e a bandeja ficam sempre.
 
 A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
 
@@ -167,6 +170,14 @@ outputs = ["eDP-1"]     # monitores com dock; vazio: todos
 ```
 
 Os apps fixados ficam em `~/.local/share/sway-dock/pinned`, mas é mais simples fixar pelo clique direito na dock ou na grade de apps. Os grupos e os favoritos da grade ficam em `~/.local/share/sway-drawer/`.
+
+## Atualizações no Arch
+
+No Arch, a parte de atualizações da loja (GNOME Software) vem desativada, porque o aviso do Swaydesk cuida de tudo: os repositórios oficiais, o AUR (pelo paru ou yay, se você já tiver um instalado), os apps Flatpak e o firmware (fwupd). Ele confere em segundo plano, mostra um ícone na barra com a quantidade e avisa por notificação quando há algo novo; nada é atualizado sozinho. O clique (ou o botão **Atualizar** da notificação) abre um terminal com a atualização.
+
+- **Para desligar o aviso do Swaydesk** (quem prefere atualizar à mão ou por outra ferramenta): ponha `update_notifier = false` na seção `[enabled]` de `~/.config/sway-desktop/config.toml` e entre de novo na sessão. A verificação, a notificação e o ícone param, e a loja volta a cuidar das atualizações sozinha.
+- **Para reativar a parte de atualizações da loja à mão**, mantendo o aviso do Swaydesk: `gsettings set org.gnome.software allow-updates true` (para voltar: `gsettings reset org.gnome.software allow-updates`). Com os dois ligados, as atualizações do Flatpak aparecem duas vezes.
+- **Só o ícone:** `updates = false` na seção `[enabled.bar]` esconde o ícone e mantém a verificação e a notificação.
 
 ## SwayFX no Arch (opcional)
 

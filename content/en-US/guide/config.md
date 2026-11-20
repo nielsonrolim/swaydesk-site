@@ -43,6 +43,9 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
+# true (the default): the accent color comes from the wallpaper and changes with it
+accent_auto = true
+
 # Papirus folder color, such as "teal". Empty: the closest to the accent
 folder_color = ""
 
@@ -52,7 +55,7 @@ file_manager = "thunar"
 
 Programs read the file when they start. After editing it by hand:
 
-- for the accent color, run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
+- for the accent color, first set `accent_auto = false`, or the next wallpaper brings its own color back; then run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
 - for the language, the city and the holidays, log out and back in.
 
@@ -85,7 +88,7 @@ weather = false         # the weather on the bar
 | `update_notifier` | The update notifier |
 | `displays` | The automatic screen profiles; the **Displays** app stays |
 
-The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery` and `power`. The workspaces and the tray are always there.
+The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` and, on Arch, `updates`. The workspaces and the tray are always there.
 
 A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
 
@@ -167,6 +170,14 @@ outputs = ["eDP-1"]     # monitors with a dock; empty: all of them
 ```
 
 Pinned apps are listed in `~/.local/share/sway-dock/pinned`, but it's simpler to pin them with a right-click on the dock or in the app grid. The app grid keeps its groups and favorites in `~/.local/share/sway-drawer/`.
+
+## Updates on Arch
+
+On Arch, the store's updates part (GNOME Software) is turned off, because the Swaydesk notice takes care of everything: the official repositories, the AUR (through paru or yay, if you already have one installed), Flatpak apps and firmware (fwupd). It checks in the background, shows an icon with the count in the bar and sends a notification when there is something new; nothing is updated on its own. A click (or the notification's **Update** button) opens a terminal with the update.
+
+- **To turn the Swaydesk notice off** (if you'd rather update by hand or with another tool): set `update_notifier = false` in the `[enabled]` section of `~/.config/sway-desktop/config.toml` and log in again. The check, the notification and the icon stop, and the store takes care of updates again on its own.
+- **To turn the store's updates part back on by hand**, keeping the Swaydesk notice: `gsettings set org.gnome.software allow-updates true` (to undo: `gsettings reset org.gnome.software allow-updates`). With both on, Flatpak updates show up twice.
+- **Just the icon:** `updates = false` in the `[enabled.bar]` section hides the icon and keeps the check and the notification.
 
 ## SwayFX on Arch (optional)
 
