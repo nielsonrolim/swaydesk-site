@@ -168,6 +168,14 @@ outputs = ["eDP-1"]     # monitores com dock; vazio: todos
 
 Os apps fixados ficam em `~/.local/share/sway-dock/pinned`, mas é mais simples fixar pelo clique direito na dock ou na grade de apps. Os grupos e os favoritos da grade ficam em `~/.local/share/sway-drawer/`.
 
+## Atualizações no Arch
+
+No Arch, a parte de atualizações da loja (GNOME Software) vem desativada, porque o aviso do Swaydesk cuida de tudo: os repositórios oficiais, o AUR (pelo paru ou yay, se você já tiver um instalado), os apps Flatpak e o firmware (fwupd). Ele confere em segundo plano, mostra um ícone na barra com a quantidade e avisa por notificação quando há algo novo; nada é atualizado sozinho. O clique (ou o botão **Atualizar** da notificação) abre um terminal com a atualização.
+
+- **Para desligar o aviso do Swaydesk** (quem prefere atualizar à mão ou por outra ferramenta): ponha `update_notifier = false` na seção `[enabled]` de `~/.config/sway-desktop/config.toml` e entre de novo na sessão. A verificação, a notificação e o ícone param, e a loja volta a cuidar das atualizações sozinha.
+- **Para reativar a parte de atualizações da loja à mão**, mantendo o aviso do Swaydesk: `gsettings set org.gnome.software allow-updates true` (para voltar: `gsettings reset org.gnome.software allow-updates`). Com os dois ligados, as atualizações do Flatpak aparecem duas vezes.
+- **Só o ícone:** `updates = false` na seção `[enabled.bar]` esconde o ícone e mantém a verificação e a notificação.
+
 ## SwayFX no Arch (opcional)
 
 O [SwayFX](https://github.com/WillPower3309/swayfx) é o Sway com cantos arredondados, blur e sombras. No Arch, ele pode substituir o Sway, com a mesma configuração. Ele vem do AUR, por um AUR helper:

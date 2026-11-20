@@ -127,6 +127,7 @@ sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop
 {{< /oneline >}}
+<p class="distro__note">On Arch, the Swaydesk update notice covers the repositories, the AUR, Flatpak apps and firmware, so the store’s updates part comes turned off. <a href="/en-us/guide/config/#updates-on-arch">How to change that</a>.</p>
 {{< /distro >}}
 {{< /distros >}}
 
