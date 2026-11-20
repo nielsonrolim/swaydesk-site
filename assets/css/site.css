@@ -153,6 +153,7 @@ html.lb-open { overflow: hidden; }
 .distro { padding-top: .25rem; }
 .distro:focus-visible { outline-offset: 4px; }
 .distro + .distro { margin-top: 2.5rem; }
+.distro__note { margin: .5rem 0 0; padding: .6rem .8rem; border-left: 3px solid var(--ruby); background: var(--surface); color: var(--ink-soft); }
 .steps { padding-left: 1.75rem; }
 .steps > li { margin: 1.25rem 0; padding-left: .25rem; }
 .steps > li::marker { color: var(--ruby); font-weight: 700; }

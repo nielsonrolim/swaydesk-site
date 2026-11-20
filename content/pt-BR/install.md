@@ -2,11 +2,11 @@
 title: Instalar
 prompt: "sudo apt install swaydesk-desktop"
 crumb: install
-description: Como instalar o Swaydesk pelos pacotes, no Debian 13, no Ubuntu 26.04, no Linux Mint 27 e no Arch Linux.
+description: Como instalar o Swaydesk pelos pacotes, no Debian 13 e testing, no Ubuntu 26.04, no Linux Mint 27 e no Arch Linux.
 ---
 Os pacotes vêm de um repositório no [Open Build Service](https://build.opensuse.org/), assinado com a chave do projeto. O desktop que você já tem continua na tela de login, e as atualizações chegam com o `apt upgrade` ou o `pacman -Syu` de sempre.
 
-Precisa de Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch Linux, de 64 bits (x86_64), e de uma placa de vídeo Intel, AMD ou NVIDIA com driver para Wayland. Escolha a sua distro e rode um passo por vez:
+Precisa de Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch Linux, de 64 bits (x86_64), e de uma placa de vídeo Intel, AMD ou NVIDIA com driver para Wayland. Escolha a sua distro e rode um passo por vez:
 
 {{< distros >}}
 {{< distro id="debian" name="Debian 13" >}}
@@ -15,13 +15,13 @@ Precisa de Debian 13, Ubuntu 26.04, Linux Mint 27 ou Arch Linux, de 64 bits (x86
 sudo apt install curl
 {{< /step >}}
 {{< step text="Baixe o pacote `swaydesk-archive-keyring`: ele adiciona o repositório e a chave do projeto." >}}
-curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/all/swaydesk-archive-keyring_2026.11.15_all.deb -o ~/swaydesk-archive-keyring_2026.11.15_all.deb
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb
 {{< /step >}}
 {{< step text="Confira o arquivo baixado. O comando tem de mostrar `OK`; se não mostrar, pare aqui, apague o arquivo e não continue." >}}
-echo "5b8a2cb8af4a051bf5d3decdcf66fb0f4fcbb66d2728656969e1d673e4c00821  $HOME/swaydesk-archive-keyring_2026.11.15_all.deb" | sha256sum -c
+echo "SHA256_DEBIAN_13  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c
 {{< /step >}}
 {{< step text="Instale-o. Ele põe a chave em `/usr/share/keyrings/` e o repositório em `/etc/apt/sources.list.d/swaydesk.sources`, e daí em diante mantém os dois atualizados." >}}
-sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
+sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb
 {{< /step >}}
 {{< step text="Opcional, antes do passo 6: veja a impressão digital da chave instalada (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
 gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
@@ -31,9 +31,38 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Depois do passo 1 (curl), os outros passos encadeados: se o arquivo baixado não for o esperado, nada é instalado." >}}
-deb=swaydesk-archive-keyring_2026.11.15_all.deb
+deb=swaydesk-archive-keyring_2026.11.20_all.deb
 dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/all/$deb -o "$dir/$deb" &&
-echo "5b8a2cb8af4a051bf5d3decdcf66fb0f4fcbb66d2728656969e1d673e4c00821  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+echo "SHA256_DEBIAN_13  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+sudo apt update && sudo apt install swaydesk-desktop
+{{< /oneline >}}
+{{< /distro >}}
+{{< distro id="debian-testing" name="Debian testing" >}}
+<p class="distro__note">O Debian testing é melhor esforço: numa transição de bibliotecas do testing, os pacotes podem quebrar por alguns dias, até uma revisão nova.</p>
+{{< steps >}}
+{{< step text="Instale o `curl`, que baixa o pacote do repositório." >}}
+sudo apt install curl
+{{< /step >}}
+{{< step text="Baixe o pacote `swaydesk-archive-keyring`: ele adiciona o repositório e a chave do projeto." >}}
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_Testing/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb
+{{< /step >}}
+{{< step text="Confira o arquivo baixado. O comando tem de mostrar `OK`; se não mostrar, pare aqui, apague o arquivo e não continue." >}}
+echo "SHA256_DEBIAN_TESTING  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c
+{{< /step >}}
+{{< step text="Instale-o. Ele põe a chave em `/usr/share/keyrings/` e o repositório em `/etc/apt/sources.list.d/swaydesk.sources`, e daí em diante mantém os dois atualizados." >}}
+sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb
+{{< /step >}}
+{{< step text="Opcional, antes do passo 6: veja a impressão digital da chave instalada (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
+gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
+{{< /step >}}
+{{< step text="Atualize a lista de pacotes e instale o Swaydesk." >}}
+sudo apt update && sudo apt install swaydesk-desktop
+{{< /step >}}
+{{< /steps >}}
+{{< oneline text="Depois do passo 1 (curl), os outros passos encadeados: se o arquivo baixado não for o esperado, nada é instalado." >}}
+deb=swaydesk-archive-keyring_2026.11.20_all.deb
+dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_Testing/all/$deb -o "$dir/$deb" &&
+echo "SHA256_DEBIAN_TESTING  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
@@ -43,13 +72,13 @@ sudo apt update && sudo apt install swaydesk-desktop
 sudo apt install curl
 {{< /step >}}
 {{< step text="Baixe o pacote `swaydesk-archive-keyring`: ele adiciona o repositório e a chave do projeto." >}}
-curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/all/swaydesk-archive-keyring_2026.11.15_all.deb -o ~/swaydesk-archive-keyring_2026.11.15_all.deb
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb
 {{< /step >}}
 {{< step text="Confira o arquivo baixado. O comando tem de mostrar `OK`; se não mostrar, pare aqui, apague o arquivo e não continue." >}}
-echo "b22f785fbd083685c60bdc90ffb2e1d0e91c93db8513c3fc850e62ab36044767  $HOME/swaydesk-archive-keyring_2026.11.15_all.deb" | sha256sum -c
+echo "SHA256_UBUNTU_26_04  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c
 {{< /step >}}
 {{< step text="Instale-o. Ele põe a chave em `/usr/share/keyrings/` e o repositório em `/etc/apt/sources.list.d/swaydesk.sources`, e daí em diante mantém os dois atualizados." >}}
-sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.15_all.deb && rm ~/swaydesk-archive-keyring_2026.11.15_all.deb
+sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb
 {{< /step >}}
 {{< step text="Opcional, antes do passo 6: veja a impressão digital da chave instalada (precisa do `gpg`: `sudo apt install gpg`)." fpr="installed" >}}
 gpg --show-keys /usr/share/keyrings/swaydesk-archive-keyring.asc
@@ -59,9 +88,9 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Depois do passo 1 (curl), os outros passos encadeados: se o arquivo baixado não for o esperado, nada é instalado." >}}
-deb=swaydesk-archive-keyring_2026.11.15_all.deb
+deb=swaydesk-archive-keyring_2026.11.20_all.deb
 dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/all/$deb -o "$dir/$deb" &&
-echo "b22f785fbd083685c60bdc90ffb2e1d0e91c93db8513c3fc850e62ab36044767  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+echo "SHA256_UBUNTU_26_04  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
