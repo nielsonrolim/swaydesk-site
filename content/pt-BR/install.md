@@ -136,14 +136,14 @@ sudo pacman -Syu swaydesk-desktop
 
 Saia da sessão e, na tela de login de sempre, escolha **Sway Desktop**. Os [primeiros passos](/pt-br/guide/first-steps/) explicam o resto.
 
-A tela de login do Swaydesk é opcional: veja [como instalar e como voltar](/pt-br/guide/first-steps/#opcional-a-tela-de-login-do-swaydesk).
+A tela de login do Swaydesk é opcional se você já tem uma (GDM, SDDM, LightDM). Sem um gerenciador de login, como numa instalação mínima ou de servidor, o sistema abre num console de texto, e é o `swaydesk-greeter` que dá o login gráfico: veja [como instalar e como voltar](/pt-br/guide/first-steps/#a-tela-de-login-do-swaydesk).
 
 ## Os pacotes
 
 | Pacote | O que traz |
 | --- | --- |
 | `swaydesk-desktop` | A sessão completa, "Sway Desktop" na tela de login, com todos os componentes |
-| `swaydesk-greeter` | Opcional: a tela de login do Swaydesk, sobre o greetd |
+| `swaydesk-greeter` | A tela de login do Swaydesk, sobre o greetd: opcional com outro gerenciador de login, necessária para entrar no modo gráfico sem um |
 | `swaydesk-archive-keyring` | Só Debian, Ubuntu e Mint: a chave e o repositório, sempre em dia |
 
 Os pacotes estão na versão 0.1.3, estável: veja as [notas do lançamento](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.3) e o [histórico de mudanças](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). As versões novas chegam como atualizações.

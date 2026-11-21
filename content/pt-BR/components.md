@@ -62,7 +62,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 {{< component title="Bloqueio de tela" shot="lock" keys="`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos" guide="guide/desktop/#bloqueio-e-inatividade" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. Precisa do gtk4-layer-shell 1.2; antes dele, como no Debian 13, quem bloqueia é o swaylock.{{< /component >}}
 
-{{< component title="Tela de login (opcional)" shot="greeter" guide="guide/first-steps/#opcional-a-tela-de-login-do-swaydesk" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve.{{< /component >}}
+{{< component title="Tela de login" shot="greeter" guide="guide/first-steps/#a-tela-de-login-do-swaydesk" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico.{{< /component >}}
 
 {{< component title="Chaveiro" guide="guide/desktop/#senhas-e-chaveiro" bin="swaydesk-keyring" src="rust/keyring" tech="rust" >}}O gnome-keyring guarda as senhas dos apps e abre junto com o login. No Debian 13, o primeiro login de cada usuário mostra um aviso e pede a senha uma vez; nos seguintes, o chaveiro abre sozinho. No Ubuntu e no Arch, não pede nada.{{< /component >}}
 

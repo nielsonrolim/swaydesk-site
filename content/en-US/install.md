@@ -136,14 +136,14 @@ sudo pacman -Syu swaydesk-desktop
 
 Log out and pick **Sway Desktop** on the login screen you already use. The [first steps](/en-us/guide/first-steps/) cover the rest.
 
-Swaydesk's own login screen is optional: see [how to install it and how to go back](/en-us/guide/first-steps/#optional-the-swaydesk-login-screen).
+Swaydesk's own login screen is optional if you already have one (GDM, SDDM, LightDM). Without a display manager, as on a minimal or server install, the system starts in a text console, and `swaydesk-greeter` is what gives you a graphical login: see [how to install it and how to go back](/en-us/guide/first-steps/#the-swaydesk-login-screen).
 
 ## The packages
 
 | Package | What it brings |
 | --- | --- |
 | `swaydesk-desktop` | The full session, "Sway Desktop" on the login screen, with every component |
-| `swaydesk-greeter` | Optional: Swaydesk's login screen, on top of greetd |
+| `swaydesk-greeter` | Swaydesk's login screen, on top of greetd: optional with another display manager, needed for a graphical login without one |
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
 The packages are version 0.1.3, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.3) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.

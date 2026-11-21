@@ -62,7 +62,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Lock screen" shot="lock" keys="`Ctrl`+`Alt`+`L`; on its own after 10 minutes" guide="guide/desktop/#lock-screen-and-idle" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Time, date and the password field on every monitor, over the blurred wallpaper. It needs gtk4-layer-shell 1.2; before that, as on Debian 13, swaylock locks the screen.{{< /component >}}
 
-{{< component title="Login screen (optional)" shot="greeter" guide="guide/first-steps/#optional-the-swaydesk-login-screen" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too.{{< /component >}}
+{{< component title="Login screen" shot="greeter" guide="guide/first-steps/#the-swaydesk-login-screen" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login.{{< /component >}}
 
 {{< component title="Keyring" guide="guide/desktop/#passwords-and-keyring" bin="swaydesk-keyring" src="rust/keyring" tech="rust" >}}gnome-keyring keeps the apps' passwords and unlocks when you log in. On Debian 13, each user's first login shows a notice and asks for the password once; from then on, the keyring unlocks by itself. On Ubuntu and Arch, it asks for nothing.{{< /component >}}
 

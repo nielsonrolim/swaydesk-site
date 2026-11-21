@@ -17,9 +17,9 @@ If you already use a login screen, such as GNOME's (GDM), KDE's (SDDM) or Mint's
 
 Pick **Sway Desktop** and enter your password. The login screen remembers the choice for next time. If you also see a session called just **Sway**, that one comes from the Sway package and has none of Swaydesk: use **Sway Desktop**.
 
-### Optional: the Swaydesk login screen
+### The Swaydesk login screen
 
-Swaydesk also has a login screen of its own, the `swaydesk-greeter` package, with the same look as the lock screen. It's optional:
+Swaydesk also has a login screen of its own, the `swaydesk-greeter` package, with the same look as the lock screen. With GDM, SDDM or LightDM it's optional. Without a display manager, as on a minimal or server install, the system starts in a text console, and this is what gives you a graphical login. What it does:
 
 - it lists the accounts on the machine with their pictures, plus **Other user…** to type a name;
 - it remembers the last account and each person's session, with **Sway Desktop** at the top of the list;
