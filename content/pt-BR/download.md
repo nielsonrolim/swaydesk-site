@@ -19,9 +19,6 @@ Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se
 {{< iso id="debian" >}}
 Debian 13 com o Swaydesk. Com o Secure Boot ligado, o driver da NVIDIA também é instalado, assinado com uma chave do seu computador: depois do primeiro login, um aviso pede para rodar `sudo swaydesk-extras`, que mostra uma senha de uso único, e no reinício seguinte você cadastra a chave numa tela azul (o MokManager) com essa senha.
 {{< /iso >}}
-{{< iso id="debian-testing" >}}
-Debian testing (forky) com o Swaydesk, feita como a do Debian 13: o mesmo instalador e a mesma loja, e o driver da NVIDIA com o Secure Boot, com o mesmo passo da chave. O sistema instalado segue o testing, então os pacotes dele continuam mudando; para um sistema estável, use a ISO do Debian 13. A ISO é uma foto do dia do build: depois de um kernel novo no testing, o driver da NVIDIA (DKMS) pode demorar a acompanhar. Ela não tem os drivers das impressoras HP (`hplip`, fora do testing agora); instale-os pelo apt quando voltarem.
-{{< /iso >}}
 {{< iso id="ubuntu" >}}
 Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`. O driver da NVIDIA vem assinado e funciona com o Secure Boot ligado.
 {{< /iso >}}

@@ -26,14 +26,6 @@ size = "1.8 GB"
 sha256 = "2aef804abe4b7105a81b3a360aaf27aba507acd94e0d21605363664992dd009f"
 secure_boot = true
 
-[debian-testing]
-published = true
-name = "Debian Testing"
-file = "swaydesk-0.1.3-debiantesting-amd64.iso"
-size = "1.9 GB"
-sha256 = "68ebface5ef83d4513285efc1abd4a6a71096ddc0bb30ff135eb79f284904899"
-secure_boot = true
-
 [ubuntu]
 published = true
 name = "Ubuntu 26.04"
