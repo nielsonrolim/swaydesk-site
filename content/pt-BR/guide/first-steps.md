@@ -34,7 +34,7 @@ sudo systemctl disable gdm      # ou sddm, ou lightdm
 sudo systemctl enable greetd
 ```
 
-No Arch, o pacman não liga serviços: depois de instalar, rode `sudo systemctl enable greetd`. O aviso da instalação mostra as linhas do `pam_gnome_keyring` que você deve pôr em `/etc/pam.d/greetd` para o chaveiro abrir junto com o login.
+No Arch, o pacman não liga serviços: depois de instalar, rode `sudo systemctl enable greetd`. Em todas as distros, as sessões abertas por esta tela de login usam o serviço PAM do próprio pacote, o `/etc/pam.d/swaydesk-greeter`, que também abre o chaveiro junto com o login. Se você personalizou o `/etc/pam.d/greetd` (um leitor de digital, uma chave de segurança), faça essa mudança no `/etc/pam.d/swaydesk-greeter`.
 
 Para voltar à tela de login de antes, desligue o greetd e ligue a outra (`sudo systemctl disable greetd` e `sudo systemctl enable gdm`, por exemplo). Veja também as [perguntas frequentes](/pt-br/guide/faq/#como-volto-para-a-tela-de-login-que-eu-usava-antes).
 

@@ -34,7 +34,7 @@ sudo systemctl disable gdm      # or sddm, or lightdm
 sudo systemctl enable greetd
 ```
 
-On Arch, pacman doesn't enable services: after installing, run `sudo systemctl enable greetd`. The install message shows the `pam_gnome_keyring` lines to add to `/etc/pam.d/greetd` so your keyring unlocks when you log in.
+On Arch, pacman doesn't enable services: after installing, run `sudo systemctl enable greetd`. On every distro, the sessions you open from this login screen use the package's own PAM service, `/etc/pam.d/swaydesk-greeter`, which also unlocks your keyring when you log in. If you customized `/etc/pam.d/greetd` (a fingerprint reader, a security key), make that change in `/etc/pam.d/swaydesk-greeter`.
 
 To go back to the login screen you had, disable greetd and enable the other one (`sudo systemctl disable greetd` and `sudo systemctl enable gdm`, for example). See also the [FAQ](/en-us/guide/faq/#how-do-i-go-back-to-the-login-screen-i-used-before).
 
