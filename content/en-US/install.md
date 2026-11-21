@@ -135,7 +135,7 @@ sudo pacman -Syu swaydesk-desktop
 
 Log out and pick **Sway Desktop** on the login screen you already use. The [first steps](/en-us/guide/first-steps/) cover the rest.
 
-Swaydesk's own login screen is optional if you already have one (GDM, SDDM, LightDM). Without a display manager, as on a minimal or server install, the system starts in a text console, and `swaydesk-greeter` is what gives you a graphical login: see [how to install it and how to go back](/en-us/guide/first-steps/#optional-the-swaydesk-login-screen).
+Swaydesk's own login screen is optional if you already have one (GDM, SDDM, LightDM). Without a display manager, as on a minimal or server install, the system starts in a text console, and `swaydesk-greeter` is what gives you a graphical login: see [how to install it and how to go back](/en-us/guide/first-steps/#the-swaydesk-login-screen).
 
 ## The packages
 

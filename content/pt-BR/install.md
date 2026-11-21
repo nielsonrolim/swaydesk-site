@@ -135,7 +135,7 @@ sudo pacman -Syu swaydesk-desktop
 
 Saia da sessão e, na tela de login de sempre, escolha **Sway Desktop**. Os [primeiros passos](/pt-br/guide/first-steps/) explicam o resto.
 
-A tela de login do Swaydesk é opcional se você já tem uma (GDM, SDDM, LightDM). Sem um gerenciador de login, como numa instalação mínima ou de servidor, o sistema abre num console de texto, e é o `swaydesk-greeter` que dá o login gráfico: veja [como instalar e como voltar](/pt-br/guide/first-steps/#opcional-a-tela-de-login-do-swaydesk).
+A tela de login do Swaydesk é opcional se você já tem uma (GDM, SDDM, LightDM). Sem um gerenciador de login, como numa instalação mínima ou de servidor, o sistema abre num console de texto, e é o `swaydesk-greeter` que dá o login gráfico: veja [como instalar e como voltar](/pt-br/guide/first-steps/#a-tela-de-login-do-swaydesk).
 
 ## Os pacotes
 

@@ -17,9 +17,9 @@ Se você já usa uma tela de login, como a do GNOME (GDM), a do KDE (SDDM) ou a 
 
 Escolha **Sway Desktop** e entre com a sua senha. A tela de login lembra a escolha para a próxima vez. Se aparecer também uma sessão chamada só **Sway**, ela é a do pacote do Sway, sem o Swaydesk: use a **Sway Desktop**.
 
-### Opcional: a tela de login do Swaydesk
+### A tela de login do Swaydesk
 
-O Swaydesk também tem uma tela de login própria, o pacote `swaydesk-greeter`, com o mesmo visual da tela de bloqueio. Ela é opcional:
+O Swaydesk também tem uma tela de login própria, o pacote `swaydesk-greeter`, com o mesmo visual da tela de bloqueio. Com o GDM, o SDDM ou o LightDM, ela é opcional. Sem um gerenciador de login, como numa instalação mínima ou de servidor, o sistema abre num console de texto, e é ela que dá o login gráfico. O que ela faz:
 
 - mostra as contas da máquina com a foto de cada uma, e **Outro usuário…** para digitar o nome;
 - lembra a última conta e a sessão que cada pessoa usou, com a **Sway Desktop** primeiro na lista;
