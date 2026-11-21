@@ -39,5 +39,5 @@ published = true
 name = "Arch Linux"
 file = "swaydesk-0.1.3-arch-x86_64.iso"
 size = "1.8 GB"
-sha256 = "b3685c35ad9509c17e439caccc129edd6f5bac4e884247bdd85bef121b09534d"
+sha256 = "8dbd491c777c505b209b76a9fc457c7ab2af7fba3a19b86fc5d576c9cc156246"
 secure_boot = false
