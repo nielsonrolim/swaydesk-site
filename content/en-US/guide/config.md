@@ -192,7 +192,7 @@ sudo pacman -S sway     # to go back to Sway
 
 **Warning:** SwayFX comes from the AUR and is maintained by third parties, outside the project's support. It can lag behind Sway releases, and a `pacman -Syu` that brings a new wlroots can break it until the AUR catches up. If the session doesn't start after an update, go back to Sway with `sudo pacman -S sway` from a text console (Ctrl+Alt+F2).
 
-Swaydesk turns the effects on by itself at the next login. It notices SwayFX and writes `~/.config/sway/config.d/10-effects.conf`; with plain Sway the file holds only a comment. The file is written again at every login, when the theme changes, and with `sway-desktop-config generate` (then run `swaymsg reload`).
+Swaydesk turns the effects on by itself at the next login. It notices SwayFX and writes `~/.config/sway/config.d/10-effects.conf`; with plain Sway the file holds only a comment. The file is written again at every login, when the theme changes, and with `swaydesk-desktop-config generate` (then run `swaymsg reload`).
 
 The effects live in the `[effects]` section of `~/.config/sway-desktop/config.toml`. A missing key keeps its default:
 

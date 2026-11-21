@@ -192,7 +192,7 @@ O `swaydesk-desktop` continua instalado nos dois casos, porque o `swayfx` provê
 
 **Aviso:** o SwayFX vem do AUR e é mantido por terceiros, fora do suporte do projeto. Ele pode atrasar em relação às versões do Sway, e um `pacman -Syu` que traga um wlroots novo pode quebrá-lo até o AUR acompanhar. Se a sessão não abrir depois de uma atualização, volte ao Sway com `sudo pacman -S sway`, num console de texto (Ctrl+Alt+F2).
 
-O Swaydesk liga os efeitos sozinho, no próximo login. Ele percebe o SwayFX e grava o `~/.config/sway/config.d/10-effects.conf`; com o Sway comum, o arquivo fica só com um comentário. O arquivo é gravado de novo a cada login, quando o tema muda e com o `sway-desktop-config generate` (depois, rode `swaymsg reload`).
+O Swaydesk liga os efeitos sozinho, no próximo login. Ele percebe o SwayFX e grava o `~/.config/sway/config.d/10-effects.conf`; com o Sway comum, o arquivo fica só com um comentário. O arquivo é gravado de novo a cada login, quando o tema muda e com o `swaydesk-desktop-config generate` (depois, rode `swaymsg reload`).
 
 Os efeitos ficam na seção `[effects]` do `~/.config/sway-desktop/config.toml`. Uma chave ausente fica com o padrão:
 
