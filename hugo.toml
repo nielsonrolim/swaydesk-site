@@ -80,6 +80,40 @@ enableRobotsTXT = true
       name = "components"
       pageRef = "/components"
       weight = 7
+  [languages.es]
+    languageName = "ES"
+    languageCode = "es-419"
+    weight = 3
+    contentDir = "content/es"
+    [[languages.es.menus.main]]
+      name = "inicio"
+      pageRef = "/"
+      weight = 1
+    [[languages.es.menus.main]]
+      name = "capturas"
+      pageRef = "/screenshots"
+      weight = 2
+    [[languages.es.menus.main]]
+      name = "instalar"
+      pageRef = "/install"
+      weight = 3
+    [[languages.es.menus.main]]
+      name = "descargar"
+      pageRef = "/download"
+      weight = 4
+    # Sin la guía en español todavía: el menú lleva a la de inglés
+    [[languages.es.menus.main]]
+      name = "guía"
+      url = "/en-us/guide/"
+      weight = 5
+    [[languages.es.menus.main]]
+      name = "atajos"
+      pageRef = "/shortcuts"
+      weight = 6
+    [[languages.es.menus.main]]
+      name = "componentes"
+      pageRef = "/components"
+      weight = 7
 
 [markup.goldmark.renderer]
   unsafe = false
