@@ -44,4 +44,4 @@ El comentario `##` justo encima de un atajo es la descripción que muestra la Ay
 
 **Comprobar:** la Ayuda de Swaydesk (`Super`+`F1`) muestra los atajos en uso, incluidos tus cambios. Al final de la pestaña Atajos, la Ayuda muestra la ruta del archivo y, cuando el archivo ya existe, un botón **Abrir** que lo abre en tu editor predeterminado.
 
-El mismo archivo también guarda los ajustes de esta máquina: pantalla, teclado, ratón, programas al iniciar sesión y aplicaciones en los espacios de trabajo. Los ejemplos están en sus comentarios, y la [guía de configuración](/en-us/guide/config/#machine-settings) los explica.
+El mismo archivo también guarda los ajustes de esta máquina: pantalla, teclado, ratón, programas al iniciar sesión y aplicaciones en los espacios de trabajo. Los ejemplos están en sus comentarios, y la [guía de configuración](/es/guide/config/#ajustes-de-la-máquina) los explica.

@@ -28,4 +28,4 @@ Un recorrido por la barra, el dock, la cuadrícula de aplicaciones, el lanzador,
 
 - [Ver las capturas](/es/screenshots/)
 - [Instalar](/es/install/)
-- [Leer la guía](/en-us/guide/)
+- [Leer la guía](/es/guide/)

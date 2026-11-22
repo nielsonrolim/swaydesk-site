@@ -101,10 +101,9 @@ enableRobotsTXT = true
       name = "descargar"
       pageRef = "/download"
       weight = 4
-    # Sin la guía en español todavía: el menú lleva a la de inglés
     [[languages.es.menus.main]]
       name = "guía"
-      url = "/en-us/guide/"
+      pageRef = "/guide"
       weight = 5
     [[languages.es.menus.main]]
       name = "atajos"
