@@ -13,7 +13,7 @@ Swaydesk en Debian 13, con el tema Adwaita oscuro y el color de acento predeterm
 ## Imágenes
 
 {{< gallery >}}
-{{< shot "desktop" "El escritorio: la barra arriba, el dock abajo y tres ventanas lado a lado" >}}
+{{< shot "desktop" "El escritorio: la barra arriba, la dock abajo y tres ventanas lado a lado" >}}
 {{< shot "desktop-light" "Lo mismo, con el tema claro y el color de acento naranja" >}}
 {{< shot "drawer" "La cuadrícula de aplicaciones, abierta con Super" >}}
 {{< shot "switcher" "Alt+Tab: las ventanas en el orden de uso" >}}
