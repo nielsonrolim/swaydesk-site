@@ -250,3 +250,129 @@ label = "Session menu"
 [[en-us.chapters]]
 t = 273
 label = "Lock screen"
+
+# Sin un video en español: el de inglés, con los capítulos en español
+[es]
+file = "/video/swaydesk-demo-en-US.mp4"
+poster = "images/video/demo-en-US.webp"
+duration = "4:44"
+[[es.chapters]]
+t = 0
+label = "Pantalla de inicio de sesión"
+[[es.chapters]]
+t = 10
+label = "Barra: reloj y calendario"
+[[es.chapters]]
+t = 17
+label = "Barra: clima"
+[[es.chapters]]
+t = 23
+label = "Barra: multimedia"
+[[es.chapters]]
+t = 30
+label = "Barra: notificaciones"
+[[es.chapters]]
+t = 36
+label = "Barra: sistema"
+[[es.chapters]]
+t = 43
+label = "Barra: brillo y luz nocturna"
+[[es.chapters]]
+t = 49
+label = "Barra: cafeína"
+[[es.chapters]]
+t = 55
+label = "Barra: Bluetooth (BlueZ simulado)"
+[[es.chapters]]
+t = 62
+label = "Barra: red"
+[[es.chapters]]
+t = 68
+label = "Barra: audio"
+[[es.chapters]]
+t = 75
+label = "Barra: batería (batería simulada, test_power)"
+[[es.chapters]]
+t = 82
+label = "Dock"
+[[es.chapters]]
+t = 90
+label = "Cuadrícula de aplicaciones"
+[[es.chapters]]
+t = 94
+label = "Cuadrícula de aplicaciones: búsqueda"
+[[es.chapters]]
+t = 98
+label = "Cuadrícula de aplicaciones: calculadora"
+[[es.chapters]]
+t = 103
+label = "Cuadrícula de aplicaciones: archivos"
+[[es.chapters]]
+t = 110
+label = "Lanzador rofi: apps"
+[[es.chapters]]
+t = 117
+label = "Lanzador rofi: ventanas"
+[[es.chapters]]
+t = 121
+label = "Lanzador rofi: portapapeles"
+[[es.chapters]]
+t = 125
+label = "Lanzador rofi: web"
+[[es.chapters]]
+t = 131
+label = "Lanzador rofi: un clic fuera lo cierra"
+[[es.chapters]]
+t = 134
+label = "Alt+Tab"
+[[es.chapters]]
+t = 140
+label = "Indicador de volumen"
+[[es.chapters]]
+t = 146
+label = "Indicador de brillo (simulado: la VM no tiene retroiluminación)"
+[[es.chapters]]
+t = 150
+label = "Historial del portapapeles"
+[[es.chapters]]
+t = 155
+label = "Notificación"
+[[es.chapters]]
+t = 159
+label = "No molestar"
+[[es.chapters]]
+t = 178
+label = "Captura de pantalla"
+[[es.chapters]]
+t = 187
+label = "Grabación de pantalla"
+[[es.chapters]]
+t = 201
+label = "Tema del escritorio"
+[[es.chapters]]
+t = 203
+label = "Tema: color de acento y estilo claro"
+[[es.chapters]]
+t = 216
+label = "Tema: apps abiertas en el estilo claro"
+[[es.chapters]]
+t = 222
+label = "Tema: estilo oscuro y el color de vuelta"
+[[es.chapters]]
+t = 232
+label = "Pantallas (dos monitores)"
+[[es.chapters]]
+t = 247
+label = "Ayuda: atajos"
+[[es.chapters]]
+t = 251
+label = "Ayuda: perfil i3"
+[[es.chapters]]
+t = 260
+label = "Ayuda: de vuelta a Swaydesk"
+[[es.chapters]]
+t = 268
+label = "Menú de sesión"
+[[es.chapters]]
+t = 273
+label = "Pantalla de bloqueo"

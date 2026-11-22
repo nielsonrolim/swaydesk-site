@@ -5,7 +5,7 @@
 
 CODE_DIR é a árvore do código do Swaydesk. Com REF (um commit ou branch), os arquivos vêm de `git show REF:…`;
 sem ele, da pasta. Lê os atalhos do config do Sway da árvore (o arquivo base e o de cada perfil, na ordem em
-que o config os inclui) e o po/ para o português.
+que o config os inclui) e o po/ para o português e o espanhol.
 
 É uma cópia em Python do que a Ajuda do Swaydesk faz (as seções, o "or", o modo): "### Texto" abre uma
 seção, "## Texto" descreve o bind logo abaixo e os colados a ele, um bind com as mesmas teclas depois troca o de
@@ -335,7 +335,7 @@ def short_command(command):
     return " ".join(words)
 
 
-# --- A tradução (po/pt_BR.po) ---
+# --- As traduções (po/pt_BR.po, po/es.po) ---
 
 def read_po(text):
     """msgid -> msgstr (ou [msgstr[0], msgstr[1]] nos plurais). Sem tradução ou fuzzy fica de fora: vale o
@@ -373,7 +373,7 @@ def label_text(label, tr, lang):
     if kind == "word":
         return tr(value)
     if kind == "fingers":
-        forms = PO.get("%d finger") if lang == "pt" else None
+        forms = PO[lang].get("%d finger") if lang in PO else None
         if forms:
             return (forms[0] if value == 1 else forms[1]).replace("%d", str(value))
         return f"{value} finger" + ("" if value == 1 else "s")
@@ -385,7 +385,7 @@ def render(entries, lang):
     def tr(text):
         if lang == "en":
             return text
-        value = PO.get(text)
+        value = PO[lang].get(text)
         return value if isinstance(value, str) else text
 
     order, groups = [], {}
@@ -423,16 +423,16 @@ def main():
                                   capture_output=True, text=True).stdout
         return (code / path).read_text(encoding="utf-8")
 
-    PO = read_po(read("po/pt_BR.po"))
+    PO = {"pt": read_po(read("po/pt_BR.po")), "es": read_po(read("po/es.po"))}
     base = read("home/.config/sway/keys/base.conf")
-    data = {"source": ref or "", "profiles": PROFILES, "en": {}, "pt": {}}
+    data = {"source": ref or "", "profiles": PROFILES, "en": {}, "pt": {}, "es": {}}
     for profile in PROFILES:
         parser = Parser()
         parser.text(PRELUDE)
         parser.text(base)
         parser.text(read(f"home/.config/sway/keys/{profile}.conf"))
         entries = parser.finish()
-        for lang in ("en", "pt"):
+        for lang in ("en", "pt", "es"):
             data[lang][profile] = render(entries, lang)
     if ref:
         data["source"] = subprocess.run(["git", "-C", str(code), "rev-parse", "--short", ref], check=True,

@@ -1,0 +1,134 @@
+[skip]
+other = "Ir al contenido"
+
+[theme]
+other = "Tema oscuro"
+
+[language]
+other = "Idioma"
+
+[sections]
+other = "Secciones"
+
+[tagline]
+other = "un escritorio completo sobre Sway"
+
+[description]
+other = "Swaydesk: un escritorio completo y ligero sobre Sway, para Debian, Ubuntu, Linux Mint y Arch."
+
+[independent]
+other = 'Swaydesk es un proyecto independiente, construido sobre <a href="https://swaywm.org/">Sway</a>. No está afiliado al proyecto Sway ni a sus desarrolladores, ni cuenta con su respaldo.'
+
+[license]
+other = 'Textos e imágenes bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>; las capturas muestran íconos de terceros, bajo sus propias licencias'
+
+[soon]
+other = "próximamente"
+
+[in_the_guide]
+other = "Más en la guía"
+
+[tech_script]
+other = "script"
+
+[source]
+other = "código fuente"
+
+[turn_off]
+other = "desactivar"
+
+[lb_viewer]
+other = "Visor de imágenes"
+
+[lb_close]
+other = "Cerrar"
+
+[lb_prev]
+other = "Imagen anterior"
+
+[lb_next]
+other = "Imagen siguiente"
+
+[copy]
+other = "Copiar"
+
+[copied]
+other = "Copiado"
+
+[distro_tabs]
+other = "Distribución"
+
+[all_in_one]
+other = "Todo en un solo comando"
+
+[fpr_must]
+other = "Debe aparecer exactamente una clave (una línea pub, ninguna línea sub), con esta huella justo debajo de pub:"
+
+[fpr_stop]
+other = "Si es distinta, detente aquí y no sigas."
+
+[fpr_purge]
+other = "Si es distinta, detente aquí y quita el repositorio y su clave: `sudo apt purge swaydesk-archive-keyring`."
+
+[key_meta]
+other = "La clave del proyecto en OBS: RSA, 4096 bits, válida hasta 2029-01-23."
+
+[profile_tabs]
+other = "Perfiles de atajos"
+
+[profile_swaydesk]
+other = "Swaydesk"
+
+[profile_i3]
+other = "i3"
+
+[profile_hyprland]
+other = "Hyprland"
+
+[profile_niri]
+other = "niri"
+
+[profile_dwm]
+other = "dwm"
+
+[profile_dwm_note]
+other = "Perfil dwm: el modificador es Alt, como en dwm, no Super. Algunos atajos de las apps con Alt (como Alt+F, que abre el menú Archivo) ya no llegan a las apps. Solo aquí cambian dos atajos: las tarjetas de ventanas (Alt+Tab y Alt+Shift+Tab en los otros perfiles) pasan a Super+Tab y Super+Shift+Tab, porque Alt+Tab vuelve al último espacio de trabajo; y el lanzador (Alt+Espacio) pasa a Super+Espacio, porque Alt+Espacio cambia la disposición de las ventanas. Las acciones de Swaydesk que dwm no tiene (notificaciones, portapapeles, búsqueda de ventanas, captura y grabación) se quedan en Super. Ventanas flotantes con el ratón: Alt+arrastrar. La distribución del teclado: Super+Ctrl+Espacio."
+
+[keys_action]
+other = "Qué hace"
+
+[keys_shortcut]
+other = "Atajo"
+
+[keys_locked]
+other = "(también en la pantalla de bloqueo)"
+
+[keys_or]
+other = "o"
+
+[iso_file]
+other = "Archivo"
+
+[iso_size]
+other = "Tamaño"
+
+[iso_sb_on]
+other = "funciona con Secure Boot activado"
+
+[iso_sb_off]
+other = "desactiva Secure Boot"
+
+[iso_older]
+other = "Imagen {{ .old }}; se actualiza a {{ .new }} después de instalar."
+
+[iso_download]
+other = "Descargar"
+
+[demo_caption]
+other = "Grabado en una VM ({{ .duration }}, sin sonido, interfaz en inglés); el Bluetooth, la batería y el brillo son simulados."
+
+[demo_chapters]
+other = "Capítulos ({{ .count }})"
+
+[demo_fallback]
+other = "Descargar el video (MP4)"

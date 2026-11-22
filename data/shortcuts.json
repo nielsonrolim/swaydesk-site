@@ -1,5 +1,5 @@
 {
- "source": "b508ddb",
+ "source": "cd9fbd6",
  "profiles": [
   "swaydesk",
   "i3",
@@ -10207,6 +10207,5113 @@
      },
      {
       "text": "Mover a janela para o monitor à direita",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "."
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "es": {
+  "swaydesk": [
+   {
+    "title": "Sesión y aplicaciones",
+    "rows": [
+     {
+      "text": "Menú de la sesión: bloquear, cerrar sesión, reiniciar o apagar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Supr"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Volver a encender las pantallas",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir Yazi, el gestor de archivos en la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Y"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la cuadrícula de aplicaciones",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F1"
+       ]
+      ]
+     },
+     {
+      "text": "Recargar la configuración de Sway",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Q"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "Esc"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las notificaciones",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "C"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar el historial del portapapeles",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Buscar en las ventanas abiertas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "`"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la distribución del teclado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "/"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Foco",
+    "rows": [
+     {
+      "text": "Cambiar a la ventana siguiente, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar a la ventana anterior, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "H"
+       ],
+       [
+        "Super",
+        "Alt",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "J"
+       ],
+       [
+        "Super",
+        "Alt",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "K"
+       ],
+       [
+        "Super",
+        "Alt",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "L"
+       ],
+       [
+        "Super",
+        "Alt",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana siguiente de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana anterior de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Capturas de pantalla y grabación",
+    "rows": [
+     {
+      "text": "Captura de pantalla de una región",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de una región, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de captura de pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de grabación de pantalla; durante una grabación, la detiene",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Multimedia y brillo",
+    "rows": [
+     {
+      "text": "Subir el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar el micrófono",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar el micrófono"
+       ]
+      ]
+     },
+     {
+      "text": "Reproducir/pausar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Reproducir/pausar"
+       ]
+      ]
+     },
+     {
+      "text": "Pista siguiente",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista siguiente"
+       ]
+      ]
+     },
+     {
+      "text": "Pista anterior",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista anterior"
+       ]
+      ]
+     },
+     {
+      "text": "Subir el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el brillo"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el brillo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ratón y panel táctil",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia arriba"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia abajo"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↓"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Mover y redimensionar",
+    "rows": [
+     {
+      "text": "Mover la ventana a la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "J"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "K"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana a la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "J"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "K"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ventanas",
+    "rows": [
+     {
+      "text": "Intercambiar la ventana con la principal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar la ventana entre flotante y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar todas las ventanas del espacio de trabajo entre flotantes y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "M"
+       ],
+       [
+        "Super",
+        "Re Pág"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Ocultar la ventana en el scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Av Pág"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las ventanas ocultas del scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Retroceso"
+       ],
+       [
+        "Super",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Mantener la ventana en todos los espacios de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Disposiciones",
+    "rows": [
+     {
+      "text": "Disposición siguiente: lado a lado, apilada, en pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "]"
+       ]
+      ]
+     },
+     {
+      "text": "Disposición lado a lado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la próxima ventana en la otra dirección",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Aumentar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "X"
+       ]
+      ]
+     },
+     {
+      "text": "Reducir el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Activar o desactivar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Espacios de trabajo",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "→"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Monitores",
+    "rows": [
+     {
+      "text": "Enfocar el monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "W"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "W"
+       ],
+       [
+        "Super",
+        "Shift",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "E"
+       ],
+       [
+        "Super",
+        "Shift",
+        "→"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "i3": [
+   {
+    "title": "Sesión y aplicaciones",
+    "rows": [
+     {
+      "text": "Menú de la sesión: bloquear, cerrar sesión, reiniciar o apagar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Supr"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Volver a encender las pantallas",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir Yazi, el gestor de archivos en la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Y"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la cuadrícula de aplicaciones",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F1"
+       ]
+      ]
+     },
+     {
+      "text": "Recargar la configuración de Sway",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "C"
+       ],
+       [
+        "Super",
+        "Shift",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar sesión: el menú de la sesión",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Q"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "D"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las notificaciones",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "C"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar el historial del portapapeles",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Buscar en las ventanas abiertas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "`"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la distribución del teclado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "/"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Foco",
+    "rows": [
+     {
+      "text": "Cambiar a la ventana siguiente, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar a la ventana anterior, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "J"
+       ],
+       [
+        "Super",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "K"
+       ],
+       [
+        "Super",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "L"
+       ],
+       [
+        "Super",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        ";"
+       ],
+       [
+        "Super",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana siguiente de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana anterior de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar el foco entre las ventanas flotantes y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el contenedor padre",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "A"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Capturas de pantalla y grabación",
+    "rows": [
+     {
+      "text": "Captura de pantalla de una región",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de una región, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de captura de pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "S"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de grabación de pantalla; durante una grabación, la detiene",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Multimedia y brillo",
+    "rows": [
+     {
+      "text": "Subir el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar el micrófono",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar el micrófono"
+       ]
+      ]
+     },
+     {
+      "text": "Reproducir/pausar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Reproducir/pausar"
+       ]
+      ]
+     },
+     {
+      "text": "Pista siguiente",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista siguiente"
+       ]
+      ]
+     },
+     {
+      "text": "Pista anterior",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista anterior"
+       ]
+      ]
+     },
+     {
+      "text": "Subir el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el brillo"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el brillo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ratón y panel táctil",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia arriba"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia abajo"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↓"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Mover y redimensionar",
+    "rows": [
+     {
+      "text": "Mover la ventana a la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "J"
+       ],
+       [
+        "Super",
+        "Shift",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "K"
+       ],
+       [
+        "Super",
+        "Shift",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "L"
+       ],
+       [
+        "Super",
+        "Shift",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana a la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        ";"
+       ],
+       [
+        "Super",
+        "Shift",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Modo de redimensionar: J/K/L/; o las flechas, Enter o Esc para salir",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Más estrecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "J"
+       ],
+       [
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Más alta",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "K"
+       ],
+       [
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Más baja",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "L"
+       ],
+       [
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Más ancha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        ";"
+       ],
+       [
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Salir del modo de redimensionar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Enter"
+       ],
+       [
+        "Esc"
+       ],
+       [
+        "Super",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ventanas",
+    "rows": [
+     {
+      "text": "Intercambiar la ventana con la principal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar la ventana entre flotante y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Ocultar la ventana en el scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "-"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las ventanas ocultas del scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "-"
+       ]
+      ]
+     },
+     {
+      "text": "Mantener la ventana en todos los espacios de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Disposiciones",
+    "rows": [
+     {
+      "text": "Disposición apilada",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "S"
+       ]
+      ]
+     },
+     {
+      "text": "Disposición en pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "W"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la división: lado a lado o una sobre otra",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la próxima ventana al lado de esta",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la próxima ventana debajo de esta",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Aumentar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "="
+       ]
+      ]
+     },
+     {
+      "text": "Reducir el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "-"
+       ]
+      ]
+     },
+     {
+      "text": "Activar o desactivar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "0"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Espacios de trabajo",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "→"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Monitores",
+    "rows": [
+     {
+      "text": "Enfocar el monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "["
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "]"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "["
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "]"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "hyprland": [
+   {
+    "title": "Sesión y aplicaciones",
+    "rows": [
+     {
+      "text": "Menú de la sesión: bloquear, cerrar sesión, reiniciar o apagar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Supr"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Volver a encender las pantallas",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir Yazi, el gestor de archivos en la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Y"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la cuadrícula de aplicaciones",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F1"
+       ]
+      ]
+     },
+     {
+      "text": "Recargar la configuración de Sway",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "C"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar sesión: el menú de la sesión",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "M"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "C"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Q"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las notificaciones",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "N"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar el historial del portapapeles",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Buscar en las ventanas abiertas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "`"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la distribución del teclado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "/"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Foco",
+    "rows": [
+     {
+      "text": "Cambiar a la ventana siguiente, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar a la ventana anterior, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana siguiente de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana anterior de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Capturas de pantalla y grabación",
+    "rows": [
+     {
+      "text": "Captura de pantalla de una región",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de una región, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de captura de pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de grabación de pantalla; durante una grabación, la detiene",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Multimedia y brillo",
+    "rows": [
+     {
+      "text": "Subir el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar el micrófono",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar el micrófono"
+       ]
+      ]
+     },
+     {
+      "text": "Reproducir/pausar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Reproducir/pausar"
+       ]
+      ]
+     },
+     {
+      "text": "Pista siguiente",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista siguiente"
+       ]
+      ]
+     },
+     {
+      "text": "Pista anterior",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista anterior"
+       ]
+      ]
+     },
+     {
+      "text": "Subir el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el brillo"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el brillo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ratón y panel táctil",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia arriba"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia abajo"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↓"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Mover y redimensionar",
+    "rows": [
+     {
+      "text": "Mover la ventana a la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana a la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "↑"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ventanas",
+    "rows": [
+     {
+      "text": "Intercambiar la ventana con la principal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar la ventana entre flotante y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar todas las ventanas del espacio de trabajo entre flotantes y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Ocultar la ventana en el scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "S"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las ventanas ocultas del scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "S"
+       ]
+      ]
+     },
+     {
+      "text": "Mantener la ventana en todos los espacios de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Disposiciones",
+    "rows": [
+     {
+      "text": "Disposición siguiente: lado a lado, apilada, en pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "]"
+       ]
+      ]
+     },
+     {
+      "text": "Disposición lado a lado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la próxima ventana en la otra dirección",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "J"
+       ]
+      ]
+     },
+     {
+      "text": "Aumentar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "X"
+       ]
+      ]
+     },
+     {
+      "text": "Reducir el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Activar o desactivar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Espacios de trabajo",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Re Pág"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Av Pág"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Re Pág"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Av Pág"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Monitores",
+    "rows": [
+     {
+      "text": "Enfocar el monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        ","
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "."
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        ","
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "niri": [
+   {
+    "title": "Sesión y aplicaciones",
+    "rows": [
+     {
+      "text": "Menú de la sesión: bloquear, cerrar sesión, reiniciar o apagar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Supr"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Volver a encender las pantallas",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir Yazi, el gestor de archivos en la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Y"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la cuadrícula de aplicaciones",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F1"
+       ]
+      ]
+     },
+     {
+      "text": "Recargar la configuración de Sway",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar sesión: el menú de la sesión",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Q"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "D"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Apagar las pantallas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "P"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las notificaciones",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "N"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar el historial del portapapeles",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Buscar en las ventanas abiertas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la distribución del teclado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "/"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Foco",
+    "rows": [
+     {
+      "text": "Cambiar a la ventana siguiente, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar a la ventana anterior, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "H"
+       ],
+       [
+        "Super",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "J"
+       ],
+       [
+        "Super",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "K"
+       ],
+       [
+        "Super",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "L"
+       ],
+       [
+        "Super",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar el foco entre las ventanas flotantes y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "V"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Capturas de pantalla y grabación",
+    "rows": [
+     {
+      "text": "Captura de pantalla de una región",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de una región, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de captura de pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "S"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de grabación de pantalla; durante una grabación, la detiene",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Multimedia y brillo",
+    "rows": [
+     {
+      "text": "Subir el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar el micrófono",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar el micrófono"
+       ]
+      ]
+     },
+     {
+      "text": "Reproducir/pausar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Reproducir/pausar"
+       ]
+      ]
+     },
+     {
+      "text": "Pista siguiente",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista siguiente"
+       ]
+      ]
+     },
+     {
+      "text": "Pista anterior",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista anterior"
+       ]
+      ]
+     },
+     {
+      "text": "Subir el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el brillo"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el brillo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ratón y panel táctil",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia arriba"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia abajo"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↓"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Mover y redimensionar",
+    "rows": [
+     {
+      "text": "Mover la ventana a la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "H"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "J"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana hacia arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "K"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana a la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "L"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Más estrecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "-"
+       ]
+      ]
+     },
+     {
+      "text": "Más ancha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "="
+       ]
+      ]
+     },
+     {
+      "text": "Más baja",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "-"
+       ]
+      ]
+     },
+     {
+      "text": "Más alta",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "="
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ventanas",
+    "rows": [
+     {
+      "text": "Intercambiar la ventana con la principal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar la ventana entre flotante y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F"
+       ],
+       [
+        "Super",
+        "Shift",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Ocultar la ventana en el scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las ventanas ocultas del scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Mantener la ventana en todos los espacios de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Disposiciones",
+    "rows": [
+     {
+      "text": "Activar o desactivar las pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "W"
+       ]
+      ]
+     },
+     {
+      "text": "Aumentar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "X"
+       ]
+      ]
+     },
+     {
+      "text": "Reducir el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Activar o desactivar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Espacios de trabajo",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Re Pág"
+       ],
+       [
+        "Super",
+        "I"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Av Pág"
+       ],
+       [
+        "Super",
+        "U"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Re Pág"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "I"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Av Pág"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "U"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Monitores",
+    "rows": [
+     {
+      "text": "Enfocar el monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "←"
+       ],
+       [
+        "Super",
+        "Shift",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "→"
+       ],
+       [
+        "Super",
+        "Shift",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "←"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "→"
+       ],
+       [
+        "Super",
+        "Ctrl",
+        "Shift",
+        "L"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "dwm": [
+   {
+    "title": "Sesión y aplicaciones",
+    "rows": [
+     {
+      "text": "Menú de la sesión: bloquear, cerrar sesión, reiniciar o apagar",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Supr"
+       ]
+      ]
+     },
+     {
+      "text": "Bloquear la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "L"
+       ]
+      ]
+     },
+     {
+      "text": "Volver a encender las pantallas",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "O"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el gestor de archivos",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir Yazi, el gestor de archivos en la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Alt",
+        "Y"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la cuadrícula de aplicaciones",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Super"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "F1"
+       ]
+      ]
+     },
+     {
+      "text": "Recargar la configuración de Sway",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "R"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar sesión: el menú de la sesión",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Q"
+       ]
+      ]
+     },
+     {
+      "text": "Cerrar la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "C"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir la terminal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Abrir el lanzador",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "P"
+       ],
+       [
+        "Super",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar u ocultar la barra",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "B"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las notificaciones",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "N"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar el historial del portapapeles",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "V"
+       ]
+      ]
+     },
+     {
+      "text": "Buscar en las ventanas abiertas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "`"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar la distribución del teclado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar esta ayuda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "/"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Capturas de pantalla y grabación",
+    "rows": [
+     {
+      "text": "Captura de pantalla de una región",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de una región, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla completa, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Ctrl",
+        "Shift",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Captura de pantalla de la ventana, abierta en Gradia",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Impr Pant"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de captura de pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "E"
+       ]
+      ]
+     },
+     {
+      "text": "Panel de grabación de pantalla; durante una grabación, la detiene",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Multimedia y brillo",
+    "rows": [
+     {
+      "text": "Subir el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el volumen",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el volumen"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar"
+       ]
+      ]
+     },
+     {
+      "text": "Silenciar el micrófono",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Silenciar el micrófono"
+       ]
+      ]
+     },
+     {
+      "text": "Reproducir/pausar",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Reproducir/pausar"
+       ]
+      ]
+     },
+     {
+      "text": "Pista siguiente",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista siguiente"
+       ]
+      ]
+     },
+     {
+      "text": "Pista anterior",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Pista anterior"
+       ]
+      ]
+     },
+     {
+      "text": "Subir el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Subir el brillo"
+       ]
+      ]
+     },
+     {
+      "text": "Bajar el brillo",
+      "raw": false,
+      "locked": true,
+      "chords": [
+       [
+        "Bajar el brillo"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ratón y panel táctil",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia arriba"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Desplazar hacia abajo"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Deslizar",
+        "3 dedos",
+        "↓"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Foco",
+    "rows": [
+     {
+      "text": "Cambiar a la ventana siguiente, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Cambiar a la ventana anterior, en el orden de uso",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana siguiente de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "J"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana anterior de la pantalla",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "K"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de abajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "↓"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de arriba",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "↑"
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar la ventana de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Alt",
+        "→"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Mover y redimensionar",
+    "rows": [
+     {
+      "text": "Bajar la ventana en la pila",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "J"
+       ]
+      ]
+     },
+     {
+      "text": "Subir la ventana en la pila",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "K"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "H"
+       ]
+      ]
+     },
+     {
+      "text": "Redimensionar la ventana hacia la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "L"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Ventanas",
+    "rows": [
+     {
+      "text": "Intercambiar la ventana con la principal",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Enter"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar la ventana entre flotante y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Alternar todas las ventanas del espacio de trabajo entre flotantes y en mosaico",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Pantalla completa",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "F"
+       ]
+      ]
+     },
+     {
+      "text": "Ocultar la ventana en el scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Av Pág"
+       ]
+      ]
+     },
+     {
+      "text": "Mostrar las ventanas ocultas del scratchpad",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Mantener la ventana en todos los espacios de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Shift",
+        "G"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Disposiciones",
+    "rows": [
+     {
+      "text": "Disposición siguiente: lado a lado, apilada, en pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Espacio"
+       ]
+      ]
+     },
+     {
+      "text": "Disposición lado a lado",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "T"
+       ]
+      ]
+     },
+     {
+      "text": "Disposición en pestañas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "M"
+       ]
+      ]
+     },
+     {
+      "text": "Aumentar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "X"
+       ]
+      ]
+     },
+     {
+      "text": "Reducir el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "Z"
+       ]
+      ]
+     },
+     {
+      "text": "Activar o desactivar el espacio entre las ventanas",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "R"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Espacios de trabajo",
+    "rows": [
+     {
+      "text": "Ir al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        "1–9"
+       ]
+      ]
+     },
+     {
+      "text": "Volver al último espacio de trabajo",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Tab"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Ir al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "→"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo anterior",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "←"
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al espacio de trabajo siguiente",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Super",
+        "Ctrl",
+        "→"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Monitores",
+    "rows": [
+     {
+      "text": "Enfocar el monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        ","
+       ]
+      ]
+     },
+     {
+      "text": "Enfocar el monitor de la derecha",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "."
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la izquierda",
+      "raw": false,
+      "locked": false,
+      "chords": [
+       [
+        "Alt",
+        "Shift",
+        ","
+       ]
+      ]
+     },
+     {
+      "text": "Mover la ventana al monitor de la derecha",
       "raw": false,
       "locked": false,
       "chords": [
