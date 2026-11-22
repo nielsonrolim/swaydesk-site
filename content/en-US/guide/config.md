@@ -93,10 +93,17 @@ weather = false         # the weather on the bar
 | `polkit_agent` | The polkit agent (the administrator password) |
 | `update_notifier` | The update notifier |
 | `displays` | The automatic screen profiles; the **Displays** app stays |
+| `autostart` | The apps in `~/.config/autostart` and `/etc/xdg/autostart` (see below) |
 
 The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` and, on Arch, `updates`. The workspaces and the tray are always there.
 
 A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
+
+### Apps that start at login
+
+The session starts the apps of the XDG autostart folders, `~/.config/autostart` and `/etc/xdg/autostart`, as GNOME and KDE do, and closes them when you log out. The entries for what Swaydesk already covers (blueman, nm-applet, the mate and lxpolkit polkit agents, xapp-sn-watcher) are skipped, only in the Swaydesk session: GNOME or KDE on the same account still start them.
+
+To keep one app from starting, put a copy of its `.desktop` file in `~/.config/autostart` with `Hidden=true`, or with `NotShowIn=sway;` to skip it only in Sway sessions, so GNOME or KDE still start it. To turn all of them off, set `autostart = false` in `[enabled]`.
 
 ## Machine settings
 
@@ -120,8 +127,8 @@ input type:pointer {
     natural_scroll enabled
 }
 
-# Apps to start at login (Sway doesn't read ~/.config/autostart)
-exec nextcloud --background
+# Apps to start at login that have no autostart entry (the ones in ~/.config/autostart already start)
+exec foot --server
 
 # App workspaces: the app opens there, and you stay where you are
 assign [app_id="^org.mozilla.firefox$"] workspace number 2

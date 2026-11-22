@@ -93,10 +93,17 @@ weather = false         # o clima na barra
 | `polkit_agent` | O agente de polkit (a senha de administrador) |
 | `update_notifier` | O aviso de atualizações |
 | `displays` | Os perfis automáticos das telas; o app **Telas** continua |
+| `autostart` | Os apps de `~/.config/autostart` e `/etc/xdg/autostart` (veja abaixo) |
 
 As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` e, no Arch, `updates`. Os workspaces e a bandeja ficam sempre.
 
 A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
+
+### Apps que abrem no login
+
+A sessão abre os apps das pastas de início automático do XDG, `~/.config/autostart` e `/etc/xdg/autostart`, como o GNOME e o KDE fazem, e os fecha quando você sai. As entradas do que o Swaydesk já cobre (blueman, nm-applet, os agentes de polkit do mate e do lxpolkit, xapp-sn-watcher) ficam de fora, só na sessão do Swaydesk: o GNOME ou o KDE na mesma conta continuam abrindo essas entradas.
+
+Para um app não abrir, ponha uma cópia do `.desktop` dele em `~/.config/autostart` com `Hidden=true`, ou com `NotShowIn=sway;` para pular só nas sessões do Sway, e o GNOME ou o KDE continuam abrindo. Para desligar todos, ponha `autostart = false` em `[enabled]`.
 
 ## Os ajustes da máquina
 
@@ -120,8 +127,8 @@ input type:pointer {
     natural_scroll enabled
 }
 
-# Programas ao entrar na sessão (o Sway não lê o ~/.config/autostart)
-exec nextcloud --background
+# Programas ao entrar na sessão que não têm entrada de autostart (os do ~/.config/autostart já abrem)
+exec foot --server
 
 # Apps nos workspaces: o app abre lá, e você continua onde está
 assign [app_id="^org.mozilla.firefox$"] workspace number 2
