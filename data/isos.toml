@@ -10,29 +10,29 @@
 # An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
 # SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
 # When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
-tag = "v0.1.3"
+tag = "v0.1.3.1"
 sums = "SHA256SUMS"
 
 [debian]
 published = true
 name = "Debian 13"
-file = "swaydesk-0.1.3-debian13-amd64.iso"
+file = "swaydesk-0.1.3.1-debian13-amd64.iso"
 size = "1.8 GB"
-sha256 = "2aef804abe4b7105a81b3a360aaf27aba507acd94e0d21605363664992dd009f"
+sha256 = "a69262e0dae09280628788875bcbd4d496d1cd7c60ba3453a0b0353739d91ae6"
 secure_boot = true
 
 [ubuntu]
 published = true
 name = "Ubuntu 26.04"
-file = "swaydesk-0.1.3-ubuntu26.04-amd64.iso"
+file = "swaydesk-0.1.3.1-ubuntu26.04-amd64.iso"
 size = "1.9 GB"
-sha256 = "f3d0c54a05545ed3f63cf6c5bd852ec0678132ddd26f7e24952a2cdc6d0f696f"
+sha256 = "dd9430c33a898487488a57f05f077bc3b8eae0293aa8e10d5c1416a74dd69d4f"
 secure_boot = true
 
 [arch]
 published = true
 name = "Arch Linux"
-file = "swaydesk-0.1.3-arch-x86_64.iso"
+file = "swaydesk-0.1.3.1-arch-x86_64.iso"
 size = "1.8 GB"
-sha256 = "8dbd491c777c505b209b76a9fc457c7ab2af7fba3a19b86fc5d576c9cc156246"
+sha256 = "beb162554b081d09d2554aceeac13b36c2f574218c7a9255f9d3dccc43b4242b"
 secure_boot = false
