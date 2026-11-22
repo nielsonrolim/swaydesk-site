@@ -101,7 +101,7 @@ A change applies at your next login. A missing key stays on, and a mistake in th
 
 ### Apps that start at login
 
-The session starts the apps of the XDG autostart folders, `~/.config/autostart` and `/etc/xdg/autostart`, as GNOME and KDE do, and closes them when you log out. The entries for what Swaydesk already covers (blueman, nm-applet, the mate and lxpolkit polkit agents, xapp-sn-watcher) are skipped, only in the Swaydesk session: GNOME or KDE on the same account still start them.
+The session starts the apps of the XDG autostart folders, `~/.config/autostart` and `/etc/xdg/autostart`, as GNOME and KDE do, and closes them when you log out. The entries for what Swaydesk already covers (blueman, nm-applet, the mate and lxpolkit polkit agents, xapp-sn-watcher) are skipped, only in the Swaydesk session: GNOME or KDE on the same account still start them. PulseAudio's own entry is skipped there too, but only when PipeWire is the sound server, where it would just fail.
 
 To keep one app from starting, put a copy of its `.desktop` file in `~/.config/autostart` with `Hidden=true`, or with `NotShowIn=sway;` to skip it only in Sway sessions, so GNOME or KDE still start it. To turn all of them off, set `autostart = false` in `[enabled]`. A `config.toml` from an earlier version doesn't have that key: add the line inside `[enabled]`, before the `[enabled.bar]` part, since a line below `[enabled.bar]` belongs to the bar.
 

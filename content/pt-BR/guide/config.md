@@ -101,7 +101,7 @@ A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no a
 
 ### Apps que abrem no login
 
-A sessão abre os apps das pastas de início automático do XDG, `~/.config/autostart` e `/etc/xdg/autostart`, como o GNOME e o KDE fazem, e os fecha quando você sai. As entradas do que o Swaydesk já cobre (blueman, nm-applet, os agentes de polkit do mate e do lxpolkit, xapp-sn-watcher) ficam de fora, só na sessão do Swaydesk: o GNOME ou o KDE na mesma conta continuam abrindo essas entradas.
+A sessão abre os apps das pastas de início automático do XDG, `~/.config/autostart` e `/etc/xdg/autostart`, como o GNOME e o KDE fazem, e os fecha quando você sai. As entradas do que o Swaydesk já cobre (blueman, nm-applet, os agentes de polkit do mate e do lxpolkit, xapp-sn-watcher) ficam de fora, só na sessão do Swaydesk: o GNOME ou o KDE na mesma conta continuam abrindo essas entradas. A entrada do próprio PulseAudio também fica de fora ali, mas só quando o PipeWire é o servidor de som, caso em que ela só falharia.
 
 Para um app não abrir, ponha uma cópia do `.desktop` dele em `~/.config/autostart` com `Hidden=true`, ou com `NotShowIn=sway;` para pular só nas sessões do Sway, e o GNOME ou o KDE continuam abrindo. Para desligar todos, ponha `autostart = false` em `[enabled]`. Um `config.toml` de uma versão anterior não tem essa chave: acrescente a linha dentro de `[enabled]`, antes da parte `[enabled.bar]`, porque uma linha abaixo de `[enabled.bar]` vale para a barra.
 

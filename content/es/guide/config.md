@@ -101,7 +101,7 @@ Un cambio se aplica en tu próximo inicio de sesión. Una clave que falta queda 
 
 ### Aplicaciones que se inician al iniciar sesión
 
-La sesión inicia las aplicaciones de las carpetas de inicio automático XDG, `~/.config/autostart` y `/etc/xdg/autostart`, como lo hacen GNOME y KDE, y las cierra cuando cierras sesión. Las entradas de lo que Swaydesk ya cubre (blueman, nm-applet, los agentes de polkit de mate y lxpolkit, xapp-sn-watcher) se omiten, solo en la sesión de Swaydesk: GNOME o KDE en la misma cuenta las siguen iniciando.
+La sesión inicia las aplicaciones de las carpetas de inicio automático XDG, `~/.config/autostart` y `/etc/xdg/autostart`, como lo hacen GNOME y KDE, y las cierra cuando cierras sesión. Las entradas de lo que Swaydesk ya cubre (blueman, nm-applet, los agentes de polkit de mate y lxpolkit, xapp-sn-watcher) se omiten, solo en la sesión de Swaydesk: GNOME o KDE en la misma cuenta las siguen iniciando. La entrada del propio PulseAudio también se omite ahí, pero solo cuando PipeWire es el servidor de sonido, caso en el que solo fallaría.
 
 Para que una aplicación no se inicie, pon una copia de su archivo `.desktop` en `~/.config/autostart` con `Hidden=true`, o con `NotShowIn=sway;` para omitirla solo en las sesiones de Sway, de modo que GNOME o KDE la sigan iniciando. Para desactivarlas todas, pon `autostart = false` en `[enabled]`. Un `config.toml` de una versión anterior no tiene esa clave: agrega la línea dentro de `[enabled]`, antes de la parte `[enabled.bar]`, porque una línea debajo de `[enabled.bar]` pertenece a la barra.
 
