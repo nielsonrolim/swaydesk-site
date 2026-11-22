@@ -1,17 +1,12 @@
 # The Download page (shortcodes isos/iso). One place for both languages.
-# The files are assets of the GitHub Release `tag` in params.code_repo (nielsonrolim/swaydesk), made by
-# packaging/release-isos.sh in sway-desktop, with `sums` (SHA-256 only) next to them.
+# The files are assets of the GitHub Release `tag` in params.code_repo, with `sums` (SHA-256 only) next to them.
 # Per ISO:
 #   published = false -> the card and its notes disappear from the page (an ISO that wasn't attached to the
 #                        Release, such as one over 2 GiB). Nothing else on the page names a single ISO.
 #   published = true  -> a card; while size or sha256 is empty it says "coming soon" and has no link.
 # The sha256 comes from the Release's SHA256SUMS, copied here for the card. It catches a corrupted download;
-# it is not a signature (site and Release are published from the same GitHub account).
-# Before publishing (coordinator, 16/11; builder3's checklist): the published ISOs in the Release, with size and
-# SHA-256 here; the login notice of swaydesk-extras (sway-desktop #188, wording after #224; Ubuntu with the
-# Error-Mode fix) in each ISO, Arch included; and its VM test in each: offline with the codecs box -> the
-# notice; "sudo swaydesk-extras" with network -> it goes away; without the box -> nothing.
-# Then it goes live only on the coordinator's signal.
+# it is not a signature (site and Release are published from the same GitHub account). Fill size and sha256
+# only once the ISO is in the Release.
 # An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
 # SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
 # When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
