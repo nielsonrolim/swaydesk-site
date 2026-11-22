@@ -51,15 +51,21 @@ folder_color = ""
 
 # File manager for Ctrl+Alt+E, the app grid and the dock. Empty: the first one installed
 file_manager = "thunar"
+
+# Power profiles in the System popup: "auto" (the default) only without a battery, "always" or "never"
+power_profiles_in_system = "auto"
 ```
 
 Programs read the file when they start. After editing it by hand:
 
 - for the accent color, first set `accent_auto = false`, or the next wallpaper brings its own color back; then run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
-- for the language, the city and the holidays, log out and back in.
+- for the language, the city and the holidays, log out and back in;
+- for `power_profiles_in_system`, nothing: it applies the next time the System popup opens.
 
 A bad value doesn't break anything: that piece just uses the default for that key.
+
+On a computer without a battery, the battery icon leaves the bar, and with it the profile buttons of its popup. So the System popup gets a **Power profile** row with the profiles `power-profiles-daemon` offers (Power saver, Balanced and, where the hardware supports it, Performance): a click changes the profile without closing the popup. Without the daemon, the row doesn't show. With `"always"` it shows on laptops too; the battery popup keeps its buttons either way.
 
 ## Turning components off
 

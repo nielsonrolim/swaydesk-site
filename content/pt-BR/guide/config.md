@@ -51,15 +51,21 @@ folder_color = ""
 
 # Gerenciador de arquivos do Ctrl+Alt+E, da grade de apps e da dock. Vazio: o primeiro instalado
 file_manager = "thunar"
+
+# Perfis de energia no popup Sistema: "auto" (o padrão) só sem bateria, "always" ou "never"
+power_profiles_in_system = "auto"
 ```
 
 Os programas leem o arquivo quando abrem. Depois de editar à mão:
 
 - para a cor de destaque, ponha antes `accent_auto = false`, senão o próximo papel de parede traz a cor dele de volta; depois rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
-- para o idioma, a cidade e os feriados, saia e entre de novo na sessão.
+- para o idioma, a cidade e os feriados, saia e entre de novo na sessão;
+- para o `power_profiles_in_system`, nada: vale na próxima vez que o popup Sistema abrir.
 
 Um valor inválido não quebra nada: a peça usa o padrão daquela chave.
+
+Num computador sem bateria, o ícone da bateria sai da barra e, com ele, os botões de perfil do popup dela. Por isso o popup Sistema ganha a linha **Perfil de energia**, com os perfis que o `power-profiles-daemon` oferece (Economia, Equilibrado e, onde o hardware permite, Desempenho): um clique troca o perfil sem fechar o popup. Sem o daemon, a linha não aparece. Com `"always"`, ela aparece também nos notebooks; o popup da bateria continua com os botões de qualquer jeito.
 
 ## Ligar e desligar componentes
 
