@@ -129,15 +129,15 @@ sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop
 {{< /oneline >}}
-<p class="distro__note">En Arch, el aviso de actualizaciones de Swaydesk se encarga de los repositorios, el AUR, las aplicaciones Flatpak y el firmware, por eso la parte de actualizaciones de la tienda viene desactivada. <a href="/en-us/guide/config/#updates-on-arch">Cómo cambiarlo</a>.</p>
+<p class="distro__note">En Arch, el aviso de actualizaciones de Swaydesk se encarga de los repositorios, el AUR, las aplicaciones Flatpak y el firmware, por eso la parte de actualizaciones de la tienda viene desactivada. <a href="/es/guide/config/#actualizaciones-en-arch">Cómo cambiarlo</a>.</p>
 {{< /distro >}}
 {{< /distros >}}
 
 ## Después de instalar
 
-Cierra la sesión y elige **Sway Desktop** en la pantalla de inicio de sesión que ya usas. Los [primeros pasos](/en-us/guide/first-steps/) explican el resto.
+Cierra la sesión y elige **Sway Desktop** en la pantalla de inicio de sesión que ya usas. Los [primeros pasos](/es/guide/first-steps/) explican el resto.
 
-La pantalla de inicio de sesión propia de Swaydesk es opcional si ya tienes una (GDM, SDDM, LightDM). Sin un gestor de inicio de sesión, como en una instalación mínima o de servidor, el sistema arranca en una consola de texto, y es `swaydesk-greeter` el que te da un inicio de sesión gráfico: mira [cómo instalarlo y cómo volver atrás](/en-us/guide/first-steps/#the-swaydesk-login-screen).
+La pantalla de inicio de sesión propia de Swaydesk es opcional si ya tienes una (GDM, SDDM, LightDM). Sin un gestor de inicio de sesión, como en una instalación mínima o de servidor, el sistema arranca en una consola de texto, y es `swaydesk-greeter` el que te da un inicio de sesión gráfico: mira [cómo instalarlo y cómo volver atrás](/es/guide/first-steps/#la-pantalla-de-inicio-de-sesión-de-swaydesk).
 
 ## Los paquetes
 

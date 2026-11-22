@@ -64,4 +64,4 @@ La impresión y el escaneo vienen listos (CUPS, impresoras de red mediante avahi
 
 El GRUB del sistema instalado muestra los otros sistemas de los discos. La opción **Instalar junto a** del instalador solo aparece cuando el disco tiene espacio para Swaydesk (22 GB más un margen), y reduce la partición del otro sistema. En un disco justo, el instalador puede calcular mal el mínimo de esa partición: el cambio de tamaño falla antes de modificar nada, los datos quedan como estaban y la instalación se detiene. Para evitarlo, reduce primero el otro sistema, con sus propias herramientas, e instala en el espacio libre.
 
-Después de instalar, los [primeros pasos](/en-us/guide/first-steps/) explican el resto.
+Después de instalar, los [primeros pasos](/es/guide/first-steps/) explican el resto.
