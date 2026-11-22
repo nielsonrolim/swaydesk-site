@@ -16,7 +16,8 @@
 <div class="component__body">
 {{- with .Get "keys" }}<p class="component__keys">{{ . | markdownify }}</p>{{ end }}
 {{ .Inner | markdownify }}
-{{- with .Get "guide" }}<p><a href="{{ relLangURL . }}">{{ i18n "in_the_guide" }}</a></p>{{ end }}
+{{- /* guide: relativo à língua da página ("guide/desktop/#a-barra") ou um caminho absoluto ("/en-us/guide/…"), para uma língua sem o guia */}}
+{{- with .Get "guide" }}<p><a href="{{ cond (strings.HasPrefix . "/") . (relLangURL .) }}">{{ i18n "in_the_guide" }}</a></p>{{ end }}
 <p class="component__meta">
 {{- with .Get "bin" }}<code>{{ . }}</code> · {{ end -}}
 {{- $tech := .Get "tech" }}{{ if eq $tech "rust" }}Rust + GTK 4{{ else if eq $tech "script" }}{{ i18n "tech_script" }}{{ else }}{{ $tech }}{{ end }}
