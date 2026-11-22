@@ -47,6 +47,9 @@ python3 -I scripts/check-links.py public
 - **Versions are consistent.** The version on the Download and Install pages, the Release links and
   `isos.toml`'s `tag` name the same release.
 - **Links are checked.** Run `check-links.py` on every change, and open any external or anchor link you add.
+- **Independent of Sway.** Every page's footer (`i18n` key `independent`), `static/404.html` and the home intro say
+  that Swaydesk is not affiliated with, or endorsed by, the Sway project. Keep them, and don't use Sway's logo or
+  wording that suggests an official Sway project.
 - **No outside requests.** Don't add CDNs, remote fonts, trackers or embeds; put assets in `static/` or `assets/`.
 - **Keep this file current.** A change to the layout, the build or check commands, or these rules updates
   `CLAUDE.md` in the same pull request.

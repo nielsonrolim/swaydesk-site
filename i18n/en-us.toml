@@ -16,6 +16,9 @@ other = "a complete desktop on top of Sway"
 [description]
 other = "Swaydesk: a complete, lightweight desktop on top of Sway, for Debian, Ubuntu, Linux Mint and Arch."
 
+[independent]
+other = 'Swaydesk is an independent project built on top of <a href="https://swaywm.org/">Sway</a>. It is not affiliated with, or endorsed by, the Sway project or its developers.'
+
 [license]
 other = 'Text and images under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>; screenshots show third-party icons under their own licenses'
 

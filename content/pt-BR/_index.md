@@ -7,7 +7,7 @@ facts:
   - {k: distros, v: "Debian 13 / testing, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
   - {k: status, v: "0.1.3.1, estável; pacotes no OBS"}
 ---
-O Swaydesk transforma o [Sway](https://swaywm.org/) num desktop completo, sem perder o que ele tem de bom: é leve, rápido e todo pelo teclado quando você quer.
+O Swaydesk transforma o [Sway](https://swaywm.org/) num desktop completo, sem perder o que ele tem de bom: é leve, rápido e todo pelo teclado quando você quer. O Swaydesk é um projeto independente: ele não é afiliado ao projeto Sway nem aos seus desenvolvedores, nem endossado por eles.
 
 Em cima do Sway vêm as peças que um desktop precisa: barra com popups de rede, Bluetooth, áudio, bateria, brilho e calendário; dock com os apps fixados e abertos; grade de apps; central de notificações; histórico da área de transferência; tela de bloqueio; tela de login; troca de janelas com Alt+Tab; captura e gravação de tela; e um app para escolher o tema e a cor de destaque. Os componentes são programas próprios, escritos em Rust com GTK 4.
 
