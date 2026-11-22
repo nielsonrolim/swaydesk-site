@@ -94,6 +94,7 @@ dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/
 echo "a34f455e495c69a2c5dd94ff8ce6dd0618ec569d6b010010c2360432f6029020  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
+<p class="distro__note">No Ubuntu e no Mint, as janelas do próprio GTK (como o seletor de arquivos) precisam do pacote de idioma do GNOME da sua língua. O Swaydesk mostra um aviso, uma vez, com o comando; você também pode instalá-lo já, por exemplo para o português: <code>sudo apt install language-pack-gnome-pt</code>.</p>
 {{< /distro >}}
 {{< distro id="arch" name="Arch Linux" >}}
 <p class="distro__note">Distribuição contínua: o Swaydesk é testado nela a cada lançamento, mas atualizações da própria distribuição podem exigir correções depois.</p>
