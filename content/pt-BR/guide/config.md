@@ -132,6 +132,21 @@ Algumas dicas:
 - Os arquivos `00-accent.conf` e `00-font.conf` da mesma pasta são gerados pelo Swaydesk: não os edite, porque eles são regravados.
 - A documentação completa dos comandos está em `man 5 sway` e `man 5 sway-input`.
 
+### Teclado e acentos
+
+- **O teclado do sistema.** O bloco do teclado que o primeiro login grava no fim do `50-local.conf` segue o teclado do sistema a cada login, enquanto ninguém o mexer. Uma troca com `localectl set-x11-keymap` ou `sudo dpkg-reconfigure keyboard-configuration` chega às contas que já existem no login seguinte, e a tela de login e as contas novas também seguem. Um bloco editado à mão fica como está, e um bloco seu mais abaixo no arquivo vale mais que o nosso.
+- **Debian e Ubuntu.** Neles, o `localectl` muda só o `/etc/vconsole.conf`, que o boot reescreve a partir do `/etc/default/keyboard`: a troca que fica depois de um reboot é a do `sudo dpkg-reconfigure keyboard-configuration`. No Arch, o `localectl` fica.
+- **`ç` no US internacional.** Com a sessão no US internacional (`intl` ou `altgr-intl`), `'` + `c` dá `ç` (e `'` + `C` dá `Ç`) nos apps GTK e Qt, nos terminais e na tela de login. Para isso, o login cria este `~/.XCompose`, se não houver nada nesse caminho:
+
+  ```
+  include "%L"
+  <dead_acute> <c> : "ç" ccedilla
+  <dead_acute> <C> : "Ç" Ccedilla
+  ```
+
+  Um arquivo seu nunca é mexido. Se a sessão deixar de usar o US internacional, o arquivo sai no login seguinte, enquanto estiver igual ao original. Ao escrever um à mão, deixe a linha do `include` em primeiro: sem ela, o arquivo troca a tabela inteira e os outros acentos (`'` + `e`, `~` + `a`) deixam de sair.
+- **Acentos e método de entrada.** Sem método de entrada (ibus, fcitx) configurado, a sessão usa `GTK_IM_MODULE=simple`, e o GTK compõe as teclas mortas sozinho, também nos apps GTK 4. Quem usa um método de entrada define `GTK_IM_MODULE`, `QT_IM_MODULE` ou `XMODIFIERS` no `~/.profile` (por exemplo, `export GTK_IM_MODULE=wayland` para o fcitx5), e a sessão não muda nada. O mesmo vale para um teclado na tela que digita pelo método de entrada, como o squeekboard: ele precisa do `export GTK_IM_MODULE=wayland` no `~/.profile`.
+
 ## Buscas do lançador
 
 As buscas da aba **Web** do lançador mudam no `~/.config/sway-desktop/launcher.conf`, uma linha `chave = valor` por ajuste (`#` comenta):

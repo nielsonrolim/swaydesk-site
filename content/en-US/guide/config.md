@@ -132,6 +132,21 @@ A few tips:
 - Swaydesk generates `00-accent.conf` and `00-font.conf` in the same folder: don't edit them, since they get rewritten.
 - The full reference for these commands is in `man 5 sway` and `man 5 sway-input`.
 
+### Keyboard and accents
+
+- **The system keyboard.** The keyboard block that the first login writes at the end of `50-local.conf` follows the system keyboard at every login, as long as nobody edits it. A change with `localectl set-x11-keymap` or `sudo dpkg-reconfigure keyboard-configuration` reaches existing accounts at their next login, and the login screen and new accounts follow too. A block you edited stays as it is, and a block of your own further down in the file wins over ours.
+- **Debian and Ubuntu.** There, `localectl` only changes `/etc/vconsole.conf`, which the boot rewrites from `/etc/default/keyboard`: the change that survives a reboot is `sudo dpkg-reconfigure keyboard-configuration`. On Arch, `localectl` lasts.
+- **`ç` on US International.** With the session on US International (`intl` or `altgr-intl`), `'` + `c` gives `ç` (and `'` + `C` gives `Ç`) in GTK and Qt apps, in terminals and at the login screen. For that, the login creates this `~/.XCompose`, if nothing is at that path:
+
+  ```
+  include "%L"
+  <dead_acute> <c> : "ç" ccedilla
+  <dead_acute> <C> : "Ç" Ccedilla
+  ```
+
+  A file of your own is never touched. If the session stops using US International, the file goes away at the next login, as long as it's unedited. When you write one by hand, keep the `include` line first: without it, the file replaces the whole table and the other accents (`'` + `e`, `~` + `a`) stop working.
+- **Accents and input methods.** With no input method (ibus, fcitx) set up, the session uses `GTK_IM_MODULE=simple`, so GTK composes the dead keys itself, in GTK 4 apps too. If you use an input method, set `GTK_IM_MODULE`, `QT_IM_MODULE` or `XMODIFIERS` in `~/.profile` (for example, `export GTK_IM_MODULE=wayland` for fcitx5), and the session leaves them alone. The same goes for an on-screen keyboard that types through the input method, such as squeekboard: it needs `export GTK_IM_MODULE=wayland` in `~/.profile`.
+
 ## Launcher searches
 
 The searches in the launcher's **Web** tab can be changed in `~/.config/sway-desktop/launcher.conf`, one `key = value` per line (`#` starts a comment):
