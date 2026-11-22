@@ -51,15 +51,21 @@ folder_color = ""
 
 # Administrador de archivos de Ctrl+Alt+E, de la cuadrícula de aplicaciones y de la dock. Vacío: el primero instalado
 file_manager = "thunar"
+
+# Perfiles de energía en la ventana emergente Sistema: "auto" (el predeterminado) solo sin batería, "always" o "never"
+power_profiles_in_system = "auto"
 ```
 
 Los programas leen el archivo al iniciar. Después de editarlo a mano:
 
 - para el color de acento, primero pon `accent_auto = false`, o el siguiente fondo de pantalla traerá de vuelta su propio color; luego ejecuta `swaydesk-desktop-config apply`, que escribe los colores y recarga Sway; las ventanas emergentes toman el nuevo color de inmediato, y el resto cambia en tu próximo inicio de sesión;
 - para el administrador de archivos, ejecuta `swaydesk-desktop-config generate`, para que las carpetas que abren otras aplicaciones también vayan a él;
-- para el idioma, la ciudad y los días festivos, cierra sesión y vuelve a iniciarla.
+- para el idioma, la ciudad y los días festivos, cierra sesión y vuelve a iniciarla;
+- para `power_profiles_in_system`, nada: se aplica la próxima vez que se abre la ventana emergente Sistema.
 
 Un valor incorrecto no rompe nada: esa pieza simplemente usa el valor predeterminado de esa clave.
+
+En una computadora sin batería, el ícono de la batería sale de la barra, y con él los botones de perfil de su ventana emergente. Por eso la ventana emergente Sistema gana una fila **Perfil de energía** con los perfiles que ofrece `power-profiles-daemon` (Ahorro de energía, Equilibrado y, donde el hardware lo permite, Rendimiento): un clic cambia el perfil sin cerrar la ventana emergente. Sin el daemon, la fila no aparece. Con `"always"` aparece también en las laptops; la ventana emergente de la batería conserva sus botones en cualquier caso.
 
 ## Desactivar componentes
 
@@ -87,10 +93,17 @@ weather = false         # el clima en la barra
 | `polkit_agent` | El agente de polkit (la contraseña de administrador) |
 | `update_notifier` | El aviso de actualizaciones |
 | `displays` | Los perfiles automáticos de las pantallas; la aplicación **Pantallas** se queda |
+| `autostart` | Las aplicaciones de `~/.config/autostart` y `/etc/xdg/autostart` (ver abajo) |
 
 Las claves de `[enabled.bar]` son los módulos de la barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` y, en Arch, `updates`. Los espacios de trabajo y la bandeja están siempre.
 
 Un cambio se aplica en tu próximo inicio de sesión. Una clave que falta queda activada, y un error en el archivo nunca desactiva nada. En la Ayuda (`Super`+`F1`), la tarjeta de un componente desactivado dice "Desactivado" y cómo volver a activarlo. La página [Componentes](/es/components/) muestra la clave de cada uno.
+
+### Aplicaciones que se inician al iniciar sesión
+
+La sesión inicia las aplicaciones de las carpetas de inicio automático XDG, `~/.config/autostart` y `/etc/xdg/autostart`, como lo hacen GNOME y KDE, y las cierra cuando cierras sesión. Las entradas de lo que Swaydesk ya cubre (blueman, nm-applet, los agentes de polkit de mate y lxpolkit, xapp-sn-watcher) se omiten, solo en la sesión de Swaydesk: GNOME o KDE en la misma cuenta las siguen iniciando.
+
+Para que una aplicación no se inicie, pon una copia de su archivo `.desktop` en `~/.config/autostart` con `Hidden=true`, o con `NotShowIn=sway;` para omitirla solo en las sesiones de Sway, de modo que GNOME o KDE la sigan iniciando. Para desactivarlas todas, pon `autostart = false` en `[enabled]`. Un `config.toml` de una versión anterior no tiene esa clave: agrega la línea dentro de `[enabled]`, antes de la parte `[enabled.bar]`, porque una línea debajo de `[enabled.bar]` pertenece a la barra.
 
 ## Ajustes de la máquina
 
@@ -114,8 +127,8 @@ input type:pointer {
     natural_scroll enabled
 }
 
-# Aplicaciones al iniciar sesión (Sway no lee ~/.config/autostart)
-exec nextcloud --background
+# Aplicaciones al iniciar sesión que no tienen entrada de inicio automático (las de ~/.config/autostart ya se inician)
+exec foot --server
 
 # Espacios de trabajo de las aplicaciones: la aplicación se abre ahí, y tú te quedas donde estás
 assign [app_id="^org.mozilla.firefox$"] workspace number 2
