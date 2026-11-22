@@ -1,5 +1,5 @@
-# The demo video (shortcode demo): one per language. Chapters come from vm-manager's .txt files
-# (time of each part); t is in seconds. Recorded in a VM with dbusmock (BlueZ) and test_power.
+# The demo video (shortcode demo): one per language. Chapters come from the recording's chapter
+# files (time of each part); t is in seconds. Recorded in a VM with dbusmock (BlueZ) and test_power.
 
 [pt-br]
 file = "/video/swaydesk-demo-pt-BR.mp4"

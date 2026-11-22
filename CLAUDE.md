@@ -29,8 +29,9 @@ python3 -I scripts/check-links.py public
 ```
 
 - `--panicOnWarning` turns any Hugo warning (a missing page, a bad shortcode) into a failure.
-- `check-links.py` checks that every internal `href`/`src` in `public/` points to a file that exists,
-  anchors excluded. It doesn't check external links or `#anchors`: check those by hand when you change them.
+- `check-links.py` checks that every root-relative `href`/`src` (starting with `/`) in `public/` points to a
+  file that exists. Relative links, external links and `#anchors` aren't checked: check those by hand when you
+  change them.
 - `hugo server` (Hugo installed locally) previews at <http://localhost:1313>.
 - `public/` and `resources/` are build output and are not committed.
 

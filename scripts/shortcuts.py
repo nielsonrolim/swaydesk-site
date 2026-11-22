@@ -3,14 +3,14 @@
 
     python3 -I scripts/shortcuts.py CODE_DIR [REF]
 
-CODE_DIR é um checkout do sway-desktop. Com REF (um commit ou branch), os arquivos vêm de `git show REF:…`;
-sem ele, da pasta. Lê home/.config/sway/keys/base.conf e keys/<perfil>.conf, como o config.d/00-keys.conf
-os inclui, e po/pt_BR.po para o português.
+CODE_DIR é a árvore do código do Swaydesk. Com REF (um commit ou branch), os arquivos vêm de `git show REF:…`;
+sem ele, da pasta. Lê os atalhos do config do Sway da árvore (o arquivo base e o de cada perfil, na ordem em
+que o config os inclui) e o po/ para o português.
 
-É uma cópia em Python do que a Ajuda do Swaydesk faz (rust/help-logic: parse.rs e keys.rs; rust/help: as
-seções, o "or", o modo): "### Texto" abre uma seção, "## Texto" descreve o bind logo abaixo e os colados a
-ele, um bind com as mesmas teclas depois troca o de antes, `unbindsym` tira. Assim o site mostra o mesmo que a
-Ajuda mostra com cada perfil, sem o 50-local.conf de ninguém.
+É uma cópia em Python do que a Ajuda do Swaydesk faz (as seções, o "or", o modo): "### Texto" abre uma
+seção, "## Texto" descreve o bind logo abaixo e os colados a ele, um bind com as mesmas teclas depois troca o de
+antes, `unbindsym` tira. Assim o site mostra o mesmo que a Ajuda mostra com cada perfil, sem o 50-local.conf de
+ninguém.
 """
 import json
 import re
