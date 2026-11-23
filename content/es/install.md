@@ -31,9 +31,8 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Después del paso 1 (curl), los demás pasos encadenados: si el archivo descargado no es el esperado, no se instala nada." >}}
-deb=swaydesk-archive-keyring_2026.11.20_all.deb
-dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/all/$deb -o "$dir/$deb" &&
-echo "2527bebb378c926e631fb367f2ccb18120cea26617c3a90b859c633cb2845700  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_13/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
+echo "2527bebb378c926e631fb367f2ccb18120cea26617c3a90b859c633cb2845700  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c && sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
@@ -61,9 +60,8 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Después del paso 1 (curl), los demás pasos encadenados: si el archivo descargado no es el esperado, no se instala nada." >}}
-deb=swaydesk-archive-keyring_2026.11.20_all.deb
-dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_Testing/all/$deb -o "$dir/$deb" &&
-echo "0fa0971606384baf62a634376006c5b01e52a095795f88c730dc8e07104cb664  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Debian_Testing/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
+echo "0fa0971606384baf62a634376006c5b01e52a095795f88c730dc8e07104cb664  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c && sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
@@ -89,9 +87,8 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Después del paso 1 (curl), los demás pasos encadenados: si el archivo descargado no es el esperado, no se instala nada." >}}
-deb=swaydesk-archive-keyring_2026.11.20_all.deb
-dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/all/$deb -o "$dir/$deb" &&
-echo "a34f455e495c69a2c5dd94ff8ce6dd0618ec569d6b010010c2360432f6029020  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/xUbuntu_26.04/all/swaydesk-archive-keyring_2026.11.20_all.deb -o ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
+echo "a34f455e495c69a2c5dd94ff8ce6dd0618ec569d6b010010c2360432f6029020  $HOME/swaydesk-archive-keyring_2026.11.20_all.deb" | sha256sum -c && sudo dpkg -i ~/swaydesk-archive-keyring_2026.11.20_all.deb && rm ~/swaydesk-archive-keyring_2026.11.20_all.deb &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 <p class="distro__note">En Ubuntu y Mint, las ventanas propias de GTK (como el selector de archivos) necesitan el paquete de idioma de GNOME de tu idioma. Swaydesk muestra un aviso, una sola vez, con el comando; también puedes instalarlo ahora, por ejemplo para el español: <code>sudo apt install language-pack-gnome-es</code>.</p>
@@ -100,11 +97,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 <p class="distro__note">Rolling release: Swaydesk se prueba en ella en cada versión, pero las actualizaciones de la propia distribución pueden requerir correcciones después.</p>
 {{< steps >}}
 {{< step text="Agrega el repositorio al final de `/etc/pacman.conf` (solo una vez)." >}}
-sudo tee -a /etc/pacman.conf <<'EOF'
-
-[home_nielsonrolim_Arch]
-Server = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch
-EOF
+printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null
 {{< /step >}}
 {{< step text="Descarga la clave del repositorio." >}}
 curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o ~/swaydesk.key
@@ -113,7 +106,7 @@ curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x8
 gpg --show-keys ~/swaydesk.key
 {{< /step >}}
 {{< step text="Agrega la clave al llavero de pacman y fírmala localmente, para que pacman confíe en ella. El comando primero vuelve a verificar la clave y rechaza cualquier otra, como en el paso 3." >}}
-[ "$(gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
+gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ' | grep -qx 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' &&
 sudo pacman-key --add ~/swaydesk.key &&
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
 rm ~/swaydesk.key
@@ -123,10 +116,11 @@ sudo pacman -Syu swaydesk-desktop
 {{< /step >}}
 {{< /steps >}}
 {{< oneline text="Los mismos pasos, encadenados: si la clave descargada no tiene la huella digital correcta, no se agrega ni se instala nada." >}}
-key=$(mktemp) && curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o "$key" &&
-[ "$(gpg --show-keys --with-colons "$key" | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ')" = 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' ] &&
-sudo pacman-key --add "$key" && rm -f "$key" &&
+curl -fsSL https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/x86_64/home_nielsonrolim_Arch.key -o ~/swaydesk.key &&
+gpg --show-keys --with-colons ~/swaydesk.key | grep -E '^(pub|sub|fpr):' | cut -d: -f1,10 | tr '\n' ' ' | grep -qx 'pub: fpr:71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 ' &&
+sudo pacman-key --add ~/swaydesk.key &&
 sudo pacman-key --lsign-key 71A5E6CB39B9844E42CE42D35815F0B65BE1CFB9 &&
+rm ~/swaydesk.key &&
 printf '\n[home_nielsonrolim_Arch]\nServer = https://download.opensuse.org/repositories/home:/nielsonrolim/Arch/$arch\n' | sudo tee -a /etc/pacman.conf >/dev/null &&
 sudo pacman -Syu swaydesk-desktop
 {{< /oneline >}}
