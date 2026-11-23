@@ -1,6 +1,6 @@
 ---
 title: Configuration
-prompt: "cat ~/.config/sway-desktop/config.toml"
+prompt: "cat ~/.config/swaydesk/config.toml"
 crumb: guide/config
 weight: 3
 description: The files you edit to fit Swaydesk to your machine and your taste.
@@ -9,14 +9,16 @@ The Sway and bar configuration comes with the package and is updated with it. Wh
 
 | File | What it holds |
 | --- | --- |
-| `~/.config/sway-desktop/config.toml` | Language, theme, icons, accent color, weather city, holidays, file manager, shortcut profile and the components turned off |
+| `~/.config/swaydesk/config.toml` | Language, theme, icons, accent color, weather city, holidays, file manager, shortcut profile and the components turned off |
 | `~/.config/sway/config.d/50-local.conf` | Monitors, keyboard, mouse, startup apps and app workspaces |
-| `~/.config/sway-desktop/displays.json` | Your screens for each set of monitors, saved by the **Displays** app |
+| `~/.config/swaydesk/displays.json` | Your screens for each set of monitors, saved by the **Displays** app |
 | `~/.config/sway-dock/config.toml` | The dock mode and size |
+
+Before 0.1.4, the `swaydesk` folders were called `sway-desktop`: `~/.config/sway-desktop`, and the same in `~/.local/share` and `~/.local/state`. The first login on 0.1.4 moves them to `swaydesk` and leaves the old names as links to the new folders, so the old paths keep working. If a file is in both the old and the new folder, nothing moves, the old folder stays in use, and the session log says so (`grep kept: ~/.local/state/sway/sway.log`); merge the two folders by hand to switch.
 
 ## Desktop settings
 
-`~/.config/sway-desktop/config.toml` applies to every piece of Swaydesk. The easiest way to change the theme and the color is the **Desktop Theme** app, which writes this file for you. From a terminal, `swaydesk-theme` does the same:
+`~/.config/swaydesk/config.toml` applies to every piece of Swaydesk. The easiest way to change the theme and the color is the **Desktop Theme** app, which writes this file for you. From a terminal, `swaydesk-theme` does the same:
 
 ```
 swaydesk-theme families                  # the installed theme families
@@ -51,19 +53,25 @@ folder_color = ""
 
 # File manager for Ctrl+Alt+E, the app grid and the dock. Empty: the first one installed
 file_manager = "thunar"
+
+# Power profiles in the System popup: "auto" (the default) only without a battery, "always" or "never"
+power_profiles_in_system = "auto"
 ```
 
 Programs read the file when they start. After editing it by hand:
 
 - for the accent color, first set `accent_auto = false`, or the next wallpaper brings its own color back; then run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
-- for the language, the city and the holidays, log out and back in.
+- for the language, the city and the holidays, log out and back in;
+- for `power_profiles_in_system`, nothing: it applies the next time the System popup opens.
 
 A bad value doesn't break anything: that piece just uses the default for that key.
 
+On a computer without a battery, the battery icon leaves the bar, and with it the profile buttons of its popup. So the System popup gets a **Power profile** row with the profiles `power-profiles-daemon` offers (Power saver, Balanced and, where the hardware supports it, Performance): a click changes the profile without closing the popup. Without the daemon, the row doesn't show. With `"always"` it shows on laptops too; the battery popup keeps its buttons either way.
+
 ## Turning components off
 
-Every Swaydesk component starts on. To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/sway-desktop/config.toml`; the bar modules go in `[enabled.bar]`:
+Every Swaydesk component starts on. To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/swaydesk/config.toml`; the bar modules go in `[enabled.bar]`:
 
 ```
 [enabled]
@@ -87,10 +95,17 @@ weather = false         # the weather on the bar
 | `polkit_agent` | The polkit agent (the administrator password) |
 | `update_notifier` | The update notifier |
 | `displays` | The automatic screen profiles; the **Displays** app stays |
+| `autostart` | The apps in `~/.config/autostart` and `/etc/xdg/autostart` (see below) |
 
 The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` and, on Arch, `updates`. The workspaces and the tray are always there.
 
 A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
+
+### Apps that start at login
+
+The session starts the apps of the XDG autostart folders, `~/.config/autostart` and `/etc/xdg/autostart`, as GNOME and KDE do, and closes them when you log out. The entries for what Swaydesk already covers (blueman, nm-applet, the mate and lxpolkit polkit agents, xapp-sn-watcher) are skipped, only in the Swaydesk session: GNOME or KDE on the same account still start them. PulseAudio's own entry is skipped there too, but only when PipeWire is the sound server, where it would just fail.
+
+To keep one app from starting, put a copy of its `.desktop` file in `~/.config/autostart` with `Hidden=true`, or with `NotShowIn=sway;` to skip it only in Sway sessions, so GNOME or KDE still start it. To turn all of them off, set `autostart = false` in `[enabled]`. A `config.toml` from an earlier version doesn't have that key: add the line inside `[enabled]`, before the `[enabled.bar]` part, since a line below `[enabled.bar]` belongs to the bar.
 
 ## Machine settings
 
@@ -114,8 +129,8 @@ input type:pointer {
     natural_scroll enabled
 }
 
-# Apps to start at login (Sway doesn't read ~/.config/autostart)
-exec nextcloud --background
+# Apps to start at login that have no autostart entry (the ones in ~/.config/autostart already start)
+exec foot --server
 
 # App workspaces: the app opens there, and you stay where you are
 assign [app_id="^org.mozilla.firefox$"] workspace number 2
@@ -149,7 +164,7 @@ A few tips:
 
 ## Launcher searches
 
-The searches in the launcher's **Web** tab can be changed in `~/.config/sway-desktop/launcher.conf`, one `key = value` per line (`#` starts a comment):
+The searches in the launcher's **Web** tab can be changed in `~/.config/swaydesk/launcher.conf`, one `key = value` per line (`#` starts a comment):
 
 ```
 # a prefix and the search address; %s is the text you type
@@ -164,7 +179,7 @@ A `search` line with a new prefix adds a search, and one with an existing prefix
 
 The easiest way to set up your screens is the **Displays** app, in the app grid. Drag the screens on the map, pick each one's resolution, refresh rate, scale and rotation, and click **Apply**. Without a click on **Keep** within 15 seconds, everything goes back to how it was.
 
-Each set of monitors (the laptop alone, the laptop with the office monitor…) keeps its own layout in `~/.config/sway-desktop/displays.json`, applied by itself when you plug or unplug a screen. With the lid closed and an external monitor on, the laptop screen turns off. The last layout you kept also goes to `~/.config/sway/config.d/90-displays.conf`, read after `50-local.conf`, so it wins over an `output` line there. Don't edit that file by hand: the next **Keep** rewrites it.
+Each set of monitors (the laptop alone, the laptop with the office monitor…) keeps its own layout in `~/.config/swaydesk/displays.json`, applied by itself when you plug or unplug a screen. With the lid closed and an external monitor on, the laptop screen turns off. The last layout you kept also goes to `~/.config/sway/config.d/90-displays.conf`, read after `50-local.conf`, so it wins over an `output` line there. Don't edit that file by hand: the next **Keep** rewrites it.
 
 ## The dock
 
@@ -190,7 +205,7 @@ Pinned apps are listed in `~/.local/share/sway-dock/pinned`, but it's simpler to
 
 On Arch, the store's updates part (GNOME Software) is turned off, because the Swaydesk notice takes care of everything: the official repositories, the AUR (through paru or yay, if you already have one installed), Flatpak apps and firmware (fwupd). It checks in the background, shows an icon with the count in the bar and sends a notification when there is something new; nothing is updated on its own. A click (or the notification's **Update** button) opens a terminal with the update.
 
-- **To turn the Swaydesk notice off** (if you'd rather update by hand or with another tool): set `update_notifier = false` in the `[enabled]` section of `~/.config/sway-desktop/config.toml` and log in again. The check, the notification and the icon stop, and the store takes care of updates again on its own.
+- **To turn the Swaydesk notice off** (if you'd rather update by hand or with another tool): set `update_notifier = false` in the `[enabled]` section of `~/.config/swaydesk/config.toml` and log in again. The check, the notification and the icon stop, and the store takes care of updates again on its own.
 - **To turn the store's updates part back on by hand**, keeping the Swaydesk notice: `gsettings set org.gnome.software allow-updates true` (to undo: `gsettings reset org.gnome.software allow-updates`). With both on, Flatpak updates show up twice.
 - **Just the icon:** `updates = false` in the `[enabled.bar]` section hides the icon and keeps the check and the notification.
 
@@ -209,7 +224,7 @@ sudo pacman -S sway     # to go back to Sway
 
 Swaydesk turns the effects on by itself at the next login. It notices SwayFX and writes `~/.config/sway/config.d/10-effects.conf`; with plain Sway the file holds only a comment. The file is written again at every login, when the theme changes, and with `swaydesk-desktop-config generate` (then run `swaymsg reload`).
 
-The effects live in the `[effects]` section of `~/.config/sway-desktop/config.toml`. A missing key keeps its default:
+The effects live in the `[effects]` section of `~/.config/swaydesk/config.toml`. A missing key keeps its default:
 
 ```
 [effects]

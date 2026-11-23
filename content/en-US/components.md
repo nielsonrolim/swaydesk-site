@@ -9,7 +9,7 @@ Swaydesk is made of components of its own, nearly all written in Rust with GTK 4
 
 The shortcuts on this page are those of the **Swaydesk** profile, the default. The other profiles (i3, Hyprland, niri and dwm) change many of them: see them all in [Shortcuts](/en-us/shortcuts/).
 
-Nearly every component can be turned off. The last line of each one shows the key, which goes in `~/.config/sway-desktop/config.toml`; see [Turning components off](/en-us/guide/config/#turning-components-off).
+Nearly every component can be turned off. The last line of each one shows the key, which goes in `~/.config/swaydesk/config.toml`; see [Turning components off](/en-us/guide/config/#turning-components-off).
 
 
 ## Bar and popups
@@ -89,7 +89,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Screen recording" shot="recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#screenshots-and-recording" bin="swaydesk-capture" src="rust/capture" tech="rust" >}}A region, the whole screen or a window, with the system sound, the microphone or no audio. The video goes to `~/Videos/Screencasts`.{{< /component >}}
 
-{{< component title="Desktop configuration" keys="In the terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Reads `~/.config/sway-desktop/config.toml` and writes the files that Sway, the bar and the apps use. After editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files.{{< /component >}}
+{{< component title="Desktop configuration" keys="In the terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Reads `~/.config/swaydesk/config.toml` and writes the files that Sway, the bar and the apps use. After editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files.{{< /component >}}
 
 
 ## Apps that come along
@@ -108,4 +108,4 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 | grim, slurp and wf-recorder | Screenshots and screen recording |
 | swaylock | The fallback lock screen; on Debian 13, the one in use |
 
-The install images also bring an app store, GNOME Software, with Flathub. On Debian and Ubuntu it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.
+The install images also bring an app store, GNOME Software, with Flathub. On Debian it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.

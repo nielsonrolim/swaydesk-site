@@ -39,7 +39,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /distro >}}
 {{< distro id="debian-testing" name="Debian testing" >}}
 <p class="distro__note">Rolling release: Swaydesk is tested on it at every release, but updates to the distribution itself may need fixes afterwards.</p>
-<p class="distro__note">For a new install, there is also a <a href="/en-us/download/#debian-testing">Debian testing ISO</a>, with the installer.</p>
+<p class="distro__note">There is no Swaydesk ISO for Debian testing: for a new install, install Debian testing first, then follow these steps.</p>
 {{< steps >}}
 {{< step text="Install `curl`, which downloads the repository package." >}}
 sudo apt install curl
@@ -94,6 +94,7 @@ dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/
 echo "a34f455e495c69a2c5dd94ff8ce6dd0618ec569d6b010010c2360432f6029020  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
+<p class="distro__note">On Ubuntu and Mint, GTK’s own windows (such as the file chooser) need your language’s GNOME language pack. Swaydesk shows a one-time notice with the command; you can also install it now, for example for Portuguese: <code>sudo apt install language-pack-gnome-pt</code>.</p>
 {{< /distro >}}
 {{< distro id="arch" name="Arch Linux" >}}
 <p class="distro__note">Rolling release: Swaydesk is tested on it at every release, but updates to the distribution itself may need fixes afterwards.</p>
@@ -147,4 +148,4 @@ Swaydesk's own login screen is optional if you already have one (GDM, SDDM, Ligh
 | `swaydesk-greeter` | Swaydesk's login screen, on top of greetd: optional with another display manager, needed for a graphical login without one |
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
-The packages are version 0.1.3.1, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.3.1) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
+The packages are version 0.1.4, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.4) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.

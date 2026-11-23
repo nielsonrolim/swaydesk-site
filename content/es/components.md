@@ -8,7 +8,7 @@ Swaydesk está hecho de componentes propios, casi todos escritos en Rust con GTK
 
 Los atajos de esta página son los del perfil **Swaydesk**, el predeterminado. Los otros perfiles (i3, Hyprland, niri y dwm) cambian muchos de ellos: míralos todos en [Atajos](/es/shortcuts/).
 
-Casi todos los componentes se pueden desactivar. La última línea de cada uno muestra la clave, que va en `~/.config/sway-desktop/config.toml`; mira [Desactivar componentes](/es/guide/config/#desactivar-componentes).
+Casi todos los componentes se pueden desactivar. La última línea de cada uno muestra la clave, que va en `~/.config/swaydesk/config.toml`; mira [Desactivar componentes](/es/guide/config/#desactivar-componentes).
 
 
 ## Barra y ventanas emergentes
@@ -88,7 +88,7 @@ La barra también muestra la distribución del teclado cuando hay dos o más; un
 
 {{< component title="Grabación de pantalla" shot="recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#capturas-de-pantalla-y-grabación" bin="swaydesk-capture" src="rust/capture" tech="rust" >}}Una región, la pantalla completa o una ventana, con el sonido del sistema, el micrófono o sin audio. El video va a `~/Videos/Screencasts`.{{< /component >}}
 
-{{< component title="Configuración del escritorio" keys="En la terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Lee `~/.config/sway-desktop/config.toml` y escribe los archivos que usan Sway, la barra y las aplicaciones. Después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos.{{< /component >}}
+{{< component title="Configuración del escritorio" keys="En la terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Lee `~/.config/swaydesk/config.toml` y escribe los archivos que usan Sway, la barra y las aplicaciones. Después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos.{{< /component >}}
 
 
 ## Aplicaciones que vienen incluidas
@@ -107,4 +107,4 @@ La barra también muestra la distribución del teclado cuando hay dos o más; un
 | grim, slurp y wf-recorder | Capturas y grabación de pantalla |
 | swaylock | La pantalla de bloqueo de reserva; en Debian 13, la que se usa |
 
-Las imágenes de instalación también traen una tienda de aplicaciones, GNOME Software, con Flathub. En Debian y Ubuntu también instala y actualiza los paquetes de la distribución y el firmware; en Arch se encarga de las aplicaciones Flatpak, y el aviso de Swaydesk se encarga del resto. Con los paquetes, instala `gnome-software` tú mismo si lo quieres.
+Las imágenes de instalación también traen una tienda de aplicaciones, GNOME Software, con Flathub. En Debian también instala y actualiza los paquetes de la distribución y el firmware; en Arch se encarga de las aplicaciones Flatpak, y el aviso de Swaydesk se encarga del resto. Con los paquetes, instala `gnome-software` tú mismo si lo quieres.

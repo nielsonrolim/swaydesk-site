@@ -1,6 +1,6 @@
 ---
 title: Configuração
-prompt: "cat ~/.config/sway-desktop/config.toml"
+prompt: "cat ~/.config/swaydesk/config.toml"
 crumb: guide/config
 weight: 3
 description: Os arquivos que você edita para ajustar o Swaydesk à sua máquina e ao seu gosto.
@@ -9,14 +9,16 @@ A configuração do Sway e da barra vem do pacote e é atualizada com ele. O que
 
 | Arquivo | O que guarda |
 | --- | --- |
-| `~/.config/sway-desktop/config.toml` | Idioma, tema, ícones, cor de destaque, cidade do tempo, feriados, gerenciador de arquivos, perfil de atalhos e os componentes desligados |
+| `~/.config/swaydesk/config.toml` | Idioma, tema, ícones, cor de destaque, cidade do tempo, feriados, gerenciador de arquivos, perfil de atalhos e os componentes desligados |
 | `~/.config/sway/config.d/50-local.conf` | Monitores, teclado, mouse, programas ao entrar e apps nos workspaces |
-| `~/.config/sway-desktop/displays.json` | As telas de cada conjunto de monitores, gravadas pelo app **Telas** |
+| `~/.config/swaydesk/displays.json` | As telas de cada conjunto de monitores, gravadas pelo app **Telas** |
 | `~/.config/sway-dock/config.toml` | O modo e o tamanho da dock |
+
+Antes da 0.1.4, as pastas `swaydesk` se chamavam `sway-desktop`: `~/.config/sway-desktop`, e o mesmo em `~/.local/share` e `~/.local/state`. O primeiro login na 0.1.4 as move para `swaydesk` e deixa os nomes antigos como links para as pastas novas, então os caminhos antigos continuam valendo. Se um arquivo estiver na pasta velha e na nova, nada é movido, a pasta velha continua valendo, e o log da sessão avisa (`grep kept: ~/.local/state/sway/sway.log`); junte as duas pastas à mão para trocar.
 
 ## A configuração do desktop
 
-O `~/.config/sway-desktop/config.toml` vale para todas as peças do Swaydesk. O jeito mais fácil de mudar o tema e a cor é o app **Tema do Desktop**, que grava este arquivo por você. Pelo terminal, o `swaydesk-theme` faz o mesmo:
+O `~/.config/swaydesk/config.toml` vale para todas as peças do Swaydesk. O jeito mais fácil de mudar o tema e a cor é o app **Tema do Desktop**, que grava este arquivo por você. Pelo terminal, o `swaydesk-theme` faz o mesmo:
 
 ```
 swaydesk-theme families                  # as famílias de temas instaladas
@@ -51,19 +53,25 @@ folder_color = ""
 
 # Gerenciador de arquivos do Ctrl+Alt+E, da grade de apps e da dock. Vazio: o primeiro instalado
 file_manager = "thunar"
+
+# Perfis de energia no popup Sistema: "auto" (o padrão) só sem bateria, "always" ou "never"
+power_profiles_in_system = "auto"
 ```
 
 Os programas leem o arquivo quando abrem. Depois de editar à mão:
 
 - para a cor de destaque, ponha antes `accent_auto = false`, senão o próximo papel de parede traz a cor dele de volta; depois rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
-- para o idioma, a cidade e os feriados, saia e entre de novo na sessão.
+- para o idioma, a cidade e os feriados, saia e entre de novo na sessão;
+- para o `power_profiles_in_system`, nada: vale na próxima vez que o popup Sistema abrir.
 
 Um valor inválido não quebra nada: a peça usa o padrão daquela chave.
 
+Num computador sem bateria, o ícone da bateria sai da barra e, com ele, os botões de perfil do popup dela. Por isso o popup Sistema ganha a linha **Perfil de energia**, com os perfis que o `power-profiles-daemon` oferece (Economia, Equilibrado e, onde o hardware permite, Desempenho): um clique troca o perfil sem fechar o popup. Sem o daemon, a linha não aparece. Com `"always"`, ela aparece também nos notebooks; o popup da bateria continua com os botões de qualquer jeito.
+
 ## Ligar e desligar componentes
 
-Cada componente do Swaydesk vem ligado. Para desligar um, ponha a chave dele com `false` na seção `[enabled]` do `~/.config/sway-desktop/config.toml`; os módulos da barra ficam na `[enabled.bar]`:
+Cada componente do Swaydesk vem ligado. Para desligar um, ponha a chave dele com `false` na seção `[enabled]` do `~/.config/swaydesk/config.toml`; os módulos da barra ficam na `[enabled.bar]`:
 
 ```
 [enabled]
@@ -87,10 +95,17 @@ weather = false         # o clima na barra
 | `polkit_agent` | O agente de polkit (a senha de administrador) |
 | `update_notifier` | O aviso de atualizações |
 | `displays` | Os perfis automáticos das telas; o app **Telas** continua |
+| `autostart` | Os apps de `~/.config/autostart` e `/etc/xdg/autostart` (veja abaixo) |
 
 As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` e, no Arch, `updates`. Os workspaces e a bandeja ficam sempre.
 
 A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
+
+### Apps que abrem no login
+
+A sessão abre os apps das pastas de início automático do XDG, `~/.config/autostart` e `/etc/xdg/autostart`, como o GNOME e o KDE fazem, e os fecha quando você sai. As entradas do que o Swaydesk já cobre (blueman, nm-applet, os agentes de polkit do mate e do lxpolkit, xapp-sn-watcher) ficam de fora, só na sessão do Swaydesk: o GNOME ou o KDE na mesma conta continuam abrindo essas entradas. A entrada do próprio PulseAudio também fica de fora ali, mas só quando o PipeWire é o servidor de som, caso em que ela só falharia.
+
+Para um app não abrir, ponha uma cópia do `.desktop` dele em `~/.config/autostart` com `Hidden=true`, ou com `NotShowIn=sway;` para pular só nas sessões do Sway, e o GNOME ou o KDE continuam abrindo. Para desligar todos, ponha `autostart = false` em `[enabled]`. Um `config.toml` de uma versão anterior não tem essa chave: acrescente a linha dentro de `[enabled]`, antes da parte `[enabled.bar]`, porque uma linha abaixo de `[enabled.bar]` vale para a barra.
 
 ## Os ajustes da máquina
 
@@ -114,8 +129,8 @@ input type:pointer {
     natural_scroll enabled
 }
 
-# Programas ao entrar na sessão (o Sway não lê o ~/.config/autostart)
-exec nextcloud --background
+# Programas ao entrar na sessão que não têm entrada de autostart (os do ~/.config/autostart já abrem)
+exec foot --server
 
 # Apps nos workspaces: o app abre lá, e você continua onde está
 assign [app_id="^org.mozilla.firefox$"] workspace number 2
@@ -149,7 +164,7 @@ Algumas dicas:
 
 ## Buscas do lançador
 
-As buscas da aba **Web** do lançador mudam no `~/.config/sway-desktop/launcher.conf`, uma linha `chave = valor` por ajuste (`#` comenta):
+As buscas da aba **Web** do lançador mudam no `~/.config/swaydesk/launcher.conf`, uma linha `chave = valor` por ajuste (`#` comenta):
 
 ```
 # um prefixo e o endereço da busca; %s é o texto digitado
@@ -164,7 +179,7 @@ Uma linha `search` com um prefixo novo acrescenta uma busca, e uma com um prefix
 
 O jeito mais fácil de acertar as telas é o app **Telas**, na grade de apps. Arraste as telas no mapa, escolha a resolução, a taxa, a escala e a rotação de cada uma e clique em **Aplicar**. Sem um clique em **Manter** em 15 segundos, tudo volta ao que era.
 
-Cada conjunto de monitores (o notebook sozinho, o notebook com o monitor do escritório…) guarda o seu layout em `~/.config/sway-desktop/displays.json`, aplicado sozinho quando você pluga ou despluga uma tela. Com a tampa fechada e um monitor ligado, a tela do notebook desliga. O último layout mantido também vai para `~/.config/sway/config.d/90-displays.conf`, lido depois do `50-local.conf`: ele vale mais que uma linha `output` de lá. Não edite esse arquivo à mão, porque o próximo **Manter** o regrava.
+Cada conjunto de monitores (o notebook sozinho, o notebook com o monitor do escritório…) guarda o seu layout em `~/.config/swaydesk/displays.json`, aplicado sozinho quando você pluga ou despluga uma tela. Com a tampa fechada e um monitor ligado, a tela do notebook desliga. O último layout mantido também vai para `~/.config/sway/config.d/90-displays.conf`, lido depois do `50-local.conf`: ele vale mais que uma linha `output` de lá. Não edite esse arquivo à mão, porque o próximo **Manter** o regrava.
 
 ## A dock
 
@@ -190,7 +205,7 @@ Os apps fixados ficam em `~/.local/share/sway-dock/pinned`, mas é mais simples 
 
 No Arch, a parte de atualizações da loja (GNOME Software) vem desativada, porque o aviso do Swaydesk cuida de tudo: os repositórios oficiais, o AUR (pelo paru ou yay, se você já tiver um instalado), os apps Flatpak e o firmware (fwupd). Ele confere em segundo plano, mostra um ícone na barra com a quantidade e avisa por notificação quando há algo novo; nada é atualizado sozinho. O clique (ou o botão **Atualizar** da notificação) abre um terminal com a atualização.
 
-- **Para desligar o aviso do Swaydesk** (quem prefere atualizar à mão ou por outra ferramenta): ponha `update_notifier = false` na seção `[enabled]` de `~/.config/sway-desktop/config.toml` e entre de novo na sessão. A verificação, a notificação e o ícone param, e a loja volta a cuidar das atualizações sozinha.
+- **Para desligar o aviso do Swaydesk** (quem prefere atualizar à mão ou por outra ferramenta): ponha `update_notifier = false` na seção `[enabled]` de `~/.config/swaydesk/config.toml` e entre de novo na sessão. A verificação, a notificação e o ícone param, e a loja volta a cuidar das atualizações sozinha.
 - **Para reativar a parte de atualizações da loja à mão**, mantendo o aviso do Swaydesk: `gsettings set org.gnome.software allow-updates true` (para voltar: `gsettings reset org.gnome.software allow-updates`). Com os dois ligados, as atualizações do Flatpak aparecem duas vezes.
 - **Só o ícone:** `updates = false` na seção `[enabled.bar]` esconde o ícone e mantém a verificação e a notificação.
 
@@ -209,7 +224,7 @@ O `swaydesk-desktop` continua instalado nos dois casos, porque o `swayfx` provê
 
 O Swaydesk liga os efeitos sozinho, no próximo login. Ele percebe o SwayFX e grava o `~/.config/sway/config.d/10-effects.conf`; com o Sway comum, o arquivo fica só com um comentário. O arquivo é gravado de novo a cada login, quando o tema muda e com o `swaydesk-desktop-config generate` (depois, rode `swaymsg reload`).
 
-Os efeitos ficam na seção `[effects]` do `~/.config/sway-desktop/config.toml`. Uma chave ausente fica com o padrão:
+Os efeitos ficam na seção `[effects]` do `~/.config/swaydesk/config.toml`. Uma chave ausente fica com o padrão:
 
 ```
 [effects]

@@ -9,7 +9,7 @@ O Swaydesk é feito de componentes próprios, quase todos escritos em Rust com G
 
 Os atalhos desta página são os do perfil **Swaydesk**, o padrão. Os outros perfis (i3, Hyprland, niri e dwm) mudam boa parte deles: veja todos em [Atalhos](/pt-br/shortcuts/).
 
-Quase todo componente pode ser desligado. A última linha de cada um mostra a chave, que vai no `~/.config/sway-desktop/config.toml`; veja [Ligar e desligar componentes](/pt-br/guide/config/#ligar-e-desligar-componentes).
+Quase todo componente pode ser desligado. A última linha de cada um mostra a chave, que vai no `~/.config/swaydesk/config.toml`; veja [Ligar e desligar componentes](/pt-br/guide/config/#ligar-e-desligar-componentes).
 
 
 ## Barra e popups
@@ -89,7 +89,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 {{< component title="Gravação de tela" shot="recording" keys="`Super`+`Shift`+`R`" guide="guide/desktop/#capturas-e-gravação" bin="swaydesk-capture" src="rust/capture" tech="rust" >}}Região, tela inteira ou janela, com o som do sistema, o microfone ou sem áudio. O vídeo vai para `~/Vídeos/Screencasts`.{{< /component >}}
 
-{{< component title="Configuração do desktop" keys="No terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Lê o `~/.config/sway-desktop/config.toml` e gera os arquivos que o Sway, a barra e os apps usam. Depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos.{{< /component >}}
+{{< component title="Configuração do desktop" keys="No terminal" guide="guide/config/" bin="swaydesk-desktop-config" src="rust/desktop-config" tech="rust" >}}Lê o `~/.config/swaydesk/config.toml` e gera os arquivos que o Sway, a barra e os apps usam. Depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos.{{< /component >}}
 
 
 ## Apps que acompanham
@@ -108,4 +108,4 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 | grim, slurp e wf-recorder | A captura e a gravação de tela |
 | swaylock | O bloqueio de reserva; no Debian 13, o bloqueio de sempre |
 
-As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian e no Ubuntu, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.
+As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.

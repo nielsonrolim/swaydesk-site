@@ -39,7 +39,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /distro >}}
 {{< distro id="debian-testing" name="Debian testing" >}}
 <p class="distro__note">Rolling release: Swaydesk se prueba en ella en cada versión, pero las actualizaciones de la propia distribución pueden requerir correcciones después.</p>
-<p class="distro__note">Para una instalación desde cero, también hay una <a href="/es/download/#debian-testing">ISO de Debian testing</a>, con el instalador.</p>
+<p class="distro__note">No hay ISO de Swaydesk para Debian testing: en una instalación desde cero, instala primero Debian testing y luego sigue estos pasos.</p>
 {{< steps >}}
 {{< step text="Instala `curl`, que descarga el paquete del repositorio." >}}
 sudo apt install curl
@@ -94,6 +94,7 @@ dir=$(mktemp -d) && curl -fsSL https://download.opensuse.org/repositories/home:/
 echo "a34f455e495c69a2c5dd94ff8ce6dd0618ec569d6b010010c2360432f6029020  $dir/$deb" | sha256sum -c && sudo dpkg -i "$dir/$deb" && rm -r "$dir" &&
 sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
+<p class="distro__note">En Ubuntu y Mint, las ventanas propias de GTK (como el selector de archivos) necesitan el paquete de idioma de GNOME de tu idioma. Swaydesk muestra un aviso, una sola vez, con el comando; también puedes instalarlo ahora, por ejemplo para el español: <code>sudo apt install language-pack-gnome-es</code>.</p>
 {{< /distro >}}
 {{< distro id="arch" name="Arch Linux" >}}
 <p class="distro__note">Rolling release: Swaydesk se prueba en ella en cada versión, pero las actualizaciones de la propia distribución pueden requerir correcciones después.</p>
@@ -147,4 +148,4 @@ La pantalla de inicio de sesión propia de Swaydesk es opcional si ya tienes una
 | `swaydesk-greeter` | La pantalla de inicio de sesión de Swaydesk, sobre greetd: opcional con otro gestor de inicio de sesión, necesaria para un inicio de sesión gráfico sin uno |
 | `swaydesk-archive-keyring` | Solo Debian, Ubuntu y Mint: la clave y el repositorio, siempre al día |
 
-Los paquetes son de la versión 0.1.3.1, estable: mira las [notas de la versión](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.3.1) y el [registro de cambios](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). Las versiones nuevas llegan como actualizaciones.
+Los paquetes son de la versión 0.1.4, estable: mira las [notas de la versión](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.4) y el [registro de cambios](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). Las versiones nuevas llegan como actualizaciones.
