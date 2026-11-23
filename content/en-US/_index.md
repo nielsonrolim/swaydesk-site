@@ -5,7 +5,7 @@ facts:
   - {k: base, v: "Sway, the tiling Wayland compositor"}
   - {k: stack, v: "Rust, GTK 4, layer-shell"}
   - {k: distros, v: "Debian 13 / testing, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
-  - {k: status, v: "0.1.3.1, stable; packages on OBS"}
+  - {k: status, v: "0.1.4, stable; packages on OBS"}
 ---
 Swaydesk turns [Sway](https://swaywm.org/) into a complete desktop without losing what makes it good: it is light, fast and fully driven by the keyboard when you want it. Swaydesk is an independent project: it is not affiliated with, or endorsed by, the Sway project or its developers.
 
