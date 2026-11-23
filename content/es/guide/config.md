@@ -14,7 +14,7 @@ La configuración de Sway y de la barra viene con el paquete y se actualiza con 
 | `~/.config/swaydesk/displays.json` | Tus pantallas para cada conjunto de monitores, guardadas por la aplicación **Pantallas** |
 | `~/.config/sway-dock/config.toml` | El modo y el tamaño de la dock |
 
-Hasta la 0.1.4, las carpetas `swaydesk` se llamaban `sway-desktop`: `~/.config/sway-desktop`, y lo mismo en `~/.local/share` y `~/.local/state`. El primer inicio de sesión en la 0.1.4 las mueve a `swaydesk` y deja los nombres antiguos como enlaces a las carpetas nuevas, así que las rutas antiguas siguen funcionando. Si un archivo está en la carpeta antigua y en la nueva, no se mueve nada, la carpeta antigua sigue en uso y el registro de la sesión dice por qué.
+Antes de la 0.1.4, las carpetas `swaydesk` se llamaban `sway-desktop`: `~/.config/sway-desktop`, y lo mismo en `~/.local/share` y `~/.local/state`. El primer inicio de sesión en la 0.1.4 las mueve a `swaydesk` y deja los nombres antiguos como enlaces a las carpetas nuevas, así que las rutas antiguas siguen funcionando. Si un archivo está en la carpeta antigua y en la nueva, no se mueve nada, la carpeta antigua sigue en uso y el registro de la sesión (`~/.local/state/sway/sway.log`) dice por qué.
 
 ## Configuración del escritorio
 
