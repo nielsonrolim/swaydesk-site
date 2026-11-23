@@ -108,4 +108,4 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 | grim, slurp e wf-recorder | A captura e a gravação de tela |
 | swaylock | O bloqueio de reserva; no Debian 13, o bloqueio de sempre |
 
-As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian e no Ubuntu, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.
+As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.

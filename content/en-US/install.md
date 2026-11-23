@@ -39,7 +39,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /distro >}}
 {{< distro id="debian-testing" name="Debian testing" >}}
 <p class="distro__note">Rolling release: Swaydesk is tested on it at every release, but updates to the distribution itself may need fixes afterwards.</p>
-<p class="distro__note">For a new install, there is also a <a href="/en-us/download/#debian-testing">Debian testing ISO</a>, with the installer.</p>
+<p class="distro__note">There is no Swaydesk ISO for Debian testing: for a new install, install Debian testing first, then follow these steps.</p>
 {{< steps >}}
 {{< step text="Install `curl`, which downloads the repository package." >}}
 sudo apt install curl
