@@ -108,4 +108,4 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 | grim, slurp and wf-recorder | Screenshots and screen recording |
 | swaylock | The fallback lock screen; on Debian 13, the one in use |
 
-The install images also bring an app store, GNOME Software, with Flathub. On Debian and Ubuntu it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.
+The install images also bring an app store, GNOME Software, with Flathub. On Debian it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.

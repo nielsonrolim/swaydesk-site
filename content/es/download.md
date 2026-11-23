@@ -4,7 +4,7 @@ prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
 description: Las ISO live de Swaydesk, versión estable 0.1.3.1, con instalador.
 ---
-Cada ISO arranca una sesión live de Swaydesk: pruébala sin tocar el disco y, si te gusta, instálala con el icono **Instalar Swaydesk** de la dock. Son ISO estables, de la versión 0.1.3.1, la misma de los paquetes. ¿Ya tienes Debian 13 o testing, Ubuntu 26.04, Linux Mint 27 o Arch? Entonces no necesitas una ISO: [instala los paquetes](/es/install/) en el sistema que tienes. Linux Mint 27 no tiene ISO de Swaydesk; allí, Swaydesk llega solo por los paquetes.
+Cada ISO arranca una sesión live de Swaydesk: pruébala sin tocar el disco y, si te gusta, instálala con el icono **Instalar Swaydesk** de la dock. Son ISO estables, de la versión 0.1.3.1, la misma de los paquetes. ¿Ya tienes Debian 13 o testing, Ubuntu 26.04, Linux Mint 27 o Arch? Entonces no necesitas una ISO: [instala los paquetes](/es/install/) en el sistema que tienes. Ubuntu 26.04 y Linux Mint 27 no tienen ISO de Swaydesk (la de Ubuntu llegó hasta la 0.1.3.1); allí, Swaydesk llega solo por los paquetes.
 
 ## Requisitos
 
@@ -21,9 +21,6 @@ Debian 13 con Swaydesk. Con Secure Boot activado, también se instala el control
 {{< /iso >}}
 {{< iso id="debian-testing" >}}
 Debian testing (forky) con Swaydesk, hecha como la imagen de Debian 13: el mismo instalador y la misma tienda de aplicaciones, y el controlador de NVIDIA con Secure Boot con el mismo paso de la clave. El sistema instalado sigue a testing, así que sus paquetes siguen cambiando; para un sistema estable, usa la imagen de Debian 13. La imagen es una foto del día en que se generó: después de un kernel nuevo de testing, el controlador de NVIDIA (DKMS) puede quedarse atrás por un tiempo. No trae los controladores de impresoras HP (`hplip`, que no está en testing por ahora); instálalos con apt cuando vuelvan.
-{{< /iso >}}
-{{< iso id="ubuntu" >}}
-Ubuntu 26.04 con Swaydesk, sin telemetría. Mantiene el cliente de Ubuntu Pro sin sus anuncios: Ubuntu Pro (actualizaciones de seguridad extendidas para universe, gratis para uso personal en hasta 5 máquinas) queda desactivado hasta que ejecutes `sudo pro attach`. El controlador de NVIDIA viene firmado y funciona con Secure Boot activado.
 {{< /iso >}}
 {{< iso id="arch" >}}
 Arch Linux con Swaydesk. Desactiva Secure Boot en la configuración del firmware antes de arrancarla. El controlador de NVIDIA (nvidia-open) solo se instala para tarjetas Turing (GTX 16xx, RTX 20xx) y más nuevas; las más antiguas se quedan con nouveau.

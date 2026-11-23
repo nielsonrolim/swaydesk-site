@@ -4,7 +4,7 @@ prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
 description: As ISOs live do Swaydesk, versão 0.1.3.1 estável, com instalador.
 ---
-Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.3.1, a mesma dos pacotes. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Linux Mint 27 não tem ISO do Swaydesk; nele, o Swaydesk entra só pelos pacotes.
+Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.3.1, a mesma dos pacotes. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Ubuntu 26.04 e o Linux Mint 27 não têm ISO do Swaydesk (a do Ubuntu parou na 0.1.3.1); neles, o Swaydesk entra só pelos pacotes.
 
 ## Requisitos
 
@@ -21,9 +21,6 @@ Debian 13 com o Swaydesk. Com o Secure Boot ligado, o driver da NVIDIA também �
 {{< /iso >}}
 {{< iso id="debian-testing" >}}
 Debian testing (forky) com o Swaydesk, feita como a do Debian 13: o mesmo instalador e a mesma loja, e o driver da NVIDIA com o Secure Boot, com o mesmo passo da chave. O sistema instalado segue o testing, então os pacotes dele continuam mudando; para um sistema estável, use a ISO do Debian 13. A ISO é uma foto do dia do build: depois de um kernel novo no testing, o driver da NVIDIA (DKMS) pode demorar a acompanhar. Ela não tem os drivers das impressoras HP (`hplip`, fora do testing agora); instale-os pelo apt quando voltarem.
-{{< /iso >}}
-{{< iso id="ubuntu" >}}
-Ubuntu 26.04 com o Swaydesk, sem telemetria. Mantém o cliente do Ubuntu Pro, sem os anúncios: o Ubuntu Pro (atualizações de segurança estendidas para o universe, grátis para uso pessoal em até 5 máquinas) fica desligado até você rodar `sudo pro attach`. O driver da NVIDIA vem assinado e funciona com o Secure Boot ligado.
 {{< /iso >}}
 {{< iso id="arch" >}}
 Arch Linux com o Swaydesk. Desligue o Secure Boot nas configurações do firmware antes de dar o boot. O driver da NVIDIA (nvidia-open) entra só para placas Turing (GTX 16xx, RTX 20xx) e mais novas; as mais antigas ficam no nouveau.

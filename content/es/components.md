@@ -107,4 +107,4 @@ La barra también muestra la distribución del teclado cuando hay dos o más; un
 | grim, slurp y wf-recorder | Capturas y grabación de pantalla |
 | swaylock | La pantalla de bloqueo de reserva; en Debian 13, la que se usa |
 
-Las imágenes de instalación también traen una tienda de aplicaciones, GNOME Software, con Flathub. En Debian y Ubuntu también instala y actualiza los paquetes de la distribución y el firmware; en Arch se encarga de las aplicaciones Flatpak, y el aviso de Swaydesk se encarga del resto. Con los paquetes, instala `gnome-software` tú mismo si lo quieres.
+Las imágenes de instalación también traen una tienda de aplicaciones, GNOME Software, con Flathub. En Debian también instala y actualiza los paquetes de la distribución y el firmware; en Arch se encarga de las aplicaciones Flatpak, y el aviso de Swaydesk se encarga del resto. Con los paquetes, instala `gnome-software` tú mismo si lo quieres.
