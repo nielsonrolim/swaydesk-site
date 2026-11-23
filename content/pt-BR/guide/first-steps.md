@@ -50,7 +50,7 @@ Os atalhos seguem os do KDE Plasma com o Krohnkite, e dá para trocá-los pelos 
 
 No primeiro login, a sessão copia para a sua pasta pessoal os arquivos que ainda não existem. Nada que você já tenha é sobrescrito, e o que ela copia passa a ser seu:
 
-- `~/.config/sway-desktop/config.toml`, a configuração do desktop: idioma, tema, ícones e cor de destaque. Se o tema padrão não estiver instalado, ela já começa com o `Adwaita-dark`;
+- `~/.config/swaydesk/config.toml`, a configuração do desktop: idioma, tema, ícones e cor de destaque. Se o tema padrão não estiver instalado, ela já começa com o `Adwaita-dark`;
 - `~/.config/sway/config.d/50-local.conf`, o arquivo com os ajustes desta máquina, com exemplos comentados e o layout de teclado do sistema;
 - a lista inicial de apps fixados na dock: o gerenciador de arquivos e o terminal.
 

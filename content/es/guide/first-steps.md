@@ -50,7 +50,7 @@ Los atajos siguen a KDE Plasma con Krohnkite, y puedes cambiarlos por las teclas
 
 La primera vez que inicias sesión, la sesión copia a tu carpeta personal los archivos que todavía no tienes. Nunca sobrescribe nada, y lo que copia es tuyo para editar:
 
-- `~/.config/sway-desktop/config.toml`, la configuración del escritorio: idioma, tema, iconos y color de acento. Si el tema predeterminado no está instalado, empieza con `Adwaita-dark`;
+- `~/.config/swaydesk/config.toml`, la configuración del escritorio: idioma, tema, iconos y color de acento. Si el tema predeterminado no está instalado, empieza con `Adwaita-dark`;
 - `~/.config/sway/config.d/50-local.conf`, la configuración de esta computadora, con ejemplos comentados y la distribución del teclado del sistema;
 - el primer conjunto de aplicaciones fijadas en la dock: el administrador de archivos y la terminal.
 

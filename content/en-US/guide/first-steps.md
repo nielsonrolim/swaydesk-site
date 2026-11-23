@@ -50,7 +50,7 @@ The shortcuts follow KDE Plasma with Krohnkite, and you can switch them to the i
 
 The first time you log in, the session copies into your home folder whatever files you don't have yet. It never overwrites anything, and what it copies is yours to edit:
 
-- `~/.config/sway-desktop/config.toml`, the desktop settings: language, theme, icons and accent color. If the default theme isn't installed, it starts with `Adwaita-dark`;
+- `~/.config/swaydesk/config.toml`, the desktop settings: language, theme, icons and accent color. If the default theme isn't installed, it starts with `Adwaita-dark`;
 - `~/.config/sway/config.d/50-local.conf`, the settings for this machine, with commented examples and the system keyboard layout;
 - the first set of apps pinned to the dock: the file manager and the terminal.
 
