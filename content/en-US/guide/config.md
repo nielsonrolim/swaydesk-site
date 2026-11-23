@@ -14,7 +14,7 @@ The Sway and bar configuration comes with the package and is updated with it. Wh
 | `~/.config/swaydesk/displays.json` | Your screens for each set of monitors, saved by the **Displays** app |
 | `~/.config/sway-dock/config.toml` | The dock mode and size |
 
-Before 0.1.4, the `swaydesk` folders were called `sway-desktop`: `~/.config/sway-desktop`, and the same in `~/.local/share` and `~/.local/state`. The first login on 0.1.4 moves them to `swaydesk` and leaves the old names as links to the new folders, so the old paths keep working. If a file is in both the old and the new folder, nothing moves, the old folder stays in use, and the session log (`~/.local/state/sway/sway.log`) says why.
+Before 0.1.4, the `swaydesk` folders were called `sway-desktop`: `~/.config/sway-desktop`, and the same in `~/.local/share` and `~/.local/state`. The first login on 0.1.4 moves them to `swaydesk` and leaves the old names as links to the new folders, so the old paths keep working. If a file is in both the old and the new folder, nothing moves, the old folder stays in use, and the session log says so (`grep kept: ~/.local/state/sway/sway.log`); merge the two folders by hand to switch.
 
 ## Desktop settings
 

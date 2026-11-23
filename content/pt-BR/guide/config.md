@@ -14,7 +14,7 @@ A configuração do Sway e da barra vem do pacote e é atualizada com ele. O que
 | `~/.config/swaydesk/displays.json` | As telas de cada conjunto de monitores, gravadas pelo app **Telas** |
 | `~/.config/sway-dock/config.toml` | O modo e o tamanho da dock |
 
-Antes da 0.1.4, as pastas `swaydesk` se chamavam `sway-desktop`: `~/.config/sway-desktop`, e o mesmo em `~/.local/share` e `~/.local/state`. O primeiro login na 0.1.4 as move para `swaydesk` e deixa os nomes antigos como links para as pastas novas, então os caminhos antigos continuam valendo. Se um arquivo estiver na pasta velha e na nova, nada é movido, a pasta velha continua valendo, e o log da sessão (`~/.local/state/sway/sway.log`) diz o motivo.
+Antes da 0.1.4, as pastas `swaydesk` se chamavam `sway-desktop`: `~/.config/sway-desktop`, e o mesmo em `~/.local/share` e `~/.local/state`. O primeiro login na 0.1.4 as move para `swaydesk` e deixa os nomes antigos como links para as pastas novas, então os caminhos antigos continuam valendo. Se um arquivo estiver na pasta velha e na nova, nada é movido, a pasta velha continua valendo, e o log da sessão avisa (`grep kept: ~/.local/state/sway/sway.log`); junte as duas pastas à mão para trocar.
 
 ## A configuração do desktop
 
