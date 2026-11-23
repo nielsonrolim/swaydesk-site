@@ -21,14 +21,6 @@ size = "1.8 GB"
 sha256 = "a69262e0dae09280628788875bcbd4d496d1cd7c60ba3453a0b0353739d91ae6"
 secure_boot = true
 
-[debian-testing]
-published = true
-name = "Debian Testing"
-file = "swaydesk-0.1.3.1-debiantesting-amd64.iso"
-size = "1.9 GB"
-sha256 = "8ef7ff4c99a80cc3746d1f62477ef257f90f1c50ce9b39c7003958072e02d57d"
-secure_boot = true
-
 [arch]
 published = true
 name = "Arch Linux"
