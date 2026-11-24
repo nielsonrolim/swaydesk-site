@@ -29,7 +29,7 @@ swaydesk-theme cursor 32                 # the cursor size; with no number, the 
 
 The colors are the Papirus folder colors; `swaydesk-theme colors` lists them all.
 
-The cursor size is in the app too, in the **Cursor size** list below the icons, which shows only the sizes your cursor theme has. A choice applies at once, without **Apply**: GTK 4 and Qt 6 apps follow right away, and older ones (GTK 3, Qt 5, Electron and X11 apps) when you open them again. Sway's own cursor follows when the Bibata or Capitaine cursor theme is installed; without them, your own `seat` line keeps its theme and size.
+The cursor size is in the app too, in the **Cursor size** list below the icons, which shows only the sizes your cursor theme has. A choice applies at once, without **Apply**: GTK 4 and Qt 6 apps follow right away, and older ones (GTK 3, Qt 5, Electron and X11 apps) when you open them again. A `seat` line of your own in `~/.config/sway/config.d/50-local.conf` wins, and comes back at the next reload or login.
 
 Here's a sample file with the keys you can change by hand:
 
