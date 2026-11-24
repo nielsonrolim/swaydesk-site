@@ -8,7 +8,7 @@ facts:
   - {k: languages, v: "Português · English · Español"}
 hero:
   status: "stable · packages on OBS"
-  title: "Sway, now a complete desktop."
+  title: ["Light as a tiling WM.", "Complete as a desktop."]
   lead: "Bar, dock, app grid, notifications, login and lock screen, written in Rust and GTK 4. Light, fast and all from the keyboard when you want."
   install: "Install"
   watch: "See it in action"
@@ -20,7 +20,7 @@ hero:
   badge: "# opens the app grid"
 demo:
   kicker: "## see it in action"
-  title: "From login to lock screen, in under five minutes."
+  title: "A tour of Swaydesk."
   play: "Play the demo video"
   chapters: "Chapters"
   all: "See all chapters →"

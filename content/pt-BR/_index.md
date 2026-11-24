@@ -8,7 +8,7 @@ facts:
   - {k: idiomas, v: "Português · English · Español"}
 hero:
   status: "estável · pacotes no OBS"
-  title: "O Sway, agora um desktop completo."
+  title: ["Leve como um tiling.", "Completo como um desktop."]
   lead: "Barra, dock, grade de apps, notificações, login e bloqueio de tela, escritos em Rust e GTK 4. Leve, rápido e todo pelo teclado quando você quer."
   install: "Instalar"
   watch: "Ver em ação"
@@ -20,7 +20,7 @@ hero:
   badge: "# abre a grade de apps"
 demo:
   kicker: "## veja em ação"
-  title: "Do login ao bloqueio de tela, em cinco minutos."
+  title: "Um passeio pelo Swaydesk."
   play: "Reproduzir vídeo de demonstração"
   chapters: "Capítulos"
   all: "Ver todos os capítulos →"

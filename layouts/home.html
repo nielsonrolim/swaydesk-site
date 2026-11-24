@@ -11,7 +11,7 @@
 <span><span class="muted">user@swaydesk:~$</span> whoami</span>
 <span class="pill"><span class="pill__dot" aria-hidden="true"></span>{{ site.Data.isos.tag }} · {{ $h.status }}</span>
 </div>
-<h1 class="hero__title">{{ $h.title }}</h1>
+<h1 class="hero__title">{{ if reflect.IsSlice $h.title }}{{ range $h.title }}<span class="hero__line">{{ . }}</span> {{ end }}{{ else }}{{ $h.title }}{{ end }}</h1>
 <p class="hero__lead">{{ $h.lead }}</p>
 <div class="hero__actions">
 <a class="btn" href="{{ relLangURL "install/" }}">{{ $h.install }}<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>

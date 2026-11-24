@@ -7,7 +7,7 @@ facts:
   - {k: idiomas, v: "Português · English · Español"}
 hero:
   status: "estable · paquetes en OBS"
-  title: "Sway, ahora un escritorio completo."
+  title: ["Ligero como un tiling WM.", "Completo como un escritorio."]
   lead: "Barra, dock, cuadrícula de aplicaciones, notificaciones, inicio de sesión y pantalla de bloqueo, escritos en Rust y GTK 4. Ligero, rápido y todo con el teclado cuando quieras."
   install: "Instalar"
   watch: "Verlo en acción"
@@ -19,7 +19,7 @@ hero:
   badge: "# abre la cuadrícula de aplicaciones"
 demo:
   kicker: "## míralo en acción"
-  title: "Del inicio de sesión a la pantalla de bloqueo, en menos de cinco minutos."
+  title: "Un recorrido por Swaydesk."
   play: "Reproducir el video de demostración"
   chapters: "Capítulos"
   all: "Ver todos los capítulos →"

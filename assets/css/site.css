@@ -282,6 +282,7 @@ html.lb-open { overflow: hidden; }
 .pill { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 4px 10px; border: 1px solid var(--line-box); border-radius: 3px; color: var(--muted); font-size: 12px; }
 .pill__dot { width: 7px; height: 7px; background: var(--accent); }
 .hero__title { margin: 0; font-size: clamp(36px, 5vw, 60px); line-height: 1.1; letter-spacing: -.03em; font-weight: 600; }
+.hero__line { display: block; } /* cada frase do slogan começa numa linha */
 .hero__lead { margin: 0; max-width: 540px; color: var(--ink-soft); font-size: 16px; line-height: 1.7; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero__note { margin: 0; color: var(--muted); font-size: 13px; }
