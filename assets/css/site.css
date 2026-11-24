@@ -98,6 +98,9 @@ main.wrap { padding-top: 56px; line-height: 1.7; }
   :root { --gutter: 16px; }
   .topbar__tools { gap: 8px; }
   .btn--sm { padding: 9px 12px; }
+  .brand__crumb { display: none; }
+  .brand { min-width: 0; }
+  .menu > summary { white-space: nowrap; }
 }
 
 main:focus { outline: none; }
