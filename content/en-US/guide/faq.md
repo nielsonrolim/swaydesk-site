@@ -69,6 +69,18 @@ blueman shows the pairing code. Install the `blueman` package and log in again.
 
 A polkit agent is missing, and the session tells you so with a notification. Install `mate-polkit` and log in again.
 
+### I installed from an image and left the password empty {#empty-password}
+
+Set one now: open a terminal and run `passwd`. The installer on images before 0.1.6 accepted an empty password for the first user, who is an administrator, so anyone at the computer could log in on a text console and use sudo (the graphical login refused it). From 0.1.6 the installer requires a password. Systems installed from the packages are not affected.
+
+### Debian 13: ukui-polkit is installed and I don't use it {#ukui-polkit}
+
+Before 0.1.6, `apt install swaydesk-desktop` on Debian 13 could bring a second polkit agent, ukui-polkit, with about 50 libraries it needs. It never runs under Swaydesk, which uses mate-polkit. `dpkg -l ukui-polkit` shows whether it's installed; to remove it and what it brought:
+
+```
+sudo apt remove ukui-polkit && sudo apt autoremove
+```
+
 ### VS Code says "An OS keyring couldn't be identified"
 
 VS Code doesn't recognize Sway and can't find the keyring on its own. Don't accept the weaker encryption it offers. Instead, add this line to `~/.vscode/argv.json` and restart VS Code:
