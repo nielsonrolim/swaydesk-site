@@ -142,4 +142,4 @@ Swaydesk's own login screen is optional if you already have one (GDM, SDDM, Ligh
 | `swaydesk-greeter` | Swaydesk's login screen, on top of greetd: optional with another display manager, needed for a graphical login without one |
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
-The packages are version 0.1.6, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.6) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
+The packages are version 0.1.6.1, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.6.1) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates.
