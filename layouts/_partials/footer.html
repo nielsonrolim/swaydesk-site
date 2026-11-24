@@ -1,0 +1,16 @@
+<footer class="footer">
+<div class="wrap footer__in">
+<div class="footer__about">
+<span class="footer__prompt" aria-hidden="true">user@swaydesk:~$ <span class="cursor"></span></span>
+<p class="independent">{{ i18n "independent" | safeHTML }}</p>
+<p class="license">{{ i18n "license" | safeHTML }}</p>
+</div>
+<nav class="footer__nav" aria-label="{{ i18n "footer_nav" }}">
+{{- range site.Menus.main }}
+{{- if ne .PageRef "/" }}
+<a href="{{ .URL }}">{{ .Name }}</a>
+{{- end }}
+{{- end }}
+</nav>
+</div>
+</footer>

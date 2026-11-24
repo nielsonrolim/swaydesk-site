@@ -132,3 +132,9 @@ other = "Capítulos ({{ .count }})"
 
 [demo_fallback]
 other = "Descargar el video (MP4)"
+
+[download_btn]
+other = "Descargar"
+
+[footer_nav]
+other = "Pie de página"
