@@ -109,7 +109,7 @@ When you're away, the computer:
 - turns the screen off after 15 minutes;
 - suspends after 30 minutes, only on battery and only if no sound is playing.
 
-It also locks before suspending. Caffeine, on the bar, holds all of this off while it's on. Outside the Swaydesk session (a plain Sway with your own swayidle), it holds a Wayland idle inhibitor (`swaydesk-caffeinate`) instead of replacing swayidle. With every monitor disabled or unplugged (or, on Sway 1.12 and later, powered off), the idle timeouts can still fire. If the screen stays dark after turning off, `Super`+`Shift`+`O` turns it back on, even while locked.
+It also locks before suspending. Caffeine, on the bar, holds all of this off while it's on. Outside the Swaydesk session (a plain Sway with your own swayidle), it holds a Wayland idle inhibitor (`swaydesk-caffeinate`) instead of replacing swayidle. With every monitor disabled or unplugged (or, on Sway 1.12, powered off), the idle timeouts can still fire. If the screen stays dark after turning off, `Super`+`Shift`+`O` turns it back on, even while locked.
 
 ## Screenshots and recording
 
