@@ -64,6 +64,7 @@
 <p>{{ i18n "comp_waybar_lead" (dict "module" (printf "custom/%s" .)) | safeHTML }}</p>
 {{ partial "cmd.html" (printf "/usr/share/swaydesk/waybar/%s.jsonc" .) }}
 <p>{{ i18n "comp_waybar_note" }}</p>
+{{- with $c.waybar_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
 {{- else }}{{ $soon }}{{ end }}
 {{- end }}
 

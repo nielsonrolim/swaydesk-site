@@ -19,7 +19,7 @@
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor),
 #   start_note (Markdown, under the start lines), arch_note (Markdown, under the Arch tab),
-#   note (Markdown, on the page under the text)
+#   note (Markdown, on the page under the text), waybar_note (Markdown, under the Waybar module)
 # [groups.<group>]: a metapackage that installs a whole section of the list (package), arch_with (its members'
 #   optional dependencies, in one pacman --asdeps line), and per language its text
 
@@ -319,24 +319,27 @@ package = "swaydesk-caffeine"
 arch_with = ["swaydesk-lock"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-caffeine"
   [components.pt-br]
   name = "Cafeína"
   text = "Impede o bloqueio e a suspensão por 1 hora, 2 horas ou sempre."
   keys = "Clique na xícara"
   guide = "guide/desktop/#a-barra"
+  waybar_note = "Ligado e desligado são o mesmo ícone com uma classe: para diferenciá-los, acrescente `#custom-swaydesk-caffeine.off { opacity: 0.5; }` ao `~/.config/waybar/style.css`."
   note = "Fora da sessão do Swaydesk (um Sway puro, com o seu próprio swayidle), a cafeína segura um inibidor de inatividade do Wayland (`swaydesk-caffeinate`) em vez de trocar o swayidle. Com todos os monitores desativados ou desconectados (ou, no Sway 1.12, com a energia desligada), os tempos de inatividade ainda podem disparar."
   [components.en-us]
   name = "Caffeine"
   text = "Keeps the screen from locking and the computer from sleeping for 1 hour, 2 hours or always."
   keys = "Click the cup"
   guide = "guide/desktop/#the-bar"
+  waybar_note = "On and off are the same icon with a class: to tell them apart, add `#custom-swaydesk-caffeine.off { opacity: 0.5; }` to `~/.config/waybar/style.css`."
   note = "Outside the Swaydesk session (a plain Sway with your own swayidle), caffeine holds a Wayland idle inhibitor (`swaydesk-caffeinate`) instead of replacing swayidle. With every monitor disabled or unplugged (or, on Sway 1.12, powered off), the idle timeouts can still fire."
   [components.es]
   name = "Cafeína"
   text = "Evita que la pantalla se bloquee y que la computadora se suspenda durante 1 hora, 2 horas o siempre."
   keys = "Haz clic en la taza"
   guide = "guide/desktop/#la-barra"
+  waybar_note = "Activado y desactivado son el mismo icono con una clase: para distinguirlos, añade `#custom-swaydesk-caffeine.off { opacity: 0.5; }` a `~/.config/waybar/style.css`."
   note = "Fuera de la sesión de Swaydesk (un Sway puro, con tu propio swayidle), cafeína mantiene un inhibidor de inactividad de Wayland (`swaydesk-caffeinate`) en lugar de reemplazar swayidle. Con todos los monitores desactivados o desconectados (o, en Sway 1.12, apagados), los tiempos de inactividad aún pueden activarse."
 
 [[components]]
