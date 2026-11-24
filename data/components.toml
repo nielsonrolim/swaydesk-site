@@ -9,9 +9,9 @@
 #   page      true = it has its own page; false = only a card in the list, which says it ships in swaydesk-desktop
 #   with      on a card without a page: the id whose page it shares (screen recording is in the screenshot app)
 # Filled in during 0.1.7 by whoever owns it; empty, the page shows "being written":
-#   package   the package that installs it alone (builder1's split); the same name on Debian, Ubuntu and Arch
-#   start     how to start it on plain Sway: the lines for ~/.config/sway/config (builder3, builder4)
-#   waybar    the Waybar snippet, only for the bar popups (builder4)
+#   package   the package that installs it alone (from the 0.1.7 package split); the same name on Debian, Ubuntu and Arch
+#   start     how to start it on plain Sway: the lines for ~/.config/sway/config
+#   waybar    the Waybar snippet, only for the bar popups
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor)
 
