@@ -4,7 +4,7 @@ prompt: "grep '^## ' keys/*.conf"
 crumb: shortcuts
 description: Todos los atajos de teclado de la sesión de Swaydesk.
 ---
-Swaydesk viene con cinco perfiles de atajos: **Swaydesk** (el predeterminado, que sigue a KDE Plasma con Krohnkite), **i3**, **Hyprland**, **niri** y **dwm**. Cada uno trae a Swaydesk las teclas de ese gestor de ventanas, y todos los perfiles tienen 9 espacios de trabajo. Los atajos que no usan Super con una letra (el menú de la sesión, la terminal, las capturas de pantalla, las teclas multimedia) son iguales en todos. `Super` es la tecla del logotipo.
+Swaydesk viene con cinco perfiles de atajos: **Swaydesk** (el predeterminado, inspirado en KDE Plasma con Krohnkite), **i3**, **Hyprland**, **niri** y **dwm**. Cada uno trae a Swaydesk las teclas de ese gestor de ventanas, y todos los perfiles tienen 9 espacios de trabajo. Los atajos que no usan Super con una letra (el menú de la sesión, la terminal, las capturas de pantalla, las teclas multimedia) son iguales en todos. `Super` es la tecla del logotipo.
 
 **Elegir un perfil:** en la **Ayuda** (`Super`+`F1`), la lista desplegable de arriba, junto al campo de búsqueda, muestra el perfil en uso. Elige otro y se aplica al instante, sin cerrar la sesión; la Ayuda pasa a mostrar los atajos nuevos. Elegir dwm pide confirmación antes, porque su modificador es Alt. Desde una terminal, pon `shortcuts = "i3"` (o `swaydesk`, `hyprland`, `niri`, `dwm`) en `~/.config/swaydesk/config.toml` y recarga Sway con `swaymsg reload` o con la tecla de recargar del perfil, o vuelve a iniciar sesión.
 
