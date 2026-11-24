@@ -47,7 +47,7 @@ sudo usermod -aG video $USER
 
 ### Depois de algumas senhas erradas, diz que a conta está bloqueada {#conta-bloqueada}
 
-É uma regra do próprio Arch (pam_faillock): depois de três logins com falha, a conta fica bloqueada por 10 minutos, inclusive no sudo, e a tela de bloqueio mostra a mensagem do sistema com o tempo que falta. Espere os 10 minutos, ou libere a conta de outra conta de administrador com `sudo faillock --user <seu-usuário> --reset` (ou como root num console de texto). O Debian e o Ubuntu não têm essa regra.
+É uma regra do próprio Arch (pam_faillock): depois de três logins com falha, a conta fica bloqueada por 10 minutos, inclusive no sudo, e a tela de bloqueio mostra a mensagem do sistema com o tempo que falta. O seu próprio sudo também fica bloqueado; então espere os 10 minutos, ou rode `sudo faillock --user <seu-usuário> --reset` de outra conta de administrador, ou `faillock --user <seu-usuário> --reset` como root num console de texto. O Debian e o Ubuntu não têm essa regra.
 
 ### A dock não aparece
 
