@@ -18,7 +18,7 @@ Un recorrido por la barra, la dock, la cuadrícula de aplicaciones, el lanzador,
 
 ## Lo que obtienes
 
-- **Atajos que ya conoces:** KDE Plasma con Krohnkite de forma predeterminada, o las teclas de i3, Hyprland, niri o dwm. Mira los [atajos](/es/shortcuts/).
+- **Atajos que ya conoces:** el esquema Swaydesk de forma predeterminada, inspirado en KDE Plasma con Krohnkite, o las teclas de i3, Hyprland, niri o dwm. Mira los [atajos](/es/shortcuts/).
 - **Mosaico sin esfuerzo:** las ventanas se acomodan solas, y aun así puedes dejar una ventana flotante, ponerla en pantalla completa o apartarla.
 - **Un solo aspecto:** el tema, los iconos y el color de acento cambian juntos en la barra, la dock, las ventanas emergentes y en las aplicaciones GTK y libadwaita.
 - **En tu idioma:** inglés, portugués de Brasil y español, en el escritorio y en el instalador.

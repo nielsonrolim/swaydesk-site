@@ -4,7 +4,7 @@ prompt: "grep '^## ' keys/*.conf"
 crumb: shortcuts
 description: Every keyboard shortcut of the Swaydesk session.
 ---
-Swaydesk comes with five shortcut profiles: **Swaydesk** (the default, which follows KDE Plasma with Krohnkite), **i3**, **Hyprland**, **niri** and **dwm**. Each one brings the keys of that window manager to Swaydesk, and every profile has 9 workspaces. The shortcuts that don't use Super with a letter (the session menu, the terminal, screenshots, media keys) are the same in all of them. `Super` is the logo key.
+Swaydesk comes with five shortcut profiles: **Swaydesk** (the default, inspired by KDE Plasma with Krohnkite), **i3**, **Hyprland**, **niri** and **dwm**. Each one brings the keys of that window manager to Swaydesk, and every profile has 9 workspaces. The shortcuts that don't use Super with a letter (the session menu, the terminal, screenshots, media keys) are the same in all of them. `Super` is the logo key.
 
 **Choosing a profile:** in the **Help** (`Super`+`F1`), the drop-down at the top, next to the search field, shows the profile in use. Pick another and it applies at once, without logging out; the Help then shows the new shortcuts. Choosing dwm asks first, because its modifier is Alt. From a terminal, set `shortcuts = "i3"` (or `swaydesk`, `hyprland`, `niri`, `dwm`) in `~/.config/swaydesk/config.toml` and reload Sway with `swaymsg reload` or the profile's reload key, or log in again.
 
