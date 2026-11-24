@@ -413,17 +413,17 @@ waybar = ""
   [components.pt-br]
   name = "Layout do teclado"
   text = "O layout de teclado atual, na barra. Some quando há um layout só, e conta só os teclados de verdade."
-  keys = "`Super`+`Espaço` troca o layout"
+  keys = "Clique nele, ou `Super`+`Espaço`"
   guide = "guide/config/#teclado-e-acentos"
   [components.en-us]
   name = "Keyboard layout"
   text = "The current keyboard layout, in the bar. It hides when there's a single layout, and counts only real keyboards."
-  keys = "`Super`+`Space` switches the layout"
+  keys = "Click it, or `Super`+`Space`"
   guide = "guide/config/#keyboard-and-accents"
   [components.es]
   name = "Distribución del teclado"
   text = "La distribución de teclado actual, en la barra. Se oculta cuando hay una sola, y cuenta solo los teclados de verdad."
-  keys = "`Super`+`Espacio` cambia la distribución"
+  keys = "Haz clic en él, o `Super`+`Espacio`"
   guide = "guide/config/#teclado-y-acentos"
 
 [[components]]
@@ -498,17 +498,17 @@ off = ""
 page = false
   [components.pt-br]
   name = "Lançador"
-  text = "O rofi com quatro abas: apps, janelas abertas, área de transferência e busca na web (com prefixos como `w` para a Wikipédia). Um clique abre o item, e um clique fora fecha."
+  text = "O rofi com quatro abas: apps, janelas abertas, área de transferência e busca na web (com prefixos como `w` para a Wikipédia). Um clique abre o item, e um clique fora fecha (pelo `swaydesk-click-catcher`)."
   keys = "`Alt`+`Espaço`"
   guide = "guide/desktop/#o-lançador"
   [components.en-us]
   name = "Launcher"
-  text = "rofi with four tabs: apps, open windows, clipboard and web search (with prefixes such as `w` for Wikipedia). One click opens an entry, and a click outside closes it."
+  text = "rofi with four tabs: apps, open windows, clipboard and web search (with prefixes such as `w` for Wikipedia). One click opens an entry, and a click outside closes it (through `swaydesk-click-catcher`)."
   keys = "`Alt`+`Space`"
   guide = "guide/desktop/#the-launcher"
   [components.es]
   name = "Lanzador"
-  text = "rofi con cuatro pestañas: aplicaciones, ventanas abiertas, portapapeles y búsqueda web (con prefijos como `w` para Wikipedia). Un clic abre una entrada, y un clic afuera lo cierra."
+  text = "rofi con cuatro pestañas: aplicaciones, ventanas abiertas, portapapeles y búsqueda web (con prefijos como `w` para Wikipedia). Un clic abre una entrada, y un clic afuera lo cierra (con `swaydesk-click-catcher`)."
   keys = "`Alt`+`Space`"
   guide = "guide/desktop/#el-lanzador"
 
@@ -631,6 +631,36 @@ start = ""
   text = "Bloquear, cerrar sesión, suspender, reiniciar y apagar. Cuando una aplicación pide reiniciar o apagar, como el **Reiniciar y actualizar** de la tienda, pregunta antes, con una cuenta regresiva de 60 segundos y un botón para cancelar."
   keys = "`Ctrl`+`Alt`+`Delete`; el botón de apagado de la barra"
   guide = "guide/desktop/#menú-de-la-sesión"
+
+[[components]]
+id = "sessionmgr"
+group = "session"
+icon = "lock"
+shot = ""
+bin = "swaydesk-sessionmgr"
+src = "rust/sessionmgr"
+tech = "Rust"
+off = ""
+page = true
+package = "swaydesk-sessionmgr"
+arch_with = []
+optional = []
+start = ""
+  [components.pt-br]
+  name = "Reiniciar depois das atualizações"
+  text = "Um gerenciador de sessão mínimo para o Sway, para o GNOME Software poder reiniciar ou desligar depois das atualizações. Ele pergunta antes pelo menu de sessão (`swaydesk-session-menu`, que ele recomenda); sem o menu, reinicia ou desliga na hora."
+  keys = "Sozinho, quando um app pede"
+  guide = "guide/desktop/"
+  [components.en-us]
+  name = "Restart after updates"
+  text = "A minimal session manager for Sway, so GNOME Software can restart or shut down after updates. It asks first through the session menu (`swaydesk-session-menu`, which it recommends); without the menu, it restarts or shuts down at once."
+  keys = "On its own, when an app asks"
+  guide = "guide/desktop/"
+  [components.es]
+  name = "Reiniciar tras las actualizaciones"
+  text = "Un gestor de sesión mínimo para Sway, para que GNOME Software pueda reiniciar o apagar tras las actualizaciones. Pregunta antes con el menú de sesión (`swaydesk-session-menu`, que recomienda); sin el menú, reinicia o apaga en el acto."
+  keys = "Solo, cuando una aplicación lo pide"
+  guide = "guide/desktop/"
 
 [[components]]
 id = "lock"
@@ -860,6 +890,36 @@ start = ""
   guide = "guide/config/"
 
 [[components]]
+id = "portal"
+group = "apps"
+icon = "theme"
+shot = ""
+bin = "swaydesk-portal"
+src = "rust/portal"
+tech = "Rust"
+off = ""
+page = true
+package = "swaydesk-portal"
+arch_with = []
+optional = []
+start = ""
+  [components.pt-br]
+  name = "Cor de destaque nos apps"
+  text = "Leva a cor de destaque e o estilo claro ou escuro aos apps libadwaita e GTK 4 que leem a aparência do portal, pelo xdg-desktop-portal, em qualquer compositor. Só vale quando o `<desktop>-portals.conf` o escolhe para o `org.freedesktop.impl.portal.Settings`, como o desktop completo faz."
+  keys = "Sozinho, pelo D-Bus"
+  guide = "guide/config/"
+  [components.en-us]
+  name = "Accent color in apps"
+  text = "Brings the accent color and the light or dark style to the libadwaita and GTK 4 apps that read the portal's appearance settings, through xdg-desktop-portal, on any compositor. It applies only when your `<desktop>-portals.conf` picks it for `org.freedesktop.impl.portal.Settings`, as the full desktop does."
+  keys = "On its own, through D-Bus"
+  guide = "guide/config/"
+  [components.es]
+  name = "Color de acento en las aplicaciones"
+  text = "Lleva el color de acento y el estilo claro u oscuro a las aplicaciones libadwaita y GTK 4 que leen la apariencia del portal, con xdg-desktop-portal, en cualquier compositor. Solo se usa cuando tu `<desktop>-portals.conf` lo elige para `org.freedesktop.impl.portal.Settings`, como hace el escritorio completo."
+  keys = "Solo, por D-Bus"
+  guide = "guide/config/"
+
+[[components]]
 id = "displays"
 group = "apps"
 icon = "theme"
@@ -1009,22 +1069,26 @@ icon = "theme"
 shot = ""
 bin = "swaydesk-desktop-config"
 src = "rust/desktop-config"
-tech = "rust"
+tech = "Rust"
 off = ""
-page = false
+page = true
+package = "swaydesk-theme-tool"
+arch_with = ["papirus-icon-theme", "dconf", "gnome-themes-extra"]
+optional = []
+start = ""
   [components.pt-br]
-  name = "Configuração do desktop"
-  text = "Lê o `~/.config/swaydesk/config.toml` e gera os arquivos que o Sway, a barra e os apps usam. Depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos."
+  name = "Tema e configurações pelo terminal"
+  text = "Aplica o tema GTK, os ícones, a cor de destaque e as fontes em todo o desktop pela linha de comando, com as cores de pasta do Papirus (`swaydesk-theme`), e gera, do `~/.config/swaydesk/config.toml`, os arquivos que o Sway, a barra e os apps usam: depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos."
   keys = "No terminal"
   guide = "guide/config/"
   [components.en-us]
-  name = "Desktop configuration"
-  text = "Reads `~/.config/swaydesk/config.toml` and writes the files that Sway, the bar and the apps use. After editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files."
+  name = "Theme and settings from the terminal"
+  text = "Applies the GTK theme, the icons, the accent color and the fonts across the desktop from the command line, with the Papirus folder colors (`swaydesk-theme`), and writes, from `~/.config/swaydesk/config.toml`, the files that Sway, the bar and the apps use: after editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files."
   keys = "In the terminal"
   guide = "guide/config/"
   [components.es]
-  name = "Configuración del escritorio"
-  text = "Lee `~/.config/swaydesk/config.toml` y escribe los archivos que usan Sway, la barra y las aplicaciones. Después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos."
+  name = "Tema y ajustes desde la terminal"
+  text = "Aplica el tema GTK, los iconos, el color de acento y las fuentes en todo el escritorio desde la línea de comandos, con los colores de carpeta de Papirus (`swaydesk-theme`), y escribe, desde `~/.config/swaydesk/config.toml`, los archivos que usan Sway, la barra y las aplicaciones: después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos."
   keys = "En la terminal"
   guide = "guide/config/"
 
