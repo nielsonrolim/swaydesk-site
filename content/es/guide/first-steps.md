@@ -44,7 +44,7 @@ Para volver a la pantalla de inicio de sesión que tenías, desactiva greetd y a
 - **La dock de abajo:** tus aplicaciones fijadas, las abiertas y el botón de la cuadrícula de aplicaciones. Se aparta cuando una ventana necesita su espacio y vuelve cuando empujas el puntero contra el centro del borde inferior.
 - **La cuadrícula de aplicaciones:** presiona y suelta `Super` (la tecla del logotipo) para mostrar u ocultar todas las aplicaciones instaladas, con búsqueda.
 
-Los atajos siguen a KDE Plasma con Krohnkite, y puedes cambiarlos por las teclas de i3, Hyprland, niri o dwm. La lista completa, perfil por perfil, está en la página de [atajos](/es/shortcuts/), y hay un recorrido por cada pieza en [El escritorio](/es/guide/desktop/).
+Los atajos siguen el esquema Swaydesk, inspirado en KDE Plasma con Krohnkite, y puedes cambiarlos por las teclas de i3, Hyprland, niri o dwm. La lista completa, perfil por perfil, está en la página de [atajos](/es/shortcuts/), y hay un recorrido por cada pieza en [El escritorio](/es/guide/desktop/).
 
 ## Lo que prepara el primer inicio de sesión
 

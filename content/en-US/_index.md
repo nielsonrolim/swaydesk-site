@@ -19,7 +19,7 @@ A tour of the bar, the dock, the app grid, the launcher, the popups, the theme, 
 
 ## What you get
 
-- **Shortcuts you already know:** KDE Plasma with Krohnkite by default, or the i3, Hyprland, niri or dwm keys. See the [shortcuts](/en-us/shortcuts/).
+- **Shortcuts you already know:** the Swaydesk scheme by default, inspired by KDE Plasma with Krohnkite, or the i3, Hyprland, niri or dwm keys. See the [shortcuts](/en-us/shortcuts/).
 - **Effortless tiling:** windows arrange themselves, and you can still float a window, make it fullscreen or put it aside.
 - **One look:** the theme, the icons and the accent color change together in the bar, the dock, the popups and in GTK and libadwaita apps.
 - **In your language:** English, Brazilian Portuguese and Spanish, in the desktop and in the installer.

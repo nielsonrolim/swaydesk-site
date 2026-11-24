@@ -44,7 +44,7 @@ To go back to the login screen you had, disable greetd and enable the other one 
 - **The dock at the bottom:** your pinned apps, the open ones, and the app grid button. It slides away when a window needs its space and comes back when you push the pointer against the middle of the bottom edge.
 - **The app grid:** press and release `Super` (the logo key) to show or hide every installed app, with search.
 
-The shortcuts follow KDE Plasma with Krohnkite, and you can switch them to the i3, Hyprland, niri or dwm keys. The full list, profile by profile, is on the [shortcuts](/en-us/shortcuts/) page, and there's a tour of each piece in [The desktop](/en-us/guide/desktop/).
+The shortcuts follow the Swaydesk scheme, inspired by KDE Plasma with Krohnkite, and you can switch them to the i3, Hyprland, niri or dwm keys. The full list, profile by profile, is on the [shortcuts](/en-us/shortcuts/) page, and there's a tour of each piece in [The desktop](/en-us/guide/desktop/).
 
 ## What the first login sets up
 
