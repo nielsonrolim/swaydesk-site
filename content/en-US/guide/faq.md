@@ -69,6 +69,16 @@ blueman shows the pairing code. Install the `blueman` package and log in again.
 
 A polkit agent is missing, and the session tells you so with a notification. Install `mate-polkit` and log in again.
 
+### Debian 13: ukui-polkit is installed and I don't use it {#ukui-polkit}
+
+On Debian 13, installed from the packages or from a Swaydesk image before 0.1.5, a second polkit agent (ukui-polkit) and about 50 libraries it brought may be installed. `dpkg -l ukui-polkit` shows whether it is. They aren't used under Swaydesk. To remove the agent and its autostart file, run:
+
+```
+sudo apt purge ukui-polkit
+```
+
+Then `sudo apt autoremove` removes the packages nothing needs any more, on the whole system, not only these: read its list before you confirm.
+
 ### VS Code says "An OS keyring couldn't be identified"
 
 VS Code doesn't recognize Sway and can't find the keyring on its own. Don't accept the weaker encryption it offers. Instead, add this line to `~/.vscode/argv.json` and restart VS Code:
