@@ -10,21 +10,24 @@
 # An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
 # SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
 # When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
-tag = "v0.1.5"
+# `packages`: the version of the packages on OBS (the redesign's home pill reads it). It can differ from `tag`
+# when a Release only rebuilds the ISOs (0.1.6.1 carries the 0.1.6 packages).
+tag = "v0.1.6.1"
+packages = "0.1.6"
 sums = "SHA256SUMS"
 
 [debian]
 published = true
 name = "Debian 13"
-file = "swaydesk-0.1.5-debian13-amd64.iso"
+file = "swaydesk-0.1.6.1-debian13-amd64.iso"
 size = "1.7 GB"
-sha256 = "15d16b83cc683165cb7f19be4d75df8d5c85fd47a313d5605719915ba53b4acc"
+sha256 = "067031a58ee8a4a37508bf10e0ddc5d76b140d1c4b9f3fea71470de367f375b1"
 secure_boot = true
 
 [arch]
 published = true
 name = "Arch Linux"
-file = "swaydesk-0.1.5-arch-x86_64.iso"
+file = "swaydesk-0.1.6.1-arch-x86_64.iso"
 size = "1.8 GB"
-sha256 = "cf554d0e752b4777305ce56d50b6eacc73a6a7c7c8e4a07f3a4195e1c5a051fa"
+sha256 = "a0bfd16048dd75cc226afdad3896a9033e9666369f59933164d6110edf0d8e71"
 secure_boot = false
