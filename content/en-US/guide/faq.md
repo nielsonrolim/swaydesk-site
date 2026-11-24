@@ -47,7 +47,7 @@ sudo usermod -aG video $USER
 
 ### After a few wrong passwords, it says the account is locked {#account-locked}
 
-That's a rule of Arch itself (pam_faillock): after three failed logins, the account stays locked for 10 minutes, sudo included, and the lock screen shows the system's message with the time left. Your own sudo is locked too, so either wait the 10 minutes, or run `sudo faillock --user <your-user> --reset` from another administrator account, or `faillock --user <your-user> --reset` as root on a text console. Debian and Ubuntu don't have this rule.
+That's a rule of Arch itself (pam_faillock): after three failed logins, the account stays locked for 10 minutes, and the lock screen shows the system's message with the time left. Your own sudo is locked too, so either wait the 10 minutes, or run `sudo faillock --user <your-user> --reset` from another administrator account, or `faillock --user <your-user> --reset` as root on a text console. Debian and Ubuntu don't have this rule.
 
 ### The dock doesn't show up
 
