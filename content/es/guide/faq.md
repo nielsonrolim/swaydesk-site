@@ -77,7 +77,7 @@ Antes de la 0.1.6, `apt install swaydesk-desktop` en Debian 13 podía traer un s
 sudo apt remove ukui-polkit
 ```
 
-Después, `sudo apt autoremove` quita los paquetes que ya nada necesita, entre ellos esas bibliotecas; lee la lista antes de confirmar.
+Después, `sudo apt autoremove` quita los paquetes que ya nada necesita, en todo el sistema, no solo estos: lee la lista antes de confirmar.
 
 ### VS Code dice "An OS keyring couldn't be identified"
 
