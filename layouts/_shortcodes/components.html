@@ -1,12 +1,13 @@
 {{- /* The Components page's list: data/components.toml, by group, as the home page's grid. A card links to the
        component's page (or, with `with`, to the page it shares); a card with neither is part of
-       swaydesk-desktop, and says so. */ -}}
+       swaydesk-desktop, and says so. A group with a metapackage ([groups.<group>]) says so under its title. */ -}}
 {{- $page := .Page }}
 {{- $all := (partialCached "data.html" $page).components.components }}
 {{- $lang := lower $page.Language.Lang }}
 {{- range slice "bar" "windows" "session" "apps" }}
 {{- $group := . }}
 <h2 id="{{ $group }}">{{ i18n (printf "components_group_%s" $group) }}</h2>
+{{- with index ((partialCached "data.html" $page).components.groups | default dict) $group }}<p class="cgroup">{{ (index . $lang).text | markdownify }}</p>{{ end }}
 <ul class="cgrid cgrid--list">
 {{- range $all }}{{ if eq .group $group }}
 {{- $t := index . $lang }}

@@ -189,3 +189,12 @@ other = "Detalles"
 
 [comp_in_desktop]
 other = "Parte del escritorio completo (<code>swaydesk-desktop</code>)"
+
+[comp_arch_with]
+other = "pacman no instala las dependencias opcionales, así que la línea ya trae las que apt instala solo."
+
+[comp_optional]
+other = "Opcional:"
+
+[comp_start_lead]
+other = "En <code>~/.config/sway/config</code>:"

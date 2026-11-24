@@ -4,8 +4,9 @@
     check-packages.py <swaydesk checkout> [data/components.toml]
 
 The checkout is a clone of github.com/nielsonrolim/swaydesk (or any tree with its debian/control and
-packaging/arch/PKGBUILD). Each non-empty `package` in the data file must be a `Package:` of debian/control
-and a name in the PKGBUILD's pkgname=(...), since the pages print both `apt install` and `pacman -Syu` lines.
+packaging/arch/PKGBUILD). Each non-empty `package` in the data file (components and [groups.*]) must be a
+`Package:` of debian/control and a name in the PKGBUILD's pkgname=(...), since the pages print both
+`apt install` and `pacman -Syu` lines; a swaydesk-* name in `arch_with` must be in the PKGBUILD.
 A missing file, or one with no package names, is an error, never a pass.
 """
 import pathlib
@@ -34,7 +35,9 @@ def main(argv):
     try:
         debian = debian_names((tree / "debian/control").read_text(encoding="utf-8"))
         arch = arch_names((tree / "packaging/arch/PKGBUILD").read_text(encoding="utf-8"))
-        components = tomllib.loads(data.read_text(encoding="utf-8"))["components"]
+        loaded = tomllib.loads(data.read_text(encoding="utf-8"))
+        components = loaded["components"]
+        data_groups = loaded.get("groups", {})
     except (OSError, KeyError, tomllib.TOMLDecodeError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
@@ -42,13 +45,17 @@ def main(argv):
         print("error: no package names in debian/control or the PKGBUILD's pkgname", file=sys.stderr)
         return 1
     errors = []
-    for component in components:
-        package = component.get("package", "")
-        if not package:
-            continue
-        for distro, names in (("debian/control", debian), ("PKGBUILD", arch)):
-            if package not in names:
-                errors.append(f"{component['id']}: {package} is not a package in {distro}")
+    checks = [(c["id"], c.get("package", ""), c.get("arch_with", [])) for c in components]
+    checks += [(f"groups.{name}", group.get("package", ""), []) for name, group in data_groups.items()]
+    for where, package, arch_with in checks:
+        if package:
+            for distro, names in (("debian/control", debian), ("PKGBUILD", arch)):
+                if package not in names:
+                    errors.append(f"{where}: {package} is not a package in {distro}")
+        # Our own packages in the pacman line must exist too (the others are the distro's).
+        for extra in arch_with:
+            if extra.startswith("swaydesk-") and extra not in arch:
+                errors.append(f"{where}: arch_with {extra} is not a package in PKGBUILD")
     for line in errors:
         print(line)
     return 1 if errors else 0

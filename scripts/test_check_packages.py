@@ -51,6 +51,17 @@ class CheckPackagesTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertEqual(result.stdout.strip(), "c0: swaydesk-drawer is not a package in PKGBUILD")
 
+    def test_a_group_package_and_our_arch_extras_are_checked(self):
+        data = self.root / "components.toml"
+        data.write_text('[[components]]\nid = "a"\npackage = "swaydesk-dock"\narch_with = ["bluez", "swaydesk-lock"]\n\n'
+                        '[groups.bar]\npackage = "swaydesk-bar"\n', encoding="utf-8")
+        result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), str(data)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("a: arch_with swaydesk-lock is not a package in PKGBUILD", result.stdout)
+        self.assertIn("groups.bar: swaydesk-bar is not a package in debian/control", result.stdout)
+        self.assertNotIn("bluez", result.stdout)
+
     def test_a_missing_tree_fails(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root / "nothing")],
                                 capture_output=True, text=True)

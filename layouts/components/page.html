@@ -1,5 +1,6 @@
 {{- /* A component's page, made by content/<lang>/components/_content.gotmpl from data/components.toml.
-       While a field of 0.1.7 is empty (package, start, waybar), its section says it is being written. */ -}}
+       While a field of 0.1.7 is empty (package, start, waybar), its section says it is being written. The pacman line
+       also carries arch_with, which apt brings by Recommends and pacman doesn't install. */ -}}
 {{ define "main" }}
 {{- $c := partial "component-data.html" (dict "id" .Params.component "page" .) }}
 {{- $soon := printf `<p><span class="soon">%s</span></p>` (i18n "comp_writing") | safeHTML }}
@@ -32,14 +33,24 @@
 {{- range slice (slice "debian" "Debian 13" "apt") (slice "ubuntu" "Ubuntu 26.04 · Mint 27" "apt") (slice "arch" "Arch Linux" "pacman") }}
 <section class="distro" id="{{ index . 0 }}" aria-labelledby="{{ index . 0 }}-title">
 <h3 id="{{ index . 0 }}-title" class="distro__title">{{ index . 1 }}</h3>
-{{ partial "cmd.html" (cond (eq (index . 2) "apt") (printf "sudo apt install %s" $c.package) (printf "sudo pacman -Syu %s" $c.package)) }}
+{{- if eq (index . 2) "apt" }}
+{{ partial "cmd.html" (printf "sudo apt install %s" $c.package) }}
+{{- else }}
+{{ partial "cmd.html" (printf "sudo pacman -Syu %s" (delimit (append $c.arch_with (slice $c.package)) " ")) }}
+{{- with $c.arch_with }}<p>{{ i18n "comp_arch_with" }}</p>{{ end }}
+{{- end }}
 </section>
 {{- end }}
 </div>
+{{- with $c.optional }}<p>{{ i18n "comp_optional" }} {{ range $i, $p := . }}{{ if $i }}, {{ end }}<code>{{ $p }}</code>{{ end }}</p>{{ end }}
 {{- else }}{{ $soon }}{{ end }}
 
 <h2 id="start">{{ i18n "comp_start" }}</h2>
-{{- with $c.start }}{{ partial "cmd.html" . }}{{ else }}{{ $soon }}{{ end }}
+{{- with $c.start }}
+<p>{{ i18n "comp_start_lead" | safeHTML }}</p>
+{{ partial "cmd.html" . }}
+{{- with $c.start_note }}{{ . | markdownify }}{{ end }}
+{{- else }}{{ $soon }}{{ end }}
 
 {{- if eq $c.group "bar" }}
 <h2 id="waybar">{{ i18n "comp_waybar" }}</h2>
