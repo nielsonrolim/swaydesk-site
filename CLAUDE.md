@@ -52,6 +52,10 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
   file that exists, that every `#anchor` on a page link is an id on that page, and that a page links only to its
   own language (the switcher's links, with `hreflang`, are the exception). Relative and external links aren't
   checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
+- `check-packages.py <swaydesk checkout>` checks that every `package` in `data/components.toml` is a `Package:`
+  of the checkout's `debian/control` and a name in its `packaging/arch/PKGBUILD` `pkgname=(…)`, so no page
+  prints an install line for a package that doesn't exist. CI doesn't run it (it needs that checkout): run it
+  against a clone of github.com/nielsonrolim/swaydesk at the release whenever a `package` changes.
 - **Both Hugo 0.147 and the newest build the site.** CI publishes with 0.147, which lacks what 0.156+ replaced, so
   the templates never call a deprecated API directly: `partialCached "data.html" .` instead of `site.Data`,
   `partialCached "sites.html" .` instead of `site.Languages`, `site.Params.locale` (`[languages.X.params]` in
