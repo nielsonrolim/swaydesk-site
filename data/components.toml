@@ -25,7 +25,7 @@ src = "rust/network-popup"
 tech = "rust"
 off = "bar.network"
 page = true
-package = ""
+package = "swaydesk-network"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -54,7 +54,7 @@ src = "rust/bluetooth-popup"
 tech = "rust"
 off = "bar.bluetooth"
 page = true
-package = ""
+package = "swaydesk-bluetooth"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -83,7 +83,7 @@ src = "rust/audio-popup"
 tech = "rust"
 off = "bar.volume"
 page = true
-package = ""
+package = "swaydesk-audio"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -112,7 +112,7 @@ src = "rust/battery-popup"
 tech = "rust"
 off = "bar.battery"
 page = true
-package = ""
+package = "swaydesk-battery"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -141,7 +141,7 @@ src = "rust/brightness-popup"
 tech = "rust"
 off = "bar.brightness"
 page = true
-package = ""
+package = "swaydesk-brightness"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -170,7 +170,7 @@ src = "rust/media-popup"
 tech = "rust"
 off = "bar.media"
 page = true
-package = ""
+package = "swaydesk-media"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -199,7 +199,7 @@ src = "rust/weather-popup"
 tech = "rust"
 off = "bar.weather"
 page = true
-package = ""
+package = "swaydesk-weather"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -228,7 +228,7 @@ src = "rust/calendar"
 tech = "rust"
 off = "bar.clock"
 page = true
-package = ""
+package = "swaydesk-calendar"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -257,7 +257,7 @@ src = "rust/system-popup"
 tech = "rust"
 off = "bar.system"
 page = true
-package = ""
+package = "swaydesk-system"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -286,7 +286,7 @@ src = "rust/caffeine-popup"
 tech = "rust"
 off = "bar.caffeine"
 page = true
-package = ""
+package = "swaydesk-caffeine"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -315,7 +315,7 @@ src = "rust/notifications-popup"
 tech = "rust"
 off = "bar.notifications"
 page = true
-package = ""
+package = "swaydesk-notifd"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -344,7 +344,7 @@ src = "rust/clipboard-popup"
 tech = "rust"
 off = "clipboard_history"
 page = true
-package = ""
+package = "swaydesk-clipboard"
 start = ""
 waybar = ""
   [components.pt-br]
@@ -373,7 +373,7 @@ src = "rust/dock"
 tech = "rust"
 off = "dock"
 page = true
-package = ""
+package = "swaydesk-dock"
 start = ""
   [components.pt-br]
   name = "Dock"
@@ -401,7 +401,7 @@ src = "rust/drawer"
 tech = "rust"
 off = "app_grid"
 page = true
-package = ""
+package = "swaydesk-drawer"
 start = ""
   [components.pt-br]
   name = "Grade de apps"
@@ -455,7 +455,7 @@ src = "rust/switcher"
 tech = "rust"
 off = "switcher"
 page = true
-package = ""
+package = "swaydesk-switcher"
 start = ""
   [components.pt-br]
   name = "Troca de janelas"
@@ -483,7 +483,7 @@ src = "rust/notifd"
 tech = "rust"
 off = "notifications"
 page = true
-package = ""
+package = "swaydesk-notifd"
 start = ""
   [components.pt-br]
   name = "Notificações"
@@ -511,7 +511,7 @@ src = "rust/osd-bar"
 tech = "rust"
 off = "osd"
 page = true
-package = ""
+package = "swaydesk-osd"
 start = ""
   [components.pt-br]
   name = "Indicador de volume e brilho"
@@ -539,7 +539,7 @@ src = "rust/session-menu"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-session-menu"
 start = ""
   [components.pt-br]
   name = "Menu de sessão"
@@ -567,7 +567,7 @@ src = "rust/lock"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-lock"
 start = ""
   [components.pt-br]
   name = "Bloqueio de tela"
@@ -595,7 +595,7 @@ src = "rust/greeter"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-greeter"
 start = ""
   [components.pt-br]
   name = "Tela de login"
@@ -623,7 +623,7 @@ src = "rust/keyring"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-keyring"
 start = ""
   [components.pt-br]
   name = "Chaveiro"
@@ -755,7 +755,7 @@ src = "rust/theme-app"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-theme-app"
 start = ""
   [components.pt-br]
   name = "Tema do Desktop"
@@ -783,7 +783,7 @@ src = "rust/displays"
 tech = "rust"
 off = "displays"
 page = true
-package = ""
+package = "swaydesk-displays"
 start = ""
   [components.pt-br]
   name = "Telas"
@@ -811,7 +811,7 @@ src = "rust/help"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-help"
 start = ""
   [components.pt-br]
   name = "Ajuda"
@@ -865,7 +865,7 @@ src = "rust/capture"
 tech = "rust"
 off = ""
 page = true
-package = ""
+package = "swaydesk-capture"
 start = ""
   [components.pt-br]
   name = "Captura de tela"
