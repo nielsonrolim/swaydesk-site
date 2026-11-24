@@ -26,7 +26,7 @@
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "footer.html" . }}
-{{- if or (.HasShortcode "shot") (.HasShortcode "component") }}
+{{- if or (.HasShortcode "shot") .Params.component }}
 {{- /* O carrossel: sem JS, os links abrem a imagem; com JS, lightbox.js abre esta janela */}}
 <dialog class="lightbox" aria-label="{{ i18n "lb_viewer" }}" aria-describedby="lightbox-caption" hidden>
 <figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>
@@ -40,7 +40,7 @@
 {{- if or .IsHome (.HasShortcode "demo") }}
 <script src="/js/demo.js" defer></script>
 {{- end }}
-{{- if or (.HasShortcode "distros") (.HasShortcode "profiles") (.HasShortcode "iso") }}
+{{- if or (.HasShortcode "distros") (.HasShortcode "profiles") (.HasShortcode "iso") .Params.component }}
 <script src="/js/install.js" defer></script>
 {{- end }}
 </body>

@@ -144,3 +144,45 @@ other = "Menú"
 
 [facts]
 other = "Ficha técnica"
+
+[components_group_bar]
+other = "Barra y ventanas emergentes"
+
+[components_group_windows]
+other = "Ventanas y aplicaciones"
+
+[components_group_session]
+other = "Sesión"
+
+[components_group_apps]
+other = "Aplicaciones propias"
+
+[comp_install]
+other = "Instalarlo solo"
+
+[comp_install_lead]
+other = "Solo este componente, sin la sesión completa. Antes, añade el repositorio de Swaydesk, como en la página"
+
+[comp_install_link]
+other = "Instalar"
+
+[comp_start]
+other = "Iniciarlo en Sway puro"
+
+[comp_waybar]
+other = "En Waybar"
+
+[comp_shortcuts]
+other = "Atajos"
+
+[comp_shortcuts_note]
+other = "Los del perfil Swaydesk, el predeterminado. Los otros perfiles están en"
+
+[comp_writing]
+other = "en preparación para la 0.1.7"
+
+[comp_all]
+other = "Todos los componentes"
+
+[comp_details]
+other = "Detalles"

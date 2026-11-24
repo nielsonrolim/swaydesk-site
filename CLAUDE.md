@@ -19,7 +19,12 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
 - The home page (`layouts/home.html`) follows the design mockup: its texts are in the front matter of each
   language's `_index.md` (`hero`, `facts`, `demo`, `components`, `shortcuts`, `install`), the packages' version comes from
   `data/isos.toml` (`packages`, required: the build fails without it; `tag` is the ISOs' Release), the profiles from `data/shortcuts.json`, the component icons from `_partials/icon.html`.
-- `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `component`…).
+- `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `components`…).
+- **Components:** `data/components.toml` (its header documents the fields) drives the list on `/components/` (shortcode
+  `components`) and one page per component with `page = true`, made by `content/<lang>/components/_content.gotmpl` (the
+  same file in the three languages) and drawn by `layouts/components/page.html`. A new component is one
+  `[[components]]` with its three languages; `package`, `start` and `waybar` stay empty until known, and the page says
+  "being written".
   `_partials/topbar.html` (logo, menu, languages, Download button, theme), `nav.html` (the top menu: every
   `main` menu entry but home and Download), `locale.html`, `theme-toggle.html` and `footer.html` are on every
   page. Below 1000px the top bar stays on one line: the menu, the languages and the theme button move into a

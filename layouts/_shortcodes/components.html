@@ -1,0 +1,20 @@
+{{- /* The Components page's list: data/components.toml, by group, as the home page's grid. A card links to the
+       component's page (or, with `with`, to the page it shares). */ -}}
+{{- $page := .Page }}
+{{- $all := (partialCached "data.html" $page).components.components }}
+{{- $lang := lower $page.Language.Lang }}
+{{- range slice "bar" "windows" "session" "apps" }}
+{{- $group := . }}
+<h2 id="{{ $group }}">{{ i18n (printf "components_group_%s" $group) }}</h2>
+<ul class="cgrid cgrid--list">
+{{- range $all }}{{ if eq .group $group }}
+{{- $t := index . $lang }}
+{{- $target := cond .page .id (.with | default "") }}
+<li class="cgrid__cell">{{ partial "icon.html" .icon }}
+{{- if $target }}<a class="cgrid__name" href="{{ relLangURL (printf "components/%s/" $target) }}">{{ $t.name }}</a>{{ else }}<span class="cgrid__name">{{ $t.name }}</span>{{ end }}
+<span class="cgrid__text">{{ $t.text | markdownify }}</span>
+{{- with $t.keys }}<span class="cgrid__keys">{{ . | markdownify }}</span>{{ end }}
+</li>
+{{- end }}{{ end }}
+</ul>
+{{- end }}

@@ -144,3 +144,45 @@ other = "Menu"
 
 [facts]
 other = "Fact sheet"
+
+[components_group_bar]
+other = "Bar and popups"
+
+[components_group_windows]
+other = "Windows and apps"
+
+[components_group_session]
+other = "Session"
+
+[components_group_apps]
+other = "Apps of its own"
+
+[comp_install]
+other = "Install it alone"
+
+[comp_install_lead]
+other = "Only this component, without the full session. First add the Swaydesk repository, as on the page"
+
+[comp_install_link]
+other = "Install"
+
+[comp_start]
+other = "Start it on plain Sway"
+
+[comp_waybar]
+other = "In Waybar"
+
+[comp_shortcuts]
+other = "Shortcuts"
+
+[comp_shortcuts_note]
+other = "Those of the Swaydesk profile, the default. The other profiles are in"
+
+[comp_writing]
+other = "being written for 0.1.7"
+
+[comp_all]
+other = "All components"
+
+[comp_details]
+other = "Details"
