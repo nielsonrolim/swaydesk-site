@@ -17,8 +17,8 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
 - `data/demo.toml`: the demo video and its chapters, per language (`es` reuses the English video, chapters in Spanish); `home = true`
   marks the chapters the home page's panel shows.
 - The home page (`layouts/home.html`) follows the design mockup: its texts are in the front matter of each
-  language's `_index.md` (`hero`, `facts`, `demo`, `components`, `shortcuts`, `install`), the version comes from
-  `data/isos.toml` (`tag`), the profiles from `data/shortcuts.json`, the component icons from `_partials/icon.html`.
+  language's `_index.md` (`hero`, `facts`, `demo`, `components`, `shortcuts`, `install`), the packages' version comes from
+  `data/isos.toml` (`packages`, required: the build fails without it; `tag` is the ISOs' Release), the profiles from `data/shortcuts.json`, the component icons from `_partials/icon.html`.
 - `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `component`…).
   `_partials/topbar.html` (logo, menu, languages, Download button, theme), `nav.html` (the top menu: every
   `main` menu entry but home and Download), `locale.html`, `theme-toggle.html` and `footer.html` are on every
