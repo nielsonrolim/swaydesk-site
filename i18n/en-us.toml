@@ -17,10 +17,10 @@ other = "a complete desktop on top of Sway"
 other = "Swaydesk: a complete, lightweight desktop on top of Sway, for Debian, Ubuntu, Linux Mint and Arch."
 
 [independent]
-other = 'Swaydesk is an independent project built on top of <a href="https://swaywm.org/">Sway</a>. It is not affiliated with, or endorsed by, the Sway project or its developers.'
+other = 'An independent project, not affiliated with, or endorsed by, the <a href="https://swaywm.org/">Sway</a> project or its developers.'
 
 [license]
-other = 'Text and images under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>; screenshots show third-party icons under their own licenses'
+other = 'Text and images under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Screenshots show third-party icons under their own licenses.'
 
 [soon]
 other = "coming soon"
@@ -138,3 +138,6 @@ other = "Download"
 
 [footer_nav]
 other = "Footer"
+
+[menu]
+other = "Menu"

@@ -22,7 +22,7 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
 - `assets/`: CSS and images processed by Hugo. `static/`: fonts, scripts, video, `404.html` and `CNAME`.
   The logo is `static/images/icon.svg` (dark) and `icon-light.svg` (light); the CSS shows the one for the theme.
   The colors are tokens on `:root` in `assets/css/site.css`, with the dark set under `[data-theme="dark"]` and
-  `prefers-color-scheme`; the accent is `#45abb7` on dark and `#2a7d87` on light (contrast 4.5:1 or more on white).
+  `prefers-color-scheme`; the values follow the design mockups (the accent is `#45abb7` on dark, `#2e8792` on light).
 - `hugo.toml`: site config, menus per language, `params.code_repo` (the public code repository whose Releases
   hold the ISOs).
 

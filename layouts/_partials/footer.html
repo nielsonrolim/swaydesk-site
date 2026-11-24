@@ -1,15 +1,18 @@
+{{- /* O rodapé, como no mockup: as seções em duas colunas (Instalar, Baixar, Guia | Atalhos, Componentes, Capturas) */ -}}
 <footer class="footer">
 <div class="wrap footer__in">
 <div class="footer__about">
-<span class="footer__prompt" aria-hidden="true">user@swaydesk:~$ <span class="cursor"></span></span>
+<span class="footer__prompt"><span class="footer__prompt-user">user@swaydesk:~$</span> <span class="cursor" aria-hidden="true"></span></span>
 <p class="independent">{{ i18n "independent" | safeHTML }}</p>
 <p class="license">{{ i18n "license" | safeHTML }}</p>
 </div>
 <nav class="footer__nav" aria-label="{{ i18n "footer_nav" }}">
-{{- range site.Menus.main }}
-{{- if ne .PageRef "/" }}
-<a href="{{ .URL }}">{{ .Name }}</a>
-{{- end }}
+{{- range slice (slice "/install" "/download" "/guide") (slice "/shortcuts" "/components" "/screenshots") }}
+<div class="footer__col">
+{{- range . }}{{ with site.GetPage . }}
+<a href="{{ .RelPermalink }}">{{ .LinkTitle | strings.FirstUpper }}</a>
+{{- end }}{{ end }}
+</div>
 {{- end }}
 </nav>
 </div>

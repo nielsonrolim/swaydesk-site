@@ -5,8 +5,8 @@
   const media = window.matchMedia("(prefers-color-scheme: dark)");
   const apply = (theme) => {
     root.dataset.theme = theme;
-    const button = document.querySelector("[data-theme-toggle]");
-    if (button) { button.setAttribute("aria-pressed", String(theme === "dark")); button.hidden = false; } // sem JS o botão fica escondido
+    const buttons = document.querySelectorAll("[data-theme-toggle]");
+    buttons.forEach((b) => { b.setAttribute("aria-pressed", String(theme === "dark")); b.hidden = false; }); // sem JS os botões ficam escondidos
   };
   apply(stored() || (media.matches ? "dark" : "light"));
   document.addEventListener("DOMContentLoaded", () => apply(root.dataset.theme));
