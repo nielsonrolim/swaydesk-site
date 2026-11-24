@@ -74,5 +74,6 @@ all three languages. History on `main` is never rewritten (no force-push).
 
 ## License
 
-Text and images: CC BY 4.0 (`LICENSE`). The Fira Code font in `static/fonts/`: SIL OFL 1.1. Screenshots show
+Text and images: CC BY 4.0 (`LICENSE`). The Fira Code font in `static/fonts/` (400, 500, 600, 700 from the official release 6.2,
+<https://github.com/tonsky/FiraCode/releases/tag/6.2>): SIL OFL 1.1. Screenshots show
 third-party icons and logos under their own licenses.
