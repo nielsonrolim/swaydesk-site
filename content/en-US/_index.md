@@ -13,7 +13,7 @@ hero:
   install: "Install"
   watch: "See it in action"
   distros: "Debian 13 · Ubuntu 26.04 · Linux Mint 27 · Arch Linux"
-  independent: "An independent project, not affiliated with the Sway project."
+  independent: "An independent project, not affiliated with, or endorsed by, the Sway project."
   alt: "The Swaydesk desktop on Debian 13: terminal, file manager and editor side by side, the bar on top and the dock at the bottom"
   caption_dark: "Debian 13 · Sway 1.10 · dark theme"
   caption_light: "Debian 13 · Sway 1.10 · light theme"

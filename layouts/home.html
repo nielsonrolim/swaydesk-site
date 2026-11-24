@@ -45,7 +45,7 @@
 <h2 class="block__title">{{ .title }}</h2>
 </div>
 <div class="demo-row">
-<div class="video is-idle">
+<div class="video" data-video>
 <video id="demo-video" class="video__player" controls preload="none" playsinline poster="{{ $poster.RelPermalink }}" width="{{ $poster.Width }}" height="{{ $poster.Height }}">
 <source src="{{ $v.file }}" type="video/mp4">
 <a href="{{ $v.file }}">{{ i18n "demo_fallback" }}</a>

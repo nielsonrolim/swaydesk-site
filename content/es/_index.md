@@ -1,7 +1,7 @@
 ---
 title: Swaydesk
 facts:
-  - {k: base, v: "Sway, compositor tiling Wayland"}
+  - {k: base, v: "Sway, el compositor Wayland en mosaico"}
   - {k: stack, v: "Rust · GTK 4 · layer-shell"}
   - {k: distros, v: "Debian · Ubuntu · Mint · Arch"}
   - {k: idiomas, v: "Português · English · Español"}
@@ -12,7 +12,7 @@ hero:
   install: "Instalar"
   watch: "Verlo en acción"
   distros: "Debian 13 · Ubuntu 26.04 · Linux Mint 27 · Arch Linux"
-  independent: "Proyecto independiente, sin afiliación con el proyecto Sway."
+  independent: "Proyecto independiente, sin afiliación ni respaldo del proyecto Sway."
   alt: "Escritorio de Swaydesk en Debian 13: terminal, gestor de archivos y editor lado a lado, la barra arriba y la dock abajo"
   caption_dark: "Debian 13 · Sway 1.10 · tema oscuro"
   caption_light: "Debian 13 · Sway 1.10 · tema claro"
