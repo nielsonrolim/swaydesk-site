@@ -71,15 +71,17 @@ Falta un agente de polkit, y la sesión te lo avisa con una notificación. Insta
 
 ### Instalé desde la imagen y dejé la contraseña vacía {#contrasena-vacia}
 
-Pon una ahora: abre una terminal y ejecuta `passwd`. El instalador de las imágenes anteriores a la 0.1.6 aceptaba una contraseña vacía para el primer usuario, que es administrador, así que cualquiera frente al equipo podía entrar en una consola de texto y usar sudo (el inicio de sesión gráfico la rechazaba). Desde la 0.1.6, el instalador exige una contraseña. Los sistemas instalados desde los paquetes no están afectados.
+Pon una ahora: abre una terminal y ejecuta `sudo passwd "$USER"` (sudo acepta la contraseña vacía; `passwd` solo puede rechazarla como contraseña actual). El instalador de las imágenes anteriores a la 0.1.6 aceptaba una contraseña vacía para el primer usuario, que es administrador, así que cualquiera frente al equipo podía entrar en una consola de texto y usar sudo (el inicio de sesión gráfico la rechazaba). Desde la 0.1.6, el instalador exige una contraseña. Los sistemas instalados desde los paquetes no están afectados.
 
 ### Debian 13: ukui-polkit está instalado y no lo uso {#ukui-polkit}
 
-Antes de la 0.1.6, `apt install swaydesk-desktop` en Debian 13 podía traer un segundo agente de polkit, ukui-polkit, con unas 50 bibliotecas que necesita. Nunca se ejecuta en Swaydesk, que usa mate-polkit. `dpkg -l ukui-polkit` muestra si está instalado; para quitarlo junto con lo que trajo:
+Antes de la 0.1.6, `apt install swaydesk-desktop` en Debian 13 podía traer un segundo agente de polkit, ukui-polkit, con unas 50 bibliotecas que necesita. Nunca se ejecuta en Swaydesk, que usa mate-polkit. `dpkg -l ukui-polkit` muestra si está instalado. Para quitarlo:
 
 ```
-sudo apt remove ukui-polkit && sudo apt autoremove
+sudo apt remove ukui-polkit
 ```
+
+Después, `sudo apt autoremove` quita los paquetes que ya nada necesita, entre ellos esas bibliotecas; lee la lista antes de confirmar.
 
 ### VS Code dice "An OS keyring couldn't be identified"
 

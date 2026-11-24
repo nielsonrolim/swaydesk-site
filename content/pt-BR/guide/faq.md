@@ -71,15 +71,17 @@ Falta um agente de polkit, e a sessão avisa com uma notificação. Instale o `m
 
 ### Instalei pela imagem e deixei a senha em branco {#senha-em-branco}
 
-Defina uma agora: abra um terminal e rode `passwd`. O instalador das imagens anteriores à 0.1.6 aceitava senha vazia para o primeiro usuário, que é administrador, então qualquer pessoa no computador podia entrar num console de texto e usar o sudo (o login gráfico recusava). Desde a 0.1.6, o instalador exige uma senha. Quem instalou pelos pacotes não é afetado.
+Defina uma agora: abra um terminal e rode `sudo passwd "$USER"` (o sudo aceita a senha vazia; o `passwd` sozinho pode recusá-la como senha atual). O instalador das imagens anteriores à 0.1.6 aceitava senha vazia para o primeiro usuário, que é administrador, então qualquer pessoa no computador podia entrar num console de texto e usar o sudo (o login gráfico recusava). Desde a 0.1.6, o instalador exige uma senha. Quem instalou pelos pacotes não é afetado.
 
 ### Debian 13: o ukui-polkit está instalado e eu não uso {#ukui-polkit}
 
-Antes da 0.1.6, o `apt install swaydesk-desktop` no Debian 13 podia trazer um segundo agente de polkit, o ukui-polkit, com umas 50 bibliotecas que ele usa. Ele nunca roda no Swaydesk, que usa o mate-polkit. O `dpkg -l ukui-polkit` mostra se ele está instalado; para tirá-lo e o que ele trouxe:
+Antes da 0.1.6, o `apt install swaydesk-desktop` no Debian 13 podia trazer um segundo agente de polkit, o ukui-polkit, com umas 50 bibliotecas que ele usa. Ele nunca roda no Swaydesk, que usa o mate-polkit. O `dpkg -l ukui-polkit` mostra se ele está instalado. Para tirá-lo:
 
 ```
-sudo apt remove ukui-polkit && sudo apt autoremove
+sudo apt remove ukui-polkit
 ```
+
+Depois, o `sudo apt autoremove` tira os pacotes de que nada mais precisa, entre eles essas bibliotecas; leia a lista antes de confirmar.
 
 ### O VS Code diz "An OS keyring couldn't be identified"
 
