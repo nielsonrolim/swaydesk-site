@@ -10,8 +10,8 @@
 # An ISO may carry its own `tag` (an older Release, while its new image isn't out yet): its link and its
 # SHA256SUMS link use that Release, and the card says the image updates to the version of the top `tag`.
 # When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
-# `packages`: the version of the packages on OBS (the redesign's home pill reads it). It can differ from `tag`
-# when a Release only rebuilds the ISOs (0.1.6.1 carries the 0.1.6 packages).
+# `packages`: the version of the packages on OBS, shown in the home page's pill. It can differ from `tag`
+# when a Release only rebuilds the ISOs (0.1.6.1 carried the 0.1.6 packages). The build fails without it.
 tag = "v0.1.6.1"
 packages = "0.1.6"
 sums = "SHA256SUMS"

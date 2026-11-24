@@ -1,6 +1,128 @@
+{{- /* A home, como no Main.dc.html do handoff do design: herói, ficha técnica, vídeo com capítulos, componentes,
+  atalhos e o que vem junto, instalar. Os textos ficam no front matter do _index.md de cada idioma; a versão vem de
+  data/isos.toml (tag), a duração e os capítulos de data/demo.toml (home = true), os perfis de data/shortcuts.json. */ -}}
 {{ define "main" }}
-<p class="prompt" aria-hidden="true">whoami</p>
-<h1>{{ site.Params.name }}</h1>
-{{ with .Params.facts }}<dl class="facts">{{ range . }}<div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>{{ end }}</dl>{{ end }}
-<div class="content">{{ .Content }}</div>
+{{- $h := .Params.hero }}
+{{- $v := index site.Data.demo (lower site.Language.Lang) }}
+{{- $poster := resources.Get $v.poster | fingerprint }}
+<section class="hero wrap">
+<div class="hero__text">
+<div class="hero__meta">
+<span><span class="muted">user@swaydesk:~$</span> whoami</span>
+{{ $pkg := site.Data.isos.packages | default "" }}{{ if not $pkg }}{{ errorf "data/isos.toml: set packages, the version of the packages on OBS (the home page pill)" }}{{ end }}
+<span class="pill"><span class="pill__dot" aria-hidden="true"></span>v{{ $pkg }} · {{ $h.status }}</span>
+</div>
+<h1 class="hero__title">{{ if reflect.IsSlice $h.title }}{{ range $h.title }}<span class="hero__line">{{ . }}</span> {{ end }}{{ else }}{{ $h.title }}{{ end }}</h1>
+<p class="hero__lead">{{ $h.lead }}</p>
+<div class="hero__actions">
+<a class="btn" href="{{ relLangURL "install/" }}">{{ $h.install }}<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+<a class="btn btn--ghost" href="#demo"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2l9 5-9 5z" fill="currentColor"/></svg>{{ $h.watch }} <span class="btn__sub">{{ $v.duration }}</span></a>
+</div>
+<p class="hero__note">{{ $h.distros }}</p>
+<p class="hero__note">{{ $h.independent }}</p>
+</div>
+<figure class="hero__shot">
+<div class="shot-frame">
+{{- with resources.Get "images/shots/desktop.webp" | fingerprint }}<img class="only-dark" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}">{{ end }}
+{{- with resources.Get "images/shots/desktop-light.webp" | fingerprint }}<img class="only-light" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}">{{ end }}
+</div>
+<figcaption class="hero__caption"><span class="only-dark">{{ $h.caption_dark }}</span><span class="only-light">{{ $h.caption_light }}</span></figcaption>
+<div class="hero__badge" aria-hidden="true"><kbd>Super</kbd><span class="muted">{{ $h.badge }}</span></div>
+</figure>
+</section>
+
+{{- with .Params.facts }}
+<section class="factstrip" aria-label="{{ i18n "facts" }}">
+<dl class="wrap factstrip__in">
+{{- range . }}<div><dt>{{ .k }}</dt><dd>{{ .v }}</dd></div>{{ end }}
+</dl>
+</section>
+{{- end }}
+
+{{- with .Params.demo }}
+<section class="block wrap" id="demo">
+<div class="block__head block__head--620">
+<p class="kicker">{{ .kicker }}</p>
+<h2 class="block__title">{{ .title }}</h2>
+</div>
+<div class="demo-row">
+<div class="video" data-video>
+<video id="demo-video" class="video__player" controls preload="none" playsinline poster="{{ $poster.RelPermalink }}" width="{{ $poster.Width }}" height="{{ $poster.Height }}">
+<source src="{{ $v.file }}" type="video/mp4">
+<a href="{{ $v.file }}">{{ i18n "demo_fallback" }}</a>
+</video>
+<button type="button" class="video__play" data-video-play hidden aria-label="{{ .play }}"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l12 7-12 7z" fill="currentColor"/></svg></button>
+</div>
+<div class="chapters demo__chapters">
+<div class="chapters__head"><span class="chapters__title">{{ .chapters }}</span><span class="chapters__count">{{ len $v.chapters }}</span></div>
+{{- range $i, $c := where $v.chapters "home" true }}
+<a class="chapters__item" href="{{ $v.file }}#t={{ $c.t }}" data-t="{{ $c.t }}"><span class="chapters__t{{ if eq $i 0 }} chapters__t--first{{ end }}">{{ printf "%d:%02d" (div $c.t 60) (mod $c.t 60) }}</span>{{ $c.label }}</a>
+{{- end }}
+<a class="chapters__all" href="{{ relLangURL "screenshots/" }}#demo-video">{{ .all }}</a>
+</div>
+</div>
+</section>
+{{- end }}
+
+{{- with .Params.components }}
+<section class="block wrap" id="components">
+<div class="block__head block__head--680">
+<p class="kicker">{{ .kicker }}</p>
+<h2 class="block__title">{{ .title }}</h2>
+<p class="block__lead">{{ .lead }}</p>
+</div>
+<ul class="cgrid">
+{{- range .items }}
+<li class="cgrid__cell">{{ partial "icon.html" .icon }}<span class="cgrid__name">{{ .name }}</span><span class="cgrid__text">{{ .text }}</span></li>
+{{- end }}
+</ul>
+</section>
+{{- end }}
+
+{{- with .Params.shortcuts }}
+{{- $profiles := site.Data.shortcuts.profiles }}
+<section class="block block--split wrap" id="shortcuts">
+<div class="split__left">
+<p class="kicker">{{ .kicker }}</p>
+<h2 class="block__title">{{ .title }}</h2>
+<p class="block__lead">{{ .lead }}</p>
+<div class="term">
+<div class="term__head"><span>{{ .profiles }}</span><span>{{ len $profiles }}</span></div>
+<ul class="term__list">
+{{- $default := .default }}
+{{- range $i, $p := $profiles }}
+<li class="term__item{{ if eq $i 0 }} term__item--on{{ end }}"><span class="term__box" aria-hidden="true"></span>{{ $p }}{{ if eq $i 0 }}<span class="term__tag">{{ $default }}</span>{{ end }}</li>
+{{- end }}
+</ul>
+</div>
+</div>
+<ol class="numlist">
+{{- range $i, $it := .items }}
+<li><span class="numlist__n">{{ printf "%02d" (add $i 1) }}</span><div><span class="numlist__name">{{ $it.name }}</span><span class="numlist__text">{{ $it.text }}</span></div></li>
+{{- end }}
+</ol>
+</section>
+{{- end }}
+
+{{- with .Params.install }}
+<section class="block wrap" id="install">
+<div class="installbox">
+<div class="installbox__head">
+<div class="block__head block__head--560">
+<p class="kicker">{{ .kicker }}</p>
+<h2 class="block__title">{{ .title }}</h2>
+<p class="block__lead">{{ .lead }}</p>
+</div>
+{{- $isos := slice }}{{ range $k, $iso := site.Data.isos }}{{ if reflect.IsMap $iso }}{{ if $iso.published }}{{ $isos = $isos | append (index (split $iso.name " ") 0) }}{{ end }}{{ end }}{{ end }}
+<a class="btn btn--ghost" href="{{ relLangURL "download/" }}">{{ .iso }} <span class="btn__sub">{{ delimit (sort $isos "value" "desc") " · " }}</span></a>
+</div>
+<div class="icards">
+{{- $steps := .steps }}
+{{- range .cards }}
+<a class="icard" href="{{ relLangURL "install/" }}#{{ .tab }}"><span class="icard__cmd">{{ .cmd }}</span><span class="icard__name">{{ .name }}<span class="icard__sub">{{ .sub }}</span></span><span class="icard__go">{{ $steps }}</span></a>
+{{- end }}
+</div>
+</div>
+</section>
+{{- end }}
 {{ end }}

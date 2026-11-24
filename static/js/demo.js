@@ -1,7 +1,28 @@
-// The demo video's chapters: a click seeks the player on the page instead of opening the file.
+// The demo video. On the home page, the player starts dimmed behind a play button (without JS it's a plain,
+// undimmed player with controls); the first play brings the controls back. The chapters seek the player on the page
+// instead of opening the file.
 (function () {
   var video = document.getElementById("demo-video");
   if (!video) return;
+  var frame = video.closest("[data-video]");
+  var play = frame && frame.querySelector("[data-video-play]");
+  if (play) {
+    frame.classList.add("is-idle"); // dimmed only with JS, which is also what undims it
+    var wake = function () {
+      frame.classList.remove("is-idle");
+      play.hidden = true;
+      video.controls = true;
+    };
+    video.controls = false;
+    play.hidden = false;
+    play.addEventListener("click", function () {
+      wake();
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+      video.focus({ preventScroll: true });
+    });
+    video.addEventListener("play", wake);
+  }
   document.querySelectorAll(".demo__chapters a[data-t]").forEach(function (a) {
     a.addEventListener("click", function (e) {
       var t = Number(a.dataset.t);

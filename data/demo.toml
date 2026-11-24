@@ -1,5 +1,6 @@
 # The demo video (shortcode demo): one per language. Chapters come from the recording's chapter
 # files (time of each part); t is in seconds. Recorded in a VM with dbusmock (BlueZ) and test_power.
+# home = true puts the chapter in the home page's panel (the same chapters in every language).
 
 [pt-br]
 file = "/video/swaydesk-demo-pt-BR.mp4"
@@ -8,9 +9,11 @@ duration = "5:09"
 [[pt-br.chapters]]
 t = 0
 label = "Greeter e login"
+home = true
 [[pt-br.chapters]]
 t = 11
 label = "Barra: relógio e calendário"
+home = true
 [[pt-br.chapters]]
 t = 19
 label = "Barra: clima"
@@ -44,9 +47,11 @@ label = "Barra: bateria (bateria simulada, test_power)"
 [[pt-br.chapters]]
 t = 89
 label = "Dock"
+home = true
 [[pt-br.chapters]]
 t = 99
 label = "Grade de apps"
+home = true
 [[pt-br.chapters]]
 t = 104
 label = "Grade: busca"
@@ -74,6 +79,7 @@ label = "Lançador rofi: clique fora fecha"
 [[pt-br.chapters]]
 t = 148
 label = "Alt+Tab"
+home = true
 [[pt-br.chapters]]
 t = 154
 label = "OSD de volume"
@@ -98,6 +104,7 @@ label = "Gravação de tela"
 [[pt-br.chapters]]
 t = 220
 label = "Tema do Desktop"
+home = true
 [[pt-br.chapters]]
 t = 222
 label = "Tema: cor de destaque e claro"
@@ -110,6 +117,7 @@ label = "Tema: escuro e a cor de volta"
 [[pt-br.chapters]]
 t = 254
 label = "Telas (duas telas)"
+home = true
 [[pt-br.chapters]]
 t = 271
 label = "Ajuda: atalhos"
@@ -125,6 +133,7 @@ label = "Menu da sessão"
 [[pt-br.chapters]]
 t = 298
 label = "Tela de bloqueio"
+home = true
 
 [en-us]
 file = "/video/swaydesk-demo-en-US.mp4"
@@ -133,9 +142,11 @@ duration = "4:44"
 [[en-us.chapters]]
 t = 0
 label = "Greeter and login"
+home = true
 [[en-us.chapters]]
 t = 10
 label = "Bar: clock and calendar"
+home = true
 [[en-us.chapters]]
 t = 17
 label = "Bar: weather"
@@ -169,9 +180,11 @@ label = "Bar: battery (simulated battery, test_power)"
 [[en-us.chapters]]
 t = 82
 label = "Dock"
+home = true
 [[en-us.chapters]]
 t = 90
 label = "App grid"
+home = true
 [[en-us.chapters]]
 t = 94
 label = "App grid: search"
@@ -199,6 +212,7 @@ label = "Rofi launcher: clicking outside closes it"
 [[en-us.chapters]]
 t = 134
 label = "Alt+Tab"
+home = true
 [[en-us.chapters]]
 t = 140
 label = "Volume OSD"
@@ -223,6 +237,7 @@ label = "Screen recording"
 [[en-us.chapters]]
 t = 201
 label = "Desktop Theme"
+home = true
 [[en-us.chapters]]
 t = 203
 label = "Theme: accent color and light style"
@@ -235,6 +250,7 @@ label = "Theme: dark style and the color back"
 [[en-us.chapters]]
 t = 232
 label = "Displays (two screens)"
+home = true
 [[en-us.chapters]]
 t = 247
 label = "Help: shortcuts"
@@ -250,6 +266,7 @@ label = "Session menu"
 [[en-us.chapters]]
 t = 273
 label = "Lock screen"
+home = true
 
 # Sin un video en español: el de inglés, con los capítulos en español
 [es]
@@ -259,9 +276,11 @@ duration = "4:44"
 [[es.chapters]]
 t = 0
 label = "Pantalla de inicio de sesión"
+home = true
 [[es.chapters]]
 t = 10
 label = "Barra: reloj y calendario"
+home = true
 [[es.chapters]]
 t = 17
 label = "Barra: clima"
@@ -295,9 +314,11 @@ label = "Barra: batería (batería simulada, test_power)"
 [[es.chapters]]
 t = 82
 label = "Dock"
+home = true
 [[es.chapters]]
 t = 90
 label = "Cuadrícula de aplicaciones"
+home = true
 [[es.chapters]]
 t = 94
 label = "Cuadrícula de aplicaciones: búsqueda"
@@ -325,6 +346,7 @@ label = "Lanzador rofi: un clic fuera lo cierra"
 [[es.chapters]]
 t = 134
 label = "Alt+Tab"
+home = true
 [[es.chapters]]
 t = 140
 label = "Indicador de volumen"
@@ -349,6 +371,7 @@ label = "Grabación de pantalla"
 [[es.chapters]]
 t = 201
 label = "Tema del escritorio"
+home = true
 [[es.chapters]]
 t = 203
 label = "Tema: color de acento y estilo claro"
@@ -361,6 +384,7 @@ label = "Tema: estilo oscuro y el color de vuelta"
 [[es.chapters]]
 t = 232
 label = "Pantallas (dos monitores)"
+home = true
 [[es.chapters]]
 t = 247
 label = "Ayuda: atajos"
@@ -376,3 +400,4 @@ label = "Menú de sesión"
 [[es.chapters]]
 t = 273
 label = "Pantalla de bloqueo"
+home = true
