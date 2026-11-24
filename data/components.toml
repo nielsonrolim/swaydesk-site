@@ -16,8 +16,9 @@
 #   waybar    the Waybar snippet, only for the bar popups
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor),
-#   start_note (Markdown, under the start lines)
-# [groups.<group>]: a metapackage that installs a whole section of the list (package), and per language its text
+#   start_note (Markdown, under the start lines), arch_note (Markdown, under the Arch tab)
+# [groups.<group>]: a metapackage that installs a whole section of the list (package), arch_with (its members'
+#   optional dependencies, in one pacman --asdeps line), and per language its text
 
 [[components]]
 id = "network"
@@ -256,16 +257,19 @@ waybar = ""
   text = "O mês, com os feriados do seu país."
   keys = "Clique na data"
   guide = "guide/desktop/#a-barra"
+  arch_note = "No Arch, os feriados não estão nos repositórios oficiais, então o calendário não mostra feriados."
   [components.en-us]
   name = "Calendar"
   text = "The month, with your country's holidays."
   keys = "Click the date"
   guide = "guide/desktop/#the-bar"
+  arch_note = "On Arch, the holidays aren't in the official repositories, so the calendar shows no holidays there."
   [components.es]
   name = "Calendario"
   text = "El mes, con los días festivos de tu país."
   keys = "Haz clic en la fecha"
   guide = "guide/desktop/#la-barra"
+  arch_note = "En Arch, los festivos no están en los repositorios oficiales, así que el calendario no muestra festivos."
 
 [[components]]
 id = "system"
@@ -995,6 +999,7 @@ page = false
 
 [groups.bar]
 package = "swaydesk-bar"
+arch_with = ["networkmanager", "bluez", "upower", "wireplumber", "libpulse", "brightnessctl", "gammastep", "playerctl", "noto-fonts-emoji", "swaydesk-lock"]
   [groups.bar.pt-br]
   text = "Todos de uma vez com o `swaydesk-bar`, que também traz o indicador de volume e brilho e o layout do teclado. A central de notificações vem num pacote à parte, o `swaydesk-notifd`."
   [groups.bar.en-us]
@@ -1004,6 +1009,7 @@ package = "swaydesk-bar"
 
 [groups.apps]
 package = "swaydesk-apps"
+arch_with = ["wf-recorder", "wl-clipboard", "libnotify", "swaydesk-lock"]
   [groups.apps.pt-br]
   text = "Os quatro de uma vez com o `swaydesk-apps`: Tema do Desktop, Telas, Ajuda e Captura de tela."
   [groups.apps.en-us]

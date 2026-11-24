@@ -7,7 +7,13 @@
 {{- range slice "bar" "windows" "session" "apps" }}
 {{- $group := . }}
 <h2 id="{{ $group }}">{{ i18n (printf "components_group_%s" $group) }}</h2>
-{{- with index ((partialCached "data.html" $page).components.groups | default dict) $group }}<p class="cgroup">{{ (index . $lang).text | markdownify }}</p>{{ end }}
+{{- with index ((partialCached "data.html" $page).components.groups | default dict) $group }}
+<div class="cgroup"><p>{{ (index . $lang).text | markdownify }}</p>
+{{- with .arch_with }}
+<p>{{ i18n "comp_group_arch" }}</p>
+{{ partial "cmd.html" (printf "sudo pacman -S --asdeps %s" (delimit . " ")) }}
+{{- end }}</div>
+{{- end }}
 <ul class="cgrid cgrid--list">
 {{- range $all }}{{ if eq .group $group }}
 {{- $t := index . $lang }}

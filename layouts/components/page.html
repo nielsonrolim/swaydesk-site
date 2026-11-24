@@ -38,6 +38,7 @@
 {{- else }}
 {{ partial "cmd.html" (printf "sudo pacman -Syu %s" (delimit (append $c.arch_with (slice $c.package)) " ")) }}
 {{- with $c.arch_with }}<p>{{ i18n "comp_arch_with" }}</p>{{ end }}
+{{- with $c.arch_note }}{{ . | markdownify }}{{ end }}
 {{- end }}
 </section>
 {{- end }}

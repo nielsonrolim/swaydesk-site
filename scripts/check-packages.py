@@ -46,7 +46,7 @@ def main(argv):
         return 1
     errors = []
     checks = [(c["id"], c.get("package", ""), c.get("arch_with", [])) for c in components]
-    checks += [(f"groups.{name}", group.get("package", ""), []) for name, group in data_groups.items()]
+    checks += [(f"groups.{name}", g.get("package", ""), g.get("arch_with", [])) for name, g in data_groups.items()]
     for where, package, arch_with in checks:
         if package:
             for distro, names in (("debian/control", debian), ("PKGBUILD", arch)):

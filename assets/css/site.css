@@ -385,3 +385,4 @@ a.cgrid__name:hover { color: var(--accent); text-decoration-color: currentColor;
 .component__name { display: flex; align-items: center; gap: .5rem; margin-top: 0; }
 .component__name .icon { color: var(--accent); }
 .cgroup { margin: 0 0 1rem; color: var(--ink-soft); }
+.cgroup p { margin: 0 0 .5rem; }
