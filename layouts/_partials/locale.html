@@ -1,12 +1,13 @@
 {{- /* PT/EN/ES numa caixa; cada idioma pelo próprio nome no aria-label ("PT" sozinho um leitor de tela soletra) */ -}}
 {{- $names := dict "pt-br" "Português" "en-us" "English" "es" "Español" }}
 <nav class="locale" aria-label="{{ i18n "language" }}">
-{{- range site.Languages }}
-{{- $lang := .Lang }}
+{{- range partialCached "sites.html" . }}
+{{- $lang := .Language.Lang }}
+{{- $locale := .Params.locale }}{{ if not $locale }}{{ errorf "hugo.toml: set languages.%s.params.locale" $lang }}{{ end }}
 {{- $target := "" }}
 {{- range $.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
 {{- if not $target }}{{ $target = printf "/%s/" (lower $lang) }}{{ end }}
-{{- $name := index $names (lower $lang) | default .LanguageName }}
-<a href="{{ $target }}" hreflang="{{ .LanguageCode }}" lang="{{ .LanguageCode }}" aria-label="{{ $name }}" title="{{ $name }}"{{ if eq $lang $.Language.Lang }} aria-current="true"{{ end }}>{{ upper (substr $lang 0 2) }}</a>
+{{- $name := index $names (lower $lang) }}{{ if not $name }}{{ errorf "locale.html: no name for the language %q" $lang }}{{ end }}
+<a href="{{ $target }}" hreflang="{{ $locale }}" lang="{{ $locale }}" aria-label="{{ $name }}" title="{{ $name }}"{{ if eq $lang $.Language.Lang }} aria-current="true"{{ end }}>{{ upper (substr $lang 0 2) }}</a>
 {{- end }}
 </nav>

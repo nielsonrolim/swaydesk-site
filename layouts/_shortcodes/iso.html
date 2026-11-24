@@ -5,10 +5,10 @@
   Um tag no próprio ISO (de um Release mais velho) vale para o link dele e o do SHA256SUMS, com o aviso
   iso_older. */ -}}
 {{- $id := .Get "id" }}
-{{- $iso := index site.Data.isos $id }}
+{{- $iso := index (partialCached "data.html" .).isos $id }}
 {{- if not $iso }}{{ errorf "iso: %q não está em data/isos.toml" $id }}{{ end }}
 {{- if $iso.published }}
-{{- $tag := $iso.tag | default site.Data.isos.tag }}
+{{- $tag := $iso.tag | default (partialCached "data.html" .).isos.tag }}
 {{- $base := printf "%s/releases/download/%s" site.Params.code_repo $tag }}
 {{- $ready := and $tag $iso.file $iso.size $iso.sha256 }}
 <article class="iso" id="{{ $id }}">
@@ -19,11 +19,11 @@
 <dt>Secure Boot</dt><dd>{{ if $iso.secure_boot }}{{ i18n "iso_sb_on" }}{{ else }}{{ i18n "iso_sb_off" }}{{ end }}</dd>
 </dl>
 {{- if $ready }}
-<p class="iso__links"><a class="iso__get" href="{{ $base }}/{{ $iso.file }}">{{ i18n "iso_download" }} {{ $iso.name }}</a> <a href="{{ $base }}/{{ site.Data.isos.sums }}">{{ site.Data.isos.sums }}</a></p>
+<p class="iso__links"><a class="iso__get" href="{{ $base }}/{{ $iso.file }}">{{ i18n "iso_download" }} {{ $iso.name }}</a> <a href="{{ $base }}/{{ (partialCached "data.html" .).isos.sums }}">{{ (partialCached "data.html" .).isos.sums }}</a></p>
 <p class="iso__label">SHA-256</p>
 <p class="iso__sha"><code>{{ $iso.sha256 }}</code></p>
 {{- end }}
-{{- if ne $tag site.Data.isos.tag }}<p class="iso__older">{{ i18n "iso_older" (dict "old" (strings.TrimPrefix "v" $tag) "new" (strings.TrimPrefix "v" site.Data.isos.tag)) }}</p>{{ end }}
+{{- if ne $tag (partialCached "data.html" .).isos.tag }}<p class="iso__older">{{ i18n "iso_older" (dict "old" (strings.TrimPrefix "v" $tag) "new" (strings.TrimPrefix "v" (partialCached "data.html" .).isos.tag)) }}</p>{{ end }}
 {{- with .Inner }}<div class="iso__notes">{{ . | markdownify }}</div>{{ end }}
 </article>
 {{- end }}

@@ -2,7 +2,7 @@
   21 MB loads before play (Chrome's "metadata" fetched 10 MB on a fast link); the poster and the caption's
   duration stand in. The MP4 has faststart, so playback starts at once. The chapters are links to the
   file with #t=; with JS, demo.js seeks the player instead. Only one per page (one id). */ -}}
-{{- $v := index site.Data.demo (lower site.Language.Lang) }}
+{{- $v := index (partialCached "data.html" .).demo (lower site.Language.Lang) }}
 {{- if not $v }}{{ errorf "demo: no %q in data/demo.toml" site.Language.Lang }}{{ end }}
 {{- $poster := resources.Get $v.poster | fingerprint }}
 <figure class="demo">

@@ -15,8 +15,6 @@ enableRobotsTXT = true
 
 [languages]
   [languages.pt-BR]
-    languageName = "PT-BR"
-    languageCode = "pt-BR"
     weight = 1
     contentDir = "content/pt-BR"
     [[languages.pt-BR.menus.main]]
@@ -47,9 +45,10 @@ enableRobotsTXT = true
       name = "componentes"
       pageRef = "/components"
       weight = 3
+    [languages.pt-BR.params]
+      # <html lang> and hreflang (Hugo 0.158 renamed languageCode to locale; params work on 0.147 and later)
+      locale = "pt-BR"
   [languages.en-US]
-    languageName = "EN-US"
-    languageCode = "en-US"
     weight = 2
     contentDir = "content/en-US"
     [[languages.en-US.menus.main]]
@@ -80,9 +79,9 @@ enableRobotsTXT = true
       name = "components"
       pageRef = "/components"
       weight = 3
+    [languages.en-US.params]
+      locale = "en-US"
   [languages.es]
-    languageName = "ES"
-    languageCode = "es-419"
     weight = 3
     contentDir = "content/es"
     [[languages.es.menus.main]]
@@ -113,6 +112,8 @@ enableRobotsTXT = true
       name = "componentes"
       pageRef = "/components"
       weight = 3
+    [languages.es.params]
+      locale = "es-419"
 
 [markup.goldmark.renderer]
   unsafe = false

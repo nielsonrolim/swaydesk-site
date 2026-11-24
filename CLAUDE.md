@@ -39,13 +39,20 @@ Run both before every push; CI runs the same and a failure blocks the deploy:
 ```sh
 docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src ghcr.io/gohugoio/hugo:v0.147.0 build --minify --panicOnWarning
 python3 -I scripts/check-links.py public
+python3 -I -m unittest discover -s scripts -p 'test_*.py'
 ```
 
 - `--panicOnWarning` turns any Hugo warning (a missing page, a bad shortcode) into a failure.
 - `check-links.py` checks that every root-relative `href`/`src` (starting with `/`) in `public/` points to a
   file that exists, that every `#anchor` on a page link is an id on that page, and that a page links only to its
   own language (the switcher's links, with `hreflang`, are the exception). Relative and external links aren't
-  checked: open those by hand when you change them.
+  checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
+- **Both Hugo 0.147 and the newest build the site.** CI publishes with 0.147, which lacks what 0.156+ replaced, so
+  the templates never call a deprecated API directly: `partialCached "data.html" .` instead of `site.Data`,
+  `partialCached "sites.html" .` instead of `site.Languages`, `site.Params.locale` (`[languages.X.params]` in
+  `hugo.toml`) instead of `languageCode`, and `layouts/sitemap.xml` for the sitemap's hreflang. Aliases are
+  relative to the page's folder (`apps/`): newer Hugo prefixes an absolute one with the language. The uppercase
+  `/pt-BR/` and `/en-US/` redirects are static files (`static/*/index.html`).
 - `hugo server` (Hugo installed locally) previews at <http://localhost:1313>.
 - `public/` and `resources/` are build output and are not committed.
 
@@ -74,7 +81,9 @@ python3 -I scripts/check-links.py public
 ## Deploy
 
 `.github/workflows/pages.yml` builds and publishes on every push to `main` (and on manual dispatch): Hugo
-0.147.0 checked by SHA-256, `hugo build --minify --panicOnWarning`, `check-links.py`, then GitHub Pages.
+0.147.0 checked by SHA-256, the scripts' tests, `hugo build --minify --panicOnWarning`, `check-links.py`, then GitHub
+Pages. `hugo-latest.yml` builds the same with the newest Hugo release on every pull request, push and weekly; it
+never publishes and its failure blocks nothing, but a red run there means the next Hugo bump needs work.
 Actions are pinned by commit. Changes go through a pull request; after the merge, check the live pages in
 all three languages. History on `main` is never rewritten (no force-push).
 
