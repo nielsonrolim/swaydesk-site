@@ -396,6 +396,37 @@ waybar = ""
   guide = "guide/desktop/#historial-del-portapapeles"
 
 [[components]]
+id = "language"
+group = "bar"
+icon = "bar"
+shot = ""
+bin = "swaydesk-language"
+src = "rust/language"
+tech = "Rust"
+off = "bar.language"
+page = true
+package = "swaydesk-language"
+arch_with = []
+optional = []
+start = ""
+waybar = ""
+  [components.pt-br]
+  name = "Layout do teclado"
+  text = "O layout de teclado atual, na barra. Some quando há um layout só, e conta só os teclados de verdade."
+  keys = "`Super`+`Espaço` troca o layout"
+  guide = "guide/config/#teclado-e-acentos"
+  [components.en-us]
+  name = "Keyboard layout"
+  text = "The current keyboard layout, in the bar. It hides when there's a single layout, and counts only real keyboards."
+  keys = "`Super`+`Space` switches the layout"
+  guide = "guide/config/#keyboard-and-accents"
+  [components.es]
+  name = "Distribución del teclado"
+  text = "La distribución de teclado actual, en la barra. Se oculta cuando hay una sola, y cuenta solo los teclados de verdad."
+  keys = "`Super`+`Espacio` cambia la distribución"
+  guide = "guide/config/#teclado-y-acentos"
+
+[[components]]
 id = "dock"
 group = "windows"
 icon = "dock"
