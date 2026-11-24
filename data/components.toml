@@ -6,7 +6,7 @@
 #   shot      an image in assets/images/shots (no .webp); empty = no screenshot
 #   bin, src, tech, off   as in the old {{< component >}} shortcode: the binary, the folder or script in
 #             params.code_repo, rust/script/other, and the [enabled] key that turns it off ("bar.x" = [enabled.bar] x)
-#   page      true = it has its own page; false = only a card in the list (a piece of the session, not a package)
+#   page      true = it has its own page; false = only a card in the list, which says it ships in swaydesk-desktop
 #   with      on a card without a page: the id whose page it shares (screen recording is in the screenshot app)
 # Filled in during 0.1.7 by whoever owns it; empty, the page shows "being written":
 #   package   the package that installs it alone (builder1's split); the same name on Debian, Ubuntu and Arch

@@ -1,5 +1,6 @@
 {{- /* The Components page's list: data/components.toml, by group, as the home page's grid. A card links to the
-       component's page (or, with `with`, to the page it shares). */ -}}
+       component's page (or, with `with`, to the page it shares); a card with neither is part of
+       swaydesk-desktop, and says so. */ -}}
 {{- $page := .Page }}
 {{- $all := (partialCached "data.html" $page).components.components }}
 {{- $lang := lower $page.Language.Lang }}
@@ -14,6 +15,7 @@
 {{- if $target }}<a class="cgrid__name" href="{{ relLangURL (printf "components/%s/" $target) }}">{{ $t.name }}</a>{{ else }}<span class="cgrid__name">{{ $t.name }}</span>{{ end }}
 <span class="cgrid__text">{{ $t.text | markdownify }}</span>
 {{- with $t.keys }}<span class="cgrid__keys">{{ . | markdownify }}</span>{{ end }}
+{{- if not $target }}<span class="cgrid__keys">{{ i18n "comp_in_desktop" | safeHTML }}</span>{{ end }}
 </li>
 {{- end }}{{ end }}
 </ul>

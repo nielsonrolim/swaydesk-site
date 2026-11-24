@@ -186,3 +186,6 @@ other = "Todos los componentes"
 
 [comp_details]
 other = "Detalles"
+
+[comp_in_desktop]
+other = "Parte del escritorio completo (<code>swaydesk-desktop</code>)"
