@@ -876,17 +876,17 @@ optional = []
 start = ""
   [components.pt-br]
   name = "Tema do Desktop"
-  text = "Escolhe o tema GTK, os ícones e a cor de destaque, e aplica tudo de uma vez, também nos apps GTK e libadwaita. Por padrão, a cor de destaque acompanha o papel de parede, inclusive o do dia (**Usar a cor do papel de parede**); escolher uma cor à mão desliga isso."
+  text = "Escolhe o tema GTK, os ícones, a cor de destaque e o tamanho do cursor, e aplica tudo de uma vez, também nos apps GTK e libadwaita. Por padrão, a cor de destaque acompanha o papel de parede, inclusive o do dia (**Usar a cor do papel de parede**); escolher uma cor à mão desliga isso."
   keys = "Na grade de apps"
   guide = "guide/config/"
   [components.en-us]
   name = "Desktop Theme"
-  text = "Picks the GTK theme, the icons and the accent color, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off."
+  text = "Picks the GTK theme, the icons, the accent color and the cursor size, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off."
   keys = "In the app grid"
   guide = "guide/config/"
   [components.es]
   name = "Tema del escritorio"
-  text = "Elige el tema GTK, los iconos y el color de acento, y los aplica todos a la vez, incluidas las aplicaciones GTK y libadwaita. De forma predeterminada, el color de acento sigue al fondo de pantalla, incluido el del día (**Usar el color del fondo de pantalla**); elegir un color tú mismo lo desactiva."
+  text = "Elige el tema GTK, los iconos, el color de acento y el tamaño del cursor, y los aplica todos a la vez, incluidas las aplicaciones GTK y libadwaita. De forma predeterminada, el color de acento sigue al fondo de pantalla, incluido el del día (**Usar el color del fondo de pantalla**); elegir un color tú mismo lo desactiva."
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
 

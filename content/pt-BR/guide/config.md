@@ -24,9 +24,12 @@ O `~/.config/swaydesk/config.toml` vale para todas as peças do Swaydesk. O jeit
 swaydesk-theme families                  # as famílias de temas instaladas
 swaydesk-theme pick Adwaita dark teal    # família, claro ou escuro, e a cor
 swaydesk-theme current                   # o tema, os ícones e a cor em uso
+swaydesk-theme cursor 32                 # o tamanho do cursor; sem número, os tamanhos que o tema do cursor tem
 ```
 
 As cores aceitas são as das pastas do Papirus; `swaydesk-theme colors` lista todas.
+
+O tamanho do cursor também está no app, na lista **Tamanho do cursor** abaixo dos ícones, que só mostra os tamanhos que o tema do cursor tem. A escolha vale na hora, sem **Aplicar**: os apps GTK 4 e Qt 6 mudam na mesma hora, e os mais antigos (GTK 3, Qt 5, Electron e os apps X11) quando você os abre de novo.
 
 Um exemplo do arquivo, com as chaves que você pode mudar à mão:
 
@@ -45,7 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true (o padrão): a cor de destaque vem do papel de parede e muda com ele
+# true: a cor de destaque vem do papel de parede e muda com ele. Sem esta chave, fica ligado quando há papel
+# de parede e desligado quando não há
 accent_auto = true
 
 # Cor das pastas do Papirus, como "teal". Vazio: a mais perto do destaque
@@ -56,6 +60,9 @@ file_manager = "thunar"
 
 # Perfis de energia no popup Sistema: "auto" (o padrão) só sem bateria, "always" ou "never"
 power_profiles_in_system = "auto"
+
+# Tamanho do cursor em pixels, de 16 a 96 (24 por padrão)
+cursor_size = 24
 ```
 
 Os programas leem o arquivo quando abrem. Depois de editar à mão:
@@ -63,7 +70,8 @@ Os programas leem o arquivo quando abrem. Depois de editar à mão:
 - para a cor de destaque, ponha antes `accent_auto = false`, senão o próximo papel de parede traz a cor dele de volta; depois rode `swaydesk-desktop-config apply`, que grava as cores e recarrega o Sway; os popups já abrem com a cor nova, e o resto muda no próximo login;
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
 - para o idioma, a cidade e os feriados, saia e entre de novo na sessão;
-- para o `power_profiles_in_system`, nada: vale na próxima vez que o popup Sistema abrir.
+- para o `power_profiles_in_system`, nada: vale na próxima vez que o popup Sistema abrir;
+- para o `cursor_size`, use em vez disso `swaydesk-theme cursor <tamanho>`, que também o aplica na hora.
 
 Um valor inválido não quebra nada: a peça usa o padrão daquela chave.
 

@@ -115,6 +115,10 @@ Instale o `qt5ct` e o `qt6ct`. O Swaydesk gera a configuração dos dois com as 
 
 Enquanto isso, a sessão usa o `Adwaita-dark`. Escolha e aplique um tema no app, e o aviso some.
 
+### A lista de temas do app Tema do Desktop está vazia
+
+Ele diz **Nenhum tema GTK instalado**: não há nenhum tema GTK no sistema. Instale um, como o `gnome-themes-extra` (o mesmo nome no Debian, no Ubuntu e no Arch), e abra o app de novo.
+
 ### Troquei o gerenciador de arquivos, mas a dock continua com o antigo
 
 A dock não troca os fixados sozinha. Desafixe o antigo pelo clique direito na dock e fixe o novo pelo clique direito na grade de apps.

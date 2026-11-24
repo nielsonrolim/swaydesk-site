@@ -115,6 +115,10 @@ Install `qt5ct` and `qt6ct`. Swaydesk sets both up with the GTK theme colors and
 
 In the meantime, the session uses `Adwaita-dark`. Pick a theme in the app and apply it, and the warning goes away.
 
+### The Desktop Theme app's theme list is empty
+
+It says **No GTK themes are installed**: no GTK theme is installed on the system. Install one, such as `gnome-themes-extra` (the same name on Debian, Ubuntu and Arch), and open the app again.
+
 ### I changed the file manager, but the dock still has the old one
 
 The dock doesn't swap pinned apps on its own. Unpin the old one with a right-click on the dock, and pin the new one with a right-click in the app grid.

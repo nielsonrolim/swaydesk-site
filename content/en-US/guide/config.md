@@ -24,9 +24,12 @@ Before 0.1.4, the `swaydesk` folders were called `sway-desktop`: `~/.config/sway
 swaydesk-theme families                  # the installed theme families
 swaydesk-theme pick Adwaita dark teal    # family, light or dark, and color
 swaydesk-theme current                   # the theme, icons and color in use
+swaydesk-theme cursor 32                 # the cursor size; with no number, the sizes the cursor theme has
 ```
 
 The colors are the Papirus folder colors; `swaydesk-theme colors` lists them all.
+
+The cursor size is in the app too, in the **Cursor size** list below the icons, which shows only the sizes your cursor theme has. A choice applies at once, without **Apply**: GTK 4 and Qt 6 apps follow right away, and older ones (GTK 3, Qt 5, Electron and X11 apps) when you open them again.
 
 Here's a sample file with the keys you can change by hand:
 
@@ -45,7 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true (the default): the accent color comes from the wallpaper and changes with it
+# true: the accent color comes from the wallpaper and changes with it. Without this key, it's on when there's
+# a wallpaper and off when there isn't
 accent_auto = true
 
 # Papirus folder color, such as "teal". Empty: the closest to the accent
@@ -56,6 +60,9 @@ file_manager = "thunar"
 
 # Power profiles in the System popup: "auto" (the default) only without a battery, "always" or "never"
 power_profiles_in_system = "auto"
+
+# Cursor size in pixels, from 16 to 96 (24 by default)
+cursor_size = 24
 ```
 
 Programs read the file when they start. After editing it by hand:
@@ -63,7 +70,8 @@ Programs read the file when they start. After editing it by hand:
 - for the accent color, first set `accent_auto = false`, or the next wallpaper brings its own color back; then run `swaydesk-desktop-config apply`, which writes the colors and reloads Sway; popups pick up the new color right away, and the rest changes at your next login;
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
 - for the language, the city and the holidays, log out and back in;
-- for `power_profiles_in_system`, nothing: it applies the next time the System popup opens.
+- for `power_profiles_in_system`, nothing: it applies the next time the System popup opens;
+- for `cursor_size`, use `swaydesk-theme cursor <size>` instead, which also applies it at once.
 
 A bad value doesn't break anything: that piece just uses the default for that key.
 
