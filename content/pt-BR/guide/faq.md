@@ -45,9 +45,9 @@ Coloque o seu usuário no grupo `video` e entre de novo na sessão:
 sudo usermod -aG video $USER
 ```
 
-### A tela de bloqueio é bem simples, só com o papel de parede
+### Depois de algumas senhas erradas, diz que a conta está bloqueada {#conta-bloqueada}
 
-Esse é o swaylock. A tela de bloqueio do Swaydesk precisa do gtk4-layer-shell 1.2 ou mais novo; com uma versão mais antiga, como a do Debian 13, o swaylock bloqueia no lugar dela. Ele também assume se a tela do Swaydesk falhar, para a tela nunca ficar desbloqueada.
+É uma regra do próprio Arch (pam_faillock): depois de três logins com falha, a conta fica bloqueada por 10 minutos, inclusive no sudo, e a tela de bloqueio mostra a mensagem do sistema com o tempo que falta. Espere os 10 minutos, ou libere a conta de outra conta de administrador com `sudo faillock --user <seu-usuário> --reset` (ou como root num console de texto). O Debian e o Ubuntu não têm essa regra.
 
 ### A dock não aparece
 

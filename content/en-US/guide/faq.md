@@ -45,9 +45,9 @@ Add your user to the `video` group and log in again:
 sudo usermod -aG video $USER
 ```
 
-### The lock screen is very plain, just the wallpaper
+### After a few wrong passwords, it says the account is locked {#account-locked}
 
-That's swaylock. Swaydesk's lock screen needs gtk4-layer-shell 1.2 or newer; with an older version, such as Debian 13's, swaylock locks the screen instead. It also takes over if Swaydesk's lock screen fails, so the screen never ends up unlocked.
+That's a rule of Arch itself (pam_faillock): after three failed logins, the account stays locked for 10 minutes, sudo included, and the lock screen shows the system's message with the time left. Wait the 10 minutes, or clear it from another administrator account with `sudo faillock --user <your-user> --reset` (or as root on a text console). Debian and Ubuntu don't have this rule.
 
 ### The dock doesn't show up
 

@@ -60,7 +60,7 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 
 {{< component title="Session menu" shot="session" keys="`Ctrl`+`Alt`+`Delete`; the bar's power button" guide="guide/desktop/#session-menu" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Lock, log out, suspend, restart and shut down. When an app asks to restart or shut down, such as the store's **Restart & Update**, it asks first, with a 60-second countdown and a button to cancel.{{< /component >}}
 
-{{< component title="Lock screen" shot="lock" keys="`Ctrl`+`Alt`+`L`; on its own after 10 minutes" guide="guide/desktop/#lock-screen-and-idle" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Time, date and the password field on every monitor, over the blurred wallpaper. It needs gtk4-layer-shell 1.2; before that, as on Debian 13, swaylock locks the screen.{{< /component >}}
+{{< component title="Lock screen" shot="lock" keys="`Ctrl`+`Alt`+`L`; on its own after 10 minutes" guide="guide/desktop/#lock-screen-and-idle" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Time, date and the password field on every monitor, over the blurred wallpaper. On Debian 13, whose gtk4-layer-shell is older than 1.2, the same lock screen runs in its GTK 3 version.{{< /component >}}
 
 {{< component title="Login screen" shot="greeter" guide="guide/first-steps/#the-swaydesk-login-screen" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login.{{< /component >}}
 
@@ -106,6 +106,6 @@ The bar also shows the keyboard layout when there are two or more; a click switc
 | mate-polkit | The administrator password window (on Debian and Ubuntu, lxpolkit works too) |
 | gnome-text-editor | The Help's **Open** button, which edits `50-local.conf`; without it, the Help opens an editor in the terminal. Recommended on Debian and Ubuntu; optional on Arch |
 | grim, slurp and wf-recorder | Screenshots and screen recording |
-| swaylock | The fallback lock screen; on Debian 13, the one in use |
+| gtklock | The last-resort lock screen, if Swaydesk's own can't start |
 
 The install images also bring an app store, GNOME Software, with Flathub. On Debian it also installs and updates the distro's packages and the firmware; on Arch it handles Flatpak apps, and the Swaydesk notice handles the rest. With the packages, install `gnome-software` yourself if you want it.

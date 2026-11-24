@@ -59,7 +59,7 @@ La barra también muestra la distribución del teclado cuando hay dos o más; un
 
 {{< component title="Menú de la sesión" shot="session" keys="`Ctrl`+`Alt`+`Delete`; el botón de apagado de la barra" guide="guide/desktop/#menú-de-la-sesión" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Bloquear, cerrar sesión, suspender, reiniciar y apagar. Cuando una aplicación pide reiniciar o apagar, como el **Reiniciar y actualizar** de la tienda, pregunta antes, con una cuenta regresiva de 60 segundos y un botón para cancelar.{{< /component >}}
 
-{{< component title="Pantalla de bloqueo" shot="lock" keys="`Ctrl`+`Alt`+`L`; sola después de 10 minutos" guide="guide/desktop/#pantalla-de-bloqueo-e-inactividad" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. Necesita gtk4-layer-shell 1.2; antes de eso, como en Debian 13, swaylock bloquea la pantalla.{{< /component >}}
+{{< component title="Pantalla de bloqueo" shot="lock" keys="`Ctrl`+`Alt`+`L`; sola después de 10 minutos" guide="guide/desktop/#pantalla-de-bloqueo-e-inactividad" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. En Debian 13, cuyo gtk4-layer-shell es anterior a 1.2, la misma pantalla de bloqueo funciona en su versión GTK 3.{{< /component >}}
 
 {{< component title="Pantalla de inicio de sesión" shot="greeter" guide="guide/first-steps/#la-pantalla-de-inicio-de-sesión-de-swaydesk" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}Una pantalla de inicio de sesión sobre greetd, con el mismo aspecto que la pantalla de bloqueo, en todas las distribuciones compatibles, Arch incluido. Desbloquea el llavero con tu contraseña de inicio de sesión. La pantalla de inicio de sesión que ya usas también funciona; sin una, como en una instalación mínima o de servidor, esta es la que te da un inicio de sesión gráfico.{{< /component >}}
 
@@ -105,6 +105,6 @@ La barra también muestra la distribución del teclado cuando hay dos o más; un
 | mate-polkit | La ventana de la contraseña de administrador (en Debian y Ubuntu, lxpolkit también funciona) |
 | gnome-text-editor | El botón **Abrir** de la Ayuda, que edita `50-local.conf`; sin él, la Ayuda abre un editor en la terminal. Recomendado en Debian y Ubuntu; opcional en Arch |
 | grim, slurp y wf-recorder | Capturas y grabación de pantalla |
-| swaylock | La pantalla de bloqueo de reserva; en Debian 13, la que se usa |
+| gtklock | El último recurso del bloqueo, si el de Swaydesk no puede abrirse |
 
 Las imágenes de instalación también traen una tienda de aplicaciones, GNOME Software, con Flathub. En Debian también instala y actualiza los paquetes de la distribución y el firmware; en Arch se encarga de las aplicaciones Flatpak, y el aviso de Swaydesk se encarga del resto. Con los paquetes, instala `gnome-software` tú mismo si lo quieres.

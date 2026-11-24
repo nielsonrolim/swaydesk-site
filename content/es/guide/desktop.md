@@ -99,7 +99,9 @@ Swaydesk guarda un historial de lo que copias: texto, imágenes y otro contenido
 
 `Ctrl`+`Alt`+`L` bloquea la pantalla. La pantalla de bloqueo muestra la hora y la fecha sobre una copia desenfocada de tu fondo de pantalla, con un campo de contraseña en cada monitor. En el monitor principal, también muestra la batería, la red, la distribución del teclado (haz clic para cambiarla) y lo que se esté reproduciendo.
 
-Esta pantalla de bloqueo necesita gtk4-layer-shell 1.2 o posterior. En un sistema con una versión anterior, como Debian 13, el swaylock más sencillo bloquea la pantalla en su lugar. De cualquier forma, si la pantalla de bloqueo falla, swaylock toma su lugar, así que la pantalla nunca queda desbloqueada.
+Esta pantalla de bloqueo necesita gtk4-layer-shell 1.2 o posterior. En un sistema con una versión anterior, como Debian 13, funciona su versión GTK 3, con el mismo aspecto. Si una pantalla de bloqueo se detiene sin desbloquear, otra toma el relevo, con gtklock como último recurso, así que el escritorio nunca se ve entre una y otra; si ninguna puede abrirse, una notificación crítica avisa que la pantalla no está bloqueada.
+
+El campo de contraseña nunca pasa por un método de entrada, así que una contraseña con acentos escrita con teclas muertas desbloquea la pantalla. Después de tres contraseñas incorrectas, la pantalla de bloqueo te hace esperar unos segundos, con una cuenta regresiva. En Arch, el propio sistema también bloquea la cuenta durante 10 minutos después de tres inicios de sesión fallidos: consulta las [preguntas frecuentes](/es/guide/faq/#cuenta-bloqueada).
 
 Cuando no estás, la computadora:
 

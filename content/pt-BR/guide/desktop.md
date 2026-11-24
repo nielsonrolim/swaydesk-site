@@ -99,7 +99,9 @@ O Swaydesk guarda o histórico do que você copia: textos, imagens e outros cont
 
 `Ctrl`+`Alt`+`L` bloqueia a tela. A tela de bloqueio mostra a hora e a data sobre o papel de parede desfocado e o campo de senha em todos os monitores. No monitor principal, mostra também a bateria, a rede, o layout do teclado (um clique troca) e a mídia que está tocando.
 
-Essa tela precisa do gtk4-layer-shell 1.2 ou mais novo. Num sistema com uma versão mais antiga, como o Debian 13, quem bloqueia é o swaylock, mais simples. Nos dois casos, se a tela de bloqueio falhar, o swaylock assume, e a tela nunca fica desbloqueada.
+Essa tela precisa do gtk4-layer-shell 1.2 ou mais novo. Num sistema com uma versão mais antiga, como o Debian 13, roda a versão GTK 3 dela, com a mesma aparência. Se uma tela de bloqueio parar sem desbloquear, outra assume, com o gtklock como último recurso, e o desktop nunca aparece no meio; se nenhuma conseguir abrir, uma notificação crítica avisa que a tela não está bloqueada.
+
+O campo de senha nunca passa por um método de entrada, então uma senha com acentos digitada com as teclas mortas desbloqueia. Depois de três senhas erradas, a tela de bloqueio faz esperar alguns segundos, com contagem regressiva. No Arch, o próprio sistema também bloqueia a conta por 10 minutos depois de três logins com falha: veja as [perguntas frequentes](/pt-br/guide/faq/#conta-bloqueada).
 
 Sem uso, o computador:
 
