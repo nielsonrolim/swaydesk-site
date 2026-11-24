@@ -201,3 +201,15 @@ other = "In <code>{{ .file }}</code>:"
 
 [comp_group_arch]
 other = "On Arch, pacman doesn't install the optional dependencies; the usual ones, in one line (pacman lists them after the install; see each page for what each one is for):"
+
+[comp_start_unit]
+other = "It runs as a systemd user unit, restarted if it crashes, and does nothing inside the Swaydesk session. Put the include after your config's <code>set $mod</code>. Without a systemd user session, use the exec line in the file's last comment instead."
+
+[comp_start_by_waybar]
+other = "It starts from its Waybar module, below."
+
+[comp_waybar_lead]
+other = "In <code>~/.config/waybar/config.jsonc</code>, add <code>\"{{ .module }}\"</code> to <code>modules-left</code>, <code>modules-center</code> or <code>modules-right</code>, and paste the module from this file next to your other modules:"
+
+[comp_waybar_note]
+other = "The file's first lines say what each click does. The icons come from the Symbols Nerd Font, which the package brings."

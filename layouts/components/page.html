@@ -50,15 +50,21 @@
 {{- else }}{{ $soon }}{{ end }}
 
 <h2 id="start">{{ i18n "comp_start" }}</h2>
-{{- with $c.start }}
+{{- if $c.start }}
 <p>{{ i18n "comp_start_lead" (dict "file" ($c.start_file | default "~/.config/sway/config")) | safeHTML }}</p>
-{{ partial "cmd.html" . }}
+{{ partial "cmd.html" $c.start }}
 {{- with $c.start_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+{{- if $c.unit }}<p>{{ i18n "comp_start_unit" | safeHTML }}</p>{{ end }}
+{{- else if and (eq $c.group "bar") $c.waybar }}<p>{{ i18n "comp_start_by_waybar" }}</p>
 {{- else }}{{ $soon }}{{ end }}
 
 {{- if eq $c.group "bar" }}
 <h2 id="waybar">{{ i18n "comp_waybar" }}</h2>
-{{- with $c.waybar }}{{ partial "cmd.html" . }}{{ else }}{{ $soon }}{{ end }}
+{{- with $c.waybar }}
+<p>{{ i18n "comp_waybar_lead" (dict "module" (printf "custom/%s" .)) | safeHTML }}</p>
+{{ partial "cmd.html" (printf "/usr/share/swaydesk/waybar/%s.jsonc" .) }}
+<p>{{ i18n "comp_waybar_note" }}</p>
+{{- else }}{{ $soon }}{{ end }}
 {{- end }}
 
 <h2 id="shortcuts">{{ i18n "comp_shortcuts" }}</h2>

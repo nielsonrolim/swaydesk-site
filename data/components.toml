@@ -14,7 +14,8 @@
 #   optional  packages worth adding on any distro (Debian Suggests), listed under the tabs
 #   start     how to start it on plain Sway: the lines for ~/.config/sway/config
 #   start_file  another file the start lines go in (default ~/.config/sway/config)
-#   waybar    the Waybar snippet, only for the bar popups
+#   unit      true when start includes a snippet that runs the component as a systemd user unit (a note says so)
+#   waybar    the Waybar module's name, swaydesk-<x>: custom/<name> from /usr/share/swaydesk/waybar/<name>.jsonc
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor),
 #   start_note (Markdown, under the start lines), arch_note (Markdown, under the Arch tab),
@@ -36,7 +37,7 @@ package = "swaydesk-network"
 arch_with = ["networkmanager"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-network"
   [components.pt-br]
   name = "Rede"
   text = "Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd (a VPN, só com o NetworkManager)."
@@ -67,7 +68,7 @@ package = "swaydesk-bluetooth"
 arch_with = ["bluez"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-bluetooth"
   [components.pt-br]
   name = "Bluetooth"
   text = "Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos."
@@ -98,7 +99,7 @@ package = "swaydesk-audio"
 arch_with = ["wireplumber", "libpulse"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-audio"
   [components.pt-br]
   name = "Áudio"
   text = "Volume e mudo da saída e do microfone, e a escolha de cada dispositivo."
@@ -129,7 +130,7 @@ package = "swaydesk-battery"
 arch_with = ["upower"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-battery"
   [components.pt-br]
   name = "Bateria"
   text = "Carga, tempo restante, consumo, saúde, um gráfico das últimas 12 horas e o perfil de energia."
@@ -160,7 +161,7 @@ package = "swaydesk-brightness"
 arch_with = ["brightnessctl", "gammastep"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-brightness"
   [components.pt-br]
   name = "Brilho e luz noturna"
   text = "O brilho da tela e a luz noturna: desligada, ligada ou no horário que você escolher."
@@ -191,7 +192,7 @@ package = "swaydesk-media"
 arch_with = ["playerctl"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-media"
   [components.pt-br]
   name = "Mídia"
   text = "Capa, título, progresso e os controles do player que estiver tocando."
@@ -222,7 +223,7 @@ package = "swaydesk-weather"
 arch_with = ["noto-fonts-emoji"]
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-weather"
   [components.pt-br]
   name = "Clima"
   text = "A previsão do dia e dos próximos, da cidade escolhida ou da que vem pelo seu IP."
@@ -253,7 +254,7 @@ package = "swaydesk-calendar"
 arch_with = []
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-calendar"
   [components.pt-br]
   name = "Calendário"
   text = "O mês, com os feriados do seu país."
@@ -287,7 +288,7 @@ package = "swaydesk-system"
 arch_with = []
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-system"
   [components.pt-br]
   name = "Sistema"
   text = "CPU, memória, disco, temperatura e os processos que mais consomem, com \"Encerrar\". O ícone fica laranja quando algo aperta."
@@ -351,23 +352,27 @@ page = true
 package = "swaydesk-notifd"
 arch_with = []
 optional = []
-start = ""
-waybar = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-notifd.conf"
+unit = true
+waybar = "swaydesk-notifd"
   [components.pt-br]
   name = "Central de notificações"
   text = "As notificações por app, com as ações de cada uma e o Não perturbe."
   keys = "`Super`+`C`; clique no sino"
   guide = "guide/desktop/#notificações"
+  start_note = "`Super`+`N` mostra as notificações. Só um servidor de notificações pode rodar: pare antes o mako, o dunst ou o swaync."
   [components.en-us]
   name = "Notification center"
   text = "Notifications grouped by app, with their actions, and Do Not Disturb."
   keys = "`Super`+`C`; click the bell"
   guide = "guide/desktop/#notifications"
+  start_note = "`Super`+`N` shows the notifications. Only one notification server can run: stop mako, dunst or swaync first."
   [components.es]
   name = "Centro de notificaciones"
   text = "Las notificaciones agrupadas por aplicación, con sus acciones, y No molestar."
   keys = "`Super`+`C`; haz clic en la campana"
   guide = "guide/desktop/#notificaciones"
+  start_note = "`Super`+`N` muestra las notificaciones. Solo puede funcionar un servidor de notificaciones: detén antes mako, dunst o swaync."
 
 [[components]]
 id = "clipboard"
@@ -382,23 +387,27 @@ page = true
 package = "swaydesk-clipboard"
 arch_with = []
 optional = []
-start = ""
-waybar = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-clipboard.conf"
+unit = true
+waybar = "swaydesk-clipboard"
   [components.pt-br]
   name = "Área de transferência"
   text = "O histórico do que você copiou, com busca, miniaturas e itens fixados. Desligado, nada mais é gravado no histórico."
   keys = "`Super`+`V`"
   guide = "guide/desktop/#área-de-transferência"
+  start_note = "`Super`+`Shift`+`V` mostra o histórico. Se a sua config já roda `wl-paste --watch cliphist store`, tire essa linha: o serviço roda os mesmos observadores."
   [components.en-us]
   name = "Clipboard"
   text = "The history of what you copied, with search, thumbnails and pinned items. Turned off, nothing more is saved to the history."
   keys = "`Super`+`V`"
   guide = "guide/desktop/#clipboard-history"
+  start_note = "`Super`+`Shift`+`V` shows the history. If your config already runs `wl-paste --watch cliphist store`, remove that line: the service runs the same watchers."
   [components.es]
   name = "Portapapeles"
   text = "El historial de lo que copiaste, con búsqueda, miniaturas y elementos fijados. Si lo desactivas, no se guarda nada más en el historial."
   keys = "`Super`+`V`"
   guide = "guide/desktop/#historial-del-portapapeles"
+  start_note = "`Super`+`Shift`+`V` muestra el historial. Si tu config ya ejecuta `wl-paste --watch cliphist store`, quita esa línea: el servicio ejecuta los mismos observadores."
 
 [[components]]
 id = "language"
@@ -414,7 +423,7 @@ package = "swaydesk-language"
 arch_with = []
 optional = []
 start = ""
-waybar = ""
+waybar = "swaydesk-language"
   [components.pt-br]
   name = "Layout do teclado"
   text = "O layout de teclado atual, na barra. Some quando há um layout só, e conta só os teclados de verdade."
@@ -444,7 +453,8 @@ page = true
 package = "swaydesk-dock"
 arch_with = []
 optional = []
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-dock.conf"
+unit = true
   [components.pt-br]
   name = "Dock"
   text = "Os apps fixados e os abertos, com menu no clique direito. Some quando uma janela precisa do espaço, ou fica sempre à vista."
@@ -474,22 +484,26 @@ page = true
 package = "swaydesk-drawer"
 arch_with = ["xdg-user-dirs", "libnotify"]
 optional = ["thunar"]
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-drawer.conf"
+unit = true
   [components.pt-br]
   name = "Grade de apps"
   text = "Todos os apps instalados, com busca, grupos e favoritos. A busca também acha arquivos, faz contas e converte unidades."
   keys = "`Super`"
   guide = "guide/desktop/#a-grade-de-apps"
+  start_note = "`Super`+`Shift`+`D` abre e fecha a grade; o `Super`+`D` continua com o seu lançador."
   [components.en-us]
   name = "App grid"
   text = "Every installed app, with search, groups and favorites. The search also finds files, does math and converts units."
   keys = "`Super`"
   guide = "guide/desktop/#the-app-grid"
+  start_note = "`Super`+`Shift`+`D` opens and closes the grid; `Super`+`D` stays your launcher."
   [components.es]
   name = "Cuadrícula de aplicaciones"
   text = "Todas las aplicaciones instaladas, con búsqueda, grupos y favoritos. La búsqueda también encuentra archivos, hace cálculos y convierte unidades."
   keys = "`Super`"
   guide = "guide/desktop/#la-cuadrícula-de-aplicaciones"
+  start_note = "`Super`+`Shift`+`D` abre y cierra la cuadrícula; `Super`+`D` sigue siendo tu lanzador."
 
 [[components]]
 id = "launcher"
@@ -530,22 +544,26 @@ page = true
 package = "swaydesk-switcher"
 arch_with = []
 optional = []
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-switcher.conf"
+unit = true
   [components.pt-br]
   name = "Troca de janelas"
   text = "As janelas na ordem de uso, de todos os workspaces, num cartão no meio da tela."
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#troca-de-janelas"
+  start_note = "`Alt`+`Tab` e `Alt`+`Shift`+`Tab` passam pelas janelas na ordem de uso, de todos os workspaces."
   [components.en-us]
   name = "Window switcher"
   text = "Windows in the order you used them, from every workspace, on a card in the middle of the screen."
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#switching-windows"
+  start_note = "`Alt`+`Tab` and `Alt`+`Shift`+`Tab` go through the windows in order of use, on every workspace."
   [components.es]
   name = "Selector de ventanas"
   text = "Las ventanas en el orden en que las usaste, de todos los espacios de trabajo, en una tarjeta en el centro de la pantalla."
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#cambiar-de-ventana"
+  start_note = "`Alt`+`Tab` y `Alt`+`Shift`+`Tab` recorren las ventanas en orden de uso, de todos los espacios de trabajo."
 
 [[components]]
 id = "notifications"
@@ -560,22 +578,26 @@ page = true
 package = "swaydesk-notifd"
 arch_with = []
 optional = []
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-notifd.conf"
+unit = true
   [components.pt-br]
   name = "Notificações"
   text = "O serviço que recebe as notificações dos apps e mostra os avisos no canto da tela."
   keys = ""
   guide = "guide/desktop/#notificações"
+  start_note = "`Super`+`N` mostra as notificações. Só um servidor de notificações pode rodar: pare antes o mako, o dunst ou o swaync."
   [components.en-us]
   name = "Notifications"
   text = "The service that receives the apps' notifications and shows the pop-ups in the corner."
   keys = ""
   guide = "guide/desktop/#notifications"
+  start_note = "`Super`+`N` shows the notifications. Only one notification server can run: stop mako, dunst or swaync first."
   [components.es]
   name = "Notificaciones"
   text = "El servicio que recibe las notificaciones de las aplicaciones y muestra los avisos emergentes en la esquina."
   keys = ""
   guide = "guide/desktop/#notificaciones"
+  start_note = "`Super`+`N` muestra las notificaciones. Solo puede funcionar un servidor de notificaciones: detén antes mako, dunst o swaync."
 
 [[components]]
 id = "osd"
@@ -590,22 +612,26 @@ page = true
 package = "swaydesk-osd"
 arch_with = []
 optional = []
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-osd.conf"
+unit = true
   [components.pt-br]
   name = "Indicador de volume e brilho"
   text = "Ícone, barra e porcentagem no meio da tela por um segundo."
   keys = "Teclas de volume e de brilho"
   guide = ""
+  start_note = "As teclas de volume e de brilho mudam o nível e o mostram, também na tela de bloqueio. Elas substituem atalhos anteriores das mesmas teclas, então inclua o arquivo depois deles; um atalho seu depois do include vale mais."
   [components.en-us]
   name = "Volume and brightness indicator"
   text = "Icon, bar and percentage on screen for a second."
   keys = "Volume and brightness keys"
   guide = ""
+  start_note = "The volume and brightness keys change the level and show it, also on the lock screen. They replace earlier bindings of the same keys, so include the file after those; a binding of yours after the include wins."
   [components.es]
   name = "Indicador de volumen y brillo"
   text = "Icono, barra y porcentaje en pantalla durante un segundo."
   keys = "Teclas de volumen y brillo"
   guide = ""
+  start_note = "Las teclas de volumen y de brillo cambian el nivel y lo muestran, también en la pantalla de bloqueo. Reemplazan atajos anteriores de las mismas teclas, así que incluye el archivo después de ellos; un atajo tuyo después del include tiene prioridad."
 
 [[components]]
 id = "session-menu"
@@ -941,22 +967,26 @@ page = true
 package = "swaydesk-displays"
 arch_with = []
 optional = []
-start = ""
+start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-displays.conf"
+unit = true
   [components.pt-br]
   name = "Telas"
   text = "As telas num mapa, para arrastar, com a resolução, a taxa, a escala e a rotação de cada uma, e se ela fica ligada. Uma mudança se desfaz sozinha em 15 segundos, se você não a mantiver. Cada conjunto de monitores guarda o seu layout, aplicado quando você pluga ou despluga uma tela, e a tela do notebook desliga com a tampa fechada e um monitor ligado. A chave desliga só esses perfis automáticos; o app continua."
   keys = "Na grade de apps"
   guide = "guide/config/#monitores"
+  start_note = "O serviço aplica o layout salvo quando as telas mudam, e fechar ou abrir a tampa o aplica de novo."
   [components.en-us]
   name = "Displays"
   text = "Your screens on a map, to drag around, with each one's resolution, refresh rate, scale and rotation, and whether it's on. A change undoes itself after 15 seconds unless you keep it. Each set of monitors keeps its own layout, applied when you plug or unplug a screen, and the laptop screen turns off with the lid closed and an external monitor on. The key turns off only these automatic profiles; the app stays."
   keys = "In the app grid"
   guide = "guide/config/#displays"
+  start_note = "The daemon applies the saved layout when screens change, and closing or opening the lid applies it again."
   [components.es]
   name = "Pantallas"
   text = "Tus pantallas en un mapa, para arrastrarlas, con la resolución, la frecuencia de actualización, la escala y la rotación de cada una, y si está encendida. Un cambio se deshace solo después de 15 segundos, a menos que lo conserves. Cada conjunto de monitores guarda su propia disposición, que se aplica cuando conectas o desconectas una pantalla, y la pantalla de la laptop se apaga con la tapa cerrada y un monitor externo encendido. La clave desactiva solo estos perfiles automáticos; la aplicación se queda."
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/#pantallas"
+  start_note = "El servicio aplica la disposición guardada cuando cambian las pantallas, y cerrar o abrir la tapa la vuelve a aplicar."
 
 [[components]]
 id = "help"
