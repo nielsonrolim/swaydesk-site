@@ -682,19 +682,19 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   text = "Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. No Debian 13, cujo gtk4-layer-shell é anterior ao 1.2, a mesma tela de bloqueio roda na versão GTK 3."
   keys = "`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos"
   guide = "guide/desktop/#bloqueio-e-inatividade"
-  start_note = "Ele adiciona o `Ctrl`+`Alt`+`L` e bloqueia depois de 10 minutos sem uso e antes de suspender, pelo swayidle, que vem junto com o bloqueio. Se a sua config já inicia o swayidle, fique com um só: acrescente `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` à sua linha e, no lugar do include, ponha só o atalho, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
+  start_note = "Ele adiciona o `Ctrl`+`Alt`+`L` e bloqueia depois de 10 minutos sem uso e antes de suspender, pelo swayidle, que vem junto com o bloqueio. Se a sua config já inicia o swayidle, fique com um só: acrescente `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` à sua linha (com o `-w`, para bloquear antes de suspender) e, no lugar do include, ponha só o atalho, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
   [components.en-us]
   name = "Lock screen"
   text = "Time, date and the password field on every monitor, over the blurred wallpaper. On Debian 13, whose gtk4-layer-shell is older than 1.2, the same lock screen runs in its GTK 3 version."
   keys = "`Ctrl`+`Alt`+`L`; on its own after 10 minutes"
   guide = "guide/desktop/#lock-screen-and-idle"
-  start_note = "It adds `Ctrl`+`Alt`+`L` and locks after 10 minutes idle and before the computer sleeps, through swayidle, which comes with the lock. If your config already starts swayidle, keep only one: add `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` to your own line and, instead of the include, add just the shortcut, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
+  start_note = "It adds `Ctrl`+`Alt`+`L` and locks after 10 minutes idle and before the computer sleeps, through swayidle, which comes with the lock. If your config already starts swayidle, keep only one: add `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` to your own line (with `-w`, so it locks before the computer sleeps) and, instead of the include, add just the shortcut, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
   [components.es]
   name = "Pantalla de bloqueo"
   text = "Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. En Debian 13, cuyo gtk4-layer-shell es anterior a 1.2, la misma pantalla de bloqueo funciona en su versión GTK 3."
   keys = "`Ctrl`+`Alt`+`L`; sola después de 10 minutos"
   guide = "guide/desktop/#pantalla-de-bloqueo-e-inactividad"
-  start_note = "Añade `Ctrl`+`Alt`+`L` y bloquea tras 10 minutos de inactividad y antes de suspender, con swayidle, que viene con el bloqueo. Si tu config ya inicia swayidle, deja solo uno: añade `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` a tu propia línea y, en lugar del include, pon solo el atajo, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
+  start_note = "Añade `Ctrl`+`Alt`+`L` y bloquea tras 10 minutos de inactividad y antes de suspender, con swayidle, que viene con el bloqueo. Si tu config ya inicia swayidle, deja solo uno: añade `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` a tu propia línea (con `-w`, para que bloquee antes de suspender) y, en lugar del include, pon solo el atajo, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
 
 [[components]]
 id = "greeter"
