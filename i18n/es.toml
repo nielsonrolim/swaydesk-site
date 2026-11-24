@@ -20,7 +20,7 @@ other = "Swaydesk: un escritorio completo y ligero sobre Sway, para Debian, Ubun
 other = 'Proyecto independiente, sin afiliación ni respaldo del proyecto <a href="https://swaywm.org/">Sway</a> ni de sus desarrolladores.'
 
 [license]
-other = 'Textos e imágenes bajo <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Las capturas muestran iconos de terceros bajo sus propias licencias.'
+other = 'Textos e imágenes bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>. Las capturas muestran iconos de terceros bajo sus propias licencias.'
 
 [soon]
 other = "próximamente"
