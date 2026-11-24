@@ -8,7 +8,7 @@ facts:
   - {k: idiomas, v: "Português · English · Español"}
 hero:
   status: "estável · pacotes no OBS"
-  title: ["Leve como um tiling.", "Completo como um desktop."]
+  title: ["Leve como um tiling WM.", "Completo como um desktop."]
   lead: "Barra, dock, grade de apps, notificações, login e bloqueio de tela, escritos em Rust e GTK 4. Leve, rápido e todo pelo teclado quando você quer."
   install: "Instalar"
   watch: "Ver em ação"
