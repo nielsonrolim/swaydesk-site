@@ -29,7 +29,7 @@ swaydesk-theme cursor 32                 # o tamanho do cursor; sem número, os 
 
 As cores aceitas são as das pastas do Papirus; `swaydesk-theme colors` lista todas.
 
-O tamanho do cursor também está no app, na lista **Tamanho do cursor** abaixo dos ícones, que só mostra os tamanhos que o tema do cursor tem. A escolha vale na hora, sem **Aplicar**: os apps GTK 4 e Qt 6 mudam na mesma hora, e os mais antigos (GTK 3, Qt 5, Electron e os apps X11) quando você os abre de novo.
+O tamanho do cursor também está no app, na lista **Tamanho do cursor** abaixo dos ícones, que só mostra os tamanhos que o tema do cursor tem. A escolha vale na hora, sem **Aplicar**: os apps GTK 4 e Qt 6 mudam na mesma hora, e os mais antigos (GTK 3, Qt 5, Electron e os apps X11) quando você os abre de novo. O cursor do próprio Sway muda junto com o tema de cursor Bibata ou Capitaine instalado; sem eles, a sua própria linha `seat` fica com o tema e o tamanho dela.
 
 Um exemplo do arquivo, com as chaves que você pode mudar à mão:
 
@@ -71,7 +71,7 @@ Os programas leem o arquivo quando abrem. Depois de editar à mão:
 - para o gerenciador de arquivos, rode `swaydesk-desktop-config generate`, para as pastas abertas por outros apps também irem para ele;
 - para o idioma, a cidade e os feriados, saia e entre de novo na sessão;
 - para o `power_profiles_in_system`, nada: vale na próxima vez que o popup Sistema abrir;
-- para o `cursor_size`, use em vez disso `swaydesk-theme cursor <tamanho>`, que também o aplica na hora.
+- para o `cursor_size`, `swaydesk-theme cursor <tamanho>` o aplica em tudo na hora; `swaydesk-desktop-config apply` o aplica no Sway, e o resto no próximo login.
 
 Um valor inválido não quebra nada: a peça usa o padrão daquela chave.
 

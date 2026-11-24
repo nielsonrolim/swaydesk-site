@@ -117,7 +117,7 @@ Enquanto isso, a sessão usa o `Adwaita-dark`. Escolha e aplique um tema no app,
 
 ### A lista de temas do app Tema do Desktop está vazia
 
-Ele diz **Nenhum tema GTK instalado**: não há nenhum tema GTK no sistema. Instale um, como o `gnome-themes-extra` (o mesmo nome no Debian, no Ubuntu e no Arch), e abra o app de novo.
+Ele diz **Nenhum tema GTK instalado**: não há nenhum tema GTK no sistema, o que acontece quando o `gnome-themes-extra` foi removido, ou instalado sem os pacotes recomendados. Instale um, como o `gnome-themes-extra` (o mesmo nome no Debian, no Ubuntu e no Arch), e abra o app de novo.
 
 ### Troquei o gerenciador de arquivos, mas a dock continua com o antigo
 
