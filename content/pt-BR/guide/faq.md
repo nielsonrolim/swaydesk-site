@@ -71,13 +71,13 @@ Falta um agente de polkit, e a sessão avisa com uma notificação. Instale o `m
 
 ### Debian 13: o ukui-polkit está instalado e eu não uso {#ukui-polkit}
 
-Antes da 0.1.6, o `apt install swaydesk-desktop` no Debian 13 podia trazer um segundo agente de polkit, o ukui-polkit, com umas 50 bibliotecas que ele usa. Ele nunca roda no Swaydesk, que usa o mate-polkit. O `dpkg -l ukui-polkit` mostra se ele está instalado. Para tirá-lo:
+No Debian 13, instalado pelos pacotes ou por uma imagem do Swaydesk anterior à 0.1.5, pode haver um segundo agente do polkit (ukui-polkit) e umas 50 bibliotecas que vieram com ele. `dpkg -l ukui-polkit` mostra se ele está instalado. Eles não são usados no Swaydesk. Para remover o agente e o arquivo de autoinício dele, rode:
 
 ```
-sudo apt remove ukui-polkit
+sudo apt purge ukui-polkit
 ```
 
-Depois, o `sudo apt autoremove` tira os pacotes de que nada mais precisa, no sistema todo, não só esses: leia a lista antes de confirmar.
+Depois, o `sudo apt autoremove` remove os pacotes de que nada mais precisa, no sistema todo, e não só esses: leia a lista antes de confirmar.
 
 ### O VS Code diz "An OS keyring couldn't be identified"
 

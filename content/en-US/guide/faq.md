@@ -71,10 +71,10 @@ A polkit agent is missing, and the session tells you so with a notification. Ins
 
 ### Debian 13: ukui-polkit is installed and I don't use it {#ukui-polkit}
 
-Before 0.1.6, `apt install swaydesk-desktop` on Debian 13 could bring a second polkit agent, ukui-polkit, with about 50 libraries it needs. It never runs under Swaydesk, which uses mate-polkit. `dpkg -l ukui-polkit` shows whether it's installed. To remove it:
+On Debian 13, installed from the packages or from a Swaydesk image before 0.1.5, a second polkit agent (ukui-polkit) and about 50 libraries it brought may be installed. `dpkg -l ukui-polkit` shows whether it is. They aren't used under Swaydesk. To remove the agent and its autostart file, run:
 
 ```
-sudo apt remove ukui-polkit
+sudo apt purge ukui-polkit
 ```
 
 Then `sudo apt autoremove` removes the packages nothing needs any more, on the whole system, not only these: read its list before you confirm.
