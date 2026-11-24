@@ -117,7 +117,7 @@ In the meantime, the session uses `Adwaita-dark`. Pick a theme in the app and ap
 
 ### The Desktop Theme app's theme list is empty
 
-It says **No GTK themes are installed**: no GTK theme is on the system, which happens when `gnome-themes-extra` was removed, or installed without the recommended packages. Install one, such as `gnome-themes-extra` (the same name on Debian, Ubuntu and Arch), and open the app again.
+It says **No GTK themes are installed**: no GTK theme is on the system, which happens when `gnome-themes-extra` was removed, or the Theme app was installed without its recommended packages. Install one, such as `gnome-themes-extra` (the same name on Debian, Ubuntu and Arch), and open the app again.
 
 ### I changed the file manager, but the dock still has the old one
 

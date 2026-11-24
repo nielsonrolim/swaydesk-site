@@ -117,7 +117,7 @@ Mientras tanto, la sesión usa `Adwaita-dark`. Elige un tema en la aplicación y
 
 ### La lista de temas de la aplicación Tema del escritorio está vacía
 
-Dice **No hay ningún tema GTK instalado**: no hay ningún tema GTK en el sistema, lo que pasa cuando `gnome-themes-extra` se quitó, o se instaló sin los paquetes recomendados. Instala uno, como `gnome-themes-extra` (el mismo nombre en Debian, Ubuntu y Arch), y vuelve a abrir la aplicación.
+Dice **No hay ningún tema GTK instalado**: no hay ningún tema GTK en el sistema, lo que pasa cuando `gnome-themes-extra` se quitó, o la aplicación Tema se instaló sin sus paquetes recomendados. Instala uno, como `gnome-themes-extra` (el mismo nombre en Debian, Ubuntu y Arch), y vuelve a abrir la aplicación.
 
 ### Cambié el administrador de archivos, pero la dock sigue con el anterior
 
