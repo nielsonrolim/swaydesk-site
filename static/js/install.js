@@ -37,7 +37,8 @@
       if (focus) tabs[i].focus();
     };
     const fromHash = () => {
-      const id = decodeURIComponent(location.hash.slice(1));
+      let id = "";
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return -1; } // a malformed % in the hash
       if (!id) return -1;
       return panels.findIndex((panel) => panel.id === id || !!panel.querySelector('[id="' + CSS.escape(id) + '"]'));
     };

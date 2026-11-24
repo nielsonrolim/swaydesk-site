@@ -21,7 +21,9 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
   `data/isos.toml` (`tag`), the profiles from `data/shortcuts.json`, the component icons from `_partials/icon.html`.
 - `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `component`…).
   `_partials/topbar.html` (logo, menu, languages, Download button, theme), `nav.html` (the top menu: every
-  `main` menu entry but home and Download) and `footer.html` are on every page.
+  `main` menu entry but home and Download), `locale.html`, `theme-toggle.html` and `footer.html` are on every
+  page. Below 1000px the top bar stays on one line: the menu, the languages and the theme button move into a
+  `<details class="menu">` (`./menu`), and the page crumb is hidden.
 - `i18n/pt-br.toml`, `i18n/en-us.toml`, `i18n/es.toml`: interface strings used by the templates, with the same keys.
 - `assets/`: CSS and images processed by Hugo. `static/`: fonts, scripts, video, `404.html` and `CNAME`.
   The logo is `static/images/icon.svg` (dark) and `icon-light.svg` (light); the CSS shows the one for the theme.

@@ -93,15 +93,16 @@ main.wrap { padding-top: 56px; line-height: 1.7; }
 .menu__row { display: flex; align-items: center; gap: 14px; }
 @media (max-width: 1000px) {
   .topbar__in { flex-wrap: nowrap; }
-  .topbar__in > .nav, .topbar__tools > .locale, .topbar__tools > .theme-toggle { display: none; }
+  .topbar__in > .nav, .topbar__tools > .locale, .topbar__tools > .theme-toggle, .brand__crumb { display: none; }
   .menu { display: block; }
+  .brand { min-width: 0; }
+  .brand > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topbar__tools { flex: none; }
 }
 @media (max-width: 30rem) {
   :root { --gutter: 16px; }
   .topbar__tools { gap: 8px; }
   .btn--sm { padding: 9px 12px; }
-  .brand__crumb { display: none; }
-  .brand { min-width: 0; }
   .menu > summary { white-space: nowrap; }
 }
 
@@ -157,7 +158,7 @@ h2 { font-weight: 600; }
 .footer__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
 .footer__about { display: flex; flex-direction: column; gap: 10px; max-width: 520px; }
 .footer__about p { margin: 0; }
-.footer__about a { color: inherit; text-decoration: none; }
+.footer__about a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .footer__about a:hover { color: var(--link-hover); }
 .footer__prompt { color: var(--link); }
 .footer__prompt-user { color: var(--muted); }
