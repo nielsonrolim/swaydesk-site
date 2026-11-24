@@ -71,7 +71,7 @@ En una computadora sin batería, el ícono de la batería sale de la barra, y co
 
 ## Desactivar componentes
 
-Todos los componentes de Swaydesk vienen activados. Para desactivar uno, pon su clave en `false` en la sección `[enabled]` de `~/.config/swaydesk/config.toml`; los módulos de la barra van en `[enabled.bar]`:
+Todos los componentes de Swaydesk vienen activados, menos el método de entrada ([abajo](#metodo-de-entrada)). Para desactivar uno, pon su clave en `false` en la sección `[enabled]` de `~/.config/swaydesk/config.toml`; los módulos de la barra van en `[enabled.bar]`:
 
 ```
 [enabled]
@@ -96,16 +96,32 @@ weather = false         # el clima en la barra
 | `update_notifier` | El aviso de actualizaciones |
 | `displays` | Los perfiles automáticos de las pantallas; la aplicación **Pantallas** se queda |
 | `autostart` | Las aplicaciones de `~/.config/autostart` y `/etc/xdg/autostart` (ver abajo) |
+| `input_method` | Desactivada salvo que sea `true`: entonces la sesión arranca el método de entrada fcitx5 (ver abajo) |
 
 Las claves de `[enabled.bar]` son los módulos de la barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` y, en Arch, `updates`. Los espacios de trabajo y la bandeja están siempre.
 
-Un cambio se aplica en tu próximo inicio de sesión. Una clave que falta queda activada, y un error en el archivo nunca desactiva nada. En la Ayuda (`Super`+`F1`), la tarjeta de un componente desactivado dice "Desactivado" y cómo volver a activarlo. La página [Componentes](/es/components/) muestra la clave de cada uno.
+Un cambio se aplica en tu próximo inicio de sesión. Una clave que falta queda activada (menos `input_method`), y un error en el archivo nunca desactiva nada. En la Ayuda (`Super`+`F1`), la tarjeta de un componente desactivado dice "Desactivado" y cómo volver a activarlo. La página [Componentes](/es/components/) muestra la clave de cada uno.
 
 ### Aplicaciones que se inician al iniciar sesión
 
 La sesión inicia las aplicaciones de las carpetas de inicio automático XDG, `~/.config/autostart` y `/etc/xdg/autostart`, como lo hacen GNOME y KDE, y las cierra cuando cierras sesión. Las entradas de lo que Swaydesk ya cubre (blueman, nm-applet, los agentes de polkit de mate y lxpolkit, xapp-sn-watcher) se omiten, solo en la sesión de Swaydesk: GNOME o KDE en la misma cuenta las siguen iniciando. La entrada del propio PulseAudio también se omite ahí, pero solo cuando PipeWire es el servidor de sonido, caso en el que solo fallaría.
 
 Para que una aplicación no se inicie, pon una copia de su archivo `.desktop` en `~/.config/autostart` con `Hidden=true`, o con `NotShowIn=sway;` para omitirla solo en las sesiones de Sway, de modo que GNOME o KDE la sigan iniciando. Para desactivarlas todas, pon `autostart = false` en `[enabled]`. Un `config.toml` de una versión anterior no tiene esa clave: agrega la línea dentro de `[enabled]`, antes de la parte `[enabled.bar]`, porque una línea debajo de `[enabled.bar]` pertenece a la barra.
+
+### Método de entrada (fcitx5) {#metodo-de-entrada}
+
+En Wayland, Chromium, Chrome, Vivaldi, Brave y las aplicaciones Electron (VS Code, Slack, Discord) ignoran `~/.XCompose` y componen los acentos con una tabla propia, la de en_US, en la que `'` + `c` da `ć`. El método de entrada fcitx5 hace que en ellas salga la `ç`. Con `input_method = true` en `[enabled]` y el paquete `fcitx5` instalado, el inicio de sesión arranca fcitx5 con sus atajos, su icono en la bandeja y sus avisos desactivados, con el teclado de la sesión (la primera distribución). Sigue al teclado cuando lo cambias en `50-local.conf`, hasta que cambies tú mismo los métodos de fcitx5 (en `fcitx5-configtool`, por ejemplo). Quien cambia la distribución sigue siendo Sway, con `Super`+`Espacio`, y las aplicaciones GTK siguen componiendo por sí mismas.
+
+La clave viene desactivada en un sistema que instaló los paquetes, y activada en las imágenes de instalación de Debian 13 y Arch, por `/etc/swaydesk/config.toml`, que solo trae los valores predeterminados del sistema para `[enabled]`. Una línea en tu propio `config.toml` tiene prioridad.
+
+Los navegadores también necesitan dos opciones, `--enable-wayland-ime --wayland-text-input-version=3`:
+
+- **En Arch**, el inicio de sesión crea los archivos de opciones que leen los lanzadores, en `~/.config`: `chromium-flags.conf`, `chrome-flags.conf`, `vivaldi-stable.conf`, `brave-flags.conf`, `electron-flags.conf` y `code-flags.conf`, solo para lo que esté instalado y solo cuando el archivo no existe. En un archivo tuyo, agrega las dos opciones. Un navegador instalado a mitad de la sesión recibe su archivo en el próximo inicio de sesión: cierra la sesión y vuelve a entrar (o crea el archivo) antes de abrirlo.
+- **En Debian**, Chromium no lee esos archivos y llega a fcitx5 por el `GTK_IM_MODULE=fcitx` que exporta im-config, que viene con fcitx5. Chrome y Vivaldi de los `.deb` de sus fabricantes, y las aplicaciones Electron, necesitan las opciones en su acceso directo: copia el `.desktop` a `~/.local/share/applications` y agrégalas a su línea `Exec`.
+
+No arranca nada si hay otro método de entrada configurado (`GTK_IM_MODULE`, `QT_IM_MODULE` o `XMODIFIERS` apuntando a otro, como el ibus que exporta el im-config de Linux Mint) o si `ibus-daemon` ya está en ejecución. Si arrancas ibus desde `50-local.conf`, desactiva `input_method`. En Linux Mint, para usar fcitx5, elígelo con `im-config -n fcitx5` (con los paquetes `fcitx5-frontend-gtk3` y `fcitx5-frontend-gtk4`) y activa la clave.
+
+Para desactivarlo, pon `input_method = false`: se aplica en el próximo inicio de sesión, y los archivos creados se quedan. En Arch, la entrada de inicio automático del propio paquete fcitx5 lo sigue arrancando, como en cualquier sesión: quita el paquete, o pon una copia de `/etc/xdg/autostart/org.fcitx.Fcitx5.desktop` en `~/.config/autostart` con `NotShowIn=sway;` (solo en Swaydesk) o `Hidden=true` (en todos los escritorios de la cuenta). En Debian, im-config exporta `GTK_IM_MODULE=fcitx` en toda sesión Wayland mientras fcitx5 esté instalado, en cualquier escritorio; `im-config -n none` (o quitar fcitx5) vuelve al valor predeterminado.
 
 ## Ajustes de la máquina
 
@@ -160,7 +176,7 @@ Algunos consejos:
   ```
 
   Un archivo tuyo nunca se toca. Si la sesión deja de usar US internacional, el archivo desaparece en el siguiente inicio de sesión, mientras no se haya editado. Si escribes uno a mano, deja la línea `include` primero: sin ella, el archivo reemplaza toda la tabla y los demás acentos (`'` + `e`, `~` + `a`) dejan de funcionar.
-- **Acentos y métodos de entrada.** Sin un método de entrada (ibus, fcitx) configurado, la sesión usa `GTK_IM_MODULE=simple`, así que GTK compone las teclas muertas por sí mismo, también en las aplicaciones GTK 4. Si usas un método de entrada, define `GTK_IM_MODULE`, `QT_IM_MODULE` o `XMODIFIERS` en `~/.profile` (por ejemplo, `export GTK_IM_MODULE=wayland` para fcitx5), y la sesión no los toca. Lo mismo vale para un teclado en pantalla que escribe a través del método de entrada, como squeekboard: necesita `export GTK_IM_MODULE=wayland` en `~/.profile`.
+- **Acentos y métodos de entrada.** Sin un método de entrada (ibus, fcitx) configurado, la sesión usa `GTK_IM_MODULE=simple`, así que GTK compone las teclas muertas por sí mismo, también en las aplicaciones GTK 4. Si usas un método de entrada, define `GTK_IM_MODULE`, `QT_IM_MODULE` o `XMODIFIERS` en `~/.profile` (por ejemplo, `export GTK_IM_MODULE=wayland` para fcitx5), y la sesión no los toca. Para la `ç` en Chromium y en las aplicaciones Electron, consulta [Método de entrada (fcitx5)](#metodo-de-entrada). Lo mismo vale para un teclado en pantalla que escribe a través del método de entrada, como squeekboard: necesita `export GTK_IM_MODULE=wayland` en `~/.profile`.
 
 ## Búsquedas del lanzador
 

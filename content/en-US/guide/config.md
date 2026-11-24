@@ -71,7 +71,7 @@ On a computer without a battery, the battery icon leaves the bar, and with it th
 
 ## Turning components off
 
-Every Swaydesk component starts on. To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/swaydesk/config.toml`; the bar modules go in `[enabled.bar]`:
+Every Swaydesk component starts on, except the input method ([below](#input-method)). To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/swaydesk/config.toml`; the bar modules go in `[enabled.bar]`:
 
 ```
 [enabled]
@@ -96,16 +96,32 @@ weather = false         # the weather on the bar
 | `update_notifier` | The update notifier |
 | `displays` | The automatic screen profiles; the **Displays** app stays |
 | `autostart` | The apps in `~/.config/autostart` and `/etc/xdg/autostart` (see below) |
+| `input_method` | Off unless set to `true`: then the session starts the fcitx5 input method (see below) |
 
 The `[enabled.bar]` keys are the bar modules: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` and, on Arch, `updates`. The workspaces and the tray are always there.
 
-A change applies at your next login. A missing key stays on, and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
+A change applies at your next login. A missing key stays on (except `input_method`), and a mistake in the file never turns anything off. In the Help (`Super`+`F1`), the card of a component that's off says "Turned off" and how to turn it back on. The [Components](/en-us/components/) page shows each one's key.
 
 ### Apps that start at login
 
 The session starts the apps of the XDG autostart folders, `~/.config/autostart` and `/etc/xdg/autostart`, as GNOME and KDE do, and closes them when you log out. The entries for what Swaydesk already covers (blueman, nm-applet, the mate and lxpolkit polkit agents, xapp-sn-watcher) are skipped, only in the Swaydesk session: GNOME or KDE on the same account still start them. PulseAudio's own entry is skipped there too, but only when PipeWire is the sound server, where it would just fail.
 
 To keep one app from starting, put a copy of its `.desktop` file in `~/.config/autostart` with `Hidden=true`, or with `NotShowIn=sway;` to skip it only in Sway sessions, so GNOME or KDE still start it. To turn all of them off, set `autostart = false` in `[enabled]`. A `config.toml` from an earlier version doesn't have that key: add the line inside `[enabled]`, before the `[enabled.bar]` part, since a line below `[enabled.bar]` belongs to the bar.
+
+### Input method (fcitx5) {#input-method}
+
+On Wayland, Chromium, Chrome, Vivaldi, Brave and Electron apps (VS Code, Slack, Discord) ignore `~/.XCompose` and compose accents with a table of their own, the en_US one, where `'` + `c` gives `ć`. The fcitx5 input method gives them `ç`. With `input_method = true` in `[enabled]` and the `fcitx5` package installed, the login starts fcitx5 with its own shortcuts, tray icon and notices off, set to the session's keyboard (the first layout). It follows the keyboard when you change it in `50-local.conf`, until you change fcitx5's input methods yourself (in `fcitx5-configtool`, for example). Sway still switches the layout with `Super`+`Space`, and GTK apps keep composing on their own.
+
+The key is off on a system that installed the packages, and on in the Debian 13 and Arch install images, through `/etc/swaydesk/config.toml`, which only holds the system's defaults for `[enabled]`. A line in your own `config.toml` wins.
+
+The browsers also need two options, `--enable-wayland-ime --wayland-text-input-version=3`:
+
+- **On Arch**, the login creates the files of options that the launchers read, in `~/.config`: `chromium-flags.conf`, `chrome-flags.conf`, `vivaldi-stable.conf`, `brave-flags.conf`, `electron-flags.conf` and `code-flags.conf`, only for what is installed and only when the file doesn't exist. Add the two options to a file of your own. A browser installed in the middle of a session gets its file at the next login: log out and in again (or create the file) before opening it.
+- **On Debian**, Chromium doesn't read those files and reaches fcitx5 through the `GTK_IM_MODULE=fcitx` that im-config, which comes with fcitx5, exports. Chrome and Vivaldi from their makers' `.deb` files, and Electron apps, need the options in their shortcut: copy the `.desktop` file to `~/.local/share/applications` and add them to its `Exec` line.
+
+Nothing starts if another input method is set up (`GTK_IM_MODULE`, `QT_IM_MODULE` or `XMODIFIERS` pointing to another one, such as the ibus that Linux Mint's im-config exports) or if `ibus-daemon` is already running. If you start ibus from `50-local.conf`, turn `input_method` off. On Linux Mint, to use fcitx5, pick it with `im-config -n fcitx5` (with the `fcitx5-frontend-gtk3` and `fcitx5-frontend-gtk4` packages) and turn the key on.
+
+To turn it off, set `input_method = false`: it applies at the next login, and the files it created stay. On Arch, the fcitx5 package's own autostart entry still starts it, as in any session: remove the package, or put a copy of `/etc/xdg/autostart/org.fcitx.Fcitx5.desktop` in `~/.config/autostart` with `NotShowIn=sway;` (only in Swaydesk) or `Hidden=true` (in every desktop of the account). On Debian, im-config exports `GTK_IM_MODULE=fcitx` in every Wayland session while fcitx5 is installed, on any desktop; `im-config -n none` (or removing fcitx5) goes back to the default.
 
 ## Machine settings
 
@@ -160,7 +176,7 @@ A few tips:
   ```
 
   A file of your own is never touched. If the session stops using US International, the file goes away at the next login, as long as it's unedited. When you write one by hand, keep the `include` line first: without it, the file replaces the whole table and the other accents (`'` + `e`, `~` + `a`) stop working.
-- **Accents and input methods.** With no input method (ibus, fcitx) set up, the session uses `GTK_IM_MODULE=simple`, so GTK composes the dead keys itself, in GTK 4 apps too. If you use an input method, set `GTK_IM_MODULE`, `QT_IM_MODULE` or `XMODIFIERS` in `~/.profile` (for example, `export GTK_IM_MODULE=wayland` for fcitx5), and the session leaves them alone. The same goes for an on-screen keyboard that types through the input method, such as squeekboard: it needs `export GTK_IM_MODULE=wayland` in `~/.profile`.
+- **Accents and input methods.** With no input method (ibus, fcitx) set up, the session uses `GTK_IM_MODULE=simple`, so GTK composes the dead keys itself, in GTK 4 apps too. If you use an input method, set `GTK_IM_MODULE`, `QT_IM_MODULE` or `XMODIFIERS` in `~/.profile` (for example, `export GTK_IM_MODULE=wayland` for fcitx5), and the session leaves them alone. For `ç` in Chromium and Electron apps, see [Input method (fcitx5)](#input-method). The same goes for an on-screen keyboard that types through the input method, such as squeekboard: it needs `export GTK_IM_MODULE=wayland` in `~/.profile`.
 
 ## Launcher searches
 

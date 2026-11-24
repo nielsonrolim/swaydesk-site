@@ -99,7 +99,9 @@ Swaydesk keeps a history of what you copy: text, images and other content up to 
 
 `Ctrl`+`Alt`+`L` locks the screen. The lock screen shows the time and date over a blurred copy of your wallpaper, with a password field on every monitor. On the main monitor, it also shows the battery, the network, the keyboard layout (click to switch) and whatever media is playing.
 
-This lock screen needs gtk4-layer-shell 1.2 or newer. On a system with an older version, such as Debian 13, the simpler swaylock locks the screen instead. Either way, if the lock screen fails, swaylock takes over, so the screen never ends up unlocked.
+This lock screen needs gtk4-layer-shell 1.2 or newer. On a system with an older version, such as Debian 13, its GTK 3 version runs instead, with the same look. If a lock screen stops without unlocking, another one takes over, with gtklock as the last resort, so the desktop never shows in between; if none can start, a critical notification says the screen isn't locked.
+
+The password field never goes through an input method, so a password with accents typed with dead keys unlocks it. After three wrong passwords, the lock screen makes you wait a few seconds, with a countdown. On Arch, the system also locks the account for 10 minutes after three failed logins: see the [FAQ](/en-us/guide/faq/#account-locked).
 
 When you're away, the computer:
 

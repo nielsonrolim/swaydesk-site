@@ -71,7 +71,7 @@ Num computador sem bateria, o ícone da bateria sai da barra e, com ele, os bot�
 
 ## Ligar e desligar componentes
 
-Cada componente do Swaydesk vem ligado. Para desligar um, ponha a chave dele com `false` na seção `[enabled]` do `~/.config/swaydesk/config.toml`; os módulos da barra ficam na `[enabled.bar]`:
+Cada componente do Swaydesk vem ligado, menos o método de entrada ([abaixo](#metodo-de-entrada)). Para desligar um, ponha a chave dele com `false` na seção `[enabled]` do `~/.config/swaydesk/config.toml`; os módulos da barra ficam na `[enabled.bar]`:
 
 ```
 [enabled]
@@ -96,16 +96,32 @@ weather = false         # o clima na barra
 | `update_notifier` | O aviso de atualizações |
 | `displays` | Os perfis automáticos das telas; o app **Telas** continua |
 | `autostart` | Os apps de `~/.config/autostart` e `/etc/xdg/autostart` (veja abaixo) |
+| `input_method` | Desligada a menos que seja `true`: aí a sessão sobe o método de entrada fcitx5 (veja abaixo) |
 
 As chaves do `[enabled.bar]` são os módulos da barra: `weather`, `clock`, `media`, `recording`, `notifications`, `clipboard`, `language`, `system`, `brightness`, `caffeine`, `bluetooth`, `network`, `volume`, `battery`, `power` e, no Arch, `updates`. Os workspaces e a bandeja ficam sempre.
 
-A mudança vale no próximo login. Uma chave ausente fica ligada, e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
+A mudança vale no próximo login. Uma chave ausente fica ligada (menos a `input_method`), e um erro no arquivo nunca desliga nada. Na Ajuda (`Super`+`F1`), o cartão de um componente desligado diz "Desligado" e como religá-lo. A página [Componentes](/pt-br/components/) mostra a chave de cada um.
 
 ### Apps que abrem no login
 
 A sessão abre os apps das pastas de início automático do XDG, `~/.config/autostart` e `/etc/xdg/autostart`, como o GNOME e o KDE fazem, e os fecha quando você sai. As entradas do que o Swaydesk já cobre (blueman, nm-applet, os agentes de polkit do mate e do lxpolkit, xapp-sn-watcher) ficam de fora, só na sessão do Swaydesk: o GNOME ou o KDE na mesma conta continuam abrindo essas entradas. A entrada do próprio PulseAudio também fica de fora ali, mas só quando o PipeWire é o servidor de som, caso em que ela só falharia.
 
 Para um app não abrir, ponha uma cópia do `.desktop` dele em `~/.config/autostart` com `Hidden=true`, ou com `NotShowIn=sway;` para pular só nas sessões do Sway, e o GNOME ou o KDE continuam abrindo. Para desligar todos, ponha `autostart = false` em `[enabled]`. Um `config.toml` de uma versão anterior não tem essa chave: acrescente a linha dentro de `[enabled]`, antes da parte `[enabled.bar]`, porque uma linha abaixo de `[enabled.bar]` vale para a barra.
+
+### Método de entrada (fcitx5) {#metodo-de-entrada}
+
+No Wayland, o Chromium, o Chrome, o Vivaldi, o Brave e os apps Electron (VS Code, Slack, Discord) ignoram o `~/.XCompose` e compõem os acentos com uma tabela própria, a do en_US, em que `'` + `c` dá `ć`. O método de entrada fcitx5 faz o `ç` sair neles. Com `input_method = true` no `[enabled]` e o pacote `fcitx5` instalado, o login sobe o fcitx5 com os atalhos, o ícone na bandeja e os avisos dele desligados, no teclado da sessão (o primeiro layout). Ele acompanha o teclado quando você o muda no `50-local.conf`, até você mesmo trocar os métodos do fcitx5 (no `fcitx5-configtool`, por exemplo). Quem troca o layout continua sendo o Sway, com `Super`+`Espaço`, e os apps GTK continuam compondo sozinhos.
+
+A chave vem desligada num sistema que instalou os pacotes, e ligada nas imagens de instalação do Debian 13 e do Arch, pelo `/etc/swaydesk/config.toml`, que só traz os padrões do sistema para o `[enabled]`. Uma linha no seu `config.toml` vence.
+
+Os navegadores precisam também de duas opções, `--enable-wayland-ime --wayland-text-input-version=3`:
+
+- **No Arch**, o login cria os arquivos de opções que os lançadores leem, em `~/.config`: `chromium-flags.conf`, `chrome-flags.conf`, `vivaldi-stable.conf`, `brave-flags.conf`, `electron-flags.conf` e `code-flags.conf`, só para o que estiver instalado e só quando o arquivo não existe. Num arquivo seu, acrescente as duas opções. Um navegador instalado no meio da sessão só ganha o arquivo no próximo login: saia e entre de novo (ou crie o arquivo) antes de abri-lo.
+- **No Debian**, o Chromium não lê esses arquivos e chega ao fcitx5 pelo `GTK_IM_MODULE=fcitx` que o im-config, que vem com o fcitx5, exporta. O Chrome e o Vivaldi dos `.deb` dos fabricantes, e os apps Electron, precisam das opções no atalho: copie o `.desktop` para `~/.local/share/applications` e acrescente-as à linha `Exec`.
+
+Nada sobe se outro método de entrada estiver configurado (`GTK_IM_MODULE`, `QT_IM_MODULE` ou `XMODIFIERS` apontando para outro, como o ibus que o im-config do Linux Mint exporta) ou se o `ibus-daemon` já estiver rodando. Se você sobe o ibus no `50-local.conf`, desligue o `input_method`. No Linux Mint, para usar o fcitx5, escolha-o com `im-config -n fcitx5` (com os pacotes `fcitx5-frontend-gtk3` e `fcitx5-frontend-gtk4`) e ligue a chave.
+
+Para desligar, ponha `input_method = false`: vale no próximo login, e os arquivos criados ficam. No Arch, o autostart do próprio pacote fcitx5 continua subindo o fcitx5, como em qualquer sessão: remova o pacote, ou ponha uma cópia do `/etc/xdg/autostart/org.fcitx.Fcitx5.desktop` em `~/.config/autostart` com `NotShowIn=sway;` (só no Swaydesk) ou `Hidden=true` (em todos os desktops da conta). No Debian, o im-config exporta `GTK_IM_MODULE=fcitx` em toda sessão Wayland enquanto o fcitx5 estiver instalado, em qualquer desktop; `im-config -n none` (ou remover o fcitx5) volta ao padrão.
 
 ## Os ajustes da máquina
 
@@ -160,7 +176,7 @@ Algumas dicas:
   ```
 
   Um arquivo seu nunca é mexido. Se a sessão deixar de usar o US internacional, o arquivo sai no login seguinte, enquanto estiver igual ao original. Ao escrever um à mão, deixe a linha do `include` em primeiro: sem ela, o arquivo troca a tabela inteira e os outros acentos (`'` + `e`, `~` + `a`) deixam de sair.
-- **Acentos e método de entrada.** Sem método de entrada (ibus, fcitx) configurado, a sessão usa `GTK_IM_MODULE=simple`, e o GTK compõe as teclas mortas sozinho, também nos apps GTK 4. Quem usa um método de entrada define `GTK_IM_MODULE`, `QT_IM_MODULE` ou `XMODIFIERS` no `~/.profile` (por exemplo, `export GTK_IM_MODULE=wayland` para o fcitx5), e a sessão não muda nada. O mesmo vale para um teclado na tela que digita pelo método de entrada, como o squeekboard: ele precisa do `export GTK_IM_MODULE=wayland` no `~/.profile`.
+- **Acentos e método de entrada.** Sem método de entrada (ibus, fcitx) configurado, a sessão usa `GTK_IM_MODULE=simple`, e o GTK compõe as teclas mortas sozinho, também nos apps GTK 4. Quem usa um método de entrada define `GTK_IM_MODULE`, `QT_IM_MODULE` ou `XMODIFIERS` no `~/.profile` (por exemplo, `export GTK_IM_MODULE=wayland` para o fcitx5), e a sessão não muda nada. Para o `ç` no Chromium e nos apps Electron, veja [Método de entrada (fcitx5)](#metodo-de-entrada). O mesmo vale para um teclado na tela que digita pelo método de entrada, como o squeekboard: ele precisa do `export GTK_IM_MODULE=wayland` no `~/.profile`.
 
 ## Buscas do lançador
 

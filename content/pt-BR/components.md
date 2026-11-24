@@ -60,7 +60,7 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 
 {{< component title="Menu de sessão" shot="session" keys="`Ctrl`+`Alt`+`Delete`; botão de energia da barra" guide="guide/desktop/#menu-de-sessão" bin="swaydesk-session-menu" src="rust/session-menu" tech="rust" >}}Bloquear, sair, suspender, reiniciar e desligar. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, ele pergunta antes, com uma contagem de 60 segundos e um botão para cancelar.{{< /component >}}
 
-{{< component title="Bloqueio de tela" shot="lock" keys="`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos" guide="guide/desktop/#bloqueio-e-inatividade" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. Precisa do gtk4-layer-shell 1.2; antes dele, como no Debian 13, quem bloqueia é o swaylock.{{< /component >}}
+{{< component title="Bloqueio de tela" shot="lock" keys="`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos" guide="guide/desktop/#bloqueio-e-inatividade" bin="swaydesk-lock" src="rust/lock" tech="rust" >}}Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. No Debian 13, cujo gtk4-layer-shell é anterior ao 1.2, a mesma tela de bloqueio roda na versão GTK 3.{{< /component >}}
 
 {{< component title="Tela de login" shot="greeter" guide="guide/first-steps/#a-tela-de-login-do-swaydesk" bin="swaydesk-greeter" src="rust/greeter" tech="rust" >}}Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico.{{< /component >}}
 
@@ -106,6 +106,6 @@ A barra também mostra o layout do teclado, quando há dois ou mais; um clique t
 | mate-polkit | A janela da senha de administrador (no Debian e no Ubuntu, o lxpolkit também serve) |
 | gnome-text-editor | O botão **Abrir** da Ajuda, que edita o `50-local.conf`; sem ele, a Ajuda abre um editor no terminal. Recomendado no Debian e no Ubuntu; opcional no Arch |
 | grim, slurp e wf-recorder | A captura e a gravação de tela |
-| swaylock | O bloqueio de reserva; no Debian 13, o bloqueio de sempre |
+| gtklock | O último recurso do bloqueio, se o do Swaydesk não abrir |
 
 As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.
