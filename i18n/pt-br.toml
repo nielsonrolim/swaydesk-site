@@ -197,7 +197,7 @@ other = "O pacman não instala as dependências opcionais, então a linha já tr
 other = "Opcional:"
 
 [comp_start_lead]
-other = "No <code>~/.config/sway/config</code>:"
+other = "No <code>{{ .file }}</code>:"
 
 [comp_group_arch]
 other = "No Arch, o pacman não instala as dependências opcionais; as de costume, numa linha só (o pacman as lista depois da instalação; veja em cada página para que serve cada uma):"

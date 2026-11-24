@@ -13,6 +13,7 @@
 #   arch_with the packages added to the pacman line: what apt installs by Recommends and pacman doesn't (optdepends)
 #   optional  packages worth adding on any distro (Debian Suggests), listed under the tabs
 #   start     how to start it on plain Sway: the lines for ~/.config/sway/config
+#   start_file  another file the start lines go in (default ~/.config/sway/config)
 #   waybar    the Waybar snippet, only for the bar popups
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor),
@@ -643,7 +644,7 @@ tech = "Rust"
 off = ""
 page = true
 package = "swaydesk-sessionmgr"
-arch_with = []
+arch_with = ["swaydesk-session-menu"]
 optional = []
 start = ""
   [components.pt-br]
@@ -902,22 +903,26 @@ page = true
 package = "swaydesk-portal"
 arch_with = []
 optional = []
-start = ""
+start = "[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.ScreenCast=wlr\norg.freedesktop.impl.portal.Screenshot=wlr\norg.freedesktop.impl.portal.Settings=swaydesktop;gtk"
+start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   [components.pt-br]
   name = "Cor de destaque nos apps"
   text = "Leva a cor de destaque e o estilo claro ou escuro aos apps libadwaita e GTK 4 que leem a aparência do portal, pelo xdg-desktop-portal, em qualquer compositor. Só vale quando o `<desktop>-portals.conf` o escolhe para o `org.freedesktop.impl.portal.Settings`, como o desktop completo faz."
   keys = "Sozinho, pelo D-Bus"
   guide = "guide/config/"
+  start_note = "Ele é o mesmo do desktop completo. Se o arquivo já existe, acrescente só a linha do `org.freedesktop.impl.portal.Settings` à seção `[preferred]`. O `default=gtk` usa o xdg-desktop-portal-gtk, e as linhas `wlr` (captura e gravação de tela), o xdg-desktop-portal-wlr. Vale no próximo login, ou depois de `systemctl --user restart xdg-desktop-portal`."
   [components.en-us]
   name = "Accent color in apps"
   text = "Brings the accent color and the light or dark style to the libadwaita and GTK 4 apps that read the portal's appearance settings, through xdg-desktop-portal, on any compositor. It applies only when your `<desktop>-portals.conf` picks it for `org.freedesktop.impl.portal.Settings`, as the full desktop does."
   keys = "On its own, through D-Bus"
   guide = "guide/config/"
+  start_note = "It's the same file the full desktop ships. If you already have one, add only the `org.freedesktop.impl.portal.Settings` line to its `[preferred]` section. `default=gtk` uses xdg-desktop-portal-gtk, and the `wlr` lines (screenshots and screen sharing) xdg-desktop-portal-wlr. It applies at the next login, or after `systemctl --user restart xdg-desktop-portal`."
   [components.es]
   name = "Color de acento en las aplicaciones"
   text = "Lleva el color de acento y el estilo claro u oscuro a las aplicaciones libadwaita y GTK 4 que leen la apariencia del portal, con xdg-desktop-portal, en cualquier compositor. Solo se usa cuando tu `<desktop>-portals.conf` lo elige para `org.freedesktop.impl.portal.Settings`, como hace el escritorio completo."
   keys = "Solo, por D-Bus"
   guide = "guide/config/"
+  start_note = "Es el mismo archivo del escritorio completo. Si ya tienes uno, añade solo la línea de `org.freedesktop.impl.portal.Settings` a su sección `[preferred]`. `default=gtk` usa xdg-desktop-portal-gtk, y las líneas `wlr` (capturas y compartir pantalla), xdg-desktop-portal-wlr. Se aplica en el próximo inicio de sesión, o tras `systemctl --user restart xdg-desktop-portal`."
 
 [[components]]
 id = "displays"

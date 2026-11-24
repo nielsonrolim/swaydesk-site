@@ -48,7 +48,7 @@
 
 <h2 id="start">{{ i18n "comp_start" }}</h2>
 {{- with $c.start }}
-<p>{{ i18n "comp_start_lead" | safeHTML }}</p>
+<p>{{ i18n "comp_start_lead" (dict "file" ($c.start_file | default "~/.config/sway/config")) | safeHTML }}</p>
 {{ partial "cmd.html" . }}
 {{- with $c.start_note }}{{ . | markdownify }}{{ end }}
 {{- else }}{{ $soon }}{{ end }}
