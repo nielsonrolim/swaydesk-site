@@ -48,8 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true: a cor de destaque vem do papel de parede e muda com ele. Sem esta chave, fica ligado quando há papel
-# de parede e desligado quando não há
+# true: a cor de destaque vem do papel de parede e muda com ele. Sem esta chave, fica ligado enquanto o
+# destaque é o padrão e há papel de parede, e desligado nos outros casos
 accent_auto = true
 
 # Cor das pastas do Papirus, como "teal". Vazio: a mais perto do destaque

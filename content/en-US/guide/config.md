@@ -48,8 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true: the accent color comes from the wallpaper and changes with it. Without this key, it's on when there's
-# a wallpaper and off when there isn't
+# true: the accent color comes from the wallpaper and changes with it. Without this key, it's on while the
+# accent is the default and there's a wallpaper, and off otherwise
 accent_auto = true
 
 # Papirus folder color, such as "teal". Empty: the closest to the accent

@@ -48,8 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true: el color de acento viene del fondo de pantalla y cambia con él. Sin esta clave, está activado cuando
-# hay fondo de pantalla y desactivado cuando no lo hay
+# true: el color de acento viene del fondo de pantalla y cambia con él. Sin esta clave, está activado mientras
+# el acento es el predeterminado y hay fondo de pantalla, y desactivado en los demás casos
 accent_auto = true
 
 # Color de las carpetas de Papirus, como "teal". Vacío: el más cercano al acento
