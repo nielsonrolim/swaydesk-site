@@ -14,6 +14,7 @@
 {{- end }}
 {{- $css := resources.Get "css/site.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<link rel="icon" href="/images/icon.svg" type="image/svg+xml">
 <link rel="icon" href="/images/icon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <link rel="icon" href="/images/icon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
 <script src="/js/theme.js"></script>

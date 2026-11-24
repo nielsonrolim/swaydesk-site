@@ -4,12 +4,14 @@
 {{ partial "nav.html" . }}
 <div class="topbar__tools">
 <nav class="locale" aria-label="{{ i18n "language" }}">
+{{- /* Cada idioma pelo próprio nome: "PT" sozinho um leitor de tela soletra */}}
+{{- $names := dict "pt-br" "Português" "en-us" "English" "es" "Español" }}
 {{- range site.Languages }}
 {{- $lang := .Lang }}
 {{- $target := "" }}
 {{- range $.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
 {{- if not $target }}{{ $target = printf "/%s/" (lower $lang) }}{{ end }}
-<a href="{{ $target }}" hreflang="{{ .LanguageCode }}" lang="{{ .LanguageCode }}" title="{{ .LanguageName }}"{{ if eq $lang $.Language.Lang }} aria-current="true"{{ end }}>{{ upper (substr $lang 0 2) }}</a>
+<a href="{{ $target }}" hreflang="{{ .LanguageCode }}" lang="{{ .LanguageCode }}" aria-label="{{ index $names (lower $lang) }}" title="{{ index $names (lower $lang) }}"{{ if eq $lang $.Language.Lang }} aria-current="true"{{ end }}>{{ upper (substr $lang 0 2) }}</a>
 {{- end }}
 </nav>
 {{- with site.GetPage "/download" }}
