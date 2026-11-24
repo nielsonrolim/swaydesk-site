@@ -17,10 +17,10 @@ other = "um desktop completo sobre o Sway"
 other = "Swaydesk: um desktop completo e leve sobre o Sway, para Debian, Ubuntu, Linux Mint e Arch."
 
 [independent]
-other = 'O Swaydesk é um projeto independente, construído sobre o <a href="https://swaywm.org/">Sway</a>. Ele não é afiliado ao projeto Sway nem aos seus desenvolvedores, nem endossado por eles.'
+other = 'Projeto independente, sem afiliação ou endosso do projeto <a href="https://swaywm.org/">Sway</a> ou de seus desenvolvedores.'
 
 [license]
-other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>; as capturas mostram ícones de terceiros, sob as licenças deles'
+other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>. Capturas mostram ícones de terceiros sob suas próprias licenças.'
 
 [soon]
 other = "em breve"
@@ -132,3 +132,12 @@ other = "Capítulos ({{ .count }})"
 
 [demo_fallback]
 other = "Baixe o vídeo (MP4)"
+
+[download_btn]
+other = "Baixar"
+
+[footer_nav]
+other = "Rodapé"
+
+[menu]
+other = "Menu"

@@ -15,22 +15,17 @@
 {{- $css := resources.Get "css/site.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <link rel="icon" href="/images/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/icon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/images/icon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
 <script src="/js/theme.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">{{ i18n "skip" }}</a>
-<div class="site">
 {{ partial "topbar.html" . }}
-{{ partial "nav.html" . }}
-<main id="main" tabindex="-1">
+<main id="main"{{ if not .IsHome }} class="wrap"{{ end }} tabindex="-1">
 {{ block "main" . }}{{ end }}
 </main>
-<footer>
-<span aria-hidden="true">user@swaydesk:~$</span><span class="cursor" aria-hidden="true"></span>
-<span class="license">{{ i18n "license" | safeHTML }}</span>
-<p class="independent">{{ i18n "independent" | safeHTML }}</p>
-</footer>
-</div>
+{{ partial "footer.html" . }}
 {{- if or (.HasShortcode "shot") (.HasShortcode "component") }}
 {{- /* O carrossel: sem JS, os links abrem a imagem; com JS, lightbox.js abre esta janela */}}
 <dialog class="lightbox" aria-label="{{ i18n "lb_viewer" }}" aria-describedby="lightbox-caption" hidden>

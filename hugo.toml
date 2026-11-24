@@ -30,11 +30,11 @@ enableRobotsTXT = true
     [[languages.pt-BR.menus.main]]
       name = "instalar"
       pageRef = "/install"
-      weight = 3
+      weight = 6
     [[languages.pt-BR.menus.main]]
       name = "baixar"
       pageRef = "/download"
-      weight = 4
+      weight = 7
     [[languages.pt-BR.menus.main]]
       name = "guia"
       pageRef = "/guide"
@@ -42,11 +42,11 @@ enableRobotsTXT = true
     [[languages.pt-BR.menus.main]]
       name = "atalhos"
       pageRef = "/shortcuts"
-      weight = 6
+      weight = 4
     [[languages.pt-BR.menus.main]]
       name = "componentes"
       pageRef = "/components"
-      weight = 7
+      weight = 3
   [languages.en-US]
     languageName = "EN-US"
     languageCode = "en-US"
@@ -63,11 +63,11 @@ enableRobotsTXT = true
     [[languages.en-US.menus.main]]
       name = "install"
       pageRef = "/install"
-      weight = 3
+      weight = 6
     [[languages.en-US.menus.main]]
       name = "download"
       pageRef = "/download"
-      weight = 4
+      weight = 7
     [[languages.en-US.menus.main]]
       name = "guide"
       pageRef = "/guide"
@@ -75,11 +75,11 @@ enableRobotsTXT = true
     [[languages.en-US.menus.main]]
       name = "shortcuts"
       pageRef = "/shortcuts"
-      weight = 6
+      weight = 4
     [[languages.en-US.menus.main]]
       name = "components"
       pageRef = "/components"
-      weight = 7
+      weight = 3
   [languages.es]
     languageName = "ES"
     languageCode = "es-419"
@@ -96,11 +96,11 @@ enableRobotsTXT = true
     [[languages.es.menus.main]]
       name = "instalar"
       pageRef = "/install"
-      weight = 3
+      weight = 6
     [[languages.es.menus.main]]
       name = "descargar"
       pageRef = "/download"
-      weight = 4
+      weight = 7
     [[languages.es.menus.main]]
       name = "guía"
       pageRef = "/guide"
@@ -108,11 +108,11 @@ enableRobotsTXT = true
     [[languages.es.menus.main]]
       name = "atajos"
       pageRef = "/shortcuts"
-      weight = 6
+      weight = 4
     [[languages.es.menus.main]]
       name = "componentes"
       pageRef = "/components"
-      weight = 7
+      weight = 3
 
 [markup.goldmark.renderer]
   unsafe = false

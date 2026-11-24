@@ -1,7 +1,10 @@
+{{- /* O menu do topo: as seções, menos o início (o logo leva até ele) e Baixar (o botão ao lado) */}}
 <nav class="nav" aria-label="{{ i18n "sections" }}">
 {{- $current := . }}
 {{- range site.Menus.main }}
+{{- if not (in (slice "/" "/download") .PageRef) }}
 {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
 <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end }}
 {{- end }}
 </nav>
