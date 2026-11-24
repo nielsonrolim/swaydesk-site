@@ -109,7 +109,7 @@ Sem uso, o computador:
 - apaga a tela depois de 15 minutos;
 - suspende depois de 30 minutos, só na bateria e sem som tocando.
 
-Ele também bloqueia antes de suspender. A cafeína, na barra, suspende tudo isso enquanto estiver ligada. Se a tela não voltar depois de apagar, `Super`+`Shift`+`O` a liga de novo, mesmo bloqueada.
+Ele também bloqueia antes de suspender. A cafeína, na barra, suspende tudo isso enquanto estiver ligada. Fora da sessão do Swaydesk (um Sway puro, com o seu próprio swayidle), ela segura um inibidor de inatividade do Wayland (`swaydesk-caffeinate`) em vez de trocar o swayidle. Com todos os monitores desativados ou desconectados (ou, no Sway 1.12 em diante, com a energia desligada), os tempos de inatividade ainda podem disparar. Se a tela não voltar depois de apagar, `Super`+`Shift`+`O` a liga de novo, mesmo bloqueada.
 
 ## Capturas e gravação
 
