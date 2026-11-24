@@ -1,31 +1,61 @@
 ---
 title: Swaydesk
 facts:
-  - {k: base, v: "Sway, el compositor Wayland en mosaico"}
-  - {k: stack, v: "Rust, GTK 4, layer-shell"}
-  - {k: distros, v: "Debian 13 / testing, Ubuntu 26.04 / Linux Mint 27, Arch Linux"}
-  - {k: status, v: "0.1.5, estable; paquetes en OBS"}
+  - {k: base, v: "Sway, compositor tiling Wayland"}
+  - {k: stack, v: "Rust · GTK 4 · layer-shell"}
+  - {k: distros, v: "Debian · Ubuntu · Mint · Arch"}
+  - {k: idiomas, v: "Português · English · Español"}
+hero:
+  status: "estable · paquetes en OBS"
+  title: "Sway, ahora un escritorio completo."
+  lead: "Barra, dock, cuadrícula de aplicaciones, notificaciones, inicio de sesión y pantalla de bloqueo, escritos en Rust y GTK 4. Ligero, rápido y todo con el teclado cuando quieras."
+  install: "Instalar"
+  watch: "Verlo en acción"
+  distros: "Debian 13 · Ubuntu 26.04 · Linux Mint 27 · Arch Linux"
+  independent: "Proyecto independiente, sin afiliación con el proyecto Sway."
+  alt: "Escritorio de Swaydesk en Debian 13: terminal, gestor de archivos y editor lado a lado, la barra arriba y la dock abajo"
+  caption_dark: "Debian 13 · Sway 1.10 · tema oscuro"
+  caption_light: "Debian 13 · Sway 1.10 · tema claro"
+  badge: "# abre la cuadrícula de aplicaciones"
+demo:
+  kicker: "## míralo en acción"
+  title: "Del inicio de sesión a la pantalla de bloqueo, en menos de cinco minutos."
+  play: "Reproducir el video de demostración"
+  chapters: "Capítulos"
+  all: "Ver todos los capítulos →"
+components:
+  kicker: "## componentes"
+  title: "Programas propios, escritos en Rust."
+  lead: "Nada de parches sueltos. Cada pieza de Swaydesk está hecha para hablar con las demás, con el mismo tema y el mismo color de acento."
+  items:
+    - {icon: bar, name: "Barra", text: "Red, Bluetooth, audio, batería, brillo y calendario, cada uno con su ventana emergente."}
+    - {icon: dock, name: "Dock", text: "Aplicaciones fijadas y abiertas, siempre a mano."}
+    - {icon: grid, name: "Cuadrícula de aplicaciones", text: "Todas las aplicaciones en una pantalla, con búsqueda."}
+    - {icon: bell, name: "Centro de notificaciones", text: "Historial y modo No molestar."}
+    - {icon: clip, name: "Portapapeles", text: "Historial de lo que copiaste."}
+    - {icon: lock, name: "Inicio de sesión y bloqueo", text: "Pantalla de inicio de sesión y pantalla de bloqueo propias."}
+    - {icon: switch, name: "Alt+Tab", text: "Cambio de ventanas como ya lo conoces."}
+    - {icon: capture, name: "Captura y grabación", text: "Capturas y grabación de pantalla."}
+    - {icon: theme, name: "Temas y acento", text: "Una aplicación para el tema, los iconos y el color de acento."}
+shortcuts:
+  kicker: "## lo que encuentras"
+  title: "Tus atajos. Tu forma de trabajar."
+  lead: "Viene con el esquema Swaydesk. ¿Prefieres otro? Cambia de perfil."
+  profiles: "perfiles de atajos"
+  default: "predeterminado"
+  items:
+    - {name: "Mosaico sin esfuerzo", text: "Las ventanas se organizan solas. Cuando lo necesites, haz flotar una, ponla en pantalla completa o apártala a un lado."}
+    - {name: "Aspecto unificado", text: "El tema, los iconos y el color de acento valen para la barra, la dock, las ventanas emergentes y las aplicaciones GTK y libadwaita."}
+    - {name: "Multilingüe", text: "Portugués, inglés y español, en el escritorio y en el instalador."}
+    - {name: "Extras de sesión", text: "Agente de contraseñas, llavero, portal para compartir pantalla y avisos de actualizaciones."}
+install:
+  kicker: "## instalar"
+  title: "Elige tu distribución."
+  lead: "Paquetes firmados en Open Build Service. El escritorio que ya tienes sigue en la pantalla de inicio de sesión."
+  iso: "¿Prefieres probarlo? Descarga la ISO"
+  steps: "Ver instrucciones →"
+  cards:
+    - {tab: debian, name: "Debian", sub: "13 / testing", cmd: "sudo apt install swaydesk-desktop"}
+    - {tab: ubuntu, name: "Ubuntu · Mint", sub: "26.04 / Mint 27", cmd: "sudo apt install swaydesk-desktop"}
+    - {tab: arch, name: "Arch Linux", sub: "rolling", cmd: "sudo pacman -Syu swaydesk-desktop"}
 ---
-Swaydesk convierte [Sway](https://swaywm.org/) en un escritorio completo sin perder lo que lo hace bueno: es ligero, rápido y se maneja por completo con el teclado cuando quieres. Swaydesk es un proyecto independiente: no está afiliado al proyecto Sway ni a sus desarrolladores, ni cuenta con su respaldo.
-
-Sobre Sway vienen las piezas que un escritorio necesita: una barra con ventanas emergentes de red, Bluetooth, audio, batería, brillo y calendario; una dock con tus aplicaciones fijadas y abiertas; una cuadrícula de aplicaciones; un centro de notificaciones; un historial del portapapeles; una pantalla de bloqueo; una pantalla de inicio de sesión; cambio de ventanas con Alt+Tab; capturas y grabación de pantalla; y una aplicación para elegir el tema y el color de acento. Los componentes son programas propios, escritos en Rust con GTK 4.
-
-## Míralo en acción
-
-Un recorrido por la barra, la dock, la cuadrícula de aplicaciones, el lanzador, las ventanas emergentes, el tema, las pantallas, la ayuda y la pantalla de bloqueo. Los capítulos debajo del video llevan directo a cada parte.
-
-{{< demo >}}
-
-## Lo que obtienes
-
-- **Atajos que ya conoces:** el esquema Swaydesk de forma predeterminada, inspirado en KDE Plasma con Krohnkite, o las teclas de i3, Hyprland, niri o dwm. Mira los [atajos](/es/shortcuts/).
-- **Mosaico sin esfuerzo:** las ventanas se acomodan solas, y aun así puedes dejar una ventana flotante, ponerla en pantalla completa o apartarla.
-- **Un solo aspecto:** el tema, los iconos y el color de acento cambian juntos en la barra, la dock, las ventanas emergentes y en las aplicaciones GTK y libadwaita.
-- **En tu idioma:** inglés, portugués de Brasil y español, en el escritorio y en el instalador.
-- **Sin sorpresas:** la sesión tiene un agente de contraseñas, un llavero, un portal para compartir pantalla y avisos de actualizaciones, como los escritorios más grandes.
-
-## Próximos pasos
-
-- [Ver las capturas](/es/screenshots/)
-- [Instalar](/es/install/)
-- [Leer la guía](/es/guide/)

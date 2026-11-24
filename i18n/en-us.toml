@@ -141,3 +141,6 @@ other = "Footer"
 
 [menu]
 other = "Menu"
+
+[facts]
+other = "Fact sheet"
