@@ -1,0 +1,5 @@
+{{- /* One site per language, in weight order. Hugo 0.156 deprecated site.Languages and moved the list to hugo.Sites,
+       which 0.147 (CI) doesn't have (there it's site.Sites); the branch not taken is never run. */ -}}
+{{- $s := slice }}
+{{- if ge hugo.Version "0.156.0" }}{{ $s = hugo.Sites }}{{ else }}{{ $s = site.Sites }}{{ end }}
+{{- return $s }}

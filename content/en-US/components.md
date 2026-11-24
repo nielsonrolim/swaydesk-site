@@ -2,7 +2,7 @@
 title: Components
 prompt: "ls /usr/bin/swaydesk-*"
 crumb: components
-aliases: ["/en-us/apps/"]
+aliases: ["apps/"]
 description: Swaydesk's pieces, one by one.
 ---
 Swaydesk is made of components of its own, nearly all written in Rust with GTK 4. Each one has its shortcut and a part in the [guide](/en-us/guide/).

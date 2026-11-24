@@ -3,13 +3,13 @@
   data/isos.toml (tag), a duração e os capítulos de data/demo.toml (home = true), os perfis de data/shortcuts.json. */ -}}
 {{ define "main" }}
 {{- $h := .Params.hero }}
-{{- $v := index site.Data.demo (lower site.Language.Lang) }}
+{{- $v := index (partialCached "data.html" .).demo (lower site.Language.Lang) }}
 {{- $poster := resources.Get $v.poster | fingerprint }}
 <section class="hero wrap">
 <div class="hero__text">
 <div class="hero__meta">
 <span><span class="muted">user@swaydesk:~$</span> whoami</span>
-{{ $pkg := site.Data.isos.packages | default "" }}{{ if not $pkg }}{{ errorf "data/isos.toml: set packages, the version of the packages on OBS (the home page pill)" }}{{ end }}
+{{ $pkg := (partialCached "data.html" .).isos.packages | default "" }}{{ if not $pkg }}{{ errorf "data/isos.toml: set packages, the version of the packages on OBS (the home page pill)" }}{{ end }}
 <span class="pill"><span class="pill__dot" aria-hidden="true"></span>v{{ $pkg }} · {{ $h.status }}</span>
 </div>
 <h1 class="hero__title">{{ if reflect.IsSlice $h.title }}{{ range $h.title }}<span class="hero__line">{{ . }}</span> {{ end }}{{ else }}{{ $h.title }}{{ end }}</h1>
@@ -80,7 +80,7 @@
 {{- end }}
 
 {{- with .Params.shortcuts }}
-{{- $profiles := site.Data.shortcuts.profiles }}
+{{- $profiles := (partialCached "data.html" .).shortcuts.profiles }}
 <section class="block block--split wrap" id="shortcuts">
 <div class="split__left">
 <p class="kicker">{{ .kicker }}</p>
@@ -113,7 +113,7 @@
 <h2 class="block__title">{{ .title }}</h2>
 <p class="block__lead">{{ .lead }}</p>
 </div>
-{{- $isos := slice }}{{ range $k, $iso := site.Data.isos }}{{ if reflect.IsMap $iso }}{{ if $iso.published }}{{ $isos = $isos | append (index (split $iso.name " ") 0) }}{{ end }}{{ end }}{{ end }}
+{{- $isos := slice }}{{ range $k, $iso := (partialCached "data.html" .).isos }}{{ if reflect.IsMap $iso }}{{ if $iso.published }}{{ $isos = $isos | append (index (split $iso.name " ") 0) }}{{ end }}{{ end }}{{ end }}
 <a class="btn btn--ghost" href="{{ relLangURL "download/" }}">{{ .iso }} <span class="btn__sub">{{ delimit (sort $isos "value" "desc") " · " }}</span></a>
 </div>
 <div class="icards">

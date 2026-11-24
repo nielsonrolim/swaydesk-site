@@ -1,0 +1,42 @@
+# Builds the site with the newest Hugo release, to see early when a new version breaks the build (deprecations
+# become failures under --panicOnWarning). It never publishes, and a failure here doesn't block anything:
+# the site is built and published by pages.yml, with the pinned Hugo.
+name: Newest Hugo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the newest Hugo
+        # The version isn't pinned on purpose. The tarball is checked against the release's own checksums file:
+        # that catches a broken download, not a compromised release, and this job has no secrets and no write access.
+        run: |
+          tag=$(curl -sSfL https://api.github.com/repos/gohugoio/hugo/releases/latest | python3 -I -c 'import json, sys; print(json.load(sys.stdin)["tag_name"])')
+          case "$tag" in v[0-9]*.[0-9]*.[0-9]*) ;; *) echo "unexpected tag: $tag"; exit 1 ;; esac
+          v=${tag#v}
+          base="https://github.com/gohugoio/hugo/releases/download/${tag}"
+          curl -sSfL -o "hugo_${v}_linux-amd64.tar.gz" "${base}/hugo_${v}_linux-amd64.tar.gz"
+          curl -sSfL -o checksums.txt "${base}/hugo_${v}_checksums.txt"
+          grep " hugo_${v}_linux-amd64.tar.gz\$" checksums.txt | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/hugo" && tar -xzf "hugo_${v}_linux-amd64.tar.gz" -C "$RUNNER_TEMP/hugo" hugo
+          rm "hugo_${v}_linux-amd64.tar.gz" checksums.txt
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
+      - name: Build
+        run: hugo version && hugo build --minify --panicOnWarning
+      - name: Check internal links
+        run: python3 -I scripts/check-links.py public

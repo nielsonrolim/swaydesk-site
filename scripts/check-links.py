@@ -6,6 +6,7 @@
 - An #anchor on a page link ("/es/guide/config/#pantallas", "#los-paquetes") must be an id on that page.
 - A page under /<lang>/ links only to its own language: an <a> to another language's pages is an error, except
   the language switcher's links, which carry hreflang.
+- A missing or empty output folder is an error (the build failed), never a pass.
 """
 import html.parser
 import pathlib
@@ -73,8 +74,13 @@ def problems(root, page):
 
 def main():
     root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "public").resolve()
+    pages = sorted(root.rglob("*.html"))
+    # A failed build leaves no folder, or an empty one: with nothing to check this would pass, so it fails
+    if not pages:
+        print(f"no HTML pages in {root}: did the build run?")
+        return 1
     found = []
-    for page in sorted(root.rglob("*.html")):
+    for page in pages:
         found += [f"{page.relative_to(root)}: {p}" for p in problems(root, page)]
     for line in found:
         print(line)

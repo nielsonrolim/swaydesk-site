@@ -1,6 +1,5 @@
 ---
 title: Swaydesk
-aliases: ["/pt-BR/"]
 facts:
   - {k: base, v: "Sway, compositor tiling Wayland"}
   - {k: stack, v: "Rust · GTK 4 · layer-shell"}
