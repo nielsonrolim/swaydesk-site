@@ -42,7 +42,7 @@ a:hover { color: var(--accent-ink); }
 .skip:focus { left: 1rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-.wrap { max-width: var(--site); margin: 0 auto; padding: 0 var(--gutter); }
+.wrap { max-width: calc(var(--site) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
 main.wrap { padding-top: 56px; line-height: 1.7; }
 
 /* O topo (Main.dc.html, header): logo 28px + ~/swaydesk, o menu com ./, os idiomas numa caixa, Baixar, o tema */
