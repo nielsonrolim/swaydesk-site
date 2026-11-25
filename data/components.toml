@@ -109,7 +109,7 @@ waybar = "swaydesk-bluetooth"
   [components.pt-br]
   name = "Bluetooth"
   text = "Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos."
-  more_alts = ["Os detalhes de um dispositivo, com Enviar arquivo e Esquecer"]
+  more_alts = ["Os detalhes de um dispositivo; Esquecer pede um segundo clique"]
   features = [
     "Interruptores ligam e desligam o Bluetooth e deixam o computador *Visível* para outros aparelhos.",
     "Ao ligar, ele também tira um bloqueio de software, sem pedir senha.",
@@ -126,7 +126,7 @@ waybar = "swaydesk-bluetooth"
   [components.en-us]
   name = "Bluetooth"
   text = "Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files."
-  more_alts = ["A device's details, with Send file and Forget"]
+  more_alts = ["A device's details; Forget asks for a second click"]
   features = [
     "Switches turn Bluetooth on and off and make the computer *Visible* to other devices.",
     "Turning it on also lifts a software block, without asking for a password.",
@@ -143,7 +143,7 @@ waybar = "swaydesk-bluetooth"
   [components.es]
   name = "Bluetooth"
   text = "Activa el Bluetooth, busca dispositivos, los vincula, los conecta, los olvida y envía archivos."
-  more_alts = ["Los detalles de un dispositivo, con Enviar archivo y Olvidar"]
+  more_alts = ["Los detalles de un dispositivo; Olvidar pide un segundo clic"]
   features = [
     "Los interruptores activan y desactivan el Bluetooth y hacen el equipo *Visible* para otros dispositivos.",
     "Al activarlo, también quita un bloqueo por software, sin pedir contraseña.",
