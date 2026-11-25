@@ -9,11 +9,30 @@
 <div class="content">
 <article class="component component--page">
 <h2 class="component__name">{{ partial "icon.html" $c.icon }} {{ $c.name }}</h2>
-{{- with $c.shot }}
-{{- with resources.Get (printf "images/shots/%s.webp" .) }}
+{{- /* The page's own crop (crop = true: images/components/<id>.webp), else the gallery's shot */}}
+{{- $main := "" }}
+{{- if $c.crop }}{{ $main = printf "images/components/%s.webp" $c.id }}{{ else if $c.shot }}{{ $main = printf "images/shots/%s.webp" $c.shot }}{{ end }}
+{{- with $main }}
+{{- with resources.Get . }}
 {{- $img := . | fingerprint }}
+{{- /* A crop is taken at scale 2: shown at half its pixels, its real size on screen */}}
+{{- if $c.crop }}
+<a class="component__shot component__shot--crop" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" srcset="{{ $img.RelPermalink }} 2x" width="{{ div $img.Width 2 }}" height="{{ div $img.Height 2 }}" alt="{{ $c.name }}" decoding="async"></a>
+{{- else }}
 <a class="component__shot" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $c.name }}" decoding="async"></a>
-{{- else }}{{ errorf "data/components.toml: images/shots/%s.webp doesn't exist" . }}{{ end }}
+{{- end }}
+{{- else }}{{ errorf "data/components.toml: %s doesn't exist" . }}{{ end }}
+{{- end }}
+{{- with $c.more_shots }}
+<div class="component__more">
+{{- range $i, $name := . }}
+{{- with resources.Get (printf "images/components/%s.webp" $name) }}
+{{- $img := . | fingerprint }}
+{{- $alt := index $c.more_alts $i }}
+<a href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" title="{{ $alt }}" loading="lazy" decoding="async"></a>
+{{- else }}{{ errorf "data/components.toml: images/components/%s.webp doesn't exist" $name }}{{ end }}
+{{- end }}
+</div>
 {{- end }}
 <div class="component__body">
 {{ $.RenderString (dict "display" "block") $c.text }}
