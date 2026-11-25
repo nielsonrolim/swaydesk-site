@@ -1,5 +1,5 @@
 {{- /* A component's page, made by content/<lang>/components/_content.gotmpl from data/components.toml.
-       While a field of 0.1.7 is empty (package, start, waybar), its section says it is being written. The pacman line
+       While a field is empty (package, start or start_text, waybar), its section says it is being written. The pacman line
        also carries arch_with, which apt brings by Recommends and pacman doesn't install. */ -}}
 {{ define "main" }}
 {{- $c := partial "component-data.html" (dict "id" .Params.component "page" .) }}
@@ -55,6 +55,7 @@
 {{ partial "cmd.html" $c.start }}
 {{- with $c.start_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
 {{- if $c.unit }}<p>{{ i18n "comp_start_unit" | safeHTML }}</p>{{ end }}
+{{- else if $c.start_text }}{{ $.RenderString (dict "display" "block") $c.start_text }}
 {{- else if and (eq $c.group "bar") $c.waybar }}<p>{{ i18n "comp_start_by_waybar" }}</p>
 {{- else }}{{ $soon }}{{ end }}
 

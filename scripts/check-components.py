@@ -8,7 +8,8 @@ three language tables with a non-empty name and text, and, when `shot` is set, i
 `page` and `unit` are booleans. A card without a page carries none of the page's fields (PAGE_FIELDS, and the
 per-language PAGE_NOTES), since the list shows only its name, text and keys; its `with` names a component that has a
 page. `waybar` is only for the bar, as swaydesk-<name>; `unit` needs a start that includes a snippet; a start_note
-needs a start. Each [groups.<group>] is a known group with a text in every language. A missing, unreadable or
+needs a start; start_text (what to do when there's nothing to add to the Sway config) replaces start, in every
+language or none. Each [groups.<group>] is a known group with a text in every language. A missing, unreadable or
 malformed file is an error, never a pass.
 """
 import pathlib
@@ -19,7 +20,7 @@ import tomllib
 GROUPS = ("bar", "windows", "session", "apps")
 LANGS = ("pt-br", "en-us", "es")
 PAGE_FIELDS = ("package", "arch_with", "optional", "start", "start_file", "unit", "waybar")
-PAGE_NOTES = ("note", "start_note", "arch_note", "waybar_note")
+PAGE_NOTES = ("note", "start_note", "start_text", "arch_note", "waybar_note")
 SNIPPETS = "include /usr/share/swaydesk/sway/config.d/"
 ICONS = "layouts/_partials/icon.html"
 
@@ -61,6 +62,8 @@ def check_component(root, c, number, icons, pages, seen):
                 errors.append(f"{cid}: {code} {field} must be a non-empty string")
         if table.get("start_note") and not start:
             errors.append(f"{cid}: {code} start_note without a start")
+        if table.get("start_text") and start:
+            errors.append(f"{cid}: {code} start_text next to a start")
         if not has_page:
             errors += [f"{cid}: {code} {f} on a card without a page" for f in PAGE_NOTES if table.get(f)]
         errors += [f"{cid}: {code} {f} must be a string" for f in PAGE_NOTES if not isinstance(table.get(f, ""), str)]
@@ -71,6 +74,9 @@ def check_component(root, c, number, icons, pages, seen):
         value = c.get(field, [])
         if not (isinstance(value, list) and all(isinstance(v, str) for v in value)):
             errors.append(f"{cid}: {field} must be a list of strings")
+    with_text = [code for code in LANGS if isinstance(c.get(code), dict) and c[code].get("start_text")]
+    if with_text:
+        errors += [f"{cid}: start_text missing in {code}" for code in LANGS if code not in with_text]
     if not has_page:
         errors += [f"{cid}: {field} on a card without a page" for field in PAGE_FIELDS if c.get(field)]
         target = c.get("with")

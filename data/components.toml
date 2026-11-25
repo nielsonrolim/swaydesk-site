@@ -18,6 +18,7 @@
 #   waybar    the Waybar module's name, swaydesk-<x>: custom/<name> from /usr/share/swaydesk/waybar/<name>.jsonc
 # Per language ([components.pt-br], [components.en-us], [components.es]):
 #   name, text (Markdown), keys (Markdown: how to open it), guide (a path in the Guide, with its anchor),
+#   start_text (Markdown, in place of the start lines when there's nothing to add to the Sway config),
 #   start_note (Markdown, under the start lines), arch_note (Markdown, under the Arch tab),
 #   note (Markdown, on the page under the text), waybar_note (Markdown, under the Waybar module)
 # [groups.<group>]: a metapackage that installs a whole section of the list (package), arch_with (its members'
@@ -649,22 +650,25 @@ page = true
 package = "swaydesk-session-menu"
 arch_with = ["swaydesk-lock"]
 optional = []
-start = ""
+start = "bindsym --no-repeat Ctrl+Alt+Delete exec swaydesk-session-menu"
   [components.pt-br]
   name = "Menu de sessão"
   text = "Bloquear, sair, suspender, reiniciar e desligar. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, ele pergunta antes, com uma contagem de 60 segundos e um botão para cancelar."
   keys = "`Ctrl`+`Alt`+`Delete`; botão de energia da barra"
   guide = "guide/desktop/#menu-de-sessão"
+  start_note = "Qualquer tecla serve: `swaydesk-session-menu` abre o menu."
   [components.en-us]
   name = "Session menu"
   text = "Lock, log out, suspend, restart and shut down. When an app asks to restart or shut down, such as the store's **Restart & Update**, it asks first, with a 60-second countdown and a button to cancel."
   keys = "`Ctrl`+`Alt`+`Delete`; the bar's power button"
   guide = "guide/desktop/#session-menu"
+  start_note = "Any key works: `swaydesk-session-menu` opens the menu."
   [components.es]
   name = "Menú de la sesión"
   text = "Bloquear, cerrar sesión, suspender, reiniciar y apagar. Cuando una aplicación pide reiniciar o apagar, como el **Reiniciar y actualizar** de la tienda, pregunta antes, con una cuenta regresiva de 60 segundos y un botón para cancelar."
   keys = "`Ctrl`+`Alt`+`Delete`; el botón de apagado de la barra"
   guide = "guide/desktop/#menú-de-la-sesión"
+  start_note = "Sirve cualquier tecla: `swaydesk-session-menu` abre el menú."
 
 [[components]]
 id = "sessionmgr"
@@ -679,22 +683,25 @@ page = true
 package = "swaydesk-sessionmgr"
 arch_with = ["swaydesk-session-menu"]
 optional = []
-start = ""
+start = "exec swaydesk-sessionmgr"
   [components.pt-br]
   name = "Reiniciar depois das atualizações"
   text = "Um gerenciador de sessão mínimo para o Sway, para o GNOME Software poder reiniciar ou desligar depois das atualizações. Ele pergunta antes pelo menu de sessão (`swaydesk-session-menu`, que ele recomenda); sem o menu, reinicia ou desliga na hora."
   keys = "Sozinho, quando um app pede"
   guide = "guide/desktop/"
+  start_note = "Ele atende ao reiniciar e ao desligar da GNOME Software depois das atualizações, e sai junto com o Sway."
   [components.en-us]
   name = "Restart after updates"
   text = "A minimal session manager for Sway, so GNOME Software can restart or shut down after updates. It asks first through the session menu (`swaydesk-session-menu`, which it recommends); without the menu, it restarts or shuts down at once."
   keys = "On its own, when an app asks"
   guide = "guide/desktop/"
+  start_note = "It answers GNOME Software's restart and shut down after updates, and exits with Sway."
   [components.es]
   name = "Reiniciar tras las actualizaciones"
   text = "Un gestor de sesión mínimo para Sway, para que GNOME Software pueda reiniciar o apagar tras las actualizaciones. Pregunta antes con el menú de sesión (`swaydesk-session-menu`, que recomienda); sin el menú, reinicia o apaga en el acto."
   keys = "Solo, cuando una aplicación lo pide"
   guide = "guide/desktop/"
+  start_note = "Atiende el reinicio y el apagado de GNOME Software después de las actualizaciones, y se cierra con Sway."
 
 [[components]]
 id = "lock"
@@ -748,16 +755,19 @@ start = ""
   text = "Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico."
   keys = ""
   guide = "guide/first-steps/#a-tela-de-login-do-swaydesk"
+  start_text = "Nada a acrescentar à config do Sway: a tela de login roda antes do Sway, pelo greetd.\n\n- **Debian e Ubuntu sem gerenciador de login:** ela aparece no próximo boot.\n- **Com outro gerenciador de login** (GDM, SDDM, LightDM), troque para o greetd e reinicie:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Ponha `sddm` ou `lightdm` no lugar de `gdm3`, ou `gdm` no Arch. No Arch, o `sudo systemctl enable greetd` é preciso mesmo sem outro.\n- **Para voltar:** `sudo systemctl disable greetd`, ative de novo o anterior e reinicie."
   [components.en-us]
   name = "Login screen"
   text = "A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login."
   keys = ""
   guide = "guide/first-steps/#the-swaydesk-login-screen"
+  start_text = "Nothing to add to the Sway config: the login screen runs before Sway, through greetd.\n\n- **Debian and Ubuntu without a display manager:** it comes up at the next boot.\n- **With another display manager** (GDM, SDDM, LightDM), switch to greetd and reboot:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Put `sddm` or `lightdm` in place of `gdm3`, or `gdm` on Arch. On Arch, `sudo systemctl enable greetd` is needed even without one.\n- **To go back:** `sudo systemctl disable greetd`, enable the old one again and reboot."
   [components.es]
   name = "Pantalla de inicio de sesión"
   text = "Una pantalla de inicio de sesión sobre greetd, con el mismo aspecto que la pantalla de bloqueo, en todas las distribuciones compatibles, Arch incluido. Desbloquea el llavero con tu contraseña de inicio de sesión. La pantalla de inicio de sesión que ya usas también funciona; sin una, como en una instalación mínima o de servidor, esta es la que te da un inicio de sesión gráfico."
   keys = ""
   guide = "guide/first-steps/#la-pantalla-de-inicio-de-sesión-de-swaydesk"
+  start_text = "Nada que añadir a la config de Sway: la pantalla de inicio de sesión funciona antes de Sway, con greetd.\n\n- **Debian y Ubuntu sin gestor de inicio de sesión:** aparece en el próximo arranque.\n- **Con otro gestor de inicio de sesión** (GDM, SDDM, LightDM), cambia a greetd y reinicia:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Pon `sddm` o `lightdm` en lugar de `gdm3`, o `gdm` en Arch. En Arch, `sudo systemctl enable greetd` hace falta incluso sin otro.\n- **Para volver:** `sudo systemctl disable greetd`, activa de nuevo el anterior y reinicia."
 
 [[components]]
 id = "keyring"
@@ -772,22 +782,25 @@ page = true
 package = "swaydesk-keyring"
 arch_with = []
 optional = []
-start = ""
+start = "exec swaydesk-keyring"
   [components.pt-br]
   name = "Chaveiro"
   text = "O gnome-keyring guarda as senhas dos apps e abre junto com o login. No Debian 13, o primeiro login de cada usuário mostra um aviso e pede a senha uma vez; nos seguintes, o chaveiro abre sozinho. No Ubuntu e no Arch, não pede nada."
   keys = ""
   guide = "guide/desktop/#senhas-e-chaveiro"
+  start_note = "Ele só age no primeiro login no Debian 13, onde o gnome-keyring cria o chaveiro sem publicá-lo: depois de um aviso, pede a sua senha uma vez. Nos outros casos, não faz nada."
   [components.en-us]
   name = "Keyring"
   text = "gnome-keyring keeps the apps' passwords and unlocks when you log in. On Debian 13, each user's first login shows a notice and asks for the password once; from then on, the keyring unlocks by itself. On Ubuntu and Arch, it asks for nothing."
   keys = ""
   guide = "guide/desktop/#passwords-and-keyring"
+  start_note = "It only acts on the first login on Debian 13, where gnome-keyring creates the keyring without publishing it: after a notice, it asks for your password once. Elsewhere it does nothing."
   [components.es]
   name = "Llavero"
   text = "gnome-keyring guarda las contraseñas de las aplicaciones y se desbloquea cuando inicias sesión. En Debian 13, el primer inicio de sesión de cada usuario muestra un aviso y pide la contraseña una vez; desde entonces, el llavero se desbloquea solo. En Ubuntu y Arch, no pide nada."
   keys = ""
   guide = "guide/desktop/#contraseñas-y-llavero"
+  start_note = "Solo actúa en el primer inicio de sesión en Debian 13, donde gnome-keyring crea el llavero sin publicarlo: después de un aviso, pide tu contraseña una vez. En los demás casos, no hace nada."
 
 [[components]]
 id = "polkit-agent"
@@ -912,16 +925,19 @@ start = ""
   text = "Escolhe o tema GTK, os ícones, a cor de destaque e o tamanho do cursor, e aplica tudo de uma vez, também nos apps GTK e libadwaita. Por padrão, a cor de destaque acompanha o papel de parede, inclusive o do dia (**Usar a cor do papel de parede**); escolher uma cor à mão desliga isso."
   keys = "Na grade de apps"
   guide = "guide/config/"
+  start_text = "Nada a acrescentar à config do Sway: abra o **Tema do Desktop** pelo seu lançador, ou rode `swaydesk-theme-app`."
   [components.en-us]
   name = "Desktop Theme"
   text = "Picks the GTK theme, the icons, the accent color and the cursor size, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off."
   keys = "In the app grid"
   guide = "guide/config/"
+  start_text = "Nothing to add to the Sway config: open **Desktop Theme** from your launcher, or run `swaydesk-theme-app`."
   [components.es]
   name = "Tema del escritorio"
   text = "Elige el tema GTK, los iconos, el color de acento y el tamaño del cursor, y los aplica todos a la vez, incluidas las aplicaciones GTK y libadwaita. De forma predeterminada, el color de acento sigue al fondo de pantalla, incluido el del día (**Usar el color del fondo de pantalla**); elegir un color tú mismo lo desactiva."
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
+  start_text = "Nada que añadir a la config de Sway: abre **Tema del escritorio** desde tu lanzador, o ejecuta `swaydesk-theme-app`."
 
 [[components]]
 id = "portal"
@@ -1004,22 +1020,25 @@ page = true
 package = "swaydesk-help"
 arch_with = ["swaydesk-lock"]
 optional = []
-start = ""
+start = "bindsym $mod+F1 exec swaydesk-help"
   [components.pt-br]
   name = "Ajuda"
   text = "Os atalhos do perfil em uso, com busca, lidos da própria configuração do Sway, e um cartão para cada parte do desktop, com o atalho e um botão que a abre. Nela você também troca o perfil de atalhos e abre o seu `50-local.conf` para editar."
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
+  start_note = "Ele também abre pelo seu lançador. Ele lista os atalhos da sua própria config: um comentário `## descrição` acima de um dá o texto dele, `### Nome` os agrupa, e os outros mostram o comando. Os perfis de atalhos são da sessão do Swaydesk: na sua própria config, não use a troca de perfil dele."
   [components.en-us]
   name = "Help"
   text = "The shortcuts of the profile in use, with search, read from the Sway configuration itself, and a card for each part of the desktop, with its shortcut and a button that opens it. It's also where you switch the shortcut profile and open your `50-local.conf` to edit it."
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
+  start_note = "It also opens from your launcher. It lists the bindings of your own config: a `## description` comment above one gives its text, `### Name` groups them, and the rest show their command. The shortcut profiles belong to the Swaydesk session: on your own config, don't use its profile switch."
   [components.es]
   name = "Ayuda"
   text = "Los atajos del perfil en uso, con búsqueda, leídos de la propia configuración de Sway, y una tarjeta para cada parte del escritorio, con su atajo y un botón que la abre. También es donde cambias el perfil de atajos y abres tu `50-local.conf` para editarlo."
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
+  start_note = "También se abre desde tu lanzador. Lista los atajos de tu propia config: un comentario `## descripción` encima de uno da su texto, `### Nombre` los agrupa, y los demás muestran su comando. Los perfiles de atajos son de la sesión de Swaydesk: en tu propia config, no uses su cambio de perfil."
 
 [[components]]
 id = "shortcut-profiles"
@@ -1060,22 +1079,25 @@ page = true
 package = "swaydesk-capture"
 arch_with = ["wf-recorder", "wl-clipboard", "libnotify"]
 optional = []
-start = ""
+start = "bindsym Print exec swaydesk-capture shot"
   [components.pt-br]
   name = "Captura de tela"
   text = "Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-e-gravação"
+  start_note = "`swaydesk-capture rec` abre o painel de gravação; associe-o a outra tecla se quiser. Os dois também abrem pelo seu lançador."
   [components.en-us]
   name = "Screenshot"
   text = "A region, the whole screen or a window, with a delay. It goes to the clipboard and to `~/Pictures/Screenshots`; with Gradia, it opens for editing."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#screenshots-and-recording"
+  start_note = "`swaydesk-capture rec` opens the recording panel instead; bind it to another key if you like. Both also open from your launcher."
   [components.es]
   name = "Captura de pantalla"
   text = "Una región, la pantalla completa o una ventana, con retardo. Va al portapapeles y a `~/Pictures/Screenshots`; con Gradia, se abre para editarla."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-de-pantalla-y-grabación"
+  start_note = "`swaydesk-capture rec` abre el panel de grabación; asígnalo a otra tecla si quieres. Los dos también se abren desde tu lanzador."
 
 [[components]]
 id = "screen-recording"
@@ -1123,16 +1145,19 @@ start = ""
   text = "Aplica o tema GTK, os ícones, a cor de destaque e as fontes em todo o desktop pela linha de comando, com as cores de pasta do Papirus (`swaydesk-theme`), e gera, do `~/.config/swaydesk/config.toml`, os arquivos que o Sway, a barra e os apps usam: depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos."
   keys = "No terminal"
   guide = "guide/config/"
+  start_text = "Nada a acrescentar à config do Sway: são ferramentas de linha de comando. `man swaydesk-theme` e `man swaydesk-desktop-config` listam as opções."
   [components.en-us]
   name = "Theme and settings from the terminal"
   text = "Applies the GTK theme, the icons, the accent color and the fonts across the desktop from the command line, with the Papirus folder colors (`swaydesk-theme`), and writes, from `~/.config/swaydesk/config.toml`, the files that Sway, the bar and the apps use: after editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files."
   keys = "In the terminal"
   guide = "guide/config/"
+  start_text = "Nothing to add to the Sway config: they're command-line tools. `man swaydesk-theme` and `man swaydesk-desktop-config` list their options."
   [components.es]
   name = "Tema y ajustes desde la terminal"
   text = "Aplica el tema GTK, los iconos, el color de acento y las fuentes en todo el escritorio desde la línea de comandos, con los colores de carpeta de Papirus (`swaydesk-theme`), y escribe, desde `~/.config/swaydesk/config.toml`, los archivos que usan Sway, la barra y las aplicaciones: después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos."
   keys = "En la terminal"
   guide = "guide/config/"
+  start_text = "Nada que añadir a la config de Sway: son herramientas de línea de comandos. `man swaydesk-theme` y `man swaydesk-desktop-config` listan sus opciones."
 
 [groups.bar]
 package = "swaydesk-bar"

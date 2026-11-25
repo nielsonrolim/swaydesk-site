@@ -23,7 +23,7 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
 - **Components:** `data/components.toml` (its header documents the fields) drives the list on `/components/` (shortcode
   `components`) and one page per component with `page = true`, made by `content/<lang>/components/_content.gotmpl` (the
   same file in the three languages) and drawn by `layouts/components/page.html`. A new component is one
-  `[[components]]` with its three languages; `package`, `start` and `waybar` stay empty until known, and the page says
+  `[[components]]` with its three languages; `package`, `start` (or the per-language `start_text`, when nothing goes in the Sway config) and `waybar` stay empty until known, and the page says
   "being written".
   `_partials/topbar.html` (logo, menu, languages, Download button, theme), `nav.html` (the top menu: every
   `main` menu entry but home and Download), `locale.html`, `theme-toggle.html` and `footer.html` are on every

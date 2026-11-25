@@ -137,7 +137,7 @@ class CheckComponentsTests(unittest.TestCase):
                                        f"dock: {field} must be {'a list of strings' if field in ('arch_with', 'optional') else 'a string'}")
 
     def test_page_notes_of_the_wrong_type_fail(self):
-        for field in ("note", "start_note", "arch_note", "waybar_note"):
+        for field in ("note", "start_note", "start_text", "arch_note", "waybar_note"):
             with self.subTest(field=field):
                 langs = [lang("pt-br"), lang("en-us") + f"  {field} = 3\n", lang("es")]
                 self.assert_fails_with(component(extra='start = "include x"\n', langs=langs),
@@ -182,6 +182,20 @@ class CheckComponentsTests(unittest.TestCase):
         langs = [lang("pt-br"), lang("en-us") + '  start_note = "A note."\n', lang("es")]
         self.assert_fails_with(component(langs=langs), "dock: en-us start_note without a start")
 
+    def test_start_text_and_start_together_fail(self):
+        langs = [lang(c) + '  start_text = "Nothing to start."\n' for c in ("pt-br", "en-us", "es")]
+        self.assert_fails_with(component(extra='start = "exec x"\n', langs=langs),
+                               "dock: en-us start_text next to a start")
+
+    def test_start_text_in_one_language_only_fails(self):
+        langs = [lang("pt-br"), lang("en-us") + '  start_text = "Nothing to start."\n', lang("es")]
+        self.assert_fails_with(component(langs=langs), "dock: start_text missing in pt-br")
+
+    def test_start_text_in_every_language_passes(self):
+        langs = [lang(c) + '  start_text = "Nothing to start."\n' for c in ("pt-br", "en-us", "es")]
+        result = self.run_on(component(langs=langs))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_page_fields_on_a_card_without_a_page_fail(self):
         fields = {"package": '"swaydesk-dock"', "arch_with": '["swayidle"]', "optional": '["x"]',
                   "start": '"include x"', "start_file": '"~/x"', "unit": "true", "waybar": '"swaydesk-dock"'}
@@ -191,7 +205,7 @@ class CheckComponentsTests(unittest.TestCase):
                                        f"dock: {field} on a card without a page")
 
     def test_page_notes_on_a_card_without_a_page_fail(self):
-        for field in ("note", "start_note", "arch_note", "waybar_note"):
+        for field in ("note", "start_note", "start_text", "arch_note", "waybar_note"):
             with self.subTest(field=field):
                 langs = [lang("pt-br"), lang("en-us") + f'  {field} = "A note."\n', lang("es")]
                 self.assert_fails_with(component(page="false", langs=langs),
