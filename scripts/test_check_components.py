@@ -199,6 +199,32 @@ class CheckComponentsTests(unittest.TestCase):
         result = self.run_on(component(langs=langs))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_features_in_every_language_pass(self):
+        langs = [lang(c) + '  features = ["One.", "Two."]\n' for c in ("pt-br", "en-us", "es")]
+        result = self.run_on(component(langs=langs))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_features_must_be_a_list_of_non_empty_strings(self):
+        for value in ('"One."', '["One.", ""]', '["One.", 2]', "[]"):
+            with self.subTest(value=value):
+                langs = [lang(c) + f'  features = {value}\n' for c in ("pt-br", "en-us", "es")]
+                self.assert_fails_with(component(langs=langs),
+                                       "dock: en-us features must be a non-empty list of non-empty strings")
+
+    def test_features_missing_in_one_language_fail(self):
+        langs = [lang("pt-br"), lang("en-us") + '  features = ["One."]\n', lang("es")]
+        self.assert_fails_with(component(langs=langs), "dock: features missing in pt-br")
+
+    def test_features_of_different_lengths_fail(self):
+        langs = [lang("pt-br") + '  features = ["Um."]\n', lang("en-us") + '  features = ["One.", "Two."]\n',
+                 lang("es") + '  features = ["Uno.", "Dos."]\n']
+        self.assert_fails_with(component(langs=langs),
+                               "dock: features has 1 items in pt-br and 2 in en-us (a translation is missing a line)")
+
+    def test_features_on_a_card_without_a_page_fail(self):
+        langs = [lang(c) + '  features = ["One."]\n' for c in ("pt-br", "en-us", "es")]
+        self.assert_fails_with(component(page="false", langs=langs), "dock: en-us features on a card without a page")
+
     def test_page_fields_on_a_card_without_a_page_fail(self):
         fields = {"package": '"swaydesk-dock"', "arch_with": '["swayidle"]', "optional": '["x"]',
                   "start": '"include x"', "start_file": '"~/x"', "unit": "true", "waybar": '"swaydesk-dock"'}

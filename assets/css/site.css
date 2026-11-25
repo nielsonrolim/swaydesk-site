@@ -150,6 +150,8 @@ h2 { font-weight: 600; }
 .component__body p { margin: 0 0 .5rem; }
 .component__keys { color: var(--ink); font-size: .85rem; }
 .component__meta { color: var(--muted); font-size: .75rem; }
+.component__features { margin: .25rem 0 .75rem; padding-left: 1.25rem; }
+.component__features li { margin: .2rem 0; }
 .component:not(:has(.component__shot)) { grid-template-columns: 1fr; }
 @media (max-width: 40rem) { .component { grid-template-columns: 1fr; } }
 
