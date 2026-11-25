@@ -211,19 +211,23 @@ html.lb-open { overflow: hidden; }
 .distro { padding-top: .25rem; }
 .distro:focus-visible { outline-offset: 4px; }
 .distro + .distro { margin-top: 2.5rem; }
+/* Em abas (install.js põe a .tabs antes delas), os painéis escondidos ainda contam como irmãos: nenhum ganha a margem
+   da lista empilhada, e o primeiro bloco visível de cada painel começa à mesma distância das abas */
+.tabs ~ .distro { margin-top: 0; }
+.tabs ~ .distro > .distro__title + * { margin-top: .5rem; }
+.tabs ~ .distro > .distro__title + .steps > li:first-child { margin-top: 0; }
 .distro__note { margin: .5rem 0 0; padding: .6rem .8rem; border-left: 3px solid var(--accent); background: var(--surface); color: var(--ink-soft); }
 .steps { padding-left: 1.75rem; }
 .steps > li { margin: 1.25rem 0; padding-left: .25rem; }
 .steps > li::marker { color: var(--accent); font-weight: 700; }
 .step__text { margin: 0 0 .4rem; overflow-wrap: anywhere; }
-.cmd { display: flex; align-items: flex-start; gap: .4rem; }
+.cmd { display: flex; align-items: stretch; gap: .4rem; }
 .cmd pre { flex: 1; min-width: 0; margin: 0; }
 .content .cmd pre { margin: 0; }
-.cmd__copy { flex: none; padding: .45rem .6rem; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--paper); color: var(--ink-soft); font: inherit; font-size: .75rem; cursor: pointer; }
+.cmd__copy { flex: none; display: flex; align-items: center; justify-content: center; padding: 0 .75rem; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--paper); color: var(--ink-soft); font: inherit; font-size: .75rem; cursor: pointer; }
 .cmd__copy:hover { border-color: var(--line-stronger); color: var(--ink); }
 @media (max-width: 30rem) {
-  .cmd { flex-direction: column; align-items: stretch; }
-  .cmd__copy { order: -1; align-self: flex-end; padding: .2rem .6rem; }
+  .cmd__copy { padding: 0 .55rem; }
   .tabs { border-bottom: 0; gap: .4rem; }
   .tabs__tab, .tabs__tab[aria-selected="true"] { margin: 0; border: 1px solid var(--line-strong); border-radius: var(--frame); }
   .tabs__tab[aria-selected="true"] { border-color: var(--accent); }

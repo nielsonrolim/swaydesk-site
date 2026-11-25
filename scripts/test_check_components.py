@@ -9,7 +9,7 @@ import unittest
 SCRIPT = pathlib.Path(__file__).resolve().parent / "check-components.py"
 REPO = SCRIPT.parent.parent
 
-ICONS = '{{- $p := dict\n  "bar" `<rect/>`\n  "lock" `<rect/>`\n}}\n'
+ICONS = '{{- $p := dict\n  "bar" `<rect/>`\n  "lock" `<rect/>`\n  "grid" `<rect/>`\n}}\n'
 
 
 def lang(code, name="Name", text="Text."):
@@ -57,7 +57,7 @@ class CheckComponentsTests(unittest.TestCase):
         toml = (component(shot="dock", extra='start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-dock.conf"\n'
                           'unit = true\npackage = "swaydesk-dock"\narch_with = ["swayidle"]\n', langs=langs)
                 + component(cid="audio", group="bar", icon="bar", extra='waybar = "swaydesk-audio"\n')
-                + component(cid="rec", page="false", extra='with = "dock"\n')
+                + component(cid="rec", icon="grid", page="false", extra='with = "dock"\n')
                 + '[groups.bar]\npackage = "swaydesk-bar"\n'
                 + "".join(f'  [groups.bar.{c}]\n  text = "T"\n' for c in ("pt-br", "en-us", "es")))
         result = self.run_on(toml)
@@ -120,6 +120,9 @@ class CheckComponentsTests(unittest.TestCase):
     def test_an_unknown_group_fails(self):
         self.assert_fails_with(component(group="tray"), "dock: unknown group tray")
 
+    def test_two_components_sharing_an_icon_fail(self):
+        self.assert_fails_with(component() + component(cid="lock"), "lock: icon lock is already the icon of dock")
+
     def test_an_unknown_icon_fails(self):
         self.assert_fails_with(component(icon="star"), "dock: unknown icon star")
 
@@ -137,7 +140,7 @@ class CheckComponentsTests(unittest.TestCase):
                                        f"dock: {field} must be {'a list of strings' if field in ('arch_with', 'optional') else 'a string'}")
 
     def test_page_notes_of_the_wrong_type_fail(self):
-        for field in ("note", "start_note", "arch_note", "waybar_note"):
+        for field in ("note", "start_note", "start_text", "arch_note", "waybar_note"):
             with self.subTest(field=field):
                 langs = [lang("pt-br"), lang("en-us") + f"  {field} = 3\n", lang("es")]
                 self.assert_fails_with(component(extra='start = "include x"\n', langs=langs),
@@ -182,6 +185,20 @@ class CheckComponentsTests(unittest.TestCase):
         langs = [lang("pt-br"), lang("en-us") + '  start_note = "A note."\n', lang("es")]
         self.assert_fails_with(component(langs=langs), "dock: en-us start_note without a start")
 
+    def test_start_text_and_start_together_fail(self):
+        langs = [lang(c) + '  start_text = "Nothing to start."\n' for c in ("pt-br", "en-us", "es")]
+        self.assert_fails_with(component(extra='start = "exec x"\n', langs=langs),
+                               "dock: en-us start_text next to a start")
+
+    def test_start_text_in_one_language_only_fails(self):
+        langs = [lang("pt-br"), lang("en-us") + '  start_text = "Nothing to start."\n', lang("es")]
+        self.assert_fails_with(component(langs=langs), "dock: start_text missing in pt-br")
+
+    def test_start_text_in_every_language_passes(self):
+        langs = [lang(c) + '  start_text = "Nothing to start."\n' for c in ("pt-br", "en-us", "es")]
+        result = self.run_on(component(langs=langs))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_page_fields_on_a_card_without_a_page_fail(self):
         fields = {"package": '"swaydesk-dock"', "arch_with": '["swayidle"]', "optional": '["x"]',
                   "start": '"include x"', "start_file": '"~/x"', "unit": "true", "waybar": '"swaydesk-dock"'}
@@ -191,7 +208,7 @@ class CheckComponentsTests(unittest.TestCase):
                                        f"dock: {field} on a card without a page")
 
     def test_page_notes_on_a_card_without_a_page_fail(self):
-        for field in ("note", "start_note", "arch_note", "waybar_note"):
+        for field in ("note", "start_note", "start_text", "arch_note", "waybar_note"):
             with self.subTest(field=field):
                 langs = [lang("pt-br"), lang("en-us") + f'  {field} = "A note."\n', lang("es")]
                 self.assert_fails_with(component(page="false", langs=langs),
