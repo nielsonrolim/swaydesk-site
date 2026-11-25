@@ -1079,25 +1079,25 @@ page = true
 package = "swaydesk-capture"
 arch_with = ["wf-recorder", "wl-clipboard", "libnotify"]
 optional = []
-start = "bindsym Print exec swaydesk-capture shot\nbindsym Shift+Print exec swaydesk-capture rec"
+start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r exec swaydesk-capture rec"
   [components.pt-br]
   name = "Captura de tela"
   text = "Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-e-gravação"
-  start_note = "O painel de captura e o de gravação; os dois também abrem pelo seu lançador. A sessão do Swaydesk os põe em `Super`+`Shift`+`E` e `Super`+`Shift`+`R`, mas a config padrão do Sway usa essas teclas para sair e recarregar o Sway. Se o seu `Print` já roda o grim, escolha outras teclas."
+  start_note = "O painel de captura e o de gravação; os dois também abrem pelo seu lançador. A sessão do Swaydesk os põe em `Super`+`Shift`+`E` e `Super`+`Shift`+`R`, mas a config padrão do Sway usa `Super`+`Shift`+`E` para sair e `Print` para uma captura com o grim, e estas teclas deixam as duas como estão."
   [components.en-us]
   name = "Screenshot"
   text = "A region, the whole screen or a window, with a delay. It goes to the clipboard and to `~/Pictures/Screenshots`; with Gradia, it opens for editing."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#screenshots-and-recording"
-  start_note = "The screenshot panel and the recording panel; both also open from your launcher. The Swaydesk session puts them on `Super`+`Shift`+`E` and `Super`+`Shift`+`R`, but a default Sway config uses those keys to exit and reload Sway. If your `Print` already runs grim, pick other keys."
+  start_note = "The screenshot panel and the recording panel; both also open from your launcher. The Swaydesk session puts them on `Super`+`Shift`+`E` and `Super`+`Shift`+`R`, but Sway's default config uses `Super`+`Shift`+`E` to exit and `Print` for a grim screenshot, so these keys leave both alone."
   [components.es]
   name = "Captura de pantalla"
   text = "Una región, la pantalla completa o una ventana, con retardo. Va al portapapeles y a `~/Pictures/Screenshots`; con Gradia, se abre para editarla."
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-de-pantalla-y-grabación"
-  start_note = "El panel de captura y el de grabación; los dos también se abren desde tu lanzador. La sesión de Swaydesk los pone en `Super`+`Shift`+`E` y `Super`+`Shift`+`R`, pero la config predeterminada de Sway usa esas teclas para salir y recargar Sway. Si tu `Print` ya ejecuta grim, elige otras teclas."
+  start_note = "El panel de captura y el de grabación; los dos también se abren desde tu lanzador. La sesión de Swaydesk los pone en `Super`+`Shift`+`E` y `Super`+`Shift`+`R`, pero la config predeterminada de Sway usa `Super`+`Shift`+`E` para salir y `Print` para una captura con grim, así que estas teclas dejan las dos como están."
 
 [[components]]
 id = "screen-recording"
