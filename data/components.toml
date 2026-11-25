@@ -785,22 +785,25 @@ optional = []
 start = "exec swaydesk-keyring"
   [components.pt-br]
   name = "Chaveiro"
-  text = "O gnome-keyring guarda as senhas dos apps e abre junto com o login. No Debian 13, o primeiro login de cada usuário mostra um aviso e pede a senha uma vez; nos seguintes, o chaveiro abre sozinho. No Ubuntu e no Arch, não pede nada."
+  text = "Conserta o chaveiro do primeiro login no Debian 13: no login, ele confere se o gnome-keyring criou o seu chaveiro sem publicá-lo e, nesse caso, mostra um aviso e pede a sua senha uma vez, logo ali. Do segundo login em diante, o chaveiro abre sozinho."
+  note = "**Por quê:** no primeiro login sem um desktop completo (pelo greetd, por exemplo), o gnome-keyring 48 cria o chaveiro \"login\", mas não o publica, e o primeiro app que precisa de uma senha guardada (um navegador, o Bitwarden, o Wi-Fi) ficaria preso num pedido que nunca aparece. O Ubuntu 26.04 e o Arch não têm o problema, e neles ele não faz nada; o gnome-keyring 51 corrige isso na origem."
   keys = ""
   guide = "guide/desktop/#senhas-e-chaveiro"
-  start_note = "Ele só age no primeiro login no Debian 13, onde o gnome-keyring cria o chaveiro sem publicá-lo: depois de um aviso, pede a sua senha uma vez. Nos outros casos, não faz nada."
+  start_note = "Útil principalmente no Debian 13; nos outros, não faz nada e sai."
   [components.en-us]
   name = "Keyring"
-  text = "gnome-keyring keeps the apps' passwords and unlocks when you log in. On Debian 13, each user's first login shows a notice and asks for the password once; from then on, the keyring unlocks by itself. On Ubuntu and Arch, it asks for nothing."
+  text = "Fixes the first login's keyring on Debian 13: at login, it checks whether gnome-keyring created your keyring without publishing it, and if so, shows a notice and asks for your password once, right away. From the second login on, the keyring unlocks by itself."
+  note = "**Why:** on the first login without a full desktop (through greetd, say), gnome-keyring 48 creates the \"login\" keyring but doesn't publish it, so the first app that needs a saved password (a browser, Bitwarden, the Wi-Fi) would get stuck on a prompt that never shows. Ubuntu 26.04 and Arch don't have the problem, and there it does nothing; gnome-keyring 51 fixes it upstream."
   keys = ""
   guide = "guide/desktop/#passwords-and-keyring"
-  start_note = "It only acts on the first login on Debian 13, where gnome-keyring creates the keyring without publishing it: after a notice, it asks for your password once. Elsewhere it does nothing."
+  start_note = "Useful mainly on Debian 13; elsewhere it does nothing and exits."
   [components.es]
   name = "Llavero"
-  text = "gnome-keyring guarda las contraseñas de las aplicaciones y se desbloquea cuando inicias sesión. En Debian 13, el primer inicio de sesión de cada usuario muestra un aviso y pide la contraseña una vez; desde entonces, el llavero se desbloquea solo. En Ubuntu y Arch, no pide nada."
+  text = "Arregla el llavero del primer inicio de sesión en Debian 13: al iniciar sesión, comprueba si gnome-keyring creó tu llavero sin publicarlo y, en ese caso, muestra un aviso y pide tu contraseña una vez, en ese momento. Desde el segundo inicio de sesión, el llavero se desbloquea solo."
+  note = "**Por qué:** en el primer inicio de sesión sin un escritorio completo (con greetd, por ejemplo), gnome-keyring 48 crea el llavero \"login\", pero no lo publica, y la primera aplicación que necesita una contraseña guardada (un navegador, Bitwarden, el Wi-Fi) se quedaría atascada en una petición que nunca aparece. Ubuntu 26.04 y Arch no tienen el problema, y allí no hace nada; gnome-keyring 51 lo corrige en su origen."
   keys = ""
   guide = "guide/desktop/#contraseñas-y-llavero"
-  start_note = "Solo actúa en el primer inicio de sesión en Debian 13, donde gnome-keyring crea el llavero sin publicarlo: después de un aviso, pide tu contraseña una vez. En los demás casos, no hace nada."
+  start_note = "Útil sobre todo en Debian 13; en los demás, no hace nada y se cierra."
 
 [[components]]
 id = "polkit-agent"
