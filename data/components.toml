@@ -29,6 +29,7 @@ id = "network"
 group = "bar"
 icon = "wifi"
 shot = "network"
+crop = true
 bin = "swaydesk-network-popup"
 src = "rust/network-popup"
 tech = "rust"
@@ -93,6 +94,8 @@ id = "bluetooth"
 group = "bar"
 icon = "bluetooth"
 shot = "bluetooth"
+crop = true
+more_shots = ["bluetooth-details"]
 bin = "swaydesk-bluetooth-popup"
 src = "rust/bluetooth-popup"
 tech = "rust"
@@ -106,6 +109,7 @@ waybar = "swaydesk-bluetooth"
   [components.pt-br]
   name = "Bluetooth"
   text = "Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos."
+  more_alts = ["Os detalhes de um dispositivo, com Enviar arquivo e Esquecer"]
   features = [
     "Interruptores ligam e desligam o Bluetooth e deixam o computador *Visível* para outros aparelhos.",
     "Ao ligar, ele também tira um bloqueio de software, sem pedir senha.",
@@ -122,6 +126,7 @@ waybar = "swaydesk-bluetooth"
   [components.en-us]
   name = "Bluetooth"
   text = "Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files."
+  more_alts = ["A device's details, with Send file and Forget"]
   features = [
     "Switches turn Bluetooth on and off and make the computer *Visible* to other devices.",
     "Turning it on also lifts a software block, without asking for a password.",
@@ -138,6 +143,7 @@ waybar = "swaydesk-bluetooth"
   [components.es]
   name = "Bluetooth"
   text = "Activa el Bluetooth, busca dispositivos, los vincula, los conecta, los olvida y envía archivos."
+  more_alts = ["Los detalles de un dispositivo, con Enviar archivo y Olvidar"]
   features = [
     "Los interruptores activan y desactivan el Bluetooth y hacen el equipo *Visible* para otros dispositivos.",
     "Al activarlo, también quita un bloqueo por software, sin pedir contraseña.",
@@ -157,6 +163,7 @@ id = "audio"
 group = "bar"
 icon = "speaker"
 shot = "audio"
+crop = true
 bin = "swaydesk-audio-popup"
 src = "rust/audio-popup"
 tech = "rust"
@@ -221,6 +228,7 @@ id = "battery"
 group = "bar"
 icon = "battery"
 shot = "battery"
+crop = true
 bin = "swaydesk-battery-popup"
 src = "rust/battery-popup"
 tech = "rust"
@@ -285,6 +293,7 @@ id = "brightness"
 group = "bar"
 icon = "sun"
 shot = "brightness"
+crop = true
 bin = "swaydesk-brightness-popup"
 src = "rust/brightness-popup"
 tech = "rust"
@@ -349,6 +358,7 @@ id = "media"
 group = "bar"
 icon = "music"
 shot = "media"
+crop = true
 bin = "swaydesk-media-popup"
 src = "rust/media-popup"
 tech = "rust"
@@ -410,6 +420,7 @@ id = "weather"
 group = "bar"
 icon = "cloud"
 shot = "weather"
+crop = true
 bin = "swaydesk-weather-popup"
 src = "rust/weather-popup"
 tech = "rust"
@@ -602,6 +613,7 @@ id = "caffeine"
 group = "bar"
 icon = "coffee"
 shot = "caffeine"
+crop = true
 bin = "swaydesk-caffeine-popup"
 src = "rust/caffeine-popup"
 tech = "rust"
@@ -1136,6 +1148,7 @@ id = "osd"
 group = "session"
 icon = "level"
 shot = "osd"
+crop = true
 bin = "swaydesk-osd-bar"
 src = "rust/osd-bar"
 tech = "rust"
@@ -1311,6 +1324,8 @@ id = "lock"
 group = "session"
 icon = "lock"
 shot = "lock"
+crop = true
+more_shots = ["lock-wrong"]
 bin = "swaydesk-lock"
 src = "rust/lock"
 tech = "rust"
@@ -1323,6 +1338,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.pt-br]
   name = "Bloqueio de tela"
   text = "Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. No Debian 13, cujo gtk4-layer-shell é anterior ao 1.2, a mesma tela de bloqueio roda na versão GTK 3."
+  more_alts = ["Depois de uma senha errada"]
   features = [
     "Bloqueia com `Ctrl`+`Alt`+`L`, depois de 10 minutos sem uso e antes de o computador suspender.",
     "A sua foto, ou as suas iniciais, e o seu nome abaixo da hora e da data.",
@@ -1339,6 +1355,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.en-us]
   name = "Lock screen"
   text = "Time, date and the password field on every monitor, over the blurred wallpaper. On Debian 13, whose gtk4-layer-shell is older than 1.2, the same lock screen runs in its GTK 3 version."
+  more_alts = ["After a wrong password"]
   features = [
     "Locks with `Ctrl`+`Alt`+`L`, after 10 minutes idle, and before the computer sleeps.",
     "Your photo, or your initials, and your name under the time and date.",
@@ -1355,6 +1372,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.es]
   name = "Pantalla de bloqueo"
   text = "Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. En Debian 13, cuyo gtk4-layer-shell es anterior a 1.2, la misma pantalla de bloqueo funciona en su versión GTK 3."
+  more_alts = ["Después de una contraseña incorrecta"]
   features = [
     "Bloquea con `Ctrl`+`Alt`+`L`, tras 10 minutos de inactividad y antes de que el equipo se suspenda.",
     "Tu foto, o tus iniciales, y tu nombre bajo la hora y la fecha.",
@@ -1374,6 +1392,8 @@ id = "greeter"
 group = "session"
 icon = "user"
 shot = "greeter"
+crop = true
+more_shots = ["greeter-caps"]
 bin = "swaydesk-greeter"
 src = "rust/greeter"
 tech = "rust"
@@ -1386,6 +1406,7 @@ start = ""
   [components.pt-br]
   name = "Tela de login"
   text = "Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico."
+  more_alts = ["O aviso Caps Lock ligado"]
   features = [
     "Escolha a sua conta numa lista com fotos ou iniciais; *Outro usuário…* deixa digitar um nome de usuário.",
     "Ela lembra a última conta e a sessão que cada conta usou.",
@@ -1403,6 +1424,7 @@ start = ""
   [components.en-us]
   name = "Login screen"
   text = "A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login."
+  more_alts = ["The Caps Lock warning"]
   features = [
     "Pick your account from a list with photos or initials; *Other user…* lets you type a user name.",
     "It remembers the last account and the session each account used.",
@@ -1420,6 +1442,7 @@ start = ""
   [components.es]
   name = "Pantalla de inicio de sesión"
   text = "Una pantalla de inicio de sesión sobre greetd, con el mismo aspecto que la pantalla de bloqueo, en todas las distribuciones compatibles, Arch incluido. Desbloquea el llavero con tu contraseña de inicio de sesión. La pantalla de inicio de sesión que ya usas también funciona; sin una, como en una instalación mínima o de servidor, esta es la que te da un inicio de sesión gráfico."
+  more_alts = ["El aviso de Bloq Mayús activado"]
   features = [
     "Elige tu cuenta de una lista con fotos o iniciales; *Otro usuario…* permite escribir un nombre de usuario.",
     "Recuerda la última cuenta y la sesión que usó cada cuenta.",
