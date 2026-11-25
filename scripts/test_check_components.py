@@ -31,6 +31,9 @@ class CheckComponentsTests(unittest.TestCase):
         (self.root / "layouts/_partials/icon.html").write_text(ICONS, encoding="utf-8")
         (self.root / "assets/images/shots").mkdir(parents=True)
         (self.root / "assets/images/shots/dock.webp").write_bytes(b"RIFF")
+        (self.root / "assets/images/components").mkdir(parents=True)
+        for name in ("dock", "dock-menu", "dock-drag"):
+            (self.root / f"assets/images/components/{name}.webp").write_bytes(b"RIFF")
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -198,6 +201,50 @@ class CheckComponentsTests(unittest.TestCase):
         langs = [lang(c) + '  start_text = "Nothing to start."\n' for c in ("pt-br", "en-us", "es")]
         result = self.run_on(component(langs=langs))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def more(self, shots='["dock-menu", "dock-drag"]', alts=None, page="true", crop=""):
+        alts = alts if alts is not None else ['["Menu.", "Drag."]'] * 3
+        langs = [lang(c) + (f"  more_alts = {a}\n" if a else "") for c, a in zip(("pt-br", "en-us", "es"), alts)]
+        extra = (f"more_shots = {shots}\n" if shots else "") + crop
+        return component(page=page, extra=extra, langs=langs)
+
+    def test_a_crop_and_more_shots_pass(self):
+        result = self.run_on(self.more(crop="crop = true\n"))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_crop_needs_its_file(self):
+        self.assert_fails_with(component(cid="audio", icon="bar", extra="crop = true\n"),
+                               "audio: assets/images/components/audio.webp doesn't exist")
+
+    def test_crop_must_be_a_boolean(self):
+        self.assert_fails_with(component(extra='crop = "yes"\n'), "dock: crop must be true or false")
+
+    def test_more_shots_need_their_files(self):
+        self.assert_fails_with(self.more(shots='["dock-menu", "nope"]'),
+                               "dock: assets/images/components/nope.webp doesn't exist")
+
+    def test_more_shots_must_be_a_list_of_names(self):
+        for shots in ('"dock-menu"', '["dock-menu", ""]', '["dock-menu", 2]', "[]"):
+            with self.subTest(shots=shots):
+                self.assert_fails_with(self.more(shots=shots), "dock: more_shots must be a non-empty list of names")
+
+    def test_at_most_four_more_shots(self):
+        names = ", ".join(['"dock-menu"'] * 5)
+        alts = [f'[{", ".join(["{0}"] * 5)}]'.format('"A."')] * 3
+        self.assert_fails_with(self.more(shots=f"[{names}]", alts=alts), "dock: more_shots has 5 items, at most 4")
+
+    def test_more_alts_must_match_more_shots_in_every_language(self):
+        self.assert_fails_with(self.more(alts=['["Menu.", "Drag."]', '["Menu."]', '["Menú.", "Arrastre."]']),
+                               "dock: en-us more_alts has 1 items, more_shots has 2")
+        self.assert_fails_with(self.more(alts=['["Menu.", "Drag."]', "", '["Menú.", "Arrastre."]']),
+                               "dock: en-us more_alts has 0 items, more_shots has 2")
+        self.assert_fails_with(self.more(alts=['["Menu.", ""]'] * 3), "dock: pt-br more_alts must be non-empty strings")
+
+    def test_more_alts_without_more_shots_fail(self):
+        self.assert_fails_with(self.more(shots=""), "dock: pt-br more_alts without more_shots")
+
+    def test_more_shots_on_a_card_without_a_page_fail(self):
+        self.assert_fails_with(self.more(page="false"), "dock: more_shots on a card without a page")
 
     def test_page_fields_on_a_card_without_a_page_fail(self):
         fields = {"package": '"swaydesk-dock"', "arch_with": '["swayidle"]', "optional": '["x"]',
