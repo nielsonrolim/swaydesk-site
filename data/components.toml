@@ -41,17 +41,50 @@ start = ""
 waybar = "swaydesk-network"
   [components.pt-br]
   name = "Rede"
-  text = "Wi-Fi, cabo e VPN: liga e desliga, conecta, pede a senha e mostra os detalhes. Funciona com o NetworkManager e também com o iwd e o systemd-networkd (a VPN, só com o NetworkManager)."
+  text = "Wi-Fi, cabo e VPN: liga e desliga, conecta e mostra os detalhes."
+  features = [
+    "Dois interruptores ligam e desligam o Wi-Fi e toda a rede (*Rede*).",
+    "A lista de Wi-Fi mostra a conectada primeiro, depois as salvas, depois as de sinal mais forte; as protegidas têm um cadeado.",
+    "Clique numa rede para conectar; *×* desconecta, ou cancela uma conexão em andamento.",
+    "Clique na rede conectada para ver os detalhes: IP, gateway, DNS, sinal, faixa e velocidade; *Voltar* ou `Esc` volta.",
+    "As VPNs conectam com um clique; *Adicionar VPN* cria uma, dos tipos que os plugins de VPN do NetworkManager instalados permitem.",
+    "*Rede oculta*, *Editar conexões* e o *clique do meio* no ícone abrem o editor de conexões.",
+    "Com o NetworkManager, a senha de uma rede nova é pedida pelo nm-applet ou pelo agente do sistema.",
+    "O ícone mostra o sinal do Wi-Fi, o cabo ou a VPN, e fica laranja sem acesso à internet.",
+    "Funciona também com o iwd e o systemd-networkd; a VPN precisa do NetworkManager.",
+  ]
   keys = "Clique no ícone de rede"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Network"
-  text = "Wi-Fi, wired and VPN: turn them on and off, connect, enter the password and see the details. Works with NetworkManager, and also with iwd and systemd-networkd (VPN only with NetworkManager)."
+  text = "Wi-Fi, wired and VPN: turn them on and off, connect and see the details."
+  features = [
+    "Two switches turn Wi-Fi and all networking (*Network*) on and off.",
+    "Wi-Fi networks list the connected one first, then saved ones, then the strongest; secured ones show a lock.",
+    "Click a network to connect; *×* disconnects, or cancels a connection in progress.",
+    "Click the connected network for its details: IP, gateway, DNS, signal, band and speed; *Back* or `Esc` returns.",
+    "VPNs connect with a click; *Add VPN* adds one, of the types your installed NetworkManager VPN plugins allow.",
+    "*Hidden network*, *Edit connections* and a *middle click* on the icon open the connection editor.",
+    "With NetworkManager, the password for a new network is asked by nm-applet or the system's agent.",
+    "The icon shows the Wi-Fi signal, cable or VPN, and turns orange without internet access.",
+    "Also works with iwd and systemd-networkd; VPNs need NetworkManager.",
+  ]
   keys = "Click the network icon"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Red"
-  text = "Wi-Fi, red cableada y VPN: actívalas y desactívalas, conéctate, escribe la contraseña y mira los detalles. Funciona con NetworkManager, y también con iwd y systemd-networkd (la VPN, solo con NetworkManager)."
+  text = "Wi-Fi, red cableada y VPN: actívalas y desactívalas, conéctate y mira los detalles."
+  features = [
+    "Dos interruptores activan y desactivan el Wi-Fi y toda la red (*Red*).",
+    "La lista de Wi-Fi muestra primero la conectada, luego las guardadas y luego las de señal más fuerte; las protegidas llevan un candado.",
+    "Haz clic en una red para conectarte; *×* desconecta, o cancela una conexión en curso.",
+    "Haz clic en la red conectada para ver sus detalles: IP, puerta de enlace, DNS, señal, banda y velocidad; *Atrás* o `Esc` vuelve.",
+    "Las VPN se conectan con un clic; *Añadir VPN* añade una, de los tipos que permiten los plugins de VPN de NetworkManager instalados.",
+    "*Red oculta*, *Editar conexiones* y el *clic central* en el icono abren el editor de conexiones.",
+    "Con NetworkManager, la contraseña de una red nueva la pide nm-applet o el agente del sistema.",
+    "El icono muestra la señal del Wi-Fi, el cable o la VPN, y se pone naranja sin acceso a internet.",
+    "También funciona con iwd y systemd-networkd; la VPN necesita NetworkManager.",
+  ]
   keys = "Haz clic en el icono de red"
   guide = "guide/desktop/#la-barra"
 
@@ -73,16 +106,49 @@ waybar = "swaydesk-bluetooth"
   [components.pt-br]
   name = "Bluetooth"
   text = "Liga o Bluetooth, procura aparelhos, pareia, conecta, esquece e envia arquivos."
+  features = [
+    "Interruptores ligam e desligam o Bluetooth e deixam o computador *Visível* para outros aparelhos.",
+    "Ao ligar, ele também tira um bloqueio de software, sem pedir senha.",
+    "*Procurar dispositivos* procura por 30 segundos; clique em *Procurando...* para parar antes.",
+    "Clique num aparelho encontrado para parear, confiar e conectar; os códigos PIN aparecem na janela do blueman.",
+    "Em *Meus dispositivos*, clique para conectar e em *×* para desconectar; os conectados mostram a bateria.",
+    "*⋯* abre os detalhes do aparelho: endereço, tipo, pareado, confiável e bateria.",
+    "*Enviar arquivo* manda um arquivo para o aparelho; *Esquecer* pede um segundo clique antes.",
+    "*Mais opções* ou o *clique do meio* no ícone abre o blueman-manager.",
+    "A dica do ícone lista os aparelhos conectados com o nível da bateria.",
+  ]
   keys = "Clique no ícone de Bluetooth"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Bluetooth"
   text = "Turns Bluetooth on, finds devices, pairs, connects, forgets them and sends files."
+  features = [
+    "Switches turn Bluetooth on and off and make the computer *Visible* to other devices.",
+    "Turning it on also lifts a software block, without asking for a password.",
+    "*Search for devices* looks for 30 seconds; click *Searching...* to stop early.",
+    "Click a found device to pair, trust and connect it; PIN codes appear in blueman's dialog.",
+    "In *My devices*, click to connect and *×* to disconnect; connected ones show their battery.",
+    "*⋯* opens a device's details: address, type, paired, trusted and battery.",
+    "*Send file* sends a file to the device; *Forget* asks for a second click first.",
+    "*More options* or a *middle click* on the icon opens blueman-manager.",
+    "The icon's tooltip lists the connected devices with their battery level.",
+  ]
   keys = "Click the Bluetooth icon"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Bluetooth"
   text = "Activa el Bluetooth, busca dispositivos, los vincula, los conecta, los olvida y envía archivos."
+  features = [
+    "Los interruptores activan y desactivan el Bluetooth y hacen el equipo *Visible* para otros dispositivos.",
+    "Al activarlo, también quita un bloqueo por software, sin pedir contraseña.",
+    "*Buscar dispositivos* busca durante 30 segundos; haz clic en *Buscando...* para parar antes.",
+    "Haz clic en un dispositivo encontrado para vincularlo, darle confianza y conectarlo; los códigos PIN aparecen en el diálogo de blueman.",
+    "En *Mis dispositivos*, haz clic para conectar y en *×* para desconectar; los conectados muestran su batería.",
+    "*⋯* abre los detalles del dispositivo: dirección, tipo, vinculado, de confianza y batería.",
+    "*Enviar archivo* envía un archivo al dispositivo; *Olvidar* pide un segundo clic antes.",
+    "*Más opciones* o el *clic central* en el icono abre blueman-manager.",
+    "La información del icono lista los dispositivos conectados con su nivel de batería.",
+  ]
   keys = "Haz clic en el icono de Bluetooth"
   guide = "guide/desktop/#la-barra"
 
@@ -104,16 +170,49 @@ waybar = "swaydesk-audio"
   [components.pt-br]
   name = "Áudio"
   text = "Volume e mudo da saída e do microfone, e a escolha de cada dispositivo."
+  features = [
+    "*Saída* e *Entrada* têm cada uma um controle deslizante com a porcentagem e um botão *Mudo*.",
+    "Cada seção lista os seus dispositivos, com o atual na cor de destaque.",
+    "Alto-falantes e fone na mesma placa de som aparecem como itens separados.",
+    "Escolher um item troca a porta da placa quando ele é uma porta, e depois o torna o dispositivo padrão; o WirePlumber guarda a escolha.",
+    "O popup acompanha ao vivo as teclas de volume e um fone sendo plugado.",
+    "*Rolar* no ícone muda o volume de 1 em 1%, até 100%, com o indicador na tela.",
+    "*Clique direito* liga e desliga o mudo da saída.",
+    "*Clique do meio* ou *Mais opções* abre o pavucontrol.",
+    "A dica do ícone mostra o volume e o dispositivo atual.",
+  ]
   keys = "Clique no volume (clique do meio: pavucontrol)"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Audio"
   text = "Volume and mute for the output and the microphone, and which device each one uses."
+  features = [
+    "*Output* and *Input* each have a slider with the percentage and a *Mute* button.",
+    "Each section lists its devices, with the current one in the accent color.",
+    "Speakers and headphones on the same sound card show up as separate entries.",
+    "Picking an entry switches the card's port when it's a port, then makes it the default device; WirePlumber remembers it.",
+    "The popup follows the volume keys and a headset being plugged in, live.",
+    "*Scroll* on the icon changes the volume by 1%, up to 100%, with the on-screen indicator.",
+    "*Right click* mutes or unmutes the output.",
+    "*Middle click* or *More options* opens pavucontrol.",
+    "The icon's tooltip shows the volume and the current device.",
+  ]
   keys = "Click the volume (middle click: pavucontrol)"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Audio"
   text = "Volumen y silencio de la salida y del micrófono, y qué dispositivo usa cada uno."
+  features = [
+    "*Salida* y *Entrada* tienen cada una un control deslizante con el porcentaje y un botón *Silenciar*.",
+    "Cada sección lista sus dispositivos, con el actual en el color de acento.",
+    "Los altavoces y los auriculares de la misma tarjeta de sonido aparecen como entradas separadas.",
+    "Elegir una entrada cambia el puerto de la tarjeta cuando es un puerto, y luego la hace el dispositivo predeterminado; WirePlumber lo recuerda.",
+    "El popup sigue en vivo las teclas de volumen y la conexión de unos auriculares.",
+    "*Desplazar* sobre el icono cambia el volumen de 1 en 1%, hasta 100%, con el indicador en pantalla.",
+    "*Clic derecho* silencia o reactiva la salida.",
+    "*Clic central* o *Más opciones* abre pavucontrol.",
+    "La información del icono muestra el volumen y el dispositivo actual.",
+  ]
   keys = "Haz clic en el volumen (clic central: pavucontrol)"
   guide = "guide/desktop/#la-barra"
 
@@ -135,16 +234,49 @@ waybar = "swaydesk-battery"
   [components.pt-br]
   name = "Bateria"
   text = "Carga, tempo restante, consumo, saúde, um gráfico das últimas 12 horas e o perfil de energia."
+  features = [
+    "O ícone mostra um raio carregando, uma tomada quando está na tomada, ou o nível da carga.",
+    "Na bateria, o ícone fica laranja em 20% e vermelho em 10%.",
+    "A dica mostra a porcentagem e o tempo até carregar ou o tempo restante.",
+    "A saúde mostra a capacidade que resta em relação à nova, os ciclos de carga e o modelo.",
+    "Botões *Economia*, *Equilibrado* e *Desempenho*, só os que o sistema oferece; o ativo fica na cor de destaque.",
+    "*Clique direito* no ícone passa para o próximo perfil de energia.",
+    "*Clique do meio* manda uma notificação com a carga, o estado, o tempo e o perfil.",
+    "*Outros dispositivos* mostra a bateria de fones, mouses e outros aparelhos sem fio.",
+    "*Mais informações* abre o GNOME Power Statistics, quando ele está instalado. O ícone some em computadores sem bateria.",
+  ]
   keys = "Clique na bateria"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Battery"
   text = "Charge, time left, power draw, health, a 12-hour graph and the power profile."
+  features = [
+    "The icon shows a bolt while charging, a plug when plugged in, or the charge level.",
+    "On battery, the icon turns orange at 20% and red at 10%.",
+    "The tooltip shows the percentage and the time until full or the time left.",
+    "Health shows the capacity left compared with new, the charge cycles and the model.",
+    "*Power saver*, *Balanced* and *Performance* buttons, only those your system offers; the active one is in the accent color.",
+    "*Right click* on the icon steps to the next power profile.",
+    "*Middle click* sends a notification with the charge, state, time and profile.",
+    "*Other devices* shows the battery of headsets, mice and other wireless devices.",
+    "*More information* opens GNOME Power Statistics, when it's installed. The icon hides on computers without a battery.",
+  ]
   keys = "Click the battery"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Batería"
   text = "Carga, tiempo restante, consumo, salud, un gráfico de 12 horas y el perfil de energía."
+  features = [
+    "El icono muestra un rayo mientras carga, un enchufe cuando está enchufado, o el nivel de carga.",
+    "Con batería, el icono se pone naranja al 20% y rojo al 10%.",
+    "La información muestra el porcentaje y el tiempo hasta la carga completa o el tiempo restante.",
+    "La salud muestra la capacidad que queda frente a la nueva, los ciclos de carga y el modelo.",
+    "Botones *Ahorro de energía*, *Equilibrado* y *Rendimiento*, solo los que ofrece tu sistema; el activo va en el color de acento.",
+    "*Clic derecho* en el icono pasa al siguiente perfil de energía.",
+    "*Clic central* envía una notificación con la carga, el estado, el tiempo y el perfil.",
+    "*Otros dispositivos* muestra la batería de auriculares, ratones y otros dispositivos inalámbricos.",
+    "*Más información* abre GNOME Power Statistics, cuando está instalado. El icono se oculta en equipos sin batería.",
+  ]
   keys = "Haz clic en la batería"
   guide = "guide/desktop/#la-barra"
 
@@ -166,16 +298,49 @@ waybar = "swaydesk-brightness"
   [components.pt-br]
   name = "Brilho e luz noturna"
   text = "O brilho da tela e a luz noturna: desligada, ligada ou no horário que você escolher."
+  features = [
+    "*Rolar* no ícone muda o brilho de 5 em 5%, com o indicador na tela.",
+    "O brilho nunca fica abaixo de 1%, para a tela nunca ficar preta.",
+    "O controle *Brilho* some em computadores sem luz de fundo, como a maioria dos desktops.",
+    "*Ligada* deixa a tela mais quente o tempo todo (4500 K por padrão); *Automática* faz isso entre dois horários.",
+    "Digite o horário de início e de fim (18:00 às 06:00 por padrão) e tecle `Enter` para salvar.",
+    "Trocar entre *Ligada* e *Automática* à noite espera até de manhã, para a tela não piscar.",
+    "A luz noturna precisa do gammastep; o popup avisa quando ele falta.",
+    "O último modo volta no login; `[enabled] nightlight = false` impede isso.",
+    "A dica do ícone mostra o brilho e o estado da luz noturna.",
+  ]
   keys = "Clique no ícone de brilho; teclas de brilho"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Brightness and night light"
   text = "Screen brightness and the night light: off, on, or on the schedule you pick."
+  features = [
+    "*Scroll* on the icon changes the brightness by 5%, with the on-screen indicator.",
+    "Brightness never goes below 1%, so the screen never goes black.",
+    "The *Brightness* slider hides on computers without a backlight, like most desktops.",
+    "*On* warms the screen all the time (4500 K by default); *Scheduled* does it between two times.",
+    "Type the start and end times (18:00 to 06:00 by default) and press `Enter` to save.",
+    "Switching between *On* and *Scheduled* at night waits until morning, so the screen doesn't flicker.",
+    "The night light needs gammastep; the popup tells you when it's missing.",
+    "The last mode comes back at login; `[enabled] nightlight = false` stops that.",
+    "The icon's tooltip shows the brightness and the night light's state.",
+  ]
   keys = "Click the brightness icon; brightness keys"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Brillo y luz nocturna"
   text = "El brillo de la pantalla y la luz nocturna: apagada, encendida o en el horario que elijas."
+  features = [
+    "*Desplazar* sobre el icono cambia el brillo de 5 en 5%, con el indicador en pantalla.",
+    "El brillo nunca baja del 1%, así la pantalla nunca se queda en negro.",
+    "El control *Brillo* se oculta en equipos sin retroiluminación, como la mayoría de los de escritorio.",
+    "*Encendida* calienta la pantalla todo el tiempo (4500 K por defecto); *Programada* lo hace entre dos horas.",
+    "Escribe la hora de inicio y de fin (de 18:00 a 06:00 por defecto) y pulsa `Enter` para guardar.",
+    "Cambiar entre *Encendida* y *Programada* de noche espera hasta la mañana, para que la pantalla no parpadee.",
+    "La luz nocturna necesita gammastep; el popup avisa cuando falta.",
+    "El último modo vuelve al iniciar sesión; `[enabled] nightlight = false` lo evita.",
+    "La información del icono muestra el brillo y el estado de la luz nocturna.",
+  ]
   keys = "Haz clic en el icono de brillo; teclas de brillo"
   guide = "guide/desktop/#la-barra"
 
@@ -197,16 +362,46 @@ waybar = "swaydesk-media"
   [components.pt-br]
   name = "Mídia"
   text = "Capa, título, progresso e os controles do player que estiver tocando."
+  features = [
+    "Funciona com qualquer player que tenha MPRIS, como navegadores e players de música ou vídeo.",
+    "O ícone só aparece enquanto um player tem mídia; fica cinza quando pausado.",
+    "Ele segue o player que está tocando, senão um pausado; a dica mostra título, artista e player.",
+    "*Clique do meio* toca ou pausa; *clique direito* pula para a próxima faixa.",
+    "O popup mostra também o álbum, e mantém o formato das miniaturas largas de vídeo.",
+    "Arraste a barra de progresso para pular, quando o player permite.",
+    "Botões de anterior, tocar/pausar e próxima.",
+    "Com mais de um player, uma fileira de botões troca entre eles.",
+  ]
   keys = "Clique no ícone de mídia (só aparece com algo tocando)"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Media"
   text = "Cover, title, progress and the controls of whatever player is playing."
+  features = [
+    "Works with any player that supports MPRIS, like browsers and music or video players.",
+    "The icon appears only while a player has media; it turns grey when paused.",
+    "It follows the player that's playing, else a paused one; the tooltip shows title, artist and player.",
+    "*Middle click* plays or pauses; *right click* skips to the next track.",
+    "The popup also shows the album, and keeps wide video thumbnails in their shape.",
+    "Drag the progress bar to jump, when the player allows it.",
+    "Previous, play/pause and next buttons.",
+    "With more than one player, a row of buttons switches between them.",
+  ]
   keys = "Click the media icon (only there while something plays)"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Multimedia"
   text = "Portada, título, progreso y los controles del reproductor que esté sonando."
+  features = [
+    "Funciona con cualquier reproductor compatible con MPRIS, como navegadores y reproductores de música o vídeo.",
+    "El icono solo aparece mientras un reproductor tiene contenido; se pone gris en pausa.",
+    "Sigue al reproductor que está sonando, si no a uno en pausa; la información muestra título, artista y reproductor.",
+    "*Clic central* reproduce o pausa; *clic derecho* pasa a la pista siguiente.",
+    "El popup muestra también el álbum, y mantiene la forma de las miniaturas anchas de vídeo.",
+    "Arrastra la barra de progreso para saltar, cuando el reproductor lo permite.",
+    "Botones de anterior, reproducir/pausar y siguiente.",
+    "Con más de un reproductor, una fila de botones cambia entre ellos.",
+  ]
   keys = "Haz clic en el icono de multimedia (solo aparece mientras algo se reproduce)"
   guide = "guide/desktop/#la-barra"
 
@@ -228,16 +423,49 @@ waybar = "swaydesk-weather"
   [components.pt-br]
   name = "Clima"
   text = "A previsão do dia e dos próximos, da cidade escolhida ou da que vem pelo seu IP."
+  features = [
+    "Usa °C e km/h, com horários de 24 horas.",
+    "Agora: a condição, a temperatura, a sensação, a máxima e a mínima, a umidade e o vento com a direção.",
+    "As próximas horas em blocos de três horas, com a chance de chuva quando ela é de 10% ou mais.",
+    "Os próximos três dias: a condição, a mínima e a máxima, e a maior chance de chuva.",
+    "O nascer e o pôr do sol, e a hora dos dados; os ícones de dia e de noite seguem o sol.",
+    "Sem conexão, guarda os últimos dados por até 6 horas.",
+    "Escolha a sua cidade com `weather_location` no `config.toml`; senão, ela vem do seu IP.",
+    "*Atualizar* busca dados novos; o link do wttr.in abre a previsão no navegador.",
+    "*Clique direito* na temperatura abre o GNOME Weather, quando ele está instalado.",
+  ]
   keys = "Clique na temperatura"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "Weather"
   text = "The forecast for today and the next days, for the city you set or the one your IP points to."
+  features = [
+    "Uses °C and km/h, with 24-hour times.",
+    "Now: the condition, temperature, feels like, high and low, humidity, and wind with its direction.",
+    "The next hours in three-hour blocks, with the chance of rain when it's 10% or more.",
+    "The next three days: the condition, low and high, and the highest chance of rain.",
+    "Sunrise and sunset, and the time of the data; day and night icons follow the sun.",
+    "Without a connection, it keeps the last data for up to 6 hours.",
+    "Set your city with `weather_location` in `config.toml`; otherwise it comes from your IP.",
+    "*Refresh* fetches new data; the wttr.in link opens the forecast in the browser.",
+    "*Right click* on the temperature opens GNOME Weather, when it's installed.",
+  ]
   keys = "Click the temperature"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Clima"
   text = "El pronóstico de hoy y de los próximos días, para la ciudad que configures o la que indique tu IP."
+  features = [
+    "Usa °C y km/h, con horas en formato de 24 horas.",
+    "Ahora: la condición, la temperatura, la sensación térmica, la máxima y la mínima, la humedad y el viento con su dirección.",
+    "Las próximas horas en bloques de tres horas, con la probabilidad de lluvia cuando es del 10% o más.",
+    "Los próximos tres días: la condición, la mínima y la máxima, y la mayor probabilidad de lluvia.",
+    "La salida y la puesta del sol, y la hora de los datos; los iconos de día y de noche siguen al sol.",
+    "Sin conexión, conserva los últimos datos hasta 6 horas.",
+    "Elige tu ciudad con `weather_location` en `config.toml`; si no, se toma de tu IP.",
+    "*Actualizar* busca datos nuevos; el enlace de wttr.in abre el pronóstico en el navegador.",
+    "*Clic derecho* en la temperatura abre GNOME Weather, cuando está instalado.",
+  ]
   keys = "Haz clic en la temperatura"
   guide = "guide/desktop/#la-barra"
 
@@ -259,18 +487,51 @@ waybar = "swaydesk-calendar"
   [components.pt-br]
   name = "Calendário"
   text = "O mês, com os feriados do seu país."
+  features = [
+    "A barra mostra a data e a hora no seu idioma; a dica mostra o mês.",
+    "Hoje tem um fundo redondo na cor de destaque; sábado e domingo ficam num cinza mais claro.",
+    "Os feriados ficam em laranja; passe o mouse num dia para ver o nome do feriado.",
+    "Abaixo da grade, os feriados do mês, com os pontos facultativos marcados.",
+    "Só feriados nacionais, mais os pontos facultativos; nunca feriados estaduais ou municipais.",
+    "Troque o mês com ‹ ›, a roda do mouse, as setas ou `Page Up`/`Page Down`.",
+    "*Hoje*, `Home` ou `T` volta ao mês atual.",
+    "O país vem do seu idioma e região; `holidays = *BR*` escolhe outro, e `*none*` desliga os feriados.",
+    "Os feriados aparecem onde a python3-holidays está instalada.",
+  ]
   keys = "Clique na data"
   guide = "guide/desktop/#a-barra"
   arch_note = "No Arch, os feriados não estão nos repositórios oficiais, então o calendário não mostra feriados."
   [components.en-us]
   name = "Calendar"
   text = "The month, with your country's holidays."
+  features = [
+    "The bar shows the date and time in your language; its tooltip shows the month.",
+    "Today has a round accent background; Saturday and Sunday are in a lighter grey.",
+    "Holidays are in orange; hover a day to see the holiday's name.",
+    "Below the grid, the month's holidays, with optional ones marked.",
+    "National holidays only, plus optional ones; never state or city holidays.",
+    "Change the month with ‹ ›, the scroll wheel, the arrow keys or `Page Up`/`Page Down`.",
+    "*Today*, `Home` or `T` goes back to the current month.",
+    "The country comes from your locale; `holidays = *BR*` picks another, and `*none*` turns them off.",
+    "Holidays show where python3-holidays is installed.",
+  ]
   keys = "Click the date"
   guide = "guide/desktop/#the-bar"
   arch_note = "On Arch, the holidays aren't in the official repositories, so the calendar shows no holidays there."
   [components.es]
   name = "Calendario"
   text = "El mes, con los días festivos de tu país."
+  features = [
+    "La barra muestra la fecha y la hora en tu idioma; su información muestra el mes.",
+    "Hoy tiene un fondo redondo en el color de acento; sábado y domingo van en un gris más claro.",
+    "Los festivos van en naranja; pasa el ratón por un día para ver el nombre del festivo.",
+    "Debajo de la cuadrícula, los festivos del mes, con los opcionales marcados.",
+    "Solo festivos nacionales, más los opcionales; nunca festivos regionales ni locales.",
+    "Cambia de mes con ‹ ›, la rueda del ratón, las flechas o `Re Pág`/`Av Pág`.",
+    "*Hoy*, `Inicio` o `T` vuelve al mes actual.",
+    "El país viene de tu configuración regional; `holidays = *BR*` elige otro, y `*none*` los desactiva.",
+    "Los festivos aparecen donde python3-holidays está instalado.",
+  ]
   keys = "Haz clic en la fecha"
   guide = "guide/desktop/#la-barra"
   arch_note = "En Arch, los festivos no están en los repositorios oficiales, así que el calendario no muestra festivos."
@@ -293,16 +554,46 @@ waybar = "swaydesk-system"
   [components.pt-br]
   name = "Sistema"
   text = "CPU, memória, disco, temperatura e os processos que mais consomem, com \"Encerrar\". O ícone fica laranja quando algo aperta."
+  features = [
+    "O ícone fica laranja quando a CPU ou a memória chega a 90% ou mais, ou quando a CPU esquenta.",
+    "A dica mostra o uso da CPU, a memória em uso e a temperatura.",
+    "O popup mostra a CPU com a carga média e a temperatura, a memória com o swap, e os discos.",
+    "Os seis processos que mais consomem, ordenados por *CPU* ou *Memória*.",
+    "*Encerrar* pede um segundo clique (*Confirmar*); se o processo não sair, aparece *Forçar*.",
+    "*Encerrar* só aparece nos seus próprios apps, nunca nas partes da sessão.",
+    "Em computadores sem bateria, uma linha *Perfil de energia* troca o modo de energia (precisa do power-profiles-daemon).",
+    "*Clique direito* no ícone, ou *Monitor do sistema*, abre o monitor do sistema instalado, como o do GNOME, o Resources ou o Mission Center.",
+  ]
   keys = "Clique no ícone do sistema"
   guide = "guide/desktop/#a-barra"
   [components.en-us]
   name = "System"
   text = "CPU, memory, disk, temperature and the busiest processes, with \"End\". The icon turns orange when something is tight."
+  features = [
+    "The icon turns orange when the CPU or memory is at 90% or more, or the CPU is hot.",
+    "The tooltip shows CPU use, memory in use and the temperature.",
+    "The popup shows the CPU with load average and temperature, memory with swap, and the disks.",
+    "The six busiest processes, sorted by *CPU* or *Memory*.",
+    "*End* asks for a second click (*Confirm*); if the process doesn't quit, *Force* appears.",
+    "*End* shows only on your own apps, never on the session's own parts.",
+    "On computers without a battery, a *Power profile* row changes the power mode (needs power-profiles-daemon).",
+    "*Right click* on the icon, or *System monitor*, opens the installed system monitor, such as GNOME's, Resources or Mission Center.",
+  ]
   keys = "Click the system icon"
   guide = "guide/desktop/#the-bar"
   [components.es]
   name = "Sistema"
   text = "CPU, memoria, disco, temperatura y los procesos que más consumen, con \"Terminar\". El icono se pone naranja cuando algo está al límite."
+  features = [
+    "El icono se pone naranja cuando la CPU o la memoria llegan al 90% o más, o cuando la CPU se calienta.",
+    "La información muestra el uso de la CPU, la memoria en uso y la temperatura.",
+    "El popup muestra la CPU con la carga media y la temperatura, la memoria con el swap, y los discos.",
+    "Los seis procesos que más consumen, ordenados por *CPU* o *Memoria*.",
+    "*Terminar* pide un segundo clic (*Confirmar*); si el proceso no se cierra, aparece *Forzar*.",
+    "*Terminar* solo aparece en tus propias aplicaciones, nunca en las partes de la sesión.",
+    "En equipos sin batería, una fila *Perfil de energía* cambia el modo de energía (necesita power-profiles-daemon).",
+    "*Clic derecho* en el icono, o *Monitor del sistema*, abre el monitor del sistema instalado, como el de GNOME, Resources o Mission Center.",
+  ]
   keys = "Haz clic en el icono del sistema"
   guide = "guide/desktop/#la-barra"
 
@@ -324,6 +615,15 @@ waybar = "swaydesk-caffeine"
   [components.pt-br]
   name = "Cafeína"
   text = "Impede o bloqueio e a suspensão por 1 hora, 2 horas ou sempre."
+  features = [
+    "Escolha *Desligada*, *1 h*, *2 h* ou *Sempre* no popup.",
+    "O popup diz quando ela desliga, ou que fica ligada até você desligar.",
+    "*Clique direito* na xícara liga até você desligar, ou desliga.",
+    "Enquanto ela está ligada, ficar parado não bloqueia, não apaga a tela nem suspende.",
+    "Fechar a tampa do notebook ainda bloqueia a tela.",
+    "A xícara fica na cor de destaque quando ligada e cinza quando desligada; a dica mostra a hora de desligar.",
+    "Ela sempre começa desligada quando você entra na sessão.",
+  ]
   keys = "Clique na xícara"
   guide = "guide/desktop/#a-barra"
   waybar_note = "Ligado e desligado são o mesmo ícone com uma classe: para diferenciá-los, acrescente `#custom-swaydesk-caffeine.off { opacity: 0.5; }` ao `~/.config/waybar/style.css`."
@@ -331,6 +631,15 @@ waybar = "swaydesk-caffeine"
   [components.en-us]
   name = "Caffeine"
   text = "Keeps the screen from locking and the computer from sleeping for 1 hour, 2 hours or always."
+  features = [
+    "Pick *Off*, *1 h*, *2 h* or *Always* in the popup.",
+    "The popup tells you when it turns off, or that it stays on until you turn it off.",
+    "*Right click* on the cup turns it on until you turn it off, or turns it off.",
+    "While it's on, being idle doesn't lock, blank the screen or suspend.",
+    "Closing the laptop lid still locks the screen.",
+    "The cup is in the accent color when on and grey when off; its tooltip shows the end time.",
+    "It's always off when you log in.",
+  ]
   keys = "Click the cup"
   guide = "guide/desktop/#the-bar"
   waybar_note = "On and off are the same icon with a class: to tell them apart, add `#custom-swaydesk-caffeine.off { opacity: 0.5; }` to `~/.config/waybar/style.css`."
@@ -338,6 +647,15 @@ waybar = "swaydesk-caffeine"
   [components.es]
   name = "Cafeína"
   text = "Evita que la pantalla se bloquee y que la computadora se suspenda durante 1 hora, 2 horas o siempre."
+  features = [
+    "Elige *Apagada*, *1 h*, *2 h* o *Siempre* en el popup.",
+    "El popup te dice cuándo se apaga, o que sigue encendida hasta que la apagues.",
+    "*Clic derecho* en la taza la enciende hasta que la apagues, o la apaga.",
+    "Mientras está encendida, la inactividad no bloquea, no apaga la pantalla ni suspende.",
+    "Cerrar la tapa del portátil sigue bloqueando la pantalla.",
+    "La taza va en el color de acento cuando está encendida y en gris cuando está apagada; su información muestra la hora de apagado.",
+    "Siempre empieza apagada al iniciar sesión.",
+  ]
   keys = "Haz clic en la taza"
   guide = "guide/desktop/#la-barra"
   waybar_note = "Activado y desactivado son el mismo icono con una clase: para distinguirlos, añade `#custom-swaydesk-caffeine.off { opacity: 0.5; }` a `~/.config/waybar/style.css`."
@@ -362,18 +680,48 @@ waybar = "swaydesk-notifd"
   [components.pt-br]
   name = "Central de notificações"
   text = "As notificações por app, com as ações de cada uma e o Não perturbe."
+  features = [
+    "O grupo de cada app tem *Limpar*, e *Limpar tudo* esvazia a lista inteira.",
+    "Cada notificação mostra o ícone, o título, o texto, há quanto tempo chegou, e *×* para dispensá-la.",
+    "Clique numa notificação para rodar a ação padrão dela; os botões de ação ficam na própria lista.",
+    "*Não perturbe*: *Desligado*, *1 h*, *2 h* ou *Sempre*; enquanto isso, só as notificações críticas aparecem.",
+    "*Clique direito* no sino liga e desliga o Não perturbe.",
+    "O sino mostra um ponto quando há notificações, e fica vermelho quando o serviço de notificações está fora do ar.",
+    "Abrir a central esconde as notificações na tela; as críticas vão para o lado dela.",
+    "A lista guarda até 200 notificações, e é esvaziada quando você sai da sessão.",
+  ]
   keys = "`Super`+`C`; clique no sino"
   guide = "guide/desktop/#notificações"
   start_note = "`Super`+`N` mostra as notificações. Só um servidor de notificações pode rodar: pare antes o mako, o dunst ou o swaync."
   [components.en-us]
   name = "Notification center"
   text = "Notifications grouped by app, with their actions, and Do Not Disturb."
+  features = [
+    "Each app's group has *Clear*, and *Clear all* empties the whole list.",
+    "Each notification shows its icon, title, text, how long ago it came, and *×* to dismiss it.",
+    "Click a notification to run its default action; its action buttons sit right in the list.",
+    "*Do not disturb*: *Off*, *1 h*, *2 h* or *Always*; meanwhile only critical notifications pop up.",
+    "*Right click* on the bell turns Do not disturb on or off.",
+    "The bell shows a dot when there are notifications, and turns red when the notification service is down.",
+    "Opening the center hides the pop-up notifications; critical ones move beside it.",
+    "The list keeps up to 200 notifications, and is emptied when you log out.",
+  ]
   keys = "`Super`+`C`; click the bell"
   guide = "guide/desktop/#notifications"
   start_note = "`Super`+`N` shows the notifications. Only one notification server can run: stop mako, dunst or swaync first."
   [components.es]
   name = "Centro de notificaciones"
   text = "Las notificaciones agrupadas por aplicación, con sus acciones, y No molestar."
+  features = [
+    "El grupo de cada aplicación tiene *Borrar*, y *Borrar todo* vacía la lista entera.",
+    "Cada notificación muestra su icono, título, texto, hace cuánto llegó, y *×* para descartarla.",
+    "Haz clic en una notificación para ejecutar su acción predeterminada; sus botones de acción están en la propia lista.",
+    "*No molestar*: *Desactivado*, *1 h*, *2 h* o *Siempre*; mientras tanto solo aparecen las notificaciones críticas.",
+    "*Clic derecho* en la campana activa o desactiva No molestar.",
+    "La campana muestra un punto cuando hay notificaciones, y se pone roja cuando el servicio de notificaciones no funciona.",
+    "Abrir el centro oculta las notificaciones en pantalla; las críticas se mueven a su lado.",
+    "La lista guarda hasta 200 notificaciones, y se vacía al cerrar sesión.",
+  ]
   keys = "`Super`+`C`; haz clic en la campana"
   guide = "guide/desktop/#notificaciones"
   start_note = "`Super`+`N` muestra las notificaciones. Solo puede funcionar un servidor de notificaciones: detén antes mako, dunst o swaync."
@@ -397,18 +745,48 @@ waybar = "swaydesk-clipboard"
   [components.pt-br]
   name = "Área de transferência"
   text = "O histórico do que você copiou, com busca, miniaturas e itens fixados. Desligado, nada mais é gravado no histórico."
+  features = [
+    "Guarda textos, imagens e outros conteúdos que você copia, até 5 MB por item.",
+    "Duas seções, *Fixados* e *Recentes*; os outros conteúdos mostram o tipo.",
+    "A busca acha palavras em qualquer parte do texto copiado, várias de uma vez, ignorando os acentos.",
+    "É só digitar para buscar; as setas ou `Tab` andam, `Enter` copia, `Esc` limpa a busca e depois fecha.",
+    "Clique num item para copiá-lo de novo e fechar a lista.",
+    "Cada item tem botões para fixá-lo e para apagá-lo do histórico.",
+    "*Limpar histórico* pede um segundo clique; os itens fixados ficam.",
+    "Abre também com um clique no ícone da área de transferência na barra.",
+  ]
   keys = "`Super`+`V`"
   guide = "guide/desktop/#área-de-transferência"
   start_note = "`Super`+`Shift`+`V` mostra o histórico. Se a sua config já roda `wl-paste --watch cliphist store`, tire essa linha: o serviço roda os mesmos observadores."
   [components.en-us]
   name = "Clipboard"
   text = "The history of what you copied, with search, thumbnails and pinned items. Turned off, nothing more is saved to the history."
+  features = [
+    "Keeps text, images and other content you copy, up to 5 MB per item.",
+    "Two sections, *Pinned* and *Recent*; other content shows its type.",
+    "Search finds words anywhere in the copied text, several at once, ignoring accents.",
+    "Just type to search; arrow keys or `Tab` move, `Enter` copies, `Esc` clears the search, then closes.",
+    "Click an item to copy it again and close the list.",
+    "Each item has buttons to pin it and to delete it from the history.",
+    "*Clear history* asks for a second click; pinned items stay.",
+    "Also opens with a click on the clipboard icon in the bar.",
+  ]
   keys = "`Super`+`V`"
   guide = "guide/desktop/#clipboard-history"
   start_note = "`Super`+`Shift`+`V` shows the history. If your config already runs `wl-paste --watch cliphist store`, remove that line: the service runs the same watchers."
   [components.es]
   name = "Portapapeles"
   text = "El historial de lo que copiaste, con búsqueda, miniaturas y elementos fijados. Si lo desactivas, no se guarda nada más en el historial."
+  features = [
+    "Guarda textos, imágenes y otros contenidos que copias, hasta 5 MB por elemento.",
+    "Dos secciones, *Fijados* y *Recientes*; los otros contenidos muestran su tipo.",
+    "La búsqueda encuentra palabras en cualquier parte del texto copiado, varias a la vez, sin tener en cuenta los acentos.",
+    "Solo escribe para buscar; las flechas o `Tab` mueven, `Enter` copia, `Esc` borra la búsqueda y luego cierra.",
+    "Haz clic en un elemento para copiarlo de nuevo y cerrar la lista.",
+    "Cada elemento tiene botones para fijarlo y para eliminarlo del historial.",
+    "*Borrar historial* pide un segundo clic; los elementos fijados se quedan.",
+    "También se abre con un clic en el icono del portapapeles de la barra.",
+  ]
   keys = "`Super`+`V`"
   guide = "guide/desktop/#historial-del-portapapeles"
   start_note = "`Super`+`Shift`+`V` muestra el historial. Si tu config ya ejecuta `wl-paste --watch cliphist store`, quita esa línea: el servicio ejecuta los mismos observadores."
@@ -431,16 +809,40 @@ waybar = "swaydesk-language"
   [components.pt-br]
   name = "Layout do teclado"
   text = "O layout de teclado atual, na barra. Some quando há um layout só, e conta só os teclados de verdade."
+  features = [
+    "Mostra o nome curto do layout ativo, como `br` ou `us`; a dica tem o nome completo.",
+    "Um clique troca todos os teclados para o próximo layout.",
+    "`Super`+`Espaço` também troca (`Super`+`Ctrl`+`Espaço` nos perfis dwm e i3).",
+    "Dois layouts com o mesmo nome curto ganham números, como `us1` e `us2`.",
+    "Atualiza assim que o layout muda, também depois que o Sway recarrega a config.",
+    "Cada layout ganha a sua própria classe de estilo, para você colori-lo no CSS da Waybar.",
+  ]
   keys = "Clique nele, ou `Super`+`Espaço`"
   guide = "guide/config/#teclado-e-acentos"
   [components.en-us]
   name = "Keyboard layout"
   text = "The current keyboard layout, in the bar. It hides when there's a single layout, and counts only real keyboards."
+  features = [
+    "Shows the active layout's short name, like `br` or `us`; the tooltip has its full name.",
+    "A click switches every keyboard to the next layout.",
+    "`Super`+`Space` switches too (`Super`+`Ctrl`+`Space` in the dwm and i3 profiles).",
+    "Two layouts with the same short name get numbers, like `us1` and `us2`.",
+    "Updates as soon as the layout changes, also after Sway reloads its config.",
+    "Each layout gets its own style class, so you can color it in Waybar's CSS.",
+  ]
   keys = "Click it, or `Super`+`Space`"
   guide = "guide/config/#keyboard-and-accents"
   [components.es]
   name = "Distribución del teclado"
   text = "La distribución de teclado actual, en la barra. Se oculta cuando hay una sola, y cuenta solo los teclados de verdad."
+  features = [
+    "Muestra el nombre corto de la distribución activa, como `br` o `us`; la información tiene su nombre completo.",
+    "Un clic cambia todos los teclados a la distribución siguiente.",
+    "`Super`+`Espacio` también la cambia (`Super`+`Ctrl`+`Espacio` en los perfiles dwm e i3).",
+    "Dos distribuciones con el mismo nombre corto llevan números, como `us1` y `us2`.",
+    "Se actualiza en cuanto cambia la distribución, también después de que Sway recargue su config.",
+    "Cada distribución tiene su propia clase de estilo, para que la colorees en el CSS de Waybar.",
+  ]
   keys = "Haz clic en él, o `Super`+`Espacio`"
   guide = "guide/config/#teclado-y-acentos"
 
@@ -462,16 +864,49 @@ unit = true
   [components.pt-br]
   name = "Dock"
   text = "Os apps fixados e os abertos, com menu no clique direito. Some quando uma janela precisa do espaço, ou fica sempre à vista."
+  features = [
+    "Clique num app para abri-lo ou focar a janela dele; com várias janelas, escolha uma numa lista.",
+    "Um ponto para uma janela, dois para várias; pontos na cor de destaque no app em foco, laranja quando ele pede atenção.",
+    "*Clique direito*: *Fixar* ou *Desafixar*, *Nova janela* e *Fechar* ou *Fechar todas*.",
+    "Arraste um ícone fixado para mudar a ordem.",
+    "O botão *Aplicativos*, no fim, abre a grade de apps.",
+    "Uma dock por monitor; no modo de esconder sozinha, empurre o ponteiro para a borda de baixo para ela aparecer.",
+    "Ela nunca pega o foco do teclado, a não ser com o menu do *clique direito* aberto (`Esc` fecha).",
+    "Sem fixados ainda, mostra o gerenciador de arquivos e o primeiro terminal instalado, e não grava nada até você mudá-los.",
+    "Os apps abertos pela dock ganham o próprio escopo do systemd.",
+  ]
   keys = "Empurre o ponteiro para a borda de baixo"
   guide = "guide/desktop/#a-dock"
   [components.en-us]
   name = "Dock"
   text = "Pinned and open apps, with a right-click menu. It hides when a window needs the room, or stays visible."
+  features = [
+    "Click an app to open it or focus its window; with several windows, pick one from a list.",
+    "One dot for one window, two for several; accent dots on the focused app, orange when it's urgent.",
+    "*Right click*: *Pin* or *Unpin*, *New window*, and *Close* or *Close all*.",
+    "Drag a pinned icon to change the order.",
+    "The *Applications* button at the end opens the app grid.",
+    "One dock per monitor; in auto-hide mode, push the pointer against the bottom edge to show it.",
+    "It never takes keyboard focus, except while its *right click* menu is open (`Esc` closes it).",
+    "With no pins yet, it shows the file manager and the first terminal installed; nothing is saved until you change them.",
+    "Apps opened from the dock get their own systemd scope.",
+  ]
   keys = "Push the pointer against the bottom edge"
   guide = "guide/desktop/#the-dock"
   [components.es]
   name = "Dock"
   text = "Aplicaciones fijadas y abiertas, con un menú de clic derecho. Se oculta cuando una ventana necesita el espacio, o se queda visible."
+  features = [
+    "Haz clic en una aplicación para abrirla o enfocar su ventana; con varias ventanas, elige una de una lista.",
+    "Un punto para una ventana, dos para varias; puntos en el color de acento en la aplicación enfocada, naranja cuando pide atención.",
+    "*Clic derecho*: *Fijar* o *Dejar de fijar*, *Nueva ventana* y *Cerrar* o *Cerrar todas*.",
+    "Arrastra un icono fijado para cambiar el orden.",
+    "El botón *Aplicaciones*, al final, abre la cuadrícula de aplicaciones.",
+    "Una dock por monitor; en el modo de ocultarse sola, empuja el puntero contra el borde inferior para mostrarla.",
+    "Nunca toma el foco del teclado, salvo mientras su menú de *clic derecho* está abierto (`Esc` lo cierra).",
+    "Sin aplicaciones fijadas todavía, muestra el gestor de archivos y el primer terminal instalado, y no guarda nada hasta que las cambies.",
+    "Las aplicaciones abiertas desde la dock tienen su propio ámbito (scope) de systemd.",
+  ]
   keys = "Empuja el puntero contra el borde inferior"
   guide = "guide/desktop/#la-dock"
 
@@ -493,18 +928,51 @@ unit = true
   [components.pt-br]
   name = "Grade de apps"
   text = "Todos os apps instalados, com busca, grupos e favoritos. A busca também acha arquivos, faz contas e converte unidades."
+  features = [
+    "Abre com o `Super` sozinho; combinações com o `Super` e `Super`+arrastar não a abrem.",
+    "Digite para buscar pelo nome, palavras-chave ou descrição; com várias palavras, todas precisam bater.",
+    "`Enter` abre o primeiro resultado; as setas passam pelos resultados.",
+    "Arquivos e pastas encontrados aparecem abaixo da grade: a pasta abre no gerenciador de arquivos, o arquivo no app padrão dele.",
+    "Clique no resultado de uma conta para copiá-lo; conversões como `5 km to mi` usam o qalc, que o swaydesk-desktop traz.",
+    "Grupos embaixo, com *Adicionar grupo* para criar os seus; `Ctrl`+`PageUp`/`PageDown` troca entre eles.",
+    "*Clique direito* num app para pô-lo na fileira de favoritos, fixá-lo na dock ou escolher os grupos dele.",
+    "Os apps de terminal abrem no kitty quando o kitty está instalado.",
+    "`Esc` limpa a busca e depois fecha a grade; um clique fora também fecha.",
+  ]
   keys = "`Super`"
   guide = "guide/desktop/#a-grade-de-apps"
   start_note = "`Super`+`Shift`+`D` abre e fecha a grade; o `Super`+`D` continua com o seu lançador."
   [components.en-us]
   name = "App grid"
   text = "Every installed app, with search, groups and favorites. The search also finds files, does math and converts units."
+  features = [
+    "Opens on `Super` alone; `Super` combos and `Super`+drag don't open it.",
+    "Type to search by name, keywords or description; with several words, all must match.",
+    "`Enter` opens the first result; the arrow keys move through the results.",
+    "Found files list under the grid: a folder opens in the file manager, a file in its default app.",
+    "Click a calculation's result to copy it; conversions like `5 km to mi` use qalc, which swaydesk-desktop brings.",
+    "Groups at the bottom, with *Add group* for your own; `Ctrl`+`PageUp`/`PageDown` switches between them.",
+    "*Right click* an app to add it to the favorites row, pin it to the dock or set its groups.",
+    "Terminal apps open in kitty when kitty is installed.",
+    "`Esc` clears the search, then closes the grid; a click outside closes it too.",
+  ]
   keys = "`Super`"
   guide = "guide/desktop/#the-app-grid"
   start_note = "`Super`+`Shift`+`D` opens and closes the grid; `Super`+`D` stays your launcher."
   [components.es]
   name = "Cuadrícula de aplicaciones"
   text = "Todas las aplicaciones instaladas, con búsqueda, grupos y favoritos. La búsqueda también encuentra archivos, hace cálculos y convierte unidades."
+  features = [
+    "Se abre con `Super` solo; las combinaciones con `Super` y `Super`+arrastrar no la abren.",
+    "Escribe para buscar por nombre, palabras clave o descripción; con varias palabras, todas deben coincidir.",
+    "`Enter` abre el primer resultado; las flechas recorren los resultados.",
+    "Los archivos y carpetas encontrados aparecen bajo la cuadrícula: una carpeta se abre en el gestor de archivos, un archivo en su aplicación predeterminada.",
+    "Haz clic en el resultado de un cálculo para copiarlo; las conversiones como `5 km to mi` usan qalc, que trae swaydesk-desktop.",
+    "Grupos abajo, con *Añadir grupo* para crear los tuyos; `Ctrl`+`PageUp`/`PageDown` cambia entre ellos.",
+    "*Clic derecho* en una aplicación para ponerla en la fila de favoritos, fijarla en la dock o elegir sus grupos.",
+    "Las aplicaciones de terminal se abren en kitty cuando kitty está instalado.",
+    "`Esc` borra la búsqueda y luego cierra la cuadrícula; un clic fuera también la cierra.",
+  ]
   keys = "`Super`"
   guide = "guide/desktop/#la-cuadrícula-de-aplicaciones"
   start_note = "`Super`+`Shift`+`D` abre y cierra la cuadrícula; `Super`+`D` sigue siendo tu lanzador."
@@ -553,18 +1021,45 @@ unit = true
   [components.pt-br]
   name = "Troca de janelas"
   text = "As janelas na ordem de uso, de todos os workspaces, num cartão no meio da tela."
+  features = [
+    "Cada linha mostra o ícone, o título e o workspace da janela; a linha escolhida fica na cor de destaque.",
+    "Um `Alt`+`Tab` rápido vai para a janela anterior sem mostrar o cartão.",
+    "Segure o `Alt` e aperte `Tab` ou as setas para andar; solte o `Alt` para ir à janela escolhida.",
+    "`Alt`+`Shift`+`Tab` começa pela janela usada há mais tempo.",
+    "`Enter` ou `Espaço` também escolhem a janela, `Esc` cancela, e um clique escolhe uma linha.",
+    "Ir a uma janela de outro workspace ou monitor muda para lá também.",
+    "As janelas do scratchpad ficam de fora.",
+  ]
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#troca-de-janelas"
   start_note = "`Alt`+`Tab` e `Alt`+`Shift`+`Tab` passam pelas janelas na ordem de uso, de todos os workspaces."
   [components.en-us]
   name = "Window switcher"
   text = "Windows in the order you used them, from every workspace, on a card in the middle of the screen."
+  features = [
+    "Each row shows the window's icon, title and workspace; the selected row takes the accent color.",
+    "A quick `Alt`+`Tab` switches to the previous window without showing the card.",
+    "Hold `Alt` and press `Tab` or the arrow keys to move; release `Alt` to go to the selected window.",
+    "`Alt`+`Shift`+`Tab` starts from the window you used least recently.",
+    "`Enter` or `Space` also picks the selected window, `Esc` cancels, and a click picks a row.",
+    "Going to a window on another workspace or monitor switches there too.",
+    "Windows in the scratchpad are left out.",
+  ]
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#switching-windows"
   start_note = "`Alt`+`Tab` and `Alt`+`Shift`+`Tab` go through the windows in order of use, on every workspace."
   [components.es]
   name = "Selector de ventanas"
   text = "Las ventanas en el orden en que las usaste, de todos los espacios de trabajo, en una tarjeta en el centro de la pantalla."
+  features = [
+    "Cada fila muestra el icono, el título y el espacio de trabajo de la ventana; la fila elegida toma el color de acento.",
+    "Un `Alt`+`Tab` rápido va a la ventana anterior sin mostrar la tarjeta.",
+    "Mantén `Alt` y pulsa `Tab` o las flechas para moverte; suelta `Alt` para ir a la ventana elegida.",
+    "`Alt`+`Shift`+`Tab` empieza por la ventana que usaste hace más tiempo.",
+    "`Enter` o `Espacio` también eligen la ventana, `Esc` cancela, y un clic elige una fila.",
+    "Ir a una ventana de otro espacio de trabajo o monitor también cambia allí.",
+    "Las ventanas del scratchpad quedan fuera.",
+  ]
   keys = "`Alt`+`Tab`"
   guide = "guide/desktop/#cambiar-de-ventana"
   start_note = "`Alt`+`Tab` y `Alt`+`Shift`+`Tab` recorren las ventanas en orden de uso, de todos los espacios de trabajo."
@@ -587,18 +1082,51 @@ unit = true
   [components.pt-br]
   name = "Notificações"
   text = "O serviço que recebe as notificações dos apps e mostra os avisos no canto da tela."
+  features = [
+    "Avisos no canto de cima à direita do monitor em foco, o mais novo em cima, até 5 de uma vez.",
+    "Os normais somem depois de 10 segundos e os de baixa prioridade depois de 5, a não ser que o app defina outro tempo.",
+    "Os críticos têm borda vermelha e ficam até você fechá-los.",
+    "Clicar num aviso roda a ação padrão dele, ou só o fecha; até 6 botões de ação aparecem abaixo do texto.",
+    "Mostra a imagem ou o ícone do app, e texto em negrito, itálico e sublinhado.",
+    "Os apps podem atualizar uma notificação no lugar, como um progresso ou o nível do volume.",
+    "*Não perturbe* por 1 hora, 2 horas ou até você desligar: só os críticos continuam aparecendo.",
+    "*Clique direito* no sino da barra para ligar ou desligar o Não perturbe.",
+    "As últimas 200 ficam na memória para a lista de notificações (`Super`+`C`).",
+  ]
   keys = ""
   guide = "guide/desktop/#notificações"
   start_note = "`Super`+`N` mostra as notificações. Só um servidor de notificações pode rodar: pare antes o mako, o dunst ou o swaync."
   [components.en-us]
   name = "Notifications"
   text = "The service that receives the apps' notifications and shows the pop-ups in the corner."
+  features = [
+    "Pop-ups at the top right of the focused monitor, newest on top, up to 5 at once.",
+    "Normal ones leave after 10 seconds and low-priority ones after 5, unless the app sets its own time.",
+    "Critical ones have a red border and stay until you close them.",
+    "Clicking a pop-up runs its default action, or just closes it; up to 6 action buttons show below the text.",
+    "Shows the app's image or icon, and bold, italic and underlined text.",
+    "Apps can update a notification in place, such as a progress or volume level.",
+    "*Do not disturb* for 1 hour, 2 hours or until you turn it off: only critical ones still pop up.",
+    "*Right click* the bar's bell to turn Do not disturb on or off.",
+    "The last 200 stay in memory for the notification list (`Super`+`C`).",
+  ]
   keys = ""
   guide = "guide/desktop/#notifications"
   start_note = "`Super`+`N` shows the notifications. Only one notification server can run: stop mako, dunst or swaync first."
   [components.es]
   name = "Notificaciones"
   text = "El servicio que recibe las notificaciones de las aplicaciones y muestra los avisos emergentes en la esquina."
+  features = [
+    "Avisos en la esquina superior derecha del monitor enfocado, el más nuevo arriba, hasta 5 a la vez.",
+    "Los normales se van a los 10 segundos y los de baja prioridad a los 5, salvo que la aplicación fije otro tiempo.",
+    "Los críticos tienen borde rojo y se quedan hasta que los cierras.",
+    "Hacer clic en un aviso ejecuta su acción predeterminada, o solo lo cierra; hasta 6 botones de acción aparecen bajo el texto.",
+    "Muestra la imagen o el icono de la aplicación, y texto en negrita, cursiva y subrayado.",
+    "Las aplicaciones pueden actualizar una notificación en su sitio, como un progreso o el nivel de volumen.",
+    "*No molestar* durante 1 hora, 2 horas o hasta que lo desactives: solo los críticos siguen apareciendo.",
+    "*Clic derecho* en la campana de la barra para activar o desactivar No molestar.",
+    "Las últimas 200 quedan en memoria para la lista de notificaciones (`Super`+`C`).",
+  ]
   keys = ""
   guide = "guide/desktop/#notificaciones"
   start_note = "`Super`+`N` muestra las notificaciones. Solo puede funcionar un servidor de notificaciones: detén antes mako, dunst o swaync."
@@ -620,19 +1148,46 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-osd.conf"
 unit = true
   [components.pt-br]
   name = "Indicador de volume e brilho"
-  text = "Ícone, barra e porcentagem no meio da tela por um segundo."
+  text = "Ícone, barra e porcentagem embaixo na tela, acima da dock, por um segundo."
+  features = [
+    "As teclas de volume mudam o volume de 5% em 5%, na cor de destaque.",
+    "No mudo, o ícone vira um alto-falante cortado e a barra fica cinza.",
+    "As teclas de brilho o mudam de 5% em 5%, nunca abaixo de 1%, com a barra branca.",
+    "Aumentar o volume para em 100%.",
+    "Rolar sobre o ícone de volume ou de brilho da barra também o mostra.",
+    "Funciona também na tela de bloqueio.",
+    "Os cliques passam através dele, ele nunca pega o teclado e aparece sobre janelas em tela cheia.",
+  ]
   keys = "Teclas de volume e de brilho"
   guide = ""
   start_note = "As teclas de volume e de brilho mudam o nível e o mostram, também na tela de bloqueio. Elas substituem atalhos anteriores das mesmas teclas, então inclua o arquivo depois deles; um atalho seu depois do include vale mais."
   [components.en-us]
   name = "Volume and brightness indicator"
-  text = "Icon, bar and percentage on screen for a second."
+  text = "Icon, bar and percentage at the bottom of the screen, above the dock, for a second."
+  features = [
+    "The volume keys change the volume 5% at a time, shown in the accent color.",
+    "Muted, the icon becomes a crossed-out speaker and the bar turns grey.",
+    "The brightness keys change it 5% at a time, never below 1%, with a white bar.",
+    "Volume up stops at 100%.",
+    "Scrolling on the bar's volume or brightness icon shows it too.",
+    "It works on the lock screen as well.",
+    "Clicks pass through it, it never takes the keyboard, and it shows over fullscreen windows.",
+  ]
   keys = "Volume and brightness keys"
   guide = ""
   start_note = "The volume and brightness keys change the level and show it, also on the lock screen. They replace earlier bindings of the same keys, so include the file after those; a binding of yours after the include wins."
   [components.es]
   name = "Indicador de volumen y brillo"
-  text = "Icono, barra y porcentaje en pantalla durante un segundo."
+  text = "Icono, barra y porcentaje en la parte inferior de la pantalla, sobre la dock, durante un segundo."
+  features = [
+    "Las teclas de volumen lo cambian de 5% en 5%, en el color de acento.",
+    "En silencio, el icono pasa a un altavoz tachado y la barra se vuelve gris.",
+    "Las teclas de brillo lo cambian de 5% en 5%, nunca por debajo del 1%, con la barra blanca.",
+    "Subir el volumen se detiene en el 100%.",
+    "Desplazar la rueda sobre el icono de volumen o de brillo de la barra también lo muestra.",
+    "También funciona en la pantalla de bloqueo.",
+    "Los clics lo atraviesan, nunca toma el teclado y aparece sobre las ventanas a pantalla completa.",
+  ]
   keys = "Teclas de volumen y brillo"
   guide = ""
   start_note = "Las teclas de volumen y de brillo cambian el nivel y lo muestran, también en la pantalla de bloqueo. Reemplazan atajos anteriores de las mismas teclas, así que incluye el archivo después de ellos; un atajo tuyo después del include tiene prioridad."
@@ -654,18 +1209,48 @@ start = "bindsym --no-repeat Ctrl+Alt+Delete exec swaydesk-session-menu"
   [components.pt-br]
   name = "Menu de sessão"
   text = "Bloquear, sair, suspender, reiniciar e desligar. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, ele pergunta antes, com uma contagem de 60 segundos e um botão para cancelar."
+  features = [
+    "Teclas: `l` Bloquear, `e` Sair, `s` Suspender, `r` Reiniciar, `p` Desligar, as iniciais em inglês em qualquer idioma.",
+    "As teclas de letra ignoram modificadores: com `Ctrl`, `Alt`, `Super` ou `Shift` apertado, não fazem nada.",
+    "As setas e o `Tab` andam, o `Enter` aciona o botão em foco; `Esc` ou um clique fora fecha.",
+    "O botão em foco fica na cor de destaque; com o foco, *Reiniciar* fica laranja e *Desligar* vermelho.",
+    "No alto, o seu nome, `login@host` e há quanto tempo o computador está ligado.",
+    "Apertar o atalho de novo fecha o menu.",
+    "Se uma ação falhar, uma notificação avisa.",
+    "Quando um app pede, a confirmação diz se as atualizações baixadas serão instaladas durante o reinício.",
+  ]
   keys = "`Ctrl`+`Alt`+`Delete`; botão de energia da barra"
   guide = "guide/desktop/#menu-de-sessão"
   start_note = "Qualquer tecla serve: `swaydesk-session-menu` abre o menu."
   [components.en-us]
   name = "Session menu"
   text = "Lock, log out, suspend, restart and shut down. When an app asks to restart or shut down, such as the store's **Restart & Update**, it asks first, with a 60-second countdown and a button to cancel."
+  features = [
+    "Keys: `l` Lock, `e` Log out, `s` Suspend, `r` Restart, `p` Shut down, the English initials in every language.",
+    "The letter keys ignore modifiers: held with `Ctrl`, `Alt`, `Super` or `Shift`, they do nothing.",
+    "The arrow keys and `Tab` move, `Enter` runs the focused button; `Esc` or a click outside closes it.",
+    "The focused button takes the accent color; when focused, *Restart* is orange and *Shut down* red.",
+    "The top shows your name, `login@host` and how long the computer has been on.",
+    "Pressing the shortcut again closes the menu.",
+    "If an action fails, a notification says so.",
+    "When an app asks, the confirmation says whether downloaded updates will install during the restart.",
+  ]
   keys = "`Ctrl`+`Alt`+`Delete`; the bar's power button"
   guide = "guide/desktop/#session-menu"
   start_note = "Any key works: `swaydesk-session-menu` opens the menu."
   [components.es]
   name = "Menú de la sesión"
   text = "Bloquear, cerrar sesión, suspender, reiniciar y apagar. Cuando una aplicación pide reiniciar o apagar, como el **Reiniciar y actualizar** de la tienda, pregunta antes, con una cuenta regresiva de 60 segundos y un botón para cancelar."
+  features = [
+    "Teclas: `l` Bloquear, `e` Cerrar sesión, `s` Suspender, `r` Reiniciar, `p` Apagar, las iniciales en inglés en cualquier idioma.",
+    "Las teclas de letra ignoran los modificadores: con `Ctrl`, `Alt`, `Super` o `Shift` pulsado, no hacen nada.",
+    "Las flechas y `Tab` se mueven, `Enter` activa el botón enfocado; `Esc` o un clic fuera lo cierra.",
+    "El botón enfocado toma el color de acento; con el foco, *Reiniciar* se pone naranja y *Apagar* rojo.",
+    "Arriba aparecen tu nombre, `login@host` y cuánto tiempo lleva encendido el equipo.",
+    "Pulsar el atajo otra vez cierra el menú.",
+    "Si una acción falla, una notificación lo avisa.",
+    "Cuando una aplicación lo pide, la confirmación dice si las actualizaciones descargadas se instalarán durante el reinicio.",
+  ]
   keys = "`Ctrl`+`Alt`+`Delete`; el botón de apagado de la barra"
   guide = "guide/desktop/#menú-de-la-sesión"
   start_note = "Sirve cualquier tecla: `swaydesk-session-menu` abre el menú."
@@ -687,18 +1272,36 @@ start = "exec swaydesk-sessionmgr"
   [components.pt-br]
   name = "Reiniciar depois das atualizações"
   text = "Um gerenciador de sessão mínimo para o Sway, para o GNOME Software poder reiniciar ou desligar depois das atualizações. Ele pergunta antes pelo menu de sessão (`swaydesk-session-menu`, que ele recomenda); sem o menu, reinicia ou desliga na hora."
+  features = [
+    "Sem janela: começa com a sessão do Sway e sai junto com ela.",
+    "Os pedidos de reiniciar e desligar dos apps abrem a confirmação do menu de sessão.",
+    "Com uma atualização esperando, desligar primeiro reinicia para instalá-la e depois desliga.",
+    "Os outros pedidos, como sair da sessão, são recusados, para os apps não confundirem o Sway com o GNOME.",
+  ]
   keys = "Sozinho, quando um app pede"
   guide = "guide/desktop/"
   start_note = "Ele atende ao reiniciar e ao desligar da GNOME Software depois das atualizações, e sai junto com o Sway."
   [components.en-us]
   name = "Restart after updates"
   text = "A minimal session manager for Sway, so GNOME Software can restart or shut down after updates. It asks first through the session menu (`swaydesk-session-menu`, which it recommends); without the menu, it restarts or shuts down at once."
+  features = [
+    "No window: it starts with the Sway session and exits with it.",
+    "Restart and shut down requests from apps open the session menu's confirmation.",
+    "With an update waiting, shutting down first restarts to install it, then powers off.",
+    "Other requests, such as logging out, are refused, so apps don't take Sway for GNOME.",
+  ]
   keys = "On its own, when an app asks"
   guide = "guide/desktop/"
   start_note = "It answers GNOME Software's restart and shut down after updates, and exits with Sway."
   [components.es]
   name = "Reiniciar tras las actualizaciones"
   text = "Un gestor de sesión mínimo para Sway, para que GNOME Software pueda reiniciar o apagar tras las actualizaciones. Pregunta antes con el menú de sesión (`swaydesk-session-menu`, que recomienda); sin el menú, reinicia o apaga en el acto."
+  features = [
+    "Sin ventana: empieza con la sesión de Sway y se cierra con ella.",
+    "Las peticiones de reiniciar y apagar de las aplicaciones abren la confirmación del menú de sesión.",
+    "Con una actualización pendiente, apagar primero reinicia para instalarla y luego apaga.",
+    "Las demás peticiones, como cerrar la sesión, se rechazan, para que las aplicaciones no confundan Sway con GNOME.",
+  ]
   keys = "Solo, cuando una aplicación lo pide"
   guide = "guide/desktop/"
   start_note = "Atiende el reinicio y el apagado de GNOME Software después de las actualizaciones, y se cierra con Sway."
@@ -720,18 +1323,48 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.pt-br]
   name = "Bloqueio de tela"
   text = "Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. No Debian 13, cujo gtk4-layer-shell é anterior ao 1.2, a mesma tela de bloqueio roda na versão GTK 3."
+  features = [
+    "Bloqueia com `Ctrl`+`Alt`+`L`, depois de 10 minutos sem uso e antes de o computador suspender.",
+    "A sua foto, ou as suas iniciais, e o seu nome abaixo da hora e da data.",
+    "Avisa quando o Caps Lock está ligado.",
+    "Uma senha errada sacode o campo; depois de 3 seguidas, uma espera de 5 segundos com contagem.",
+    "Bateria, rede e layout do teclado no canto de cima à direita do monitor principal; um clique troca o layout.",
+    "Um cartão de mídia embaixo à esquerda, com a capa, o título, o artista e os controles.",
+    "As teclas de volume, brilho e mídia funcionam com a tela bloqueada; `Super`+`Shift`+`O` religa as telas.",
+    "Se o bloqueio travar, a tela continua bloqueada e um bloqueio reserva assume.",
+  ]
   keys = "`Ctrl`+`Alt`+`L`; sozinho depois de 10 minutos"
   guide = "guide/desktop/#bloqueio-e-inatividade"
   start_note = "Ele adiciona o `Ctrl`+`Alt`+`L` e bloqueia depois de 10 minutos sem uso e antes de suspender, pelo swayidle, que vem junto com o bloqueio. Se a sua config já inicia o swayidle, fique com um só: acrescente `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` à sua linha (com o `-w`, para bloquear antes de suspender) e, no lugar do include, ponha só o atalho, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
   [components.en-us]
   name = "Lock screen"
   text = "Time, date and the password field on every monitor, over the blurred wallpaper. On Debian 13, whose gtk4-layer-shell is older than 1.2, the same lock screen runs in its GTK 3 version."
+  features = [
+    "Locks with `Ctrl`+`Alt`+`L`, after 10 minutes idle, and before the computer sleeps.",
+    "Your photo, or your initials, and your name under the time and date.",
+    "Warns when Caps Lock is on.",
+    "A wrong password shakes the field; after 3 in a row, a 5-second wait with a countdown.",
+    "Battery, network and keyboard layout in the top right of the main monitor; a click switches the layout.",
+    "A media card at the bottom left, with the cover, title, artist and play controls.",
+    "Volume, brightness and media keys work while locked; `Super`+`Shift`+`O` turns the screens back on.",
+    "If the lock crashes, the screen stays locked and a fallback lock takes over.",
+  ]
   keys = "`Ctrl`+`Alt`+`L`; on its own after 10 minutes"
   guide = "guide/desktop/#lock-screen-and-idle"
   start_note = "It adds `Ctrl`+`Alt`+`L` and locks after 10 minutes idle and before the computer sleeps, through swayidle, which comes with the lock. If your config already starts swayidle, keep only one: add `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` to your own line (with `-w`, so it locks before the computer sleeps) and, instead of the include, add just the shortcut, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
   [components.es]
   name = "Pantalla de bloqueo"
   text = "Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. En Debian 13, cuyo gtk4-layer-shell es anterior a 1.2, la misma pantalla de bloqueo funciona en su versión GTK 3."
+  features = [
+    "Bloquea con `Ctrl`+`Alt`+`L`, tras 10 minutos de inactividad y antes de que el equipo se suspenda.",
+    "Tu foto, o tus iniciales, y tu nombre bajo la hora y la fecha.",
+    "Avisa cuando Bloq Mayús está activado.",
+    "Una contraseña incorrecta sacude el campo; tras 3 seguidas, una espera de 5 segundos con cuenta regresiva.",
+    "Batería, red y distribución del teclado arriba a la derecha del monitor principal; un clic cambia la distribución.",
+    "Una tarjeta multimedia abajo a la izquierda, con la portada, el título, el artista y los controles.",
+    "Las teclas de volumen, brillo y multimedia funcionan con la pantalla bloqueada; `Super`+`Shift`+`O` vuelve a encender las pantallas.",
+    "Si el bloqueo falla, la pantalla sigue bloqueada y un bloqueo de reserva toma el relevo.",
+  ]
   keys = "`Ctrl`+`Alt`+`L`; sola después de 10 minutos"
   guide = "guide/desktop/#pantalla-de-bloqueo-e-inactividad"
   start_note = "Añade `Ctrl`+`Alt`+`L` y bloquea tras 10 minutos de inactividad y antes de suspender, con swayidle, que viene con el bloqueo. Si tu config ya inicia swayidle, deja solo uno: añade `timeout 600 'swaydesk-lock' before-sleep 'swaydesk-lock'` a tu propia línea (con `-w`, para que bloquee antes de suspender) y, en lugar del include, pon solo el atajo, `bindsym Ctrl+Alt+l exec swaydesk-lock`."
@@ -753,18 +1386,51 @@ start = ""
   [components.pt-br]
   name = "Tela de login"
   text = "Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico."
+  features = [
+    "Escolha a sua conta numa lista com fotos ou iniciais; *Outro usuário…* deixa digitar um nome de usuário.",
+    "Ela lembra a última conta e a sessão que cada conta usou.",
+    "Uma lista de sessões com as sessões Wayland instaladas, a do Swaydesk primeiro.",
+    "Qualquer falha no login sacode o campo e mostra o motivo, como *Senha incorreta*.",
+    "Avisa quando o Caps Lock está ligado.",
+    "Passos a mais que o sistema pede, como um código ou uma senha nova, vêm um de cada vez.",
+    "Usa o idioma e o teclado do sistema; um botão no canto mostra o layout, e um clique o troca.",
+    "Botões *Suspender*, *Reiniciar* e *Desligar* embaixo à direita.",
+    "Relógio e data em todos os monitores; o cartão do formulário fica num monitor só, o de cima à esquerda.",
+  ]
   keys = ""
   guide = "guide/first-steps/#a-tela-de-login-do-swaydesk"
   start_text = "Nada a acrescentar à config do Sway: a tela de login roda antes do Sway, pelo greetd.\n\n- **Debian e Ubuntu sem gerenciador de login:** ela aparece no próximo boot.\n- **Com outro gerenciador de login** (GDM, SDDM, LightDM), troque para o greetd e reinicie:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Ponha `sddm` ou `lightdm` no lugar de `gdm3`, ou `gdm` no Arch. No Arch, o `sudo systemctl enable greetd` é preciso mesmo sem outro.\n- **Para voltar:** `sudo systemctl disable greetd`, ative de novo o anterior e reinicie."
   [components.en-us]
   name = "Login screen"
   text = "A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login."
+  features = [
+    "Pick your account from a list with photos or initials; *Other user…* lets you type a user name.",
+    "It remembers the last account and the session each account used.",
+    "A session list from the installed Wayland sessions, with Swaydesk's first.",
+    "Any failed login shakes the field and shows the reason, such as *Wrong password*.",
+    "Warns when Caps Lock is on.",
+    "Extra steps the system asks for, such as a code or a new password, come one at a time.",
+    "Uses the system's language and keyboard; a corner button shows the layout, and a click switches it.",
+    "*Suspend*, *Restart* and *Shut down* buttons at the bottom right.",
+    "Clock and date on every monitor; the form card is on one monitor, the top-left one.",
+  ]
   keys = ""
   guide = "guide/first-steps/#the-swaydesk-login-screen"
   start_text = "Nothing to add to the Sway config: the login screen runs before Sway, through greetd.\n\n- **Debian and Ubuntu without a display manager:** it comes up at the next boot.\n- **With another display manager** (GDM, SDDM, LightDM), switch to greetd and reboot:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Put `sddm` or `lightdm` in place of `gdm3`, or `gdm` on Arch. On Arch, `sudo systemctl enable greetd` is needed even without one.\n- **To go back:** `sudo systemctl disable greetd`, enable the old one again and reboot."
   [components.es]
   name = "Pantalla de inicio de sesión"
   text = "Una pantalla de inicio de sesión sobre greetd, con el mismo aspecto que la pantalla de bloqueo, en todas las distribuciones compatibles, Arch incluido. Desbloquea el llavero con tu contraseña de inicio de sesión. La pantalla de inicio de sesión que ya usas también funciona; sin una, como en una instalación mínima o de servidor, esta es la que te da un inicio de sesión gráfico."
+  features = [
+    "Elige tu cuenta de una lista con fotos o iniciales; *Otro usuario…* permite escribir un nombre de usuario.",
+    "Recuerda la última cuenta y la sesión que usó cada cuenta.",
+    "Una lista de sesiones con las sesiones Wayland instaladas, la de Swaydesk primero.",
+    "Cualquier fallo al iniciar sesión sacude el campo y muestra el motivo, como *Contraseña incorrecta*.",
+    "Avisa cuando Bloq Mayús está activado.",
+    "Los pasos adicionales que pide el sistema, como un código o una contraseña nueva, llegan uno a uno.",
+    "Usa el idioma y el teclado del sistema; un botón en la esquina muestra la distribución, y un clic la cambia.",
+    "Botones *Suspender*, *Reiniciar* y *Apagar* abajo a la derecha.",
+    "Reloj y fecha en cada monitor; la tarjeta del formulario está en un solo monitor, el de arriba a la izquierda.",
+  ]
   keys = ""
   guide = "guide/first-steps/#la-pantalla-de-inicio-de-sesión-de-swaydesk"
   start_text = "Nada que añadir a la config de Sway: la pantalla de inicio de sesión funciona antes de Sway, con greetd.\n\n- **Debian y Ubuntu sin gestor de inicio de sesión:** aparece en el próximo arranque.\n- **Con otro gestor de inicio de sesión** (GDM, SDDM, LightDM), cambia a greetd y reinicia:\n\n  ```\n  sudo systemctl disable gdm3\n  sudo systemctl enable greetd\n  ```\n\n  Pon `sddm` o `lightdm` en lugar de `gdm3`, o `gdm` en Arch. En Arch, `sudo systemctl enable greetd` hace falta incluso sin otro.\n- **Para volver:** `sudo systemctl disable greetd`, activa de nuevo el anterior y reinicia."
@@ -786,6 +1452,11 @@ start = "exec swaydesk-keyring"
   [components.pt-br]
   name = "Chaveiro"
   text = "Conserta o chaveiro do primeiro login no Debian 13: no login, ele confere se o gnome-keyring criou o seu chaveiro sem publicá-lo e, nesse caso, mostra um aviso e pede a sua senha uma vez, logo ali. Do segundo login em diante, o chaveiro abre sozinho."
+  features = [
+    "Roda em todo login, mas só age no primeiro login do Debian 13, quando o chaveiro não foi publicado.",
+    "O aviso diz *Primeiro login: digite sua senha uma vez para ativar o chaveiro.*",
+    "Nada a configurar: onde o chaveiro já funciona, ele não faz nada e sai.",
+  ]
   note = "**Por quê:** no primeiro login sem um desktop completo (pelo greetd, por exemplo), o gnome-keyring 48 cria o chaveiro \"login\", mas não o publica, e o primeiro app que precisa de uma senha guardada (um navegador, o Bitwarden, o Wi-Fi) ficaria preso num pedido que nunca aparece. O Ubuntu 26.04 e o Arch não têm o problema, e neles ele não faz nada; o gnome-keyring 51 corrige isso na origem."
   keys = ""
   guide = "guide/desktop/#senhas-e-chaveiro"
@@ -793,6 +1464,11 @@ start = "exec swaydesk-keyring"
   [components.en-us]
   name = "Keyring"
   text = "Fixes the first login's keyring on Debian 13: at login, it checks whether gnome-keyring created your keyring without publishing it, and if so, shows a notice and asks for your password once, right away. From the second login on, the keyring unlocks by itself."
+  features = [
+    "It runs at every login, but acts only on Debian 13's first login, when the keyring wasn't published.",
+    "The notice reads *First login: type your password once to turn on the keyring.*",
+    "Nothing to set up: where the keyring works already, it does nothing and exits.",
+  ]
   note = "**Why:** on the first login without a full desktop (through greetd, say), gnome-keyring 48 creates the \"login\" keyring but doesn't publish it, so the first app that needs a saved password (a browser, Bitwarden, the Wi-Fi) would get stuck on a prompt that never shows. Ubuntu 26.04 and Arch don't have the problem, and there it does nothing; gnome-keyring 51 fixes it upstream."
   keys = ""
   guide = "guide/desktop/#passwords-and-keyring"
@@ -800,6 +1476,11 @@ start = "exec swaydesk-keyring"
   [components.es]
   name = "Llavero"
   text = "Arregla el llavero del primer inicio de sesión en Debian 13: al iniciar sesión, comprueba si gnome-keyring creó tu llavero sin publicarlo y, en ese caso, muestra un aviso y pide tu contraseña una vez, en ese momento. Desde el segundo inicio de sesión, el llavero se desbloquea solo."
+  features = [
+    "Se ejecuta en cada inicio de sesión, pero solo actúa en el primero de Debian 13, cuando el llavero no se publicó.",
+    "El aviso dice *Primer inicio de sesión: escribe tu contraseña una vez para activar el llavero.*",
+    "Nada que configurar: donde el llavero ya funciona, no hace nada y se cierra.",
+  ]
   note = "**Por qué:** en el primer inicio de sesión sin un escritorio completo (con greetd, por ejemplo), gnome-keyring 48 crea el llavero \"login\", pero no lo publica, y la primera aplicación que necesita una contraseña guardada (un navegador, Bitwarden, el Wi-Fi) se quedaría atascada en una petición que nunca aparece. Ubuntu 26.04 y Arch no tienen el problema, y allí no hace nada; gnome-keyring 51 lo corrige en su origen."
   keys = ""
   guide = "guide/desktop/#contraseñas-y-llavero"
@@ -926,18 +1607,51 @@ start = ""
   [components.pt-br]
   name = "Tema do Desktop"
   text = "Escolhe o tema GTK, os ícones, a cor de destaque e o tamanho do cursor, e aplica tudo de uma vez, também nos apps GTK e libadwaita. Por padrão, a cor de destaque acompanha o papel de parede, inclusive o do dia (**Usar a cor do papel de parede**); escolher uma cor à mão desliga isso."
+  features = [
+    "Os temas vêm agrupados por família (Mint-Y, Mint-L, Mint-X, Adwaita, adw-gtk3, Yaru), depois os outros; digitar filtra a lista.",
+    "Um clique mostra o tema numa prévia ao vivo do desktop; *Aplicar*, `Enter` ou um clique duplo o aplica.",
+    "*Estilo*: *Claro* ou *Escuro*, com um aviso quando o tema só tem um deles.",
+    "*Ícones* lista os temas de ícones instalados, cada um com uma faixa de ícones de exemplo.",
+    "*Tamanho do cursor* oferece os tamanhos que o tema do cursor tem e aplica na hora, sem *Aplicar*.",
+    "As amostras de *Cor de destaque* são as cores do Papirus; com os ícones Papirus, as pastas ficam na mesma cor.",
+    "Ao lado de *Usar a cor do papel de parede*, um ponto mostra a cor que ele escolheria agora.",
+    "*Será aplicado:* resume a mudança antes de aplicar; *Voltar ao tema em uso* desfaz a seleção.",
+    "Quando o tema escolhido não está instalado, o desktop usa o adw-gtk3-dark, ou o Adwaita-dark sem o adw-gtk-theme.",
+  ]
   keys = "Na grade de apps"
   guide = "guide/config/"
   start_text = "Nada a acrescentar à config do Sway: abra o **Tema do Desktop** pelo seu lançador, ou rode `swaydesk-theme-app`."
   [components.en-us]
   name = "Desktop Theme"
   text = "Picks the GTK theme, the icons, the accent color and the cursor size, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off."
+  features = [
+    "Themes are grouped by family (Mint-Y, Mint-L, Mint-X, Adwaita, adw-gtk3, Yaru), then the others; typing filters the list.",
+    "A click shows the theme in a live preview of the desktop; *Apply*, `Enter` or a double click applies it.",
+    "*Style*: *Light* or *Dark*, with a note when a theme has only one of them.",
+    "*Icons* lists the installed icon themes, each with a strip of sample icons.",
+    "*Cursor size* offers the sizes the cursor theme has and applies at once, without *Apply*.",
+    "*Accent color* swatches are the Papirus colors; with Papirus icons, the folders take the same color.",
+    "Next to *Use the wallpaper's color*, a dot shows the color it would pick now.",
+    "*Will apply:* sums up the change before you apply it; *Back to the theme in use* drops the selection.",
+    "When the chosen theme isn't installed, the desktop uses adw-gtk3-dark, or Adwaita-dark without adw-gtk-theme.",
+  ]
   keys = "In the app grid"
   guide = "guide/config/"
   start_text = "Nothing to add to the Sway config: open **Desktop Theme** from your launcher, or run `swaydesk-theme-app`."
   [components.es]
   name = "Tema del escritorio"
   text = "Elige el tema GTK, los iconos, el color de acento y el tamaño del cursor, y los aplica todos a la vez, incluidas las aplicaciones GTK y libadwaita. De forma predeterminada, el color de acento sigue al fondo de pantalla, incluido el del día (**Usar el color del fondo de pantalla**); elegir un color tú mismo lo desactiva."
+  features = [
+    "Los temas vienen agrupados por familia (Mint-Y, Mint-L, Mint-X, Adwaita, adw-gtk3, Yaru), luego los demás; escribir filtra la lista.",
+    "Un clic muestra el tema en una vista previa en vivo del escritorio; *Aplicar*, `Enter` o un doble clic lo aplica.",
+    "*Estilo*: *Claro* u *Oscuro*, con un aviso cuando el tema solo tiene uno de ellos.",
+    "*Iconos* lista los temas de iconos instalados, cada uno con una tira de iconos de ejemplo.",
+    "*Tamaño del cursor* ofrece los tamaños que tiene el tema del cursor y se aplica al momento, sin *Aplicar*.",
+    "Las muestras de *Color de acento* son los colores de Papirus; con los iconos Papirus, las carpetas toman el mismo color.",
+    "Junto a *Usar el color del fondo de pantalla*, un punto muestra el color que elegiría ahora.",
+    "*Se aplicará:* resume el cambio antes de aplicarlo; *Volver al tema en uso* descarta la selección.",
+    "Cuando el tema elegido no está instalado, el escritorio usa adw-gtk3-dark, o Adwaita-dark sin adw-gtk-theme.",
+  ]
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
   start_text = "Nada que añadir a la config de Sway: abre **Tema del escritorio** desde tu lanzador, o ejecuta `swaydesk-theme-app`."
@@ -959,19 +1673,34 @@ start = "[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.ScreenCast=wlr\no
 start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   [components.pt-br]
   name = "Cor de destaque nos apps"
-  text = "Leva a cor de destaque e o estilo claro ou escuro aos apps libadwaita e GTK 4 que leem a aparência do portal, pelo xdg-desktop-portal, em qualquer compositor. Só vale quando o `<desktop>-portals.conf` o escolhe para o `org.freedesktop.impl.portal.Settings`, como o desktop completo faz."
+  text = "Entrega a cor de destaque do desktop aos apps que leem as configurações de aparência do portal, como os de libadwaita e GTK 4."
+  features = [
+    "Ele só responde com a cor de destaque (`org.freedesktop.appearance` `accent-color`); o claro ou escuro vem do portal do GTK.",
+    "Os apps abertos pegam uma nova cor de destaque na hora, sem reiniciar.",
+    "Ele abre sob demanda pelo D-Bus, continua rodando quando não enxerga o Sway e sai junto com o Sway.",
+  ]
   keys = "Sozinho, pelo D-Bus"
   guide = "guide/config/"
   start_note = "Ele é o mesmo do desktop completo. Se o arquivo já existe, acrescente só a linha do `org.freedesktop.impl.portal.Settings` à seção `[preferred]`. O `default=gtk` usa o xdg-desktop-portal-gtk, e as linhas `wlr` (captura e gravação de tela), o xdg-desktop-portal-wlr. Vale no próximo login, ou depois de `systemctl --user restart xdg-desktop-portal`."
   [components.en-us]
   name = "Accent color in apps"
-  text = "Brings the accent color and the light or dark style to the libadwaita and GTK 4 apps that read the portal's appearance settings, through xdg-desktop-portal, on any compositor. It applies only when your `<desktop>-portals.conf` picks it for `org.freedesktop.impl.portal.Settings`, as the full desktop does."
+  text = "Gives the desktop's accent color to apps that read the portal's appearance settings, such as libadwaita and GTK 4 apps."
+  features = [
+    "It answers only the accent color (`org.freedesktop.appearance` `accent-color`); light or dark comes from the GTK portal.",
+    "Open apps take a new accent color right away, without restarting.",
+    "It starts on demand through D-Bus, keeps running when it can't see Sway, and exits with Sway.",
+  ]
   keys = "On its own, through D-Bus"
   guide = "guide/config/"
   start_note = "It's the same file the full desktop ships. If you already have one, add only the `org.freedesktop.impl.portal.Settings` line to its `[preferred]` section. `default=gtk` uses xdg-desktop-portal-gtk, and the `wlr` lines (screenshots and screen sharing) xdg-desktop-portal-wlr. It applies at the next login, or after `systemctl --user restart xdg-desktop-portal`."
   [components.es]
   name = "Color de acento en las aplicaciones"
-  text = "Lleva el color de acento y el estilo claro u oscuro a las aplicaciones libadwaita y GTK 4 que leen la apariencia del portal, con xdg-desktop-portal, en cualquier compositor. Solo se usa cuando tu `<desktop>-portals.conf` lo elige para `org.freedesktop.impl.portal.Settings`, como hace el escritorio completo."
+  text = "Da el color de acento del escritorio a las aplicaciones que leen los ajustes de apariencia del portal, como las de libadwaita y GTK 4."
+  features = [
+    "Solo responde con el color de acento (`org.freedesktop.appearance` `accent-color`); el claro u oscuro viene del portal de GTK.",
+    "Las aplicaciones abiertas toman un nuevo color de acento al momento, sin reiniciarse.",
+    "Se inicia bajo demanda por D-Bus, sigue en marcha cuando no ve Sway y se cierra junto con Sway.",
+  ]
   keys = "Solo, por D-Bus"
   guide = "guide/config/"
   start_note = "Es el mismo archivo del escritorio completo. Si ya tienes uno, añade solo la línea de `org.freedesktop.impl.portal.Settings` a su sección `[preferred]`. `default=gtk` usa xdg-desktop-portal-gtk, y las líneas `wlr` (capturas y compartir pantalla), xdg-desktop-portal-wlr. Se aplica en el próximo inicio de sesión, o tras `systemctl --user restart xdg-desktop-portal`."
@@ -994,18 +1723,51 @@ unit = true
   [components.pt-br]
   name = "Telas"
   text = "As telas num mapa, para arrastar, com a resolução, a taxa, a escala e a rotação de cada uma, e se ela fica ligada. Uma mudança se desfaz sozinha em 15 segundos, se você não a mantiver. Cada conjunto de monitores guarda o seu layout, aplicado quando você pluga ou despluga uma tela, e a tela do notebook desliga com a tampa fechada e um monitor ligado. A chave desliga só esses perfis automáticos; o app continua."
+  features = [
+    "Arraste as telas no mapa para organizá-las; as bordas se encaixam.",
+    "Para cada tela: *Ligada*, *Resolução*, *Taxa de atualização*, *Escala* e *Rotação*, com os modos espelhados.",
+    "Escala fracionária de 0,5 a 4, de 0,05 em 0,05, com o *Tamanho efetivo* que ela dá.",
+    "*Identificar* mostra o nome de cada tela nela mesma.",
+    "*Aplicar* pergunta *Manter estas configurações das telas?* com uma contagem de 15 segundos; sem resposta, volta atrás.",
+    "*Manter* salva o layout daquele conjunto de monitores, reconhecidos pela marca, modelo e número de série, não pela porta.",
+    "Um serviço em segundo plano aplica o layout salvo quando você pluga ou despluga uma tela, ou o Sway recarrega.",
+    "Fechar a tampa com uma tela externa ligada desliga a tela do notebook; abri-la aplica o layout de novo.",
+    "Ele não desliga todas as telas: *Pelo menos uma tela precisa ficar ligada.*",
+  ]
   keys = "Na grade de apps"
   guide = "guide/config/#monitores"
   start_note = "O serviço aplica o layout salvo quando as telas mudam, e fechar ou abrir a tampa o aplica de novo."
   [components.en-us]
   name = "Displays"
   text = "Your screens on a map, to drag around, with each one's resolution, refresh rate, scale and rotation, and whether it's on. A change undoes itself after 15 seconds unless you keep it. Each set of monitors keeps its own layout, applied when you plug or unplug a screen, and the laptop screen turns off with the lid closed and an external monitor on. The key turns off only these automatic profiles; the app stays."
+  features = [
+    "Drag the screens on the map to arrange them; their edges snap together.",
+    "For each screen: *On*, *Resolution*, *Refresh rate*, *Scale* and *Rotation*, flipped modes included.",
+    "Fractional scale from 0.5 to 4 in 0.05 steps, with the *Effective size* it gives.",
+    "*Identify* shows each screen's name on that screen.",
+    "*Apply* asks *Keep these display settings?* with a 15-second countdown; with no answer, it goes back.",
+    "*Keep* saves the layout for that set of monitors, recognized by make, model and serial, not port.",
+    "A background service applies the saved layout when you plug or unplug a screen, or Sway reloads.",
+    "Closing the lid with an external screen on turns the laptop screen off; opening it applies the layout again.",
+    "It won't turn every screen off: *At least one screen must stay on.*",
+  ]
   keys = "In the app grid"
   guide = "guide/config/#displays"
   start_note = "The daemon applies the saved layout when screens change, and closing or opening the lid applies it again."
   [components.es]
   name = "Pantallas"
   text = "Tus pantallas en un mapa, para arrastrarlas, con la resolución, la frecuencia de actualización, la escala y la rotación de cada una, y si está encendida. Un cambio se deshace solo después de 15 segundos, a menos que lo conserves. Cada conjunto de monitores guarda su propia disposición, que se aplica cuando conectas o desconectas una pantalla, y la pantalla de la laptop se apaga con la tapa cerrada y un monitor externo encendido. La clave desactiva solo estos perfiles automáticos; la aplicación se queda."
+  features = [
+    "Arrastra las pantallas en el mapa para ordenarlas; sus bordes se ajustan entre sí.",
+    "Para cada pantalla: *Encendida*, *Resolución*, *Frecuencia de actualización*, *Escala* y *Rotación*, con los modos volteados.",
+    "Escala fraccionaria de 0,5 a 4 en pasos de 0,05, con el *Tamaño efectivo* que da.",
+    "*Identificar* muestra el nombre de cada pantalla en esa misma pantalla.",
+    "*Aplicar* pregunta *¿Mantener esta configuración de pantallas?* con una cuenta atrás de 15 segundos; sin respuesta, se revierte.",
+    "*Mantener* guarda la disposición de ese conjunto de monitores, reconocidos por marca, modelo y número de serie, no por puerto.",
+    "Un servicio en segundo plano aplica la disposición guardada cuando conectas o desconectas una pantalla, o Sway se recarga.",
+    "Cerrar la tapa con una pantalla externa encendida apaga la pantalla de la laptop; abrirla vuelve a aplicar la disposición.",
+    "No apaga todas las pantallas: *Al menos una pantalla debe permanecer encendida.*",
+  ]
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/#pantallas"
   start_note = "El servicio aplica la disposición guardada cuando cambian las pantallas, y cerrar o abrir la tapa la vuelve a aplicar."
@@ -1027,18 +1789,51 @@ start = "bindsym $mod+F1 exec swaydesk-help"
   [components.pt-br]
   name = "Ajuda"
   text = "Os atalhos do perfil em uso, com busca, lidos da própria configuração do Sway, e um cartão para cada parte do desktop, com o atalho e um botão que a abre. Nela você também troca o perfil de atalhos e abre o seu `50-local.conf` para editar."
+  features = [
+    "Apertar o atalho de novo a fecha.",
+    "Duas abas, *Atalhos* e *Usando o Swaydesk*; `Ctrl`+`Tab` ou `Ctrl`+`Page Up`/`Page Down` alternam entre elas.",
+    "Digitar busca nas duas abas, sem diferenciar maiúsculas nem acentos; `Esc` limpa a busca e depois fecha.",
+    "Os atalhos vêm agrupados por seção, com as teclas desenhadas como teclas e um cadeado nos que valem com a tela bloqueada.",
+    "*Perfil de atalhos*, que aparece quando há mais de um instalado, troca o perfil depois de perguntar *Trocar para o perfil i3?*.",
+    "Escolher o dwm explica que o Alt vira o modificador e quais atalhos mudam de lugar.",
+    "*Usando o Swaydesk* tem um cartão para o tema, captura, gravação, área de transferência, grade, dock, alternador, notificações, bloqueio, luz noturna e telas.",
+    "Cada cartão mostra o atalho atual, ou *Sem atalho*, e um botão *Abrir*; o da tela de bloqueio diz *Bloquear agora*.",
+    "Uma parte desligada no `[enabled]` aparece como *Desligado* e diz como ligá-la de novo.",
+  ]
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
   start_note = "Ele também abre pelo seu lançador. Ele lista os atalhos da sua própria config: um comentário `## descrição` acima de um dá o texto dele, `### Nome` os agrupa, e os outros mostram o comando. Os perfis de atalhos são da sessão do Swaydesk: na sua própria config, não use a troca de perfil dele."
   [components.en-us]
   name = "Help"
   text = "The shortcuts of the profile in use, with search, read from the Sway configuration itself, and a card for each part of the desktop, with its shortcut and a button that opens it. It's also where you switch the shortcut profile and open your `50-local.conf` to edit it."
+  features = [
+    "Pressing its shortcut again closes it.",
+    "Two tabs, *Shortcuts* and *Using Swaydesk*; `Ctrl`+`Tab` or `Ctrl`+`Page Up`/`Page Down` switch between them.",
+    "Typing searches both tabs, ignoring case and accents; `Esc` clears the search, then closes.",
+    "Shortcuts come grouped by section, with the keys drawn as keycaps and a lock on those that work while locked.",
+    "*Shortcut profile*, shown when more than one is installed, switches profiles after asking *Switch to the i3 profile?*.",
+    "Choosing dwm explains that Alt becomes the modifier and which shortcuts move.",
+    "*Using Swaydesk* has a card for the theme, capture, recording, clipboard, grid, dock, switcher, notifications, lock, night light and displays.",
+    "Each card shows its current shortcut, or *No shortcut*, and an *Open* button; the lock screen's reads *Lock now*.",
+    "A part turned off in `[enabled]` shows *Off* and how to turn it back on.",
+  ]
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
   start_note = "It also opens from your launcher. It lists the bindings of your own config: a `## description` comment above one gives its text, `### Name` groups them, and the rest show their command. The shortcut profiles belong to the Swaydesk session: on your own config, don't use its profile switch."
   [components.es]
   name = "Ayuda"
   text = "Los atajos del perfil en uso, con búsqueda, leídos de la propia configuración de Sway, y una tarjeta para cada parte del escritorio, con su atajo y un botón que la abre. También es donde cambias el perfil de atajos y abres tu `50-local.conf` para editarlo."
+  features = [
+    "Pulsar su atajo otra vez la cierra.",
+    "Dos pestañas, *Atajos* y *Cómo usar Swaydesk*; `Ctrl`+`Tab` o `Ctrl`+`Page Up`/`Page Down` cambian entre ellas.",
+    "Escribir busca en las dos pestañas, sin distinguir mayúsculas ni acentos; `Esc` borra la búsqueda y luego cierra.",
+    "Los atajos vienen agrupados por sección, con las teclas dibujadas como teclas y un candado en los que funcionan con la pantalla bloqueada.",
+    "*Perfil de atajos*, que aparece cuando hay más de uno instalado, cambia el perfil tras preguntar *¿Cambiar al perfil i3?*.",
+    "Elegir dwm explica que Alt pasa a ser el modificador y qué atajos cambian de sitio.",
+    "*Cómo usar Swaydesk* tiene una tarjeta para el tema, captura, grabación, portapapeles, cuadrícula, dock, selector de ventanas, notificaciones, bloqueo, luz nocturna y pantallas.",
+    "Cada tarjeta muestra su atajo actual, o *Sin atajo*, y un botón *Abrir*; el de la pantalla de bloqueo dice *Bloquear ahora*.",
+    "Una parte desactivada en `[enabled]` aparece como *Desactivado* y dice cómo volver a activarla.",
+  ]
   keys = "`Super`+`F1`; `Super`+`/`"
   guide = "shortcuts/"
   start_note = "También se abre desde tu lanzador. Lista los atajos de tu propia config: un comentario `## descripción` encima de uno da su texto, `### Nombre` los agrupa, y los demás muestran su comando. Los perfiles de atajos son de la sesión de Swaydesk: en tu propia config, no uses su cambio de perfil."
@@ -1086,18 +1881,51 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
   [components.pt-br]
   name = "Captura de tela"
   text = "Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar."
+  features = [
+    "`Super`+`Shift`+`E` abre o painel de captura: *Região* (`r`), *Tela inteira* (`s`) ou *Janela* (`w`).",
+    "*Atraso* (`d`): agora, 3, 5 ou 10 segundos, só para aquela captura.",
+    "Sem o painel: `Print` captura uma região, `Shift`+`Print` a tela, `Super`+`Print` a janela em foco.",
+    "Com o Gradia instalado, *Abrir no Gradia* (`g`), ou `Ctrl` com essas teclas, abre a captura para editar.",
+    "`Super`+`Shift`+`R` abre o painel de gravação (precisa do wf-recorder), com *Sistema*, *Microfone* ou *Sem áudio* (`a`).",
+    "No painel de gravação, `Shift` + tecla grava com o som do sistema, `Ctrl` + tecla com o microfone.",
+    "Durante a gravação, a barra mostra um contador; clique nele ou aperte `Super`+`Shift`+`R` para parar.",
+    "Os avisos vêm do *Swaydesk*; o de *Captura de tela* mostra uma miniatura e se ela foi copiada (precisa do wl-clipboard).",
+    "Clicar no aviso de *Captura de tela* ou de *Gravação salva*, ou no item dele na central, abre o arquivo no app padrão, se houver.",
+  ]
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-e-gravação"
   start_note = "O painel de captura e o de gravação; os dois também abrem pelo seu lançador. A sessão do Swaydesk os põe em `Super`+`Shift`+`E` e `Super`+`Shift`+`R`, mas a config padrão do Sway usa `Super`+`Shift`+`E` para sair e `Print` para uma captura com o grim, e estas teclas deixam as duas como estão."
   [components.en-us]
   name = "Screenshot"
   text = "A region, the whole screen or a window, with a delay. It goes to the clipboard and to `~/Pictures/Screenshots`; with Gradia, it opens for editing."
+  features = [
+    "`Super`+`Shift`+`E` opens the screenshot panel: *Region* (`r`), *Full screen* (`s`) or *Window* (`w`).",
+    "*Delay* (`d`): now, 3, 5 or 10 seconds, for that capture only.",
+    "Without the panel: `Print` takes a region, `Shift`+`Print` the screen, `Super`+`Print` the focused window.",
+    "With Gradia installed, *Open in Gradia* (`g`), or `Ctrl` with those keys, opens the screenshot for editing.",
+    "`Super`+`Shift`+`R` opens the recording panel (needs wf-recorder), with *System*, *Microphone* or *No audio* (`a`).",
+    "In the recording panel, `Shift` + key records with the system sound, `Ctrl` + key with the microphone.",
+    "While recording, the bar shows a timer; click it or press `Super`+`Shift`+`R` to stop.",
+    "Notices come from *Swaydesk*; the *Screenshot* one shows a thumbnail and whether it was copied (needs wl-clipboard).",
+    "Clicking the *Screenshot* or *Recording saved* notice, or its center entry, opens the file in its default app, if any.",
+  ]
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#screenshots-and-recording"
   start_note = "The screenshot panel and the recording panel; both also open from your launcher. The Swaydesk session puts them on `Super`+`Shift`+`E` and `Super`+`Shift`+`R`, but Sway's default config uses `Super`+`Shift`+`E` to exit and `Print` for a grim screenshot, so these keys leave both alone."
   [components.es]
   name = "Captura de pantalla"
   text = "Una región, la pantalla completa o una ventana, con retardo. Va al portapapeles y a `~/Pictures/Screenshots`; con Gradia, se abre para editarla."
+  features = [
+    "`Super`+`Shift`+`E` abre el panel de captura: *Región* (`r`), *Pantalla completa* (`s`) o *Ventana* (`w`).",
+    "*Retraso* (`d`): ahora, 3, 5 o 10 segundos, solo para esa captura.",
+    "Sin el panel: `Print` captura una región, `Shift`+`Print` la pantalla, `Super`+`Print` la ventana enfocada.",
+    "Con Gradia instalado, *Abrir en Gradia* (`g`), o `Ctrl` con esas teclas, abre la captura para editarla.",
+    "`Super`+`Shift`+`R` abre el panel de grabación (necesita wf-recorder), con *Sistema*, *Micrófono* o *Sin audio* (`a`).",
+    "En el panel de grabación, `Shift` + tecla graba con el sonido del sistema, `Ctrl` + tecla con el micrófono.",
+    "Durante la grabación, la barra muestra un contador; haz clic en él o pulsa `Super`+`Shift`+`R` para detenerla.",
+    "Los avisos vienen de *Swaydesk*; el de *Captura de pantalla* muestra una miniatura y si se copió (necesita wl-clipboard).",
+    "Hacer clic en el aviso de *Captura de pantalla* o de *Grabación guardada*, o en su entrada del centro, abre el archivo en su aplicación predeterminada, si la hay.",
+  ]
   keys = "`Super`+`Shift`+`E`; `Print`"
   guide = "guide/desktop/#capturas-de-pantalla-y-grabación"
   start_note = "El panel de captura y el de grabación; los dos también se abren desde tu lanzador. La sesión de Swaydesk los pone en `Super`+`Shift`+`E` y `Super`+`Shift`+`R`, pero la config predeterminada de Sway usa `Super`+`Shift`+`E` para salir y `Print` para una captura con grim, así que estas teclas dejan las dos como están."
@@ -1145,19 +1973,52 @@ optional = []
 start = ""
   [components.pt-br]
   name = "Tema e configurações pelo terminal"
-  text = "Aplica o tema GTK, os ícones, a cor de destaque e as fontes em todo o desktop pela linha de comando, com as cores de pasta do Papirus (`swaydesk-theme`), e gera, do `~/.config/swaydesk/config.toml`, os arquivos que o Sway, a barra e os apps usam: depois de editar o arquivo à mão, `swaydesk-desktop-config apply` grava tudo e recarrega o Sway; `swaydesk-desktop-config generate` só grava os arquivos."
+  text = "Aplica o tema GTK, os ícones e a cor de destaque pela linha de comando (`swaydesk-theme`) e grava, do `~/.config/swaydesk/config.toml`, os arquivos que o Sway, a barra e os apps leem: depois de editá-lo à mão, rode `swaydesk-desktop-config apply`."
+  features = [
+    "`swaydesk-theme list`, `current`, `families` e `colors` mostram os temas instalados, o em uso e as cores de pasta do Papirus.",
+    "`swaydesk-theme set` ou `pick` (família, claro ou escuro, cor) troca o tema, com `--accent`, `--folders` e `--icons` opcionais.",
+    "`swaydesk-theme icons` e `cursor` trocam só o tema de ícones ou o tamanho do cursor (de 16 a 96).",
+    "`swaydesk-theme accent-auto` aplica a cor do Papirus mais próxima da do papel de parede; `--print` só diz qual é.",
+    "O `accent_auto` fica ligado quando vale true, ou quando está ausente e existe um arquivo de papel de parede.",
+    "`generate` e `apply` também gravam a config da barra sem os módulos desligados, e sem o de atualizações com `update_notifier = false`.",
+    "`swaydesk-desktop-config keys` monta os atalhos do perfil escolhido em `shortcuts`.",
+    "`get`, `enabled` e `css` dão aos seus scripts um valor da config, se um componente está ligado ou as cores de destaque.",
+    "Um `file_manager` vazio pega o primeiro instalado entre nemo, thunar, nautilus e dolphin, senão o thunar.",
+  ]
   keys = "No terminal"
   guide = "guide/config/"
   start_text = "Nada a acrescentar à config do Sway: são ferramentas de linha de comando. `man swaydesk-theme` e `man swaydesk-desktop-config` listam as opções."
   [components.en-us]
   name = "Theme and settings from the terminal"
-  text = "Applies the GTK theme, the icons, the accent color and the fonts across the desktop from the command line, with the Papirus folder colors (`swaydesk-theme`), and writes, from `~/.config/swaydesk/config.toml`, the files that Sway, the bar and the apps use: after editing the file by hand, `swaydesk-desktop-config apply` writes everything and reloads Sway; `swaydesk-desktop-config generate` only writes the files."
+  text = "Sets the GTK theme, the icons and the accent color from the terminal (`swaydesk-theme`), and writes the files Sway, the bar and the apps read from `~/.config/swaydesk/config.toml`: run `swaydesk-desktop-config apply` after editing it by hand."
+  features = [
+    "`swaydesk-theme list`, `current`, `families` and `colors` show the installed themes, the one in use and the Papirus folder colors.",
+    "`swaydesk-theme set` or `pick` (family, light or dark, color) switches the theme, with optional `--accent`, `--folders` and `--icons`.",
+    "`swaydesk-theme icons` and `cursor` change only the icon theme or the cursor size (16 to 96).",
+    "`swaydesk-theme accent-auto` applies the wallpaper's nearest Papirus color; `--print` only names it.",
+    "`accent_auto` is on when set to true, or when it's absent and there's a wallpaper file.",
+    "`generate` and `apply` also write the bar's config without turned-off modules, and without updates when `update_notifier = false`.",
+    "`swaydesk-desktop-config keys` sets up the shortcuts of the profile named in `shortcuts`.",
+    "`get`, `enabled` and `css` give your own scripts a config value, a component's on/off state or the accent colors.",
+    "An empty `file_manager` takes the first installed of nemo, thunar, nautilus and dolphin, else thunar.",
+  ]
   keys = "In the terminal"
   guide = "guide/config/"
   start_text = "Nothing to add to the Sway config: they're command-line tools. `man swaydesk-theme` and `man swaydesk-desktop-config` list their options."
   [components.es]
   name = "Tema y ajustes desde la terminal"
-  text = "Aplica el tema GTK, los iconos, el color de acento y las fuentes en todo el escritorio desde la línea de comandos, con los colores de carpeta de Papirus (`swaydesk-theme`), y escribe, desde `~/.config/swaydesk/config.toml`, los archivos que usan Sway, la barra y las aplicaciones: después de editar el archivo a mano, `swaydesk-desktop-config apply` escribe todo y recarga Sway; `swaydesk-desktop-config generate` solo escribe los archivos."
+  text = "Aplica el tema GTK, los iconos y el color de acento desde la línea de comandos (`swaydesk-theme`) y escribe, desde `~/.config/swaydesk/config.toml`, los archivos que leen Sway, la barra y las aplicaciones: después de editarlo a mano, ejecuta `swaydesk-desktop-config apply`."
+  features = [
+    "`swaydesk-theme list`, `current`, `families` y `colors` muestran los temas instalados, el que está en uso y los colores de carpeta de Papirus.",
+    "`swaydesk-theme set` o `pick` (familia, claro u oscuro, color) cambia el tema, con `--accent`, `--folders` e `--icons` opcionales.",
+    "`swaydesk-theme icons` y `cursor` cambian solo el tema de iconos o el tamaño del cursor (de 16 a 96).",
+    "`swaydesk-theme accent-auto` aplica el color de Papirus más cercano al del fondo de pantalla; `--print` solo dice cuál es.",
+    "`accent_auto` está activado cuando vale true, o cuando falta y existe un archivo de fondo de pantalla.",
+    "`generate` y `apply` también escriben la config de la barra sin los módulos desactivados, y sin el de actualizaciones con `update_notifier = false`.",
+    "`swaydesk-desktop-config keys` prepara los atajos del perfil elegido en `shortcuts`.",
+    "`get`, `enabled` y `css` dan a tus scripts un valor de la config, si un componente está activado o los colores de acento.",
+    "Un `file_manager` vacío toma el primero instalado entre nemo, thunar, nautilus y dolphin, si no, thunar.",
+  ]
   keys = "En la terminal"
   guide = "guide/config/"
   start_text = "Nada que añadir a la config de Sway: son herramientas de línea de comandos. `man swaydesk-theme` y `man swaydesk-desktop-config` listan sus opciones."
