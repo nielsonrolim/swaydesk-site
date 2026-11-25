@@ -55,7 +55,8 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
   checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
 - `check-layout.py` opens Install and three component pages (dock, greeter, screenshot) in the three languages
   in a headless Chrome at 1200 and 390 px, clicks every distro tab, and fails when a panel opens at a different
-  distance from the tabs than the first one, or a copy button isn't as tall as its code field. It serves a copy of
+  distance from the tabs than the first one, or a copy button (in any panel) isn't as tall as its code field; a page
+  where it finds fewer than two tabs or no copy block fails too, so a renamed class can't pass. It serves a copy of
   `public/` on 127.0.0.1 and runs Chrome with a temporary HOME and no session bus. Its tests skip without Chrome,
   except on CI.
 - `check-components.py` checks `data/components.toml` against what the templates expect (its docstring lists

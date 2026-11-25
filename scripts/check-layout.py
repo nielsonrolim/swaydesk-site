@@ -5,12 +5,14 @@ The site's CSS can look right in one state and not another: the Install and comp
 per-distro sections as tabs (static/js/install.js), and every hidden panel is still in the DOM. This opens each
 page at 1200 and 390 px and checks that:
 - every tab panel's first block starts at the same distance from the tabs as the first panel's;
-- every copy button is as tall as the code field next to it.
+- every copy button, in every tab panel, is as tall as the code field next to it;
+- each page reports at least two tabs and one copy block (none means the check measured nothing).
 Without pages, it checks Install and three component pages (a plain install, start_text, a multi-line start) in
 the three languages. The pages are served from a copy of <public dir> on 127.0.0.1; Chrome runs with a temporary
 HOME and no display or session bus. A missing page, a missing Chrome or a page that doesn't report is an error.
 """
 import functools
+import html
 import http.server
 import json
 import pathlib
@@ -28,6 +30,15 @@ TOLERANCE = 1  # px: rounding of fractional layout
 
 MEASURE = r"""window.addEventListener("load", () => {
   const out = {tabs: [], cmds: []};
+  // Every copy block that is visible now; each panel is measured right after its tab is clicked, since a
+  // hidden panel's blocks have no size, and the blocks outside any tab box once at the end
+  const seen = new Set();
+  const cmds = (root) => root.querySelectorAll(".cmd").forEach((cmd) => {
+    const pre = cmd.querySelector("pre"), btn = cmd.querySelector(".cmd__copy");
+    if (seen.has(cmd) || !pre || !btn || !cmd.offsetParent) return;
+    seen.add(cmd);
+    out.cmds.push({pre: Math.round(pre.getBoundingClientRect().height), btn: Math.round(btn.getBoundingClientRect().height)});
+  });
   document.querySelectorAll("[data-tabs]").forEach((box) => {
     const list = box.querySelector(".tabs");
     if (!list) return;
@@ -38,13 +49,10 @@ MEASURE = r"""window.addEventListener("load", () => {
         && getComputedStyle(el).position !== "absolute");
       if (first) out.tabs.push({name: tab.textContent.trim(),
         gap: Math.round(first.getBoundingClientRect().top - list.getBoundingClientRect().bottom)});
+      cmds(panel);
     });
   });
-  document.querySelectorAll(".cmd").forEach((cmd) => {
-    const pre = cmd.querySelector("pre"), btn = cmd.querySelector(".cmd__copy");
-    if (!pre || !btn || !cmd.offsetParent) return;
-    out.cmds.push({pre: Math.round(pre.getBoundingClientRect().height), btn: Math.round(btn.getBoundingClientRect().height)});
-  });
+  cmds(document);
   const el = document.createElement("pre");
   el.id = "__layout";
   el.textContent = JSON.stringify(out);
@@ -67,6 +75,11 @@ def chrome():
 
 def problems(page, width, data):
     errors, tabs = [], data["tabs"]
+    # Every checked page has distro tabs and copy blocks: finding none means a renamed class or a script that
+    # didn't run, never a page without problems
+    if len(tabs) < 2 or not data["cmds"]:
+        return [f"{page} @{width}: measured {len(tabs)} tabs and {len(data['cmds'])} copy blocks "
+                "(expected 2+ tabs and 1+ copy block)"]
     if tabs:
         first = tabs[0]["gap"]
         for tab in tabs[1:]:
@@ -123,7 +136,7 @@ def main(argv):
                     if not match:
                         errors.append(f"{page} @{width}: the page didn't report (no layout data)")
                         continue
-                    data = json.loads(match.group(1).replace("&quot;", '"').replace("&amp;", "&"))
+                    data = json.loads(html.unescape(match.group(1)))
                     errors += problems(page, width, data)
         finally:
             server.shutdown()

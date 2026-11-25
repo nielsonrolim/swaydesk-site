@@ -24,11 +24,12 @@ body { margin: 0; font: 16px/1.5 monospace; }
 .cmd { display: flex; align-items: %(align)s; gap: 6px; }
 .cmd pre { flex: 1; margin: 0; padding: 12px; }
 .cmd__copy { padding: 4px; }
+%(extra)s
 """
 
 PAGE = """<!doctype html><html><head><meta charset="utf-8"><style>%(css)s</style></head><body>
 <div class="distros" data-tabs data-label="Distro">
-<section class="distro" id="a"><h3 class="distro__title">A</h3>
+<section class="distro" id="a"><h3 class="distro__title">%(first)s</h3>
 <div class="cmd" data-copy="Copy"><pre><code>sudo apt install x</code></pre></div></section>
 <section class="distro" id="b"><h3 class="distro__title">B</h3>
 <div class="cmd" data-copy="Copy"><pre><code>sudo apt install x</code></pre></div></section>
@@ -48,10 +49,11 @@ class CheckLayoutTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def run_on(self, sibling="0", align="stretch"):
+    def run_on(self, sibling="0", align="stretch", extra="", first="A", html=None):
         page = self.root / "en-us/install"
         page.mkdir(parents=True, exist_ok=True)
-        (page / "index.html").write_text(PAGE % {"css": CSS % {"sibling": sibling, "align": align}}, encoding="utf-8")
+        css = CSS % {"sibling": sibling, "align": align, "extra": extra}
+        (page / "index.html").write_text(html or PAGE % {"css": css, "first": first}, encoding="utf-8")
         return subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "en-us/install"],
                               capture_output=True, text=True, timeout=300)
 
@@ -68,6 +70,25 @@ class CheckLayoutTests(unittest.TestCase):
         result = self.run_on(align="flex-start")
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertIn("en-us/install @390: a copy button is", result.stdout)
+
+    def test_a_short_button_in_a_hidden_panel_fails(self):
+        # Only the first panel's button is short; after the last click that panel is hidden
+        result = self.run_on(extra="#a .cmd { align-items: flex-start; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/install @1200: a copy button is", result.stdout)
+
+    def test_a_page_where_nothing_is_measured_fails(self):
+        # Renamed classes: no tabs and no copy blocks found, which must not pass as "no problems"
+        html = "<!doctype html><html><body><div class='box'><pre>sudo apt install x</pre></div></body></html>"
+        result = self.run_on(html=html)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/install @1200: measured 0 tabs and 0 copy blocks", result.stdout)
+
+    def test_a_tab_name_with_angle_brackets_is_reported(self):
+        result = self.run_on(sibling="40px", first="A &lt;x&gt; &amp; y")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("A <x> & y", result.stdout)
+        self.assertNotIn("Traceback", result.stderr)
 
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
