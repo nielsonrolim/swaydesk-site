@@ -461,6 +461,8 @@ id = "dock"
 group = "windows"
 icon = "dock"
 shot = "desktop"
+crop = true
+more_shots = ["dock-menu", "dock-windows"]
 bin = "swaydesk-dock"
 src = "rust/dock"
 tech = "rust"
@@ -474,16 +476,19 @@ unit = true
   [components.pt-br]
   name = "Dock"
   text = "Os apps fixados e os abertos, com menu no clique direito. Some quando uma janela precisa do espaço, ou fica sempre à vista."
+  more_alts = ["O menu do botão direito: Desafixar, Nova janela e Fechar todas (2)", "Um clique num app com várias janelas lista cada uma, com a área de trabalho"]
   keys = "Empurre o ponteiro para a borda de baixo"
   guide = "guide/desktop/#a-dock"
   [components.en-us]
   name = "Dock"
   text = "Pinned and open apps, with a right-click menu. It hides when a window needs the room, or stays visible."
+  more_alts = ["The right-click menu: Unpin, New window and Close all (2)", "A click on an app with several windows lists each one, with its workspace"]
   keys = "Push the pointer against the bottom edge"
   guide = "guide/desktop/#the-dock"
   [components.es]
   name = "Dock"
   text = "Aplicaciones fijadas y abiertas, con un menú de clic derecho. Se oculta cuando una ventana necesita el espacio, o se queda visible."
+  more_alts = ["El menú del botón derecho: Dejar de fijar, Nueva ventana y Cerrar todas (2)", "Un clic en una app con varias ventanas lista cada una, con su área de trabajo"]
   keys = "Empuja el puntero contra el borde inferior"
   guide = "guide/desktop/#la-dock"
 
