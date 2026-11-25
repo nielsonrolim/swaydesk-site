@@ -150,6 +150,11 @@ h2 { font-weight: 600; }
 .component__body p { margin: 0 0 .5rem; }
 .component__keys { color: var(--ink); font-size: .85rem; }
 .component__meta { color: var(--muted); font-size: .75rem; }
+.component__shot--crop img { width: auto; max-width: 100%; }
+.component__more { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
+.component__more a { flex: 0 1 8rem; border: 1px solid var(--line-strong); border-radius: var(--frame); overflow: hidden; background: var(--surface); }
+.component__more a:hover { border-color: var(--line-hover); }
+.component__more img { display: block; width: 100%; height: 5.5rem; object-fit: cover; object-position: top; }
 .component:not(:has(.component__shot)) { grid-template-columns: 1fr; }
 @media (max-width: 40rem) { .component { grid-template-columns: 1fr; } }
 
