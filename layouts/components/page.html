@@ -1,0 +1,75 @@
+{{- /* A component's page, made by content/<lang>/components/_content.gotmpl from data/components.toml.
+       While a field of 0.1.7 is empty (package, start, waybar), its section says it is being written. The pacman line
+       also carries arch_with, which apt brings by Recommends and pacman doesn't install. */ -}}
+{{ define "main" }}
+{{- $c := partial "component-data.html" (dict "id" .Params.component "page" .) }}
+{{- $soon := printf `<p><span class="soon">%s</span></p>` (i18n "comp_writing") | safeHTML }}
+<p class="crumbs"><a href="{{ relLangURL "components/" }}">← {{ i18n "comp_all" }}</a></p>
+<h1 class="prompt"><span aria-hidden="true">{{ with $c.bin }}{{ . }}{{ else }}{{ $c.name }}{{ end }}</span><span class="sr-only">{{ $c.name }}</span></h1>
+<div class="content">
+<article class="component component--page">
+<h2 class="component__name">{{ partial "icon.html" $c.icon }} {{ $c.name }}</h2>
+{{- with $c.shot }}
+{{- with resources.Get (printf "images/shots/%s.webp" .) }}
+{{- $img := . | fingerprint }}
+<a class="component__shot" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $c.name }}" decoding="async"></a>
+{{- else }}{{ errorf "data/components.toml: images/shots/%s.webp doesn't exist" . }}{{ end }}
+{{- end }}
+<div class="component__body">
+{{ $.RenderString (dict "display" "block") $c.text }}
+{{- with $c.note }}
+{{ $.RenderString (dict "display" "block") . }}
+{{- end }}
+<p class="component__meta">
+{{- $tech := $c.tech }}{{ if eq $tech "rust" }}Rust + GTK 4{{ else if eq $tech "script" }}{{ i18n "tech_script" }}{{ else }}{{ $tech }}{{ end }}
+{{- with site.Params.code_repo }}{{ with $c.src }} · <a href="{{ site.Params.code_repo }}/tree/main/{{ . }}">{{ i18n "source" }}</a>{{ end }}{{ end }}
+{{- with $c.guide }} · <a href="{{ relLangURL . }}">{{ i18n "in_the_guide" }}</a>{{ end }}
+{{- with $c.off }} · {{ i18n "turn_off" }}: <code>{{ if strings.HasPrefix . "bar." }}[enabled.bar] {{ strings.TrimPrefix "bar." . }}{{ else }}[enabled] {{ . }}{{ end }} = false</code>{{ end }}
+</p>
+</div>
+</article>
+
+<h2 id="install">{{ i18n "comp_install" }}</h2>
+<p>{{ i18n "comp_install_lead" }} <a href="{{ relLangURL "install/" }}">{{ i18n "comp_install_link" }}</a>.</p>
+{{- with $c.package }}
+<div class="distros" data-tabs data-label="{{ i18n "distro_tabs" }}">
+{{- range slice (slice "debian" "Debian 13" "apt") (slice "ubuntu" "Ubuntu 26.04 · Mint 27" "apt") (slice "arch" "Arch Linux" "pacman") }}
+<section class="distro" id="{{ index . 0 }}" aria-labelledby="{{ index . 0 }}-title">
+<h3 id="{{ index . 0 }}-title" class="distro__title">{{ index . 1 }}</h3>
+{{- if eq (index . 2) "apt" }}
+{{ partial "cmd.html" (printf "sudo apt install %s" $c.package) }}
+{{- else }}
+{{ partial "cmd.html" (printf "sudo pacman -Syu %s" (delimit (append $c.arch_with (slice $c.package)) " ")) }}
+{{- with $c.arch_with }}<p>{{ i18n "comp_arch_with" }}</p>{{ end }}
+{{- with $c.arch_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+{{- end }}
+</section>
+{{- end }}
+</div>
+{{- with $c.optional }}<p>{{ i18n "comp_optional" }} {{ range $i, $p := . }}{{ if $i }}, {{ end }}<code>{{ $p }}</code>{{ end }}</p>{{ end }}
+{{- else }}{{ $soon }}{{ end }}
+
+<h2 id="start">{{ i18n "comp_start" }}</h2>
+{{- if $c.start }}
+<p>{{ i18n "comp_start_lead" (dict "file" ($c.start_file | default "~/.config/sway/config")) | safeHTML }}</p>
+{{ partial "cmd.html" $c.start }}
+{{- with $c.start_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+{{- if $c.unit }}<p>{{ i18n "comp_start_unit" | safeHTML }}</p>{{ end }}
+{{- else if and (eq $c.group "bar") $c.waybar }}<p>{{ i18n "comp_start_by_waybar" }}</p>
+{{- else }}{{ $soon }}{{ end }}
+
+{{- if eq $c.group "bar" }}
+<h2 id="waybar">{{ i18n "comp_waybar" }}</h2>
+{{- with $c.waybar }}
+<p>{{ i18n "comp_waybar_lead" (dict "module" (printf "custom/%s" .)) | safeHTML }}</p>
+{{ partial "cmd.html" (printf "/usr/share/swaydesk/waybar/%s.jsonc" .) }}
+<p>{{ i18n "comp_waybar_note" }}</p>
+{{- with $c.waybar_note }}{{ $.RenderString (dict "display" "block") . }}{{ end }}
+{{- else }}{{ $soon }}{{ end }}
+{{- end }}
+
+<h2 id="shortcuts">{{ i18n "comp_shortcuts" }}</h2>
+{{- with $c.keys }}<p>{{ . | markdownify }}</p>{{ end }}
+<p>{{ i18n "comp_shortcuts_note" }} <a href="{{ relLangURL "shortcuts/" }}">{{ i18n "comp_shortcuts" }}</a>.</p>
+</div>
+{{ end }}

@@ -371,3 +371,18 @@ html.lb-open { overflow: hidden; }
   .factstrip__in > div:first-child { border-top: 0; }
   .footer { margin-top: 96px; }
 }
+
+/* Components: the list (data/components.toml, shortcode components) and one page per component */
+.cgrid--list { margin: 1rem 0 2.5rem; }
+.cgrid--list .cgrid__cell { padding: 20px; }
+.cgrid--list .cgrid__text p { margin: 0; }
+a.cgrid__name { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+a.cgrid__name:hover { color: var(--accent); text-decoration-color: currentColor; }
+.cgrid__keys { color: var(--ink-soft); font-size: 12px; }
+.crumbs { margin: 0 0 .5rem; font-size: .85rem; }
+.component--page { display: block; padding-top: 0; border-bottom: 0; }
+.component--page .component__shot { display: block; margin: 0 0 1rem; }
+.component__name { display: flex; align-items: center; gap: .5rem; margin-top: 0; }
+.component__name .icon { color: var(--accent); }
+.cgroup { margin: 0 0 1rem; color: var(--ink-soft); }
+.cgroup p { margin: 0 0 .5rem; }

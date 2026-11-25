@@ -109,7 +109,7 @@ Cuando no estás, la computadora:
 - apaga la pantalla después de 15 minutos;
 - se suspende después de 30 minutos, solo con batería y solo si no se está reproduciendo ningún sonido.
 
-También bloquea antes de suspenderse. Cafeína, en la barra, detiene todo esto mientras está activada. Si la pantalla se queda oscura después de apagarse, `Super`+`Shift`+`O` la vuelve a encender, incluso con la sesión bloqueada.
+También bloquea antes de suspenderse. Cafeína, en la barra, detiene todo esto mientras está activada. Fuera de la sesión de Swaydesk (un Sway puro, con tu propio swayidle), mantiene un inhibidor de inactividad de Wayland (`swaydesk-caffeinate`) en lugar de reemplazar swayidle. Con todos los monitores desactivados o desconectados (o, en Sway 1.12, apagados), los tiempos de inactividad aún pueden activarse. Si la pantalla se queda oscura después de apagarse, `Super`+`Shift`+`O` la vuelve a encender, incluso con la sesión bloqueada.
 
 ## Capturas de pantalla y grabación
 

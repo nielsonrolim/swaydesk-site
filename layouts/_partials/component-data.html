@@ -1,0 +1,6 @@
+{{- /* One component of data/components.toml, by id, with its texts in the page's language merged in:
+       (partial "component-data.html" (dict "id" "dock" "page" .)). Fails the build on an unknown id. */ -}}
+{{- $c := dict }}
+{{- range (partialCached "data.html" .page).components.components }}{{ if eq .id $.id }}{{ $c = . }}{{ end }}{{ end }}
+{{- if not $c }}{{ errorf "data/components.toml: no component %q" .id }}{{ end }}
+{{- return merge $c (index $c (lower .page.Language.Lang)) }}

@@ -19,7 +19,12 @@ requests to other hosts: no CDN, no web fonts from outside, no analytics, no coo
 - The home page (`layouts/home.html`) follows the design mockup: its texts are in the front matter of each
   language's `_index.md` (`hero`, `facts`, `demo`, `components`, `shortcuts`, `install`), the packages' version comes from
   `data/isos.toml` (`packages`, required: the build fails without it; `tag` is the ISOs' Release), the profiles from `data/shortcuts.json`, the component icons from `_partials/icon.html`.
-- `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `component`…).
+- `layouts/`: page templates, `_partials/` and `_shortcodes/` (`iso`, `distro`, `step`, `components`…).
+- **Components:** `data/components.toml` (its header documents the fields) drives the list on `/components/` (shortcode
+  `components`) and one page per component with `page = true`, made by `content/<lang>/components/_content.gotmpl` (the
+  same file in the three languages) and drawn by `layouts/components/page.html`. A new component is one
+  `[[components]]` with its three languages; `package`, `start` and `waybar` stay empty until known, and the page says
+  "being written".
   `_partials/topbar.html` (logo, menu, languages, Download button, theme), `nav.html` (the top menu: every
   `main` menu entry but home and Download), `locale.html`, `theme-toggle.html` and `footer.html` are on every
   page. Below 1000px the top bar stays on one line: the menu, the languages and the theme button move into a
@@ -47,6 +52,14 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
   file that exists, that every `#anchor` on a page link is an id on that page, and that a page links only to its
   own language (the switcher's links, with `hreflang`, are the exception). Relative and external links aren't
   checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
+- `check-components.py` checks `data/components.toml` against what the templates expect (its docstring lists
+  the rules: known group and icon, unique id, the three languages with a name and a text, the shot exists,
+  `waybar` only on the bar as `swaydesk-<name>`, `unit` only with a snippet include, no page fields on a card
+  without a page). CI runs it through the unittest step (`test_the_real_data_passes`).
+- `check-packages.py <swaydesk checkout>` checks that every `package` in `data/components.toml` is a `Package:`
+  of the checkout's `debian/control` and a name in its `packaging/arch/PKGBUILD` `pkgname=(…)`, so no page
+  prints an install line for a package that doesn't exist. CI doesn't run it (it needs that checkout): run it
+  against a clone of github.com/nielsonrolim/swaydesk at the release whenever a `package` changes.
 - **Both Hugo 0.147 and the newest build the site.** CI publishes with 0.147, which lacks what 0.156+ replaced, so
   the templates never call a deprecated API directly: `partialCached "data.html" .` instead of `site.Data`,
   `partialCached "sites.html" .` instead of `site.Languages`, `site.Params.locale` (`[languages.X.params]` in

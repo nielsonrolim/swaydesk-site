@@ -144,3 +144,72 @@ other = "Menu"
 
 [facts]
 other = "Fact sheet"
+
+[components_group_bar]
+other = "Bar and popups"
+
+[components_group_windows]
+other = "Windows and apps"
+
+[components_group_session]
+other = "Session"
+
+[components_group_apps]
+other = "Apps of its own"
+
+[comp_install]
+other = "Install it alone"
+
+[comp_install_lead]
+other = "Only this component, without the full session. First add the Swaydesk repository, as on the page"
+
+[comp_install_link]
+other = "Install"
+
+[comp_start]
+other = "Start it on plain Sway"
+
+[comp_waybar]
+other = "In Waybar"
+
+[comp_shortcuts]
+other = "Shortcuts"
+
+[comp_shortcuts_note]
+other = "Those of the Swaydesk profile, the default. The other profiles are in"
+
+[comp_writing]
+other = "being written"
+
+[comp_all]
+other = "All components"
+
+[comp_details]
+other = "Details"
+
+[comp_in_desktop]
+other = "Part of the full desktop (<code>swaydesk-desktop</code>)"
+
+[comp_arch_with]
+other = "pacman doesn't install optional dependencies, so the line already has the ones apt installs by itself."
+
+[comp_optional]
+other = "Optional:"
+
+[comp_start_lead]
+other = "In <code>{{ .file }}</code>:"
+
+[comp_group_arch]
+other = "On Arch, pacman doesn't install the optional dependencies; the usual ones, in one line (pacman lists them after the install; see each page for what each one is for):"
+
+[comp_start_unit]
+other = "It runs as a systemd user unit, restarted if it crashes, and does nothing inside the Swaydesk session. Put the include after your config's <code>set $mod</code>. Without a systemd user session, use the exec line in the file's last comment instead."
+
+[comp_start_by_waybar]
+other = "It starts from its Waybar module, below."
+
+[comp_waybar_lead]
+other = "In <code>~/.config/waybar/config.jsonc</code>, add <code>\"{{ .module }}\"</code> to <code>modules-left</code>, <code>modules-center</code> or <code>modules-right</code>, and paste the module from this file next to your other modules:"
+
+[comp_waybar_note]
+other = "The file's first lines say what each click does. The icons come from the Symbols Nerd Font, which the package brings."

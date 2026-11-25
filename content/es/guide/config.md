@@ -24,9 +24,12 @@ Antes de la 0.1.4, las carpetas `swaydesk` se llamaban `sway-desktop`: `~/.confi
 swaydesk-theme families                  # las familias de temas instaladas
 swaydesk-theme pick Adwaita dark teal    # familia, claro u oscuro, y el color
 swaydesk-theme current                   # el tema, los iconos y el color en uso
+swaydesk-theme cursor 32                 # el tamaño del cursor; sin número, los tamaños que tiene el tema del cursor
 ```
 
 Los colores son los de las carpetas de Papirus; `swaydesk-theme colors` los muestra todos.
+
+El tamaño del cursor también está en la aplicación, en la lista **Tamaño del cursor** debajo de los iconos, que solo muestra los tamaños que tiene el tema del cursor. La elección se aplica al instante, sin **Aplicar**: las aplicaciones GTK 4 y Qt 6 cambian enseguida, y las más antiguas (GTK 3, Qt 5, Electron y las aplicaciones X11) cuando las vuelves a abrir. Una línea `seat` tuya en `~/.config/sway/config.d/50-local.conf` tiene prioridad y vuelve en la próxima recarga o inicio de sesión.
 
 Este es un archivo de ejemplo con las claves que puedes cambiar a mano:
 
@@ -45,7 +48,8 @@ gtk_theme = "Adwaita-dark"
 icon_theme = "Papirus-Dark"
 accent = "#199ca8"
 
-# true (el predeterminado): el color de acento viene del fondo de pantalla y cambia con él
+# true: el color de acento viene del fondo de pantalla y cambia con él. Sin esta clave, está activado mientras
+# el acento es el predeterminado y hay fondo de pantalla, y desactivado en los demás casos
 accent_auto = true
 
 # Color de las carpetas de Papirus, como "teal". Vacío: el más cercano al acento
@@ -56,6 +60,9 @@ file_manager = "thunar"
 
 # Perfiles de energía en la ventana emergente Sistema: "auto" (el predeterminado) solo sin batería, "always" o "never"
 power_profiles_in_system = "auto"
+
+# Tamaño del cursor en píxeles, de 16 a 96 (24 por defecto)
+cursor_size = 24
 ```
 
 Los programas leen el archivo al iniciar. Después de editarlo a mano:
@@ -63,7 +70,8 @@ Los programas leen el archivo al iniciar. Después de editarlo a mano:
 - para el color de acento, primero pon `accent_auto = false`, o el siguiente fondo de pantalla traerá de vuelta su propio color; luego ejecuta `swaydesk-desktop-config apply`, que escribe los colores y recarga Sway; las ventanas emergentes toman el nuevo color de inmediato, y el resto cambia en tu próximo inicio de sesión;
 - para el administrador de archivos, ejecuta `swaydesk-desktop-config generate`, para que las carpetas que abren otras aplicaciones también vayan a él;
 - para el idioma, la ciudad y los días festivos, cierra sesión y vuelve a iniciarla;
-- para `power_profiles_in_system`, nada: se aplica la próxima vez que se abre la ventana emergente Sistema.
+- para `power_profiles_in_system`, nada: se aplica la próxima vez que se abre la ventana emergente Sistema;
+- para `cursor_size`, `swaydesk-theme cursor <tamaño>` lo aplica en todo al instante; `swaydesk-desktop-config apply` lo aplica en Sway, y el resto en tu próximo inicio de sesión.
 
 Un valor incorrecto no rompe nada: esa pieza simplemente usa el valor predeterminado de esa clave.
 
