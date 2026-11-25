@@ -9,7 +9,7 @@ import unittest
 SCRIPT = pathlib.Path(__file__).resolve().parent / "check-components.py"
 REPO = SCRIPT.parent.parent
 
-ICONS = '{{- $p := dict\n  "bar" `<rect/>`\n  "lock" `<rect/>`\n}}\n'
+ICONS = '{{- $p := dict\n  "bar" `<rect/>`\n  "lock" `<rect/>`\n  "grid" `<rect/>`\n}}\n'
 
 
 def lang(code, name="Name", text="Text."):
@@ -57,7 +57,7 @@ class CheckComponentsTests(unittest.TestCase):
         toml = (component(shot="dock", extra='start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-dock.conf"\n'
                           'unit = true\npackage = "swaydesk-dock"\narch_with = ["swayidle"]\n', langs=langs)
                 + component(cid="audio", group="bar", icon="bar", extra='waybar = "swaydesk-audio"\n')
-                + component(cid="rec", page="false", extra='with = "dock"\n')
+                + component(cid="rec", icon="grid", page="false", extra='with = "dock"\n')
                 + '[groups.bar]\npackage = "swaydesk-bar"\n'
                 + "".join(f'  [groups.bar.{c}]\n  text = "T"\n' for c in ("pt-br", "en-us", "es")))
         result = self.run_on(toml)
@@ -119,6 +119,9 @@ class CheckComponentsTests(unittest.TestCase):
 
     def test_an_unknown_group_fails(self):
         self.assert_fails_with(component(group="tray"), "dock: unknown group tray")
+
+    def test_two_components_sharing_an_icon_fail(self):
+        self.assert_fails_with(component() + component(cid="lock"), "lock: icon lock is already the icon of dock")
 
     def test_an_unknown_icon_fails(self):
         self.assert_fails_with(component(icon="star"), "dock: unknown icon star")

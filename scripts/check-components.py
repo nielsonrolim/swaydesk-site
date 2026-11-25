@@ -3,7 +3,7 @@
 
 Hugo only fails on a few of these (a missing shot, a missing language table on a page); the rest would render a
 broken or empty section without a warning. The file has at least one [[components]] table. Each component has a
-non-empty string id used once, a known group and icon (the icons are the keys of layouts/_partials/icon.html), the
+non-empty string id used once, a known group, an icon of its own (the icons are the keys of layouts/_partials/icon.html), the
 three language tables with a non-empty name and text, and, when `shot` is set, its file in assets/images/shots.
 `page` and `unit` are booleans. A card without a page carries none of the page's fields (PAGE_FIELDS, and the
 per-language PAGE_NOTES), since the list shows only its name, text and keys; its `with` names a component that has a
@@ -29,7 +29,7 @@ def text(value):
     return isinstance(value, str) and bool(value.strip())
 
 
-def check_component(root, c, number, icons, pages, seen):
+def check_component(root, c, number, icons, pages, seen, icon_of):
     errors = []
     cid = c.get("id")
     if not text(cid):
@@ -45,6 +45,11 @@ def check_component(root, c, number, icons, pages, seen):
     icon = c.get("icon")
     if icons and not (isinstance(icon, str) and icon in icons):
         errors.append(f"{cid}: unknown icon {icon}")
+    elif isinstance(icon, str):
+        if icon in icon_of:
+            errors.append(f"{cid}: icon {icon} is already the icon of {icon_of[icon]}")
+        else:
+            icon_of[icon] = cid
     shot = c.get("shot", "")
     if not isinstance(shot, str):
         errors.append(f"{cid}: shot must be a string")
@@ -110,9 +115,9 @@ def check(root):
         else:
             errors.append(f"component {number} is not a table")
     pages = {c.get("id") for _, c in tables if c.get("page") is True and isinstance(c.get("id"), str)}
-    seen = set()
+    seen, icon_of = set(), {}
     for number, c in tables:
-        errors += check_component(root, c, number, icons, pages, seen)
+        errors += check_component(root, c, number, icons, pages, seen, icon_of)
     groups = data.get("groups", {})
     if not isinstance(groups, dict):
         return errors + ["groups is not a table"]
