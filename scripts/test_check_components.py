@@ -126,6 +126,23 @@ class CheckComponentsTests(unittest.TestCase):
     def test_an_icon_that_isnt_a_string_fails(self):
         self.assert_fails_with(component().replace('icon = "lock"', 'icon = ["lock"]'), "dock: unknown icon ['lock']")
 
+    def test_a_shot_that_isnt_a_string_fails(self):
+        self.assert_fails_with(component(shot="x").replace('shot = "x"', "shot = true"), "dock: shot must be a string")
+
+    def test_page_fields_of_the_wrong_type_fail(self):
+        fields = {"package": "5", "start": "5", "start_file": "5", "arch_with": '"swayidle"', "optional": "[1]"}
+        for field, value in fields.items():
+            with self.subTest(field=field):
+                self.assert_fails_with(component(extra=f"{field} = {value}\n"),
+                                       f"dock: {field} must be {'a list of strings' if field in ('arch_with', 'optional') else 'a string'}")
+
+    def test_page_notes_of_the_wrong_type_fail(self):
+        for field in ("note", "start_note", "arch_note", "waybar_note"):
+            with self.subTest(field=field):
+                langs = [lang("pt-br"), lang("en-us") + f"  {field} = 3\n", lang("es")]
+                self.assert_fails_with(component(extra='start = "include x"\n', langs=langs),
+                                       f"dock: en-us {field} must be a string")
+
     def test_a_missing_shot_fails(self):
         self.assert_fails_with(component(shot="nope"), "dock: assets/images/shots/nope.webp doesn't exist")
 

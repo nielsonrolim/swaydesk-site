@@ -45,7 +45,9 @@ def check_component(root, c, number, icons, pages, seen):
     if icons and not (isinstance(icon, str) and icon in icons):
         errors.append(f"{cid}: unknown icon {icon}")
     shot = c.get("shot", "")
-    if shot and not (isinstance(shot, str) and (root / f"assets/images/shots/{shot}.webp").is_file()):
+    if not isinstance(shot, str):
+        errors.append(f"{cid}: shot must be a string")
+    elif shot and not (root / f"assets/images/shots/{shot}.webp").is_file():
         errors.append(f"{cid}: assets/images/shots/{shot}.webp doesn't exist")
     has_page = c.get("page") is True
     start = c.get("start", "")
@@ -61,6 +63,14 @@ def check_component(root, c, number, icons, pages, seen):
             errors.append(f"{cid}: {code} start_note without a start")
         if not has_page:
             errors += [f"{cid}: {code} {f} on a card without a page" for f in PAGE_NOTES if table.get(f)]
+        errors += [f"{cid}: {code} {f} must be a string" for f in PAGE_NOTES if not isinstance(table.get(f, ""), str)]
+    for field in ("package", "start", "start_file"):
+        if not isinstance(c.get(field, ""), str):
+            errors.append(f"{cid}: {field} must be a string")
+    for field in ("arch_with", "optional"):
+        value = c.get(field, [])
+        if not (isinstance(value, list) and all(isinstance(v, str) for v in value)):
+            errors.append(f"{cid}: {field} must be a list of strings")
     if not has_page:
         errors += [f"{cid}: {field} on a card without a page" for field in PAGE_FIELDS if c.get(field)]
         target = c.get("with")
