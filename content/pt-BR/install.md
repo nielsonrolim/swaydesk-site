@@ -66,6 +66,7 @@ sudo apt update && sudo apt install swaydesk-desktop
 {{< /oneline >}}
 {{< /distro >}}
 {{< distro id="ubuntu" name="Ubuntu 26.04 / Mint 27" >}}
+<p class="distro__note">Não há ISO do Swaydesk para o Ubuntu nem para o Linux Mint: numa instalação do zero, instale o Ubuntu 26.04 ou o Linux Mint 27 primeiro e depois siga estes passos.</p>
 {{< steps >}}
 {{< step text="Instale o `curl`, que baixa o pacote do repositório." >}}
 sudo apt install curl
