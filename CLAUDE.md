@@ -44,6 +44,7 @@ Run both before every push; CI runs the same and a failure blocks the deploy:
 ```sh
 docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src ghcr.io/gohugoio/hugo:v0.147.0 build --minify --panicOnWarning
 python3 -I scripts/check-links.py public
+python3 -I scripts/check-layout.py public
 python3 -I -m unittest discover -s scripts -p 'test_*.py'
 ```
 
@@ -52,6 +53,12 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
   file that exists, that every `#anchor` on a page link is an id on that page, and that a page links only to its
   own language (the switcher's links, with `hreflang`, are the exception). Relative and external links aren't
   checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
+- `check-layout.py` opens Install and three component pages (dock, greeter, screenshot) in the three languages
+  in a headless Chrome at 1200 and 390 px, clicks every distro tab, and fails when a panel opens at a different
+  distance from the tabs than the first one, or a copy button (in any panel) isn't as tall as its code field; a page
+  where it finds fewer than two tabs or no copy block fails too, so a renamed class can't pass. It serves a copy of
+  `public/` on 127.0.0.1 and runs Chrome with a temporary HOME and no session bus. Its tests skip without Chrome,
+  except on CI.
 - `check-components.py` checks `data/components.toml` against what the templates expect (its docstring lists
   the rules: known group and icon, unique id, the three languages with a name and a text, the shot exists,
   `waybar` only on the bar as `swaydesk-<name>`, `unit` only with a snippet include, no page fields on a card
@@ -94,7 +101,7 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
 ## Deploy
 
 `.github/workflows/pages.yml` builds and publishes on every push to `main` (and on manual dispatch): Hugo
-0.147.0 checked by SHA-256, the scripts' tests, `hugo build --minify --panicOnWarning`, `check-links.py`, then GitHub
+0.147.0 checked by SHA-256, the scripts' tests, `hugo build --minify --panicOnWarning`, `check-links.py`, `check-layout.py`, then GitHub
 Pages. `hugo-latest.yml` builds the same with the newest Hugo release on every pull request, push and weekly; it
 never publishes and its failure blocks nothing, but a red run there means the next Hugo bump needs work.
 Actions are pinned by commit. Changes go through a pull request; after the merge, check the live pages in
