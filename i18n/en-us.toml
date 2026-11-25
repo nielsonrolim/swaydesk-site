@@ -179,7 +179,7 @@ other = "Shortcuts"
 other = "Those of the Swaydesk profile, the default. The other profiles are in"
 
 [comp_writing]
-other = "being written for 0.1.7"
+other = "being written"
 
 [comp_all]
 other = "All components"
