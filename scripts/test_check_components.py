@@ -52,23 +52,79 @@ class CheckComponentsTests(unittest.TestCase):
         result = self.run_on(component(shot="dock"))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
-    def test_a_missing_file_fails(self):
-        result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root / "nothing")],
-                                capture_output=True, text=True)
+    def test_an_all_valid_file_passes(self):
+        langs = [lang("pt-br"), lang("en-us") + '  start_note = "A note."\n', lang("es")]
+        toml = (component(shot="dock", extra='start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-dock.conf"\n'
+                          'unit = true\npackage = "swaydesk-dock"\narch_with = ["swayidle"]\n', langs=langs)
+                + component(cid="audio", group="bar", icon="bar", extra='waybar = "swaydesk-audio"\n')
+                + component(cid="rec", page="false", extra='with = "dock"\n')
+                + '[groups.bar]\npackage = "swaydesk-bar"\n'
+                + "".join(f'  [groups.bar.{c}]\n  text = "T"\n' for c in ("pt-br", "en-us", "es")))
+        result = self.run_on(toml)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def assert_clean_error(self, result):
         self.assertEqual(result.returncode, 1)
+        self.assertTrue(result.stderr.startswith("error: "), result.stderr)
+        self.assertNotIn("Traceback", result.stderr)
+
+    def test_a_missing_file_fails_with_a_message(self):
+        self.assert_clean_error(subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root / "nothing")],
+                                               capture_output=True, text=True))
+
+    def test_a_file_that_isnt_utf8_fails_with_a_message(self):
+        (self.root / "data/components.toml").write_bytes(b'[[components]]\nid = "\xff"\n')
+        self.assert_clean_error(subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root)],
+                                               capture_output=True, text=True))
+
+    def test_no_components_fails(self):
+        for toml in ("components = []\n", "", '[components]\nid = "dock"\n'):
+            with self.subTest(toml=toml):
+                self.assert_fails_with(toml, "no [[components]] tables")
+
+    def test_a_component_that_isnt_a_table_fails(self):
+        self.assert_fails_with("components = [1]\n", "component 1 is not a table")
+
+    def test_an_id_must_be_a_non_empty_string(self):
+        for extra in ('id = ""\n', 'id = ["a"]\n', ""):
+            with self.subTest(extra=extra):
+                toml = component().replace('id = "dock"\n', extra)
+                self.assert_fails_with(toml, "component 1: id must be a non-empty string")
+
+    def test_page_and_unit_must_be_booleans(self):
+        self.assert_fails_with(component(page='"no"'), "dock: page must be true or false")
+        self.assert_fails_with(component(extra='unit = "yes"\n'), "dock: unit must be true or false")
+
+    def test_no_icons_in_the_partial_fails_once(self):
+        (self.root / "layouts/_partials/icon.html").write_text("{{ nothing }}\n", encoding="utf-8")
+        result = self.run_on(component())
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("no icons found in layouts/_partials/icon.html", result.stdout)
+        self.assertNotIn("unknown icon", result.stdout)
 
     def test_a_missing_language_fails(self):
         self.assert_fails_with(component(langs=[lang("pt-br"), lang("en-us")]), "dock: no [components.es]")
 
     def test_an_empty_name_fails(self):
         self.assert_fails_with(component(langs=[lang("pt-br"), lang("en-us", name=""), lang("es")]),
-                               "dock: en-us name is empty")
+                               "dock: en-us name must be a non-empty string")
+
+    def test_an_empty_text_fails(self):
+        self.assert_fails_with(component(langs=[lang("pt-br"), lang("en-us"), lang("es", text=" ")]),
+                               "dock: es text must be a non-empty string")
+
+    def test_a_name_that_isnt_a_string_fails(self):
+        langs = [lang("pt-br"), lang("en-us").replace('name = "Name"', "name = false"), lang("es")]
+        self.assert_fails_with(component(langs=langs), "dock: en-us name must be a non-empty string")
 
     def test_an_unknown_group_fails(self):
         self.assert_fails_with(component(group="tray"), "dock: unknown group tray")
 
     def test_an_unknown_icon_fails(self):
         self.assert_fails_with(component(icon="star"), "dock: unknown icon star")
+
+    def test_an_icon_that_isnt_a_string_fails(self):
+        self.assert_fails_with(component().replace('icon = "lock"', 'icon = ["lock"]'), "dock: unknown icon ['lock']")
 
     def test_a_missing_shot_fails(self):
         self.assert_fails_with(component(shot="nope"), "dock: assets/images/shots/nope.webp doesn't exist")
@@ -80,12 +136,26 @@ class CheckComponentsTests(unittest.TestCase):
         self.assert_fails_with(component(cid="rec", page="false", extra='with = "missing"\n'),
                                "rec: with = missing is not a component with a page")
 
+    def test_with_cannot_name_a_card_without_a_page(self):
+        toml = component(cid="cam", page="false") + component(cid="rec", page="false", extra='with = "cam"\n')
+        self.assert_fails_with(toml, "rec: with = cam is not a component with a page")
+
+    def test_with_must_be_a_string(self):
+        self.assert_fails_with(component(cid="rec", page="false", extra='with = ["dock"]\n'),
+                               "rec: with must be a string")
+
     def test_waybar_outside_the_bar_fails(self):
         self.assert_fails_with(component(extra='waybar = "swaydesk-dock"\n'), "dock: waybar outside the bar group")
 
     def test_a_bad_waybar_name_fails(self):
-        self.assert_fails_with(component(cid="audio", group="bar", extra='waybar = "custom/audio"\n'),
-                               "audio: waybar custom/audio isn't swaydesk-<name>")
+        for name in ("custom/audio", "swaydesk-", "swaydesk-Audio"):
+            with self.subTest(name=name):
+                self.assert_fails_with(component(cid="audio", group="bar", extra=f'waybar = "{name}"\n'),
+                                       f"audio: waybar {name} isn't swaydesk-<name>")
+
+    def test_a_waybar_that_isnt_a_string_fails(self):
+        self.assert_fails_with(component(cid="audio", group="bar", extra="waybar = 1\n"),
+                               "audio: waybar must be a string")
 
     def test_unit_without_an_include_fails(self):
         self.assert_fails_with(component(extra='start = "exec swaydesk-dock"\nunit = true\n'),
@@ -96,12 +166,27 @@ class CheckComponentsTests(unittest.TestCase):
         self.assert_fails_with(component(langs=langs), "dock: en-us start_note without a start")
 
     def test_page_fields_on_a_card_without_a_page_fail(self):
-        self.assert_fails_with(component(page="false", extra='package = "swaydesk-dock"\n'),
-                               "dock: package on a card without a page")
+        fields = {"package": '"swaydesk-dock"', "arch_with": '["swayidle"]', "optional": '["x"]',
+                  "start": '"include x"', "start_file": '"~/x"', "unit": "true", "waybar": '"swaydesk-dock"'}
+        for field, value in fields.items():
+            with self.subTest(field=field):
+                self.assert_fails_with(component(page="false", extra=f"{field} = {value}\n"),
+                                       f"dock: {field} on a card without a page")
+
+    def test_page_notes_on_a_card_without_a_page_fail(self):
+        for field in ("note", "start_note", "arch_note", "waybar_note"):
+            with self.subTest(field=field):
+                langs = [lang("pt-br"), lang("en-us") + f'  {field} = "A note."\n', lang("es")]
+                self.assert_fails_with(component(page="false", langs=langs),
+                                       f"dock: en-us {field} on a card without a page")
 
     def test_a_group_without_a_language_text_fails(self):
         group = '[groups.session]\npackage = "swaydesk-session"\n  [groups.session.pt-br]\n  text = "T"\n'
         self.assert_fails_with(component() + group, "groups.session: no en-us text")
+
+    def test_a_group_or_its_language_that_isnt_a_table_fails(self):
+        self.assert_fails_with(component() + "[groups]\nbar = 1\n", "groups.bar is not a table")
+        self.assert_fails_with(component() + '[groups.bar]\nen-us = "T"\n', "groups.bar: no en-us text")
 
     def test_a_group_that_isnt_a_section_fails(self):
         group = ('[groups.tray]\npackage = "swaydesk-tray"\n' +
