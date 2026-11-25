@@ -52,6 +52,10 @@ python3 -I -m unittest discover -s scripts -p 'test_*.py'
   file that exists, that every `#anchor` on a page link is an id on that page, and that a page links only to its
   own language (the switcher's links, with `hreflang`, are the exception). Relative and external links aren't
   checked: open those by hand when you change them. A missing or empty `public/` fails it (a failed build).
+- `check-components.py` checks `data/components.toml` against what the templates expect (its docstring lists
+  the rules: known group and icon, unique id, the three languages with a name and a text, the shot exists,
+  `waybar` only on the bar as `swaydesk-<name>`, `unit` only with a snippet include, no page fields on a card
+  without a page). CI runs it through the unittest step (`test_the_real_data_passes`).
 - `check-packages.py <swaydesk checkout>` checks that every `package` in `data/components.toml` is a `Package:`
   of the checkout's `debian/control` and a name in its `packaging/arch/PKGBUILD` `pkgname=(…)`, so no page
   prints an install line for a package that doesn't exist. CI doesn't run it (it needs that checkout): run it
