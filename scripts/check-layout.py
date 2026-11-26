@@ -19,6 +19,9 @@ page at 1200, 390, 1440 and 1920 px and checks that:
   and every card grid (.cgrid) and gallery (.gallery) has at least 3 columns, the ISO cards (.isos) at least 2;
 - every grid (cards, gallery, ISO cards) has its columns from its inner left edge to its inner right edge, within
   2px, and a row of thumbnails starts at its left edge;
+- every visible table in the content sits in a frame (.table-wrap) with a border on every side, its columns
+  from the frame's inner left edge to its inner right one (wider when it scrolls on a phone), and at 1440 and
+  1920 the frame spans the content (within 2%);
 - the ISO cards in a row are of one height, and the first paragraph under the content box runs across it (within
   2%): prose takes the whole width too.
 Without pages, it checks the home pages, Install, three component pages (a plain install, start_text, a
@@ -88,6 +91,21 @@ MEASURE = r"""window.addEventListener("load", () => {
       return {w: Math.round(r.width), h: Math.round(r.height)};
     }));
   out.overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+  // Every visible table in the content: its frame (a .table-wrap with a border on every side) and how far its
+  // columns are from the frame's inner edges (a table that scrolls on a phone is wider than its frame: 0 or less)
+  out.tables = Array.from(document.querySelectorAll("main .content table")).filter((t) => t.getClientRects().length)
+    .map((table) => {
+      const wrap = table.parentElement.classList.contains("table-wrap") ? table.parentElement : null;
+      if (!wrap) return {framed: false};
+      const s = getComputedStyle(wrap), w = wrap.getBoundingClientRect();
+      const sides = ["Top", "Right", "Bottom", "Left"].every((d) => parseFloat(s["border" + d + "Width"]) > 0
+        && s["border" + d + "Style"] !== "none");
+      const cells = Array.from(table.querySelectorAll("tr:first-child > *")).map((c) => c.getBoundingClientRect());
+      const inner = w.left + wrap.clientLeft;
+      return {framed: sides, width: Math.round(w.width),
+        left: Math.round(Math.min(...cells.map((c) => c.left)) - inner),
+        right: Math.round(inner + wrap.clientWidth - Math.max(...cells.map((c) => c.right)))};
+    });
   // The header's container (its content box) and the main content box; the columns of each card grid
   const head = document.querySelector(".topbar__in"), content = document.querySelector("main .content");
   if (head && content) {
@@ -179,6 +197,17 @@ def problems(page, width, data):
             if grid["columns"] < least:
                 errors.append(f"{page} @{width}: the {grid['kind']} grid has {grid['columns']} columns "
                               f"(at least {least} at this width)")
+    content = round(data["frame"]["cright"] - data["frame"]["cleft"]) if data.get("frame") else None
+    for table in data.get("tables", []):
+        if not table["framed"]:
+            errors.append(f"{page} @{width}: a table has no frame (a .table-wrap with a border on every side)")
+            continue
+        if abs(table["left"]) > INSET or table["right"] > INSET:
+            errors.append(f"{page} @{width}: a table's columns end {table['left']}px and {table['right']}px inside "
+                          f"its frame (at most {INSET}px)")
+        if width in WIDE and content and content - table["width"] > EDGE * content:
+            errors.append(f"{page} @{width}: a table's frame is {table['width']}px wide, the content {content}px "
+                          f"(within 2%)")
     for grid in data.get("grids", []):
         left, right = grid.get("inset", (0, 0))
         if grid["kind"] in UNFRAMED:
