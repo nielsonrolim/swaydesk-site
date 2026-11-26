@@ -45,6 +45,7 @@ class CheckLayoutTests(unittest.TestCase):
         self.root = pathlib.Path(self.tmp.name)
         (self.root / "js").mkdir()
         shutil.copy(REPO / "static/js/install.js", self.root / "js/install.js")
+        shutil.copy(REPO / "static/js/lightbox.js", self.root / "js/lightbox.js")
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -123,6 +124,49 @@ class CheckLayoutTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertIn("A <x> & y", result.stdout)
         self.assertNotIn("Traceback", result.stderr)
+
+    def home(self, link=True, badge="pointer-events: none;", both_visible=False):
+        # The home page's hero as the template draws it: one image per theme, the other hidden, the Super badge
+        # over the image's corner, and the lightbox dialog of baseof.html
+        def shot(cls, hidden):
+            img = '<img src="/x.png" alt="Desktop" style="display:block;width:400px;height:225px">'
+            style = "" if not hidden else ' style="display:none"'
+            inner = f'<a class="{cls}" href="/x.png" data-lightbox data-caption="C"{style}>{img}</a>' if link else \
+                f'<div class="{cls}"{style}>{img}</div>'
+            return inner
+        html = f"""<!doctype html><html><head><meta charset="utf-8"><style>
+body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px; }}
+.hero__badge {{ position: absolute; left: 10px; bottom: 20px; width: 120px; height: 30px; background: #333; {badge} }}
+</style></head><body><section class="hero"><figure class="hero__shot"><div class="shot-frame">
+{shot("only-dark", False)}{shot("only-light", not both_visible)}
+</div><figcaption class="hero__caption">Cap</figcaption><div class="hero__badge" aria-hidden="true">Super</div></figure></section>
+<dialog class="lightbox" hidden><figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>
+<p class="lightbox__bar"><span class="lightbox__count"></span> <span class="lightbox__caption"></span></p>
+<button class="lightbox__close" data-lb="close">x</button><button data-lb="prev">p</button><button data-lb="next">n</button></dialog>
+<script src="/js/lightbox.js"></script></body></html>"""
+        return self.run_on(path="en-us", html=html)
+
+    def test_a_hero_that_opens_in_the_lightbox_passes(self):
+        result = self.home()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_hero_without_a_lightbox_link_fails(self):
+        result = self.home(link=False)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the hero image isn't a lightbox link (found 0 visible a[data-lightbox])",
+                      result.stdout)
+
+    def test_a_badge_that_takes_the_clicks_fails(self):
+        result = self.home(badge="")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the Super badge takes the clicks on the hero image", result.stdout)
+
+    def test_the_hidden_themes_image_stays_out_of_the_lightbox(self):
+        # Both visible means two links in the carousel: the check must see "1 / 2", not "1 / 1"
+        result = self.home(both_visible=True)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the hero image isn't a lightbox link (found 2 visible a[data-lightbox])",
+                      result.stdout)
 
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
