@@ -151,10 +151,14 @@ h2 { font-weight: 600; }
 .component__keys { color: var(--ink); font-size: .85rem; }
 .component__meta { color: var(--muted); font-size: .75rem; }
 .component__shot--crop img { width: auto; max-width: 100%; }
-.component__more { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
-.component__more a { flex: 0 1 8rem; border: 1px solid var(--line-strong); border-radius: var(--frame); overflow: hidden; background: var(--surface); }
-.component__more a:hover { border-color: var(--line-hover); }
-.component__more img { display: block; width: 100%; height: 5.5rem; object-fit: cover; object-position: top; }
+/* A page's images in one row: wider than the text column, up to the site's width, never past the window */
+.component__shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: .75rem;
+  width: max(100%, min(1100px, calc(100vw - 2 * var(--gutter) - 16px))); margin: 0 0 1.25rem; }
+.component__thumb { margin: 0; }
+.component__thumb a { display: block; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--surface); }
+.component__thumb a:hover { border-color: var(--line-hover); }
+.component__thumb img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.component__thumb figcaption { margin-top: .4rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
 .component:not(:has(.component__shot)) { grid-template-columns: 1fr; }
 @media (max-width: 40rem) { .component { grid-template-columns: 1fr; } }
 
@@ -388,6 +392,9 @@ html.lb-open { overflow: hidden; }
 a.cgrid__name { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 a.cgrid__name:hover { color: var(--accent); text-decoration-color: currentColor; }
 .cgrid__keys { color: var(--ink-soft); font-size: 12px; }
+.cgrid__shot { display: block; align-self: flex-start; max-width: 100%; border: 1px solid var(--line-strong); border-radius: var(--frame); overflow: hidden; }
+.cgrid__shot:hover { border-color: var(--line-hover); }
+.cgrid__shot img { display: block; max-width: 100%; max-height: 10rem; width: auto; height: auto; }
 .crumbs { margin: 0 0 .5rem; font-size: .85rem; }
 .component--page { display: block; padding-top: 0; border-bottom: 0; }
 .component--page .component__shot { display: block; margin: 0 0 1rem; }

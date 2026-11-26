@@ -6,7 +6,10 @@ per-distro sections as tabs (static/js/install.js), and every hidden panel is st
 page at 1200 and 390 px and checks that:
 - every tab panel's first block starts at the same distance from the tabs as the first panel's;
 - every copy button, in every tab panel, is as tall as the code field next to it;
-- each page reports at least two tabs and one copy block (none means the check measured nothing).
+- each page reports at least two tabs and one copy block (none means the check measured nothing);
+- a component page's row of images (component__shots) has thumbnails of one size, each at least 200px wide,
+  and the Dock and login pages, which have more_shots, have one;
+- no page scrolls sideways.
 Without pages, it checks Install and three component pages (a plain install, start_text, a multi-line start) in
 the three languages. The pages are served from a copy of <public dir> on 127.0.0.1; Chrome runs with a temporary
 HOME and no display or session bus. A missing page, a missing Chrome or a page that doesn't report is an error.
@@ -27,6 +30,9 @@ WIDTHS = (1200, 390)
 PAGES = [f"{lang}/{page}" for lang in ("pt-br", "en-us", "es")
          for page in ("install", "components/dock", "components/greeter", "components/screenshot")]
 TOLERANCE = 1  # px: rounding of fractional layout
+MIN_THUMB = 200  # px: narrower than this, a thumbnail's content can't be read
+# Pages that have more_shots, so a row of images: none found means the template or a class changed
+EXPECT_ROWS = ("components/dock", "components/greeter")
 
 MEASURE = r"""window.addEventListener("load", () => {
   const out = {tabs: [], cmds: []};
@@ -53,6 +59,13 @@ MEASURE = r"""window.addEventListener("load", () => {
     });
   });
   cmds(document);
+  // The component pages' rows of images: each thumbnail's box (its link), and whether the page scrolls sideways
+  out.rows = Array.from(document.querySelectorAll(".component__shots")).map((row) =>
+    Array.from(row.querySelectorAll(".component__thumb > a")).map((a) => {
+      const r = a.getBoundingClientRect();
+      return {w: Math.round(r.width), h: Math.round(r.height)};
+    }));
+  out.overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
   const el = document.createElement("pre");
   el.id = "__layout";
   el.textContent = JSON.stringify(out);
@@ -86,6 +99,18 @@ def problems(page, width, data):
             if abs(tab["gap"] - first) > TOLERANCE:
                 errors.append(f"{page} @{width}: tab {tab['name']} opens {tab['gap']}px below the tabs, "
                               f"{tabs[0]['name']} {first}px")
+    rows = data.get("rows", [])
+    if page.endswith(EXPECT_ROWS) and not any(rows):
+        errors.append(f"{page} @{width}: no row of images (component__shots)")
+    for row in rows:
+        sizes = sorted({(t["w"], t["h"]) for t in row}, reverse=True)
+        if any(abs(a - c) > TOLERANCE or abs(b - d) > TOLERANCE for (a, b) in sizes for (c, d) in sizes):
+            errors.append(f"{page} @{width}: the row's thumbnails differ in size "
+                          f"({sizes[0][0]}x{sizes[0][1]} and {sizes[-1][0]}x{sizes[-1][1]})")
+        for w in sorted({t["w"] for t in row if t["w"] < MIN_THUMB}):
+            errors.append(f"{page} @{width}: a thumbnail is {w}px wide (at least {MIN_THUMB}px)")
+    if data.get("overflow", 0) > TOLERANCE:
+        errors.append(f"{page} @{width}: the page scrolls sideways ({data['overflow']}px wider than the window)")
     for cmd in data["cmds"]:
         if abs(cmd["btn"] - cmd["pre"]) > TOLERANCE:
             errors.append(f"{page} @{width}: a copy button is {cmd['btn']}px high, its field {cmd['pre']}px")

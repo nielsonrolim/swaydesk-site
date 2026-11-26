@@ -10,8 +10,8 @@ per-language PAGE_NOTES), since the list shows only its name, text and keys; its
 page. `waybar` is only for the bar, as swaydesk-<name>; `unit` needs a start that includes a snippet; a start_note
 needs a start; start_text (what to do when there's nothing to add to the Sway config) replaces start, in every
 language or none. `crop = true` shows the page's own image, assets/images/components/<id>.webp, which must
-exist; `more_shots` (at most four names of files in that folder, only on a page) adds thumbnails, each with a
-`more_alts` text in every language. Each [groups.<group>] is a known group with a text in every language. A
+exist (on a card without a page, as a thumbnail in the list); `more_shots` (at most four names of files in that folder, only on a page) adds thumbnails, each with a
+`more_alts` text in every language, and the main image's `shot_caption` in every language. Each [groups.<group>] is a known group with a text in every language. A
 missing, unreadable or malformed file is an error, never a pass.
 """
 import pathlib
@@ -89,6 +89,13 @@ def check_component(root, c, number, icons, pages, seen, icon_of):
         if not has_page:
             errors += [f"{cid}: {code} {f} on a card without a page" for f in PAGE_NOTES if table.get(f)]
         errors += [f"{cid}: {code} {f} must be a string" for f in PAGE_NOTES if not isinstance(table.get(f, ""), str)]
+        caption = table.get("shot_caption")
+        if caption is not None and not text(caption):
+            errors.append(f"{cid}: {code} shot_caption must be a non-empty string")
+        elif caption is not None and not isinstance(c.get("more_shots"), list):
+            errors.append(f"{cid}: {code} shot_caption without more_shots")
+        elif caption is None and isinstance(c.get("more_shots"), list):
+            errors.append(f"{cid}: {code} shot_caption missing (the main image's caption, needed with more_shots)")
         alts = table.get("more_alts")
         if alts is not None and not (isinstance(alts, list) and all(text(a) for a in alts)):
             errors.append(f"{cid}: {code} more_alts must be non-empty strings")

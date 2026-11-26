@@ -202,14 +202,20 @@ class CheckComponentsTests(unittest.TestCase):
         result = self.run_on(component(langs=langs))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
-    def more(self, shots='["dock-menu", "dock-drag"]', alts=None, page="true", crop=""):
+    def more(self, shots='["dock-menu", "dock-drag"]', alts=None, page="true", crop="", captions=None):
         alts = alts if alts is not None else ['["Menu.", "Drag."]'] * 3
-        langs = [lang(c) + (f"  more_alts = {a}\n" if a else "") for c, a in zip(("pt-br", "en-us", "es"), alts)]
+        captions = captions if captions is not None else ['"The dock."'] * 3
+        langs = [lang(c) + (f"  more_alts = {a}\n" if a else "") + (f"  shot_caption = {s}\n" if s else "")
+                 for c, a, s in zip(("pt-br", "en-us", "es"), alts, captions)]
         extra = (f"more_shots = {shots}\n" if shots else "") + crop
         return component(page=page, extra=extra, langs=langs)
 
     def test_a_crop_and_more_shots_pass(self):
         result = self.run_on(self.more(crop="crop = true\n"))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_crop_on_a_card_without_a_page_passes(self):
+        result = self.run_on(component(page="false", extra="crop = true\n"))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_a_crop_needs_its_file(self):
@@ -242,6 +248,17 @@ class CheckComponentsTests(unittest.TestCase):
 
     def test_more_alts_without_more_shots_fail(self):
         self.assert_fails_with(self.more(shots=""), "dock: pt-br more_alts without more_shots")
+
+    def test_more_shots_need_a_caption_for_the_main_image_in_every_language(self):
+        self.assert_fails_with(self.more(captions=['"O dock."', "", '"El dock."']),
+                               "dock: en-us shot_caption missing (the main image's caption, needed with more_shots)")
+
+    def test_the_caption_must_be_a_non_empty_string(self):
+        self.assert_fails_with(self.more(captions=['""'] * 3), "dock: pt-br shot_caption must be a non-empty string")
+
+    def test_a_caption_without_more_shots_fails(self):
+        langs = [lang(c) + '  shot_caption = "The dock."\n' for c in ("pt-br", "en-us", "es")]
+        self.assert_fails_with(component(langs=langs), "dock: pt-br shot_caption without more_shots")
 
     def test_more_shots_on_a_card_without_a_page_fail(self):
         self.assert_fails_with(self.more(page="false"), "dock: more_shots on a card without a page")

@@ -1,6 +1,6 @@
 {{- /* The Components page's list: data/components.toml, by group, as the home page's grid. A card links to the
        component's page (or, with `with`, to the page it shares); a card with neither is part of
-       swaydesk-desktop, and says so. A group with a metapackage ([groups.<group>]) says so under its title. */ -}}
+       swaydesk-desktop, and says so, with its crop (crop = true) as a thumbnail. A group with a metapackage ([groups.<group>]) says so under its title. */ -}}
 {{- $page := .Page }}
 {{- $all := (partialCached "data.html" $page).components.components }}
 {{- $lang := lower $page.Language.Lang }}
@@ -23,6 +23,13 @@
 <span class="cgrid__text">{{ $t.text | markdownify }}</span>
 {{- with $t.keys }}<span class="cgrid__keys">{{ . | markdownify }}</span>{{ end }}
 {{- if not $target }}<span class="cgrid__keys">{{ i18n "comp_in_desktop" | safeHTML }}</span>{{ end }}
+{{- /* A card without a page shows its crop (crop = true) as a thumbnail, in the lightbox */}}
+{{- if and (not $target) .crop }}
+{{- with resources.Get (printf "images/components/%s.webp" .id) }}
+{{- $img := . | fingerprint }}
+<a class="cgrid__shot" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ div $img.Width 2 }}" height="{{ div $img.Height 2 }}" alt="{{ $t.name }}" loading="lazy" decoding="async"></a>
+{{- else }}{{ errorf "data/components.toml: images/components/%s.webp doesn't exist" .id }}{{ end }}
+{{- end }}
 </li>
 {{- end }}{{ end }}
 </ul>
