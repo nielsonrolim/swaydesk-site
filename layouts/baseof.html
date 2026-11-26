@@ -26,7 +26,9 @@
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "footer.html" . }}
-{{- if or (.HasShortcode "shot") .Params.component }}
+{{- /* Pages with lightbox links: the gallery (shot), the component pages, the Components list (card thumbnails) and
+       the home page (its hero) */}}
+{{- if or (.HasShortcode "shot") .Params.component (.HasShortcode "components") .IsHome }}
 {{- /* O carrossel: sem JS, os links abrem a imagem; com JS, lightbox.js abre esta janela */}}
 <dialog class="lightbox" aria-label="{{ i18n "lb_viewer" }}" aria-describedby="lightbox-caption" hidden>
 <figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>
