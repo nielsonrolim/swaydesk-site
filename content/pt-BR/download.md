@@ -2,9 +2,9 @@
 title: Baixar
 prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
-description: As ISOs live do Swaydesk, versão 0.1.7 estável, com instalador.
+description: As ISOs live do Swaydesk, versão 0.1.8 estável, com instalador.
 ---
-Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.7. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Debian testing, o Ubuntu 26.04 e o Linux Mint 27 não têm ISO do Swaydesk; neles, o Swaydesk entra só pelos pacotes.
+Cada ISO abre uma sessão live do Swaydesk: experimente sem mexer no disco e, se gostar, instale pelo ícone **Instalar o Swaydesk** na dock. São ISOs estáveis, da versão 0.1.8. Já tem Debian 13 ou testing, Ubuntu 26.04, Linux Mint 27 ou Arch? Então não precisa de ISO: [instale os pacotes](/pt-br/install/) no sistema que você já usa. O Debian testing, o Ubuntu 26.04 e o Linux Mint 27 não têm ISO do Swaydesk; neles, o Swaydesk entra só pelos pacotes.
 
 ## Requisitos
 
