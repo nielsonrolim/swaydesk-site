@@ -268,6 +268,39 @@ body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px
         self.assertIn("en-us/components @1200: the cards grid's columns are 20px and 0px inside its edges "
                       "(at most 2px)", result.stdout)
 
+    def table(self, wrap=True, css=""):
+        rows = "".join(f"<tr><td>Action {i}</td><td>Super+{i}</td></tr>" for i in range(4))
+        table = f"<table><thead><tr><th>Action</th><th>Shortcut</th></tr></thead><tbody>{rows}</tbody></table>"
+        if wrap:
+            table = f'<div class="table-wrap">{table}</div>'
+        html = ("<!doctype html><html><head><style>" + FRAME +
+                ".table-wrap { overflow-x: auto; border: 1px solid #888; } table { width: 100%; border-collapse: collapse; }"
+                + css + "</style></head><body><header><div class=\"topbar__in\"></div></header><main><div class=\"content\">"
+                + table + "</div></main></body></html>")
+        return self.run_on(path="en-us/shortcuts", html=html)
+
+    def test_a_framed_table_across_the_content_passes(self):
+        result = self.table()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_table_without_a_frame_fails(self):
+        result = self.table(wrap=False)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1200: a table has no frame (a .table-wrap with a border on every side)",
+                      result.stdout)
+
+    def test_a_table_narrower_than_its_frame_fails(self):
+        # display: block keeps the table box wide while its rows shrink to their text
+        result = self.table(css="table { display: block; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1200: a table's columns end", result.stdout)
+
+    def test_a_frame_narrower_than_the_content_fails_on_wide_screens(self):
+        result = self.table(css=".table-wrap { max-width: 500px; box-sizing: border-box; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1440: a table's frame is 500px wide, the content 1200px (within 2%)",
+                      result.stdout)
+
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
                                 capture_output=True, text=True, timeout=120)
