@@ -485,6 +485,7 @@ id = "calendar"
 group = "bar"
 icon = "calendar"
 shot = "calendar"
+crop = true
 bin = "swaydesk-calendar"
 src = "rust/calendar"
 tech = "rust"
@@ -744,6 +745,7 @@ id = "clipboard"
 group = "bar"
 icon = "clip"
 shot = "clipboard"
+crop = true
 bin = "swaydesk-clipboard-popup"
 src = "rust/clipboard-popup"
 tech = "rust"
@@ -933,6 +935,8 @@ id = "app-grid"
 group = "windows"
 icon = "grid"
 shot = "drawer"
+crop = true
+more_shots = ["drawer-search", "drawer-calc"]
 bin = "swaydesk-drawer"
 src = "rust/drawer"
 tech = "rust"
@@ -946,6 +950,7 @@ unit = true
   [components.pt-br]
   name = "Grade de apps"
   text = "Todos os apps instalados, com busca, grupos e favoritos. A busca também acha arquivos, faz contas e converte unidades."
+  more_alts = ["Uma busca: os arquivos e pastas que batem aparecem sob a grade", "Uma conta ou conversão de unidades, respondida na hora"]
   features = [
     "Abre com o `Super` sozinho; combinações com o `Super` e `Super`+arrastar não a abrem.",
     "Digite para buscar pelo nome, palavras-chave ou descrição; com várias palavras, todas precisam bater.",
@@ -963,6 +968,7 @@ unit = true
   [components.en-us]
   name = "App grid"
   text = "Every installed app, with search, groups and favorites. The search also finds files, does math and converts units."
+  more_alts = ["A search: matching files and folders show under the grid", "A sum or a unit conversion, answered as you type"]
   features = [
     "Opens on `Super` alone; `Super` combos and `Super`+drag don't open it.",
     "Type to search by name, keywords or description; with several words, all must match.",
@@ -980,6 +986,7 @@ unit = true
   [components.es]
   name = "Cuadrícula de aplicaciones"
   text = "Todas las aplicaciones instaladas, con búsqueda, grupos y favoritos. La búsqueda también encuentra archivos, hace cálculos y convierte unidades."
+  more_alts = ["Una búsqueda: los archivos y carpetas que coinciden aparecen bajo la cuadrícula", "Una cuenta o una conversión de unidades, respondida al escribir"]
   features = [
     "Se abre con `Super` solo; las combinaciones con `Super` y `Super`+arrastrar no la abren.",
     "Escribe para buscar por nombre, palabras clave o descripción; con varias palabras, todas deben coincidir.",
@@ -1631,6 +1638,7 @@ id = "theme"
 group = "apps"
 icon = "theme"
 shot = "theme"
+crop = true
 bin = "swaydesk-theme-app"
 src = "rust/theme-app"
 tech = "rust"
@@ -1813,6 +1821,8 @@ id = "help"
 group = "apps"
 icon = "help"
 shot = "help"
+crop = true
+more_shots = ["help-cards"]
 bin = "swaydesk-help"
 src = "rust/help"
 tech = "rust"
@@ -1825,6 +1835,7 @@ start = "bindsym $mod+F1 exec swaydesk-help"
   [components.pt-br]
   name = "Ajuda"
   text = "Os atalhos do perfil em uso, com busca, lidos da própria configuração do Sway, e um cartão para cada parte do desktop, com o atalho e um botão que a abre. Nela você também troca o perfil de atalhos e abre o seu `50-local.conf` para editar."
+  more_alts = ["A aba Usando o Swaydesk, com um componente desligado e como ligá-lo"]
   features = [
     "Apertar o atalho de novo a fecha.",
     "Duas abas, *Atalhos* e *Usando o Swaydesk*; `Ctrl`+`Tab` ou `Ctrl`+`Page Up`/`Page Down` alternam entre elas.",
@@ -1842,6 +1853,7 @@ start = "bindsym $mod+F1 exec swaydesk-help"
   [components.en-us]
   name = "Help"
   text = "The shortcuts of the profile in use, with search, read from the Sway configuration itself, and a card for each part of the desktop, with its shortcut and a button that opens it. It's also where you switch the shortcut profile and open your `50-local.conf` to edit it."
+  more_alts = ["The Using Swaydesk tab, with a component turned off and how to turn it on"]
   features = [
     "Pressing its shortcut again closes it.",
     "Two tabs, *Shortcuts* and *Using Swaydesk*; `Ctrl`+`Tab` or `Ctrl`+`Page Up`/`Page Down` switch between them.",
@@ -1859,6 +1871,7 @@ start = "bindsym $mod+F1 exec swaydesk-help"
   [components.es]
   name = "Ayuda"
   text = "Los atajos del perfil en uso, con búsqueda, leídos de la propia configuración de Sway, y una tarjeta para cada parte del escritorio, con su atajo y un botón que la abre. También es donde cambias el perfil de atajos y abres tu `50-local.conf` para editarlo."
+  more_alts = ["La pestaña Cómo usar Swaydesk, con un componente apagado y cómo encenderlo"]
   features = [
     "Pulsar su atajo otra vez la cierra.",
     "Dos pestañas, *Atajos* y *Cómo usar Swaydesk*; `Ctrl`+`Tab` o `Ctrl`+`Page Up`/`Page Down` cambian entre ellas.",
@@ -1905,6 +1918,8 @@ id = "screenshot"
 group = "apps"
 icon = "capture"
 shot = "capture"
+crop = true
+more_shots = ["capture-notice", "recording", "recording-bar"]
 bin = "swaydesk-capture"
 src = "rust/capture"
 tech = "rust"
@@ -1917,6 +1932,7 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
   [components.pt-br]
   name = "Captura de tela"
   text = "Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar."
+  more_alts = ["O aviso depois da captura: um clique abre a imagem", "O painel Gravar tela, com o áudio do sistema", "A gravação em andamento na barra"]
   features = [
     "`Super`+`Shift`+`E` abre o painel de captura: *Região* (`r`), *Tela inteira* (`s`) ou *Janela* (`w`).",
     "*Atraso* (`d`): agora, 3, 5 ou 10 segundos, só para aquela captura.",
@@ -1934,6 +1950,7 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
   [components.en-us]
   name = "Screenshot"
   text = "A region, the whole screen or a window, with a delay. It goes to the clipboard and to `~/Pictures/Screenshots`; with Gradia, it opens for editing."
+  more_alts = ["The notice after a screenshot: a click opens the image", "The Record screen panel, with the system's audio", "A recording in progress in the bar"]
   features = [
     "`Super`+`Shift`+`E` opens the screenshot panel: *Region* (`r`), *Full screen* (`s`) or *Window* (`w`).",
     "*Delay* (`d`): now, 3, 5 or 10 seconds, for that capture only.",
@@ -1951,6 +1968,7 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
   [components.es]
   name = "Captura de pantalla"
   text = "Una región, la pantalla completa o una ventana, con retardo. Va al portapapeles y a `~/Pictures/Screenshots`; con Gradia, se abre para editarla."
+  more_alts = ["El aviso después de la captura: un clic abre la imagen", "El panel Grabar pantalla, con el audio del sistema", "Una grabación en curso en la barra"]
   features = [
     "`Super`+`Shift`+`E` abre el panel de captura: *Región* (`r`), *Pantalla completa* (`s`) o *Ventana* (`w`).",
     "*Retraso* (`d`): ahora, 3, 5 o 10 segundos, solo para esa captura.",
