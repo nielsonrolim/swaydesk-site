@@ -49,13 +49,47 @@ class CheckLayoutTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def run_on(self, sibling="0", align="stretch", extra="", first="A", html=None):
-        page = self.root / "en-us/install"
+    def run_on(self, sibling="0", align="stretch", extra="", first="A", html=None, path="en-us/install", body=""):
+        page = self.root / path
         page.mkdir(parents=True, exist_ok=True)
         css = CSS % {"sibling": sibling, "align": align, "extra": extra}
-        (page / "index.html").write_text(html or PAGE % {"css": css, "first": first}, encoding="utf-8")
-        return subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "en-us/install"],
+        text = html or PAGE % {"css": css, "first": first}
+        (page / "index.html").write_text(text.replace("</body>", body + "</body>", 1), encoding="utf-8")
+        return subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), path],
                               capture_output=True, text=True, timeout=300)
+
+    def row(self, widths, path="en-us/components/dock"):
+        # A row of images as the component pages draw it; each width is a thumbnail's CSS width
+        figures = "".join(f'<figure class="component__thumb" style="flex:none;margin:0;width:{w}"><a href="#" style="display:block;'
+                          f'height:150px"></a><figcaption>c</figcaption></figure>' for w in widths)
+        return self.run_on(path=path, body=f'<div class="component__shots" style="display:flex;flex-wrap:wrap;gap:8px">{figures}</div>')
+
+    def test_a_row_of_equal_thumbnails_passes(self):
+        result = self.row(["300px", "300px"])
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_thumbnails_of_different_sizes_fail(self):
+        result = self.row(["300px", "220px"])
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components/dock @1200: the row's thumbnails differ in size (300x150 and 220x150)",
+                      result.stdout)
+
+    def test_a_thumbnail_too_small_to_read_fails(self):
+        result = self.row(["120px", "120px"])
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components/dock @390: a thumbnail is 120px wide (at least 200px)", result.stdout)
+
+    def test_a_page_wider_than_the_window_fails(self):
+        result = self.run_on(path="en-us/components/dock", body='<div class="component__shots">'
+                        '<figure class="component__thumb" style="width:300px"><a href="#" style="display:block;'
+                        'height:150px"></a></figure></div><div style="width:900px;height:4px"></div>')
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components/dock @390: the page scrolls sideways", result.stdout)
+
+    def test_a_component_page_expected_to_have_a_row_without_one_fails(self):
+        result = self.run_on(path="en-us/components/greeter")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components/greeter @1200: no row of images (component__shots)", result.stdout)
 
     def test_equal_gaps_and_full_height_buttons_pass(self):
         result = self.run_on()

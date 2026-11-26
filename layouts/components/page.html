@@ -9,30 +9,39 @@
 <div class="content">
 <article class="component component--page">
 <h2 class="component__name">{{ partial "icon.html" $c.icon }} {{ $c.name }}</h2>
-{{- /* The page's own crop (crop = true: images/components/<id>.webp), else the gallery's shot */}}
+{{- /* The page's own crop (crop = true: images/components/<id>.webp), else the gallery's shot. With more_shots,
+       every image, the main one first, is an equal thumbnail with its caption, in one row; a thumbnail wider than
+       720px is a resized JPEG (the deploy's standard Hugo can read WebP but not write it), the link opens the original */}}
 {{- $main := "" }}
 {{- if $c.crop }}{{ $main = printf "images/components/%s.webp" $c.id }}{{ else if $c.shot }}{{ $main = printf "images/shots/%s.webp" $c.shot }}{{ end }}
+{{- $shots := slice }}
 {{- with $main }}
-{{- with resources.Get . }}
-{{- $img := . | fingerprint }}
+{{- with resources.Get . }}{{ $shots = $shots | append (dict "img" (. | fingerprint) "alt" $c.name "caption" $c.shot_caption) }}
+{{- else }}{{ errorf "data/components.toml: %s doesn't exist" . }}{{ end }}
+{{- end }}
+{{- range $i, $name := $c.more_shots }}
+{{- with resources.Get (printf "images/components/%s.webp" $name) }}
+{{- $alt := index $c.more_alts $i }}
+{{- $shots = $shots | append (dict "img" (. | fingerprint) "alt" $alt "caption" $alt) }}
+{{- else }}{{ errorf "data/components.toml: images/components/%s.webp doesn't exist" $name }}{{ end }}
+{{- end }}
+{{- if gt (len $shots) 1 }}
+<div class="component__shots">
+{{- range $shots }}
+{{- $thumb := .img }}{{ if gt .img.Width 720 }}{{ $thumb = .img.Resize "720x jpg q85" }}{{ end }}
+<figure class="component__thumb"><a href="{{ .img.RelPermalink }}" data-lightbox><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .alt }}" decoding="async"></a><figcaption>{{ .caption }}</figcaption></figure>
+{{- end }}
+</div>
+{{- else }}
+{{- range $shots }}
+{{- $img := .img }}
 {{- /* A crop is taken at scale 2: shown at half its pixels, its real size on screen */}}
 {{- if $c.crop }}
 <a class="component__shot component__shot--crop" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" srcset="{{ $img.RelPermalink }} 2x" width="{{ div $img.Width 2 }}" height="{{ div $img.Height 2 }}" alt="{{ $c.name }}" decoding="async"></a>
 {{- else }}
 <a class="component__shot" href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $c.name }}" decoding="async"></a>
 {{- end }}
-{{- else }}{{ errorf "data/components.toml: %s doesn't exist" . }}{{ end }}
 {{- end }}
-{{- with $c.more_shots }}
-<div class="component__more">
-{{- range $i, $name := . }}
-{{- with resources.Get (printf "images/components/%s.webp" $name) }}
-{{- $img := . | fingerprint }}
-{{- $alt := index $c.more_alts $i }}
-<a href="{{ $img.RelPermalink }}" data-lightbox><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" title="{{ $alt }}" loading="lazy" decoding="async"></a>
-{{- else }}{{ errorf "data/components.toml: images/components/%s.webp doesn't exist" $name }}{{ end }}
-{{- end }}
-</div>
 {{- end }}
 <div class="component__body">
 {{ $.RenderString (dict "display" "block") $c.text }}
