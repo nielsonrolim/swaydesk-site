@@ -447,6 +447,7 @@ waybar = "swaydesk-weather"
     "Escolha a sua cidade com `weather_location` no `config.toml`; senão, ela vem do seu IP.",
     "*Atualizar* busca dados novos; o link do wttr.in abre a previsão no navegador.",
     "*Clique direito* na temperatura abre o GNOME Weather, quando ele está instalado.",
+    "Ao trocar o `weather_location`, o ícone e o popup passam para a cidade nova na hora.",
   ]
   keys = "Clique na temperatura"
   guide = "guide/desktop/#a-barra"
@@ -463,6 +464,7 @@ waybar = "swaydesk-weather"
     "Set your city with `weather_location` in `config.toml`; otherwise it comes from your IP.",
     "*Refresh* fetches new data; the wttr.in link opens the forecast in the browser.",
     "*Right click* on the temperature opens GNOME Weather, when it's installed.",
+    "After you change `weather_location`, the icon and the popup move to the new city right away.",
   ]
   keys = "Click the temperature"
   guide = "guide/desktop/#the-bar"
@@ -479,6 +481,7 @@ waybar = "swaydesk-weather"
     "Elige tu ciudad con `weather_location` en `config.toml`; si no, se toma de tu IP.",
     "*Actualizar* busca datos nuevos; el enlace de wttr.in abre el pronóstico en el navegador.",
     "*Clic derecho* en la temperatura abre GNOME Weather, cuando está instalado.",
+    "Al cambiar `weather_location`, el icono y la ventana emergente pasan a la ciudad nueva al momento.",
   ]
   keys = "Haz clic en la temperatura"
   guide = "guide/desktop/#la-barra"
@@ -1683,6 +1686,8 @@ start = ""
     "Ao lado de *Usar a cor do papel de parede*, um ponto mostra a cor que ele escolheria agora.",
     "*Será aplicado:* resume a mudança antes de aplicar; *Voltar ao tema em uso* desfaz a seleção.",
     "Quando o tema escolhido não está instalado, o desktop usa o adw-gtk3-dark, ou o Adwaita-dark sem o adw-gtk-theme.",
+    "A cor de destaque também vai para os interruptores, botões principais, caixas de seleção, controles deslizantes e linhas selecionadas dos apps do Swaydesk; um `~/.config/gtk-4.0/gtk.css` seu continua valendo mais.",
+    "As janelas abertas do Swaydesk, este app incluído, trocam de *Claro* para *Escuro* (e de volta) na hora.",
   ]
   keys = "Na grade de apps"
   guide = "guide/config/"
@@ -1700,6 +1705,8 @@ start = ""
     "Next to *Use the wallpaper's color*, a dot shows the color it would pick now.",
     "*Will apply:* sums up the change before you apply it; *Back to the theme in use* drops the selection.",
     "When the chosen theme isn't installed, the desktop uses adw-gtk3-dark, or Adwaita-dark without adw-gtk-theme.",
+    "The accent color also reaches the switches, suggested buttons, checks, sliders and selected rows of the Swaydesk apps; a `~/.config/gtk-4.0/gtk.css` of your own still wins.",
+    "Open Swaydesk windows, this app included, switch between *Light* and *Dark* right away.",
   ]
   keys = "In the app grid"
   guide = "guide/config/"
@@ -1717,6 +1724,8 @@ start = ""
     "Junto a *Usar el color del fondo de pantalla*, un punto muestra el color que elegiría ahora.",
     "*Se aplicará:* resume el cambio antes de aplicarlo; *Volver al tema en uso* descarta la selección.",
     "Cuando el tema elegido no está instalado, el escritorio usa adw-gtk3-dark, o Adwaita-dark sin adw-gtk-theme.",
+    "El color de acento también llega a los interruptores, botones principales, casillas, deslizadores y filas seleccionadas de las aplicaciones de Swaydesk; un `~/.config/gtk-4.0/gtk.css` tuyo sigue teniendo prioridad.",
+    "Las ventanas abiertas de Swaydesk, esta aplicación incluida, cambian entre *Claro* y *Oscuro* al momento.",
   ]
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
@@ -1801,6 +1810,7 @@ unit = true
     "Um serviço em segundo plano aplica o layout salvo quando você pluga ou despluga uma tela, ou o Sway recarrega.",
     "Fechar a tampa com uma tela externa ligada desliga a tela do notebook; abri-la aplica o layout de novo.",
     "Ele não desliga todas as telas: *Pelo menos uma tela precisa ficar ligada.*",
+    "Um layout que ficou sem resposta, porque o app foi fechado ou a sessão terminou, é desfeito no login, ao plugar ou desplugar uma tela e ao recarregar o Sway.",
   ]
   keys = "Na grade de apps"
   guide = "guide/config/#monitores"
@@ -1820,6 +1830,7 @@ unit = true
     "A background service applies the saved layout when you plug or unplug a screen, or Sway reloads.",
     "Closing the lid with an external screen on turns the laptop screen off; opening it applies the layout again.",
     "It won't turn every screen off: *At least one screen must stay on.*",
+    "A layout left unanswered, because the app was killed or the session ended, is undone at login, when a screen is plugged or unplugged and on a Sway reload.",
   ]
   keys = "In the app grid"
   guide = "guide/config/#displays"
@@ -1839,6 +1850,7 @@ unit = true
     "Un servicio en segundo plano aplica la disposición guardada cuando conectas o desconectas una pantalla, o Sway se recarga.",
     "Cerrar la tapa con una pantalla externa encendida apaga la pantalla de la laptop; abrirla vuelve a aplicar la disposición.",
     "No apaga todas las pantallas: *Al menos una pantalla debe permanecer encendida.*",
+    "Una disposición que quedó sin respuesta, porque la aplicación se cerró o la sesión terminó, se deshace al iniciar sesión, al conectar o desconectar una pantalla y al recargar Sway.",
   ]
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/#pantallas"
@@ -2072,6 +2084,8 @@ start = ""
     "`swaydesk-desktop-config keys` monta os atalhos do perfil escolhido em `shortcuts`.",
     "`get`, `enabled` e `css` dão aos seus scripts um valor da config, se um componente está ligado ou as cores de destaque.",
     "Um `file_manager` vazio pega o primeiro instalado entre nemo, thunar, nautilus e dolphin, senão o thunar.",
+    "As abas do Sway (grupos em abas e empilhados) são mais altas, com o título centralizado e um contorno, em três níveis da cor de destaque: a aba em foco nela, a visível de um grupo sem foco num tom mais escuro (mais claro no tema claro) e as outras em cinza. No Sway puro, o `50-swaydesk-theme-tool.conf` traz o mesmo visual, se você quiser.",
+    "Os arquivos que ele gera começam com uma linha `Generated by sway-desktop-config: …`; um arquivo sem essa linha é seu, e fica como está.",
   ]
   keys = "No terminal"
   guide = "guide/config/"
@@ -2089,6 +2103,8 @@ start = ""
     "`swaydesk-desktop-config keys` sets up the shortcuts of the profile named in `shortcuts`.",
     "`get`, `enabled` and `css` give your own scripts a config value, a component's on/off state or the accent colors.",
     "An empty `file_manager` takes the first installed of nemo, thunar, nautilus and dolphin, else thunar.",
+    "Sway's tabs (tabbed and stacked groups) are taller, with the title centred and an outline, in three accent levels: the focused tab in the accent, the visible tab of an unfocused group in a darker shade (lighter with a light theme), and the others in grey. On plain Sway, the opt-in `50-swaydesk-theme-tool.conf` brings the same look.",
+    "The files it writes start with a `Generated by sway-desktop-config: …` line; a file without it is yours, and is left alone.",
   ]
   keys = "In the terminal"
   guide = "guide/config/"
@@ -2106,6 +2122,8 @@ start = ""
     "`swaydesk-desktop-config keys` prepara los atajos del perfil elegido en `shortcuts`.",
     "`get`, `enabled` y `css` dan a tus scripts un valor de la config, si un componente está activado o los colores de acento.",
     "Un `file_manager` vacío toma el primero instalado entre nemo, thunar, nautilus y dolphin, si no, thunar.",
+    "Las pestañas de Sway (grupos en pestañas y apilados) son más altas, con el título centrado y un contorno, en tres niveles del color de acento: la pestaña enfocada en él, la visible de un grupo sin foco en un tono más oscuro (más claro con un tema claro) y las demás en gris. En Sway sin Swaydesk, el `50-swaydesk-theme-tool.conf` opcional trae el mismo aspecto.",
+    "Los archivos que escribe empiezan con una línea `Generated by sway-desktop-config: …`; un archivo sin ella es tuyo y se deja como está.",
   ]
   keys = "En la terminal"
   guide = "guide/config/"
