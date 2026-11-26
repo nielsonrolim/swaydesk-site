@@ -38,7 +38,7 @@ Este es un archivo de ejemplo con las claves que puedes cambiar a mano:
 locale = "en_US"
 
 # Ciudad del pronóstico del clima. Vacío: según tu dirección IP
-weather_location = "Denver"
+weather_location = "Lisbon"
 
 # País de los días festivos del calendario. Vacío: el del idioma. "none": ninguno
 holidays = "US"
