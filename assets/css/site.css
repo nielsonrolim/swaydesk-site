@@ -144,6 +144,11 @@ h2 { font-weight: 600; }
 .content figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.5rem; }
 .gallery figure { margin: 0; }
+/* Even cells, like the component thumbnails: a 16:9 frame, the shape of nearly every shot, so none is cropped; the two
+   other shapes are cut from the top right, where the bar popups are. The lightbox shows each one whole */
+.gallery figure > a { display: block; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--surface); }
+.gallery figure > a:hover { border-color: var(--line-hover); }
+.content .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top right; border: 0; border-radius: 0; }
 .gallery figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 
 .component { display: grid; grid-template-columns: minmax(0, 15rem) 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }

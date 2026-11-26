@@ -8,7 +8,8 @@ page at 1200, 390, 1440 and 1920 px and checks that:
 - every copy button, in every tab panel, is as tall as the code field next to it;
 - each page with distro tabs (Install, the component pages) reports at least two tabs and one copy block (none
   means the check measured nothing);
-- a component page's row of images (component__shots) has thumbnails of one size, each at least 200px wide,
+- a component page's row of images (component__shots) and the screenshots' gallery have thumbnails of one size,
+  each at least 200px wide,
   and the Dock and login pages, which have more_shots, have one;
 - no page scrolls sideways;
 - at 1440 and 1920, the content box (main .content) is as wide as the header's container, its edges within 2% of
@@ -69,8 +70,8 @@ MEASURE = r"""window.addEventListener("load", () => {
   });
   cmds(document);
   // The component pages' rows of images: each thumbnail's box (its link), and whether the page scrolls sideways
-  out.rows = Array.from(document.querySelectorAll(".component__shots")).map((row) =>
-    Array.from(row.querySelectorAll(".component__thumb > a")).map((a) => {
+  out.rows = Array.from(document.querySelectorAll(".component__shots, .gallery")).map((row) =>
+    Array.from(row.querySelectorAll(":scope > figure > a")).map((a) => {
       const r = a.getBoundingClientRect();
       return {w: Math.round(r.width), h: Math.round(r.height)};
     }));

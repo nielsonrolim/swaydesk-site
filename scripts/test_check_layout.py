@@ -172,6 +172,15 @@ class CheckLayoutTests(unittest.TestCase):
         self.assertIn("en-us/shortcuts @1440: no header container (.topbar__in) or content box (main .content)",
                       result.stdout)
 
+    def test_a_gallery_of_uneven_cells_fails(self):
+        # The screenshots' gallery, as the shot shortcode draws it: a figure with the image link and a caption
+        cells = "".join(f'<figure style="margin:0"><a href="#" style="display:block;height:{h}"></a><figcaption>c</figcaption>'
+                        f'</figure>' for h in ("160px", "160px", "220px", "160px"))
+        result = self.run_on(path="en-us/screenshots", body=f'<div class="gallery" style="display:grid;'
+                             f'grid-template-columns:repeat(auto-fill,minmax(250px,1fr))">{cells}</div>')
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/screenshots @1200: the row's thumbnails differ in size", result.stdout)
+
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
                                 capture_output=True, text=True, timeout=120)
