@@ -212,6 +212,10 @@ class CheckComponentsTests(unittest.TestCase):
         result = self.run_on(self.more(crop="crop = true\n"))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_a_crop_on_a_card_without_a_page_passes(self):
+        result = self.run_on(component(page="false", extra="crop = true\n"))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_a_crop_needs_its_file(self):
         self.assert_fails_with(component(cid="audio", icon="bar", extra="crop = true\n"),
                                "audio: assets/images/components/audio.webp doesn't exist")

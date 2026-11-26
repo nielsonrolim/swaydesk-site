@@ -10,7 +10,7 @@ per-language PAGE_NOTES), since the list shows only its name, text and keys; its
 page. `waybar` is only for the bar, as swaydesk-<name>; `unit` needs a start that includes a snippet; a start_note
 needs a start; start_text (what to do when there's nothing to add to the Sway config) replaces start, in every
 language or none. `crop = true` shows the page's own image, assets/images/components/<id>.webp, which must
-exist; `more_shots` (at most four names of files in that folder, only on a page) adds thumbnails, each with a
+exist (on a card without a page, as a thumbnail in the list); `more_shots` (at most four names of files in that folder, only on a page) adds thumbnails, each with a
 `more_alts` text in every language. Each [groups.<group>] is a known group with a text in every language. A
 missing, unreadable or malformed file is an error, never a pass.
 """
