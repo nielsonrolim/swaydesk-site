@@ -1731,11 +1731,10 @@ page = true
 package = "swaydesk-portal"
 arch_with = []
 optional = []
-start = "[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.ScreenCast=wlr\norg.freedesktop.impl.portal.Screenshot=wlr\norg.freedesktop.impl.portal.Settings=swaydesktop;gtk"
-start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   [components.pt-br]
   name = "Cor de destaque nos apps"
   text = "Entrega a cor de destaque do desktop aos apps que leem as configurações de aparência do portal, como os de libadwaita e GTK 4."
+  start_text = "Copie o arquivo que o swaydesk-portal instala para a sua pasta de portais e entre de novo:\n\n```\nmkdir -p ~/.config/xdg-desktop-portal\ncp /usr/share/swaydesk/xdg-desktop-portal/sway-portals.conf ~/.config/xdg-desktop-portal/\n```\n\nEle mantém as linhas do arquivo do próprio pacote do sway e acrescenta a da cor de destaque. Se você já tem um `sway-portals.conf` seu, acrescente só `org.freedesktop.impl.portal.Settings=swaydesktop;gtk` à seção `[preferred]` dele. Ele precisa do xdg-desktop-portal-gtk e do xdg-desktop-portal-wlr, e do `XDG_CURRENT_DESKTOP=sway` no ambiente do systemd do usuário, que o `50-systemd-user.conf` do próprio sway importa. Na sessão do Swaydesk, isso já vem pronto."
   features = [
     "Ele só responde com a cor de destaque (`org.freedesktop.appearance` `accent-color`); o claro ou escuro vem do portal do GTK.",
     "Os apps abertos pegam uma nova cor de destaque na hora, sem reiniciar.",
@@ -1743,10 +1742,10 @@ start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   ]
   keys = "Sozinho, pelo D-Bus"
   guide = "guide/config/"
-  start_note = "Ele é o mesmo do desktop completo. Se o arquivo já existe, acrescente só a linha do `org.freedesktop.impl.portal.Settings` à seção `[preferred]`. O `default=gtk` usa o xdg-desktop-portal-gtk, e as linhas `wlr` (captura e gravação de tela), o xdg-desktop-portal-wlr. Vale no próximo login, ou depois de `systemctl --user restart xdg-desktop-portal`."
   [components.en-us]
   name = "Accent color in apps"
   text = "Gives the desktop's accent color to apps that read the portal's appearance settings, such as libadwaita and GTK 4 apps."
+  start_text = "Copy the file swaydesk-portal ships into your portals folder, then log in again:\n\n```\nmkdir -p ~/.config/xdg-desktop-portal\ncp /usr/share/swaydesk/xdg-desktop-portal/sway-portals.conf ~/.config/xdg-desktop-portal/\n```\n\nIt keeps the lines of the sway package's own file and adds the accent one. If you already have your own `sway-portals.conf`, add only `org.freedesktop.impl.portal.Settings=swaydesktop;gtk` to its `[preferred]` section. It needs xdg-desktop-portal-gtk and xdg-desktop-portal-wlr, and `XDG_CURRENT_DESKTOP=sway` in the systemd user environment, which sway's own `50-systemd-user.conf` imports. In the Swaydesk session this is already in place."
   features = [
     "It answers only the accent color (`org.freedesktop.appearance` `accent-color`); light or dark comes from the GTK portal.",
     "Open apps take a new accent color right away, without restarting.",
@@ -1754,10 +1753,10 @@ start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   ]
   keys = "On its own, through D-Bus"
   guide = "guide/config/"
-  start_note = "It's the same file the full desktop ships. If you already have one, add only the `org.freedesktop.impl.portal.Settings` line to its `[preferred]` section. `default=gtk` uses xdg-desktop-portal-gtk, and the `wlr` lines (screenshots and screen sharing) xdg-desktop-portal-wlr. It applies at the next login, or after `systemctl --user restart xdg-desktop-portal`."
   [components.es]
   name = "Color de acento en las aplicaciones"
   text = "Da el color de acento del escritorio a las aplicaciones que leen los ajustes de apariencia del portal, como las de libadwaita y GTK 4."
+  start_text = "Copia el archivo que instala swaydesk-portal a tu carpeta de portales y vuelve a iniciar sesión:\n\n```\nmkdir -p ~/.config/xdg-desktop-portal\ncp /usr/share/swaydesk/xdg-desktop-portal/sway-portals.conf ~/.config/xdg-desktop-portal/\n```\n\nConserva las líneas del archivo del propio paquete de sway y añade la del color de acento. Si ya tienes tu propio `sway-portals.conf`, añade solo `org.freedesktop.impl.portal.Settings=swaydesktop;gtk` a su sección `[preferred]`. Necesita xdg-desktop-portal-gtk y xdg-desktop-portal-wlr, y `XDG_CURRENT_DESKTOP=sway` en el entorno de systemd del usuario, que importa el `50-systemd-user.conf` del propio sway. En la sesión de Swaydesk, esto ya viene listo."
   features = [
     "Solo responde con el color de acento (`org.freedesktop.appearance` `accent-color`); el claro u oscuro viene del portal de GTK.",
     "Las aplicaciones abiertas toman un nuevo color de acento al momento, sin reiniciarse.",
@@ -1765,7 +1764,6 @@ start_file = "~/.config/xdg-desktop-portal/sway-portals.conf"
   ]
   keys = "Solo, por D-Bus"
   guide = "guide/config/"
-  start_note = "Es el mismo archivo del escritorio completo. Si ya tienes uno, añade solo la línea de `org.freedesktop.impl.portal.Settings` a su sección `[preferred]`. `default=gtk` usa xdg-desktop-portal-gtk, y las líneas `wlr` (capturas y compartir pantalla), xdg-desktop-portal-wlr. Se aplica en el próximo inicio de sesión, o tras `systemctl --user restart xdg-desktop-portal`."
 
 [[components]]
 id = "displays"
