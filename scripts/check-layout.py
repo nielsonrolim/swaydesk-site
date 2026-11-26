@@ -48,9 +48,9 @@ PAGES = list(HOMES) + [f"{lang}/{page}" for lang in HOMES
 TABBED = re.compile(r"(^|/)(install|components/[^/]+)$")
 EDGE = 0.02  # the content's edges within 2% of the header container's width from its edges
 MIN_COLUMNS = {"cards": 3, "gallery": 3, "ISO": 2}  # per grid, on wide screens
-EVEN_ROWS = ("ISO",)
+EVEN_ROWS = ("ISO",)  # grids whose cards in a row must be of one height
 UNFRAMED = ("thumbnails",)  # no frame of its own, and fewer images than columns: only its left edge is checked
-INSET = 2  # px: a grid's columns start and end at its inner edges (a list's indent left on it is a second line)  # grids whose cards in a row must be of one height
+INSET = 2  # px: a grid's columns start and end at its inner edges (a list's indent left on it is a second line)
 TOLERANCE = 1  # px: rounding of fractional layout
 MIN_THUMB = 200  # px: narrower than this, a thumbnail's content can't be read
 # Pages that have more_shots, so a row of images: none found means the template or a class changed

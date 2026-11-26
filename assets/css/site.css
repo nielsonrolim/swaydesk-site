@@ -355,7 +355,7 @@ html.lb-open { overflow: hidden; }
 .chapters__all:hover { color: var(--link-hover); }
 
 /* .content ul's list indent must not reach the grid: it would push the cells in, a second line on the left */
-.cgrid, .content .cgrid { padding: 0; }
+.content .cgrid { padding: 0; }
 .cgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); margin: 0; padding: 0; list-style: none; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; }
 .cgrid__cell { display: flex; flex-direction: column; gap: 10px; padding: 28px; background: var(--paper); box-shadow: 0 0 0 .5px var(--line); }
 .cgrid__cell .icon { color: var(--accent); }
