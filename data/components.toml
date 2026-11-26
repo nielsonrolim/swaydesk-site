@@ -678,6 +678,7 @@ id = "notification-center"
 group = "bar"
 icon = "inbox"
 shot = "notifications"
+crop = true
 bin = "swaydesk-notifications-popup"
 src = "rust/notifications-popup"
 tech = "rust"
@@ -863,6 +864,8 @@ id = "dock"
 group = "windows"
 icon = "dock"
 shot = "desktop"
+crop = true
+more_shots = ["dock-menu", "dock-windows"]
 bin = "swaydesk-dock"
 src = "rust/dock"
 tech = "rust"
@@ -876,6 +879,7 @@ unit = true
   [components.pt-br]
   name = "Dock"
   text = "Os apps fixados e os abertos, com menu no clique direito. Some quando uma janela precisa do espaço, ou fica sempre à vista."
+  more_alts = ["O menu do botão direito: Desafixar, Nova janela e Fechar todas (2)", "Um clique num app com várias janelas lista cada uma, com a área de trabalho"]
   features = [
     "Clique num app para abri-lo ou focar a janela dele; com várias janelas, escolha uma numa lista.",
     "Um ponto para uma janela, dois para várias; pontos na cor de destaque no app em foco, laranja quando ele pede atenção.",
@@ -892,6 +896,7 @@ unit = true
   [components.en-us]
   name = "Dock"
   text = "Pinned and open apps, with a right-click menu. It hides when a window needs the room, or stays visible."
+  more_alts = ["The right-click menu: Unpin, New window and Close all (2)", "A click on an app with several windows lists each one, with its workspace"]
   features = [
     "Click an app to open it or focus its window; with several windows, pick one from a list.",
     "One dot for one window, two for several; accent dots on the focused app, orange when it's urgent.",
@@ -908,6 +913,7 @@ unit = true
   [components.es]
   name = "Dock"
   text = "Aplicaciones fijadas y abiertas, con un menú de clic derecho. Se oculta cuando una ventana necesita el espacio, o se queda visible."
+  more_alts = ["El menú del botón derecho: Dejar de fijar, Nueva ventana y Cerrar todas (2)", "Un clic en una app con varias ventanas lista cada una, con su área de trabajo"]
   features = [
     "Haz clic en una aplicación para abrirla o enfocar su ventana; con varias ventanas, elige una de una lista.",
     "Un punto para una ventana, dos para varias; puntos en el color de acento en la aplicación enfocada, naranja cuando pide atención.",
@@ -1020,6 +1026,7 @@ id = "switcher"
 group = "windows"
 icon = "switch"
 shot = "switcher"
+crop = true
 bin = "swaydesk-switcher"
 src = "rust/switcher"
 tech = "rust"
@@ -1081,6 +1088,7 @@ id = "notifications"
 group = "session"
 icon = "bell"
 shot = ""
+crop = true
 bin = "swaydesk-notifd"
 src = "rust/notifd"
 tech = "rust"
@@ -1210,6 +1218,8 @@ id = "session-menu"
 group = "session"
 icon = "power"
 shot = "session"
+crop = true
+more_shots = ["session-confirm"]
 bin = "swaydesk-session-menu"
 src = "rust/session-menu"
 tech = "rust"
@@ -1222,6 +1232,7 @@ start = "bindsym --no-repeat Ctrl+Alt+Delete exec swaydesk-session-menu"
   [components.pt-br]
   name = "Menu de sessão"
   text = "Bloquear, sair, suspender, reiniciar e desligar. Quando um app pede para reiniciar ou desligar, como o **Reiniciar e atualizar** da loja, ele pergunta antes, com uma contagem de 60 segundos e um botão para cancelar."
+  more_alts = ["Reiniciar pedido por um app: uma contagem de 60 segundos, com Cancelar e Reiniciar agora"]
   features = [
     "Teclas: `l` Bloquear, `e` Sair, `s` Suspender, `r` Reiniciar, `p` Desligar, as iniciais em inglês em qualquer idioma.",
     "As teclas de letra ignoram modificadores: com `Ctrl`, `Alt`, `Super` ou `Shift` apertado, não fazem nada.",
@@ -1238,6 +1249,7 @@ start = "bindsym --no-repeat Ctrl+Alt+Delete exec swaydesk-session-menu"
   [components.en-us]
   name = "Session menu"
   text = "Lock, log out, suspend, restart and shut down. When an app asks to restart or shut down, such as the store's **Restart & Update**, it asks first, with a 60-second countdown and a button to cancel."
+  more_alts = ["A restart asked for by an app: a 60-second countdown, with Cancel and Restart now"]
   features = [
     "Keys: `l` Lock, `e` Log out, `s` Suspend, `r` Restart, `p` Shut down, the English initials in every language.",
     "The letter keys ignore modifiers: held with `Ctrl`, `Alt`, `Super` or `Shift`, they do nothing.",
@@ -1254,6 +1266,7 @@ start = "bindsym --no-repeat Ctrl+Alt+Delete exec swaydesk-session-menu"
   [components.es]
   name = "Menú de la sesión"
   text = "Bloquear, cerrar sesión, suspender, reiniciar y apagar. Cuando una aplicación pide reiniciar o apagar, como el **Reiniciar y actualizar** de la tienda, pregunta antes, con una cuenta regresiva de 60 segundos y un botón para cancelar."
+  more_alts = ["Un reinicio pedido por una app: una cuenta atrás de 60 segundos, con Cancelar y Reiniciar ahora"]
   features = [
     "Teclas: `l` Bloquear, `e` Cerrar sesión, `s` Suspender, `r` Reiniciar, `p` Apagar, las iniciales en inglés en cualquier idioma.",
     "Las teclas de letra ignoran los modificadores: con `Ctrl`, `Alt`, `Super` o `Shift` pulsado, no hacen nada.",
@@ -1325,7 +1338,7 @@ group = "session"
 icon = "lock"
 shot = "lock"
 crop = true
-more_shots = ["lock-wrong"]
+more_shots = ["lock-full"]
 bin = "swaydesk-lock"
 src = "rust/lock"
 tech = "rust"
@@ -1338,7 +1351,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.pt-br]
   name = "Bloqueio de tela"
   text = "Hora, data e o campo de senha em todos os monitores, sobre o papel de parede desfocado. No Debian 13, cujo gtk4-layer-shell é anterior ao 1.2, a mesma tela de bloqueio roda na versão GTK 3."
-  more_alts = ["Depois de uma senha errada"]
+  more_alts = ["A tela inteira bloqueada, com a bateria, o Wi-Fi e o teclado no canto e o player embaixo"]
   features = [
     "Bloqueia com `Ctrl`+`Alt`+`L`, depois de 10 minutos sem uso e antes de o computador suspender.",
     "A sua foto, ou as suas iniciais, e o seu nome abaixo da hora e da data.",
@@ -1355,7 +1368,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.en-us]
   name = "Lock screen"
   text = "Time, date and the password field on every monitor, over the blurred wallpaper. On Debian 13, whose gtk4-layer-shell is older than 1.2, the same lock screen runs in its GTK 3 version."
-  more_alts = ["After a wrong password"]
+  more_alts = ["The whole locked screen, with battery, Wi-Fi and keyboard layout in the corner and the player below"]
   features = [
     "Locks with `Ctrl`+`Alt`+`L`, after 10 minutes idle, and before the computer sleeps.",
     "Your photo, or your initials, and your name under the time and date.",
@@ -1372,7 +1385,7 @@ start = "include /usr/share/swaydesk/sway/config.d/50-swaydesk-lock.conf"
   [components.es]
   name = "Pantalla de bloqueo"
   text = "Hora, fecha y el campo de contraseña en cada monitor, sobre el fondo de pantalla difuminado. En Debian 13, cuyo gtk4-layer-shell es anterior a 1.2, la misma pantalla de bloqueo funciona en su versión GTK 3."
-  more_alts = ["Después de una contraseña incorrecta"]
+  more_alts = ["La pantalla completa bloqueada, con la batería, el Wi-Fi y el teclado en la esquina y el reproductor abajo"]
   features = [
     "Bloquea con `Ctrl`+`Alt`+`L`, tras 10 minutos de inactividad y antes de que el equipo se suspenda.",
     "Tu foto, o tus iniciales, y tu nombre bajo la hora y la fecha.",
@@ -1393,7 +1406,7 @@ group = "session"
 icon = "user"
 shot = "greeter"
 crop = true
-more_shots = ["greeter-caps"]
+more_shots = ["greeter-full"]
 bin = "swaydesk-greeter"
 src = "rust/greeter"
 tech = "rust"
@@ -1406,7 +1419,7 @@ start = ""
   [components.pt-br]
   name = "Tela de login"
   text = "Uma tela de login sobre o greetd, com o mesmo visual da tela de bloqueio, em todas as distros suportadas, o Arch inclusive. Ela abre o chaveiro com a senha do login. A tela de login que você já usa também serve; sem uma, como numa instalação mínima ou de servidor, é ela que dá o login gráfico."
-  more_alts = ["O aviso Caps Lock ligado"]
+  more_alts = ["A tela de login inteira, com o idioma no canto e os botões de energia embaixo"]
   features = [
     "Escolha a sua conta numa lista com fotos ou iniciais; *Outro usuário…* deixa digitar um nome de usuário.",
     "Ela lembra a última conta e a sessão que cada conta usou.",
@@ -1424,7 +1437,7 @@ start = ""
   [components.en-us]
   name = "Login screen"
   text = "A login screen on top of greetd, with the same look as the lock screen, on every supported distro, Arch included. It unlocks the keyring with your login password. The login screen you already use works too; without one, as on a minimal or server install, this is what gives you a graphical login."
-  more_alts = ["The Caps Lock warning"]
+  more_alts = ["The whole login screen, with the language in the corner and the power buttons below"]
   features = [
     "Pick your account from a list with photos or initials; *Other user…* lets you type a user name.",
     "It remembers the last account and the session each account used.",
@@ -1442,7 +1455,7 @@ start = ""
   [components.es]
   name = "Pantalla de inicio de sesión"
   text = "Una pantalla de inicio de sesión sobre greetd, con el mismo aspecto que la pantalla de bloqueo, en todas las distribuciones compatibles, Arch incluido. Desbloquea el llavero con tu contraseña de inicio de sesión. La pantalla de inicio de sesión que ya usas también funciona; sin una, como en una instalación mínima o de servidor, esta es la que te da un inicio de sesión gráfico."
-  more_alts = ["El aviso de Bloq Mayús activado"]
+  more_alts = ["La pantalla de inicio de sesión completa, con el idioma en la esquina y los botones de energía abajo"]
   features = [
     "Elige tu cuenta de una lista con fotos o iniciales; *Otro usuario…* permite escribir un nombre de usuario.",
     "Recuerda la última cuenta y la sesión que usó cada cuenta.",
