@@ -38,7 +38,7 @@ Um exemplo do arquivo, com as chaves que você pode mudar à mão:
 locale = "pt_BR"
 
 # Cidade da previsão do tempo. Vazio: a do seu IP
-weather_location = "Recife"
+weather_location = "Lisbon"
 
 # País dos feriados do calendário. Vazio: o do idioma. "none": nenhum
 holidays = "BR"

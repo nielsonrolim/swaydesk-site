@@ -38,7 +38,7 @@ Here's a sample file with the keys you can change by hand:
 locale = "en_US"
 
 # City for the weather forecast. Empty: based on your IP address
-weather_location = "Denver"
+weather_location = "Lisbon"
 
 # Country for calendar holidays. Empty: from the language. "none": no holidays
 holidays = "US"
