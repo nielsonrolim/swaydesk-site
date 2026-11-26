@@ -17,6 +17,11 @@ page at 1200, 390, 1440 and 1920 px and checks that:
 - at 1440 and 1920, the content box (main .content) of every page but the home (the reference: its sections
   are the header's container) is as wide as the header's container, its edges within 2% of the container's,
   and every card grid (.cgrid) and gallery (.gallery) has at least 3 columns, the ISO cards (.isos) at least 2;
+- every grid (cards, gallery, ISO cards) has its columns from its inner left edge to its inner right edge, within
+  2px, and a row of thumbnails starts at its left edge;
+- every visible table in the content sits in a frame (.table-wrap) with a border on every side, its columns
+  from the frame's inner left edge to its inner right one (wider when it scrolls on a phone), and at 1440 and
+  1920 the frame spans the content (within 2%);
 - the ISO cards in a row are of one height, and the first paragraph under the content box runs across it (within
   2%): prose takes the whole width too.
 Without pages, it checks the home pages, Install, three component pages (a plain install, start_text, a
@@ -47,6 +52,8 @@ TABBED = re.compile(r"(^|/)(install|components/[^/]+)$")
 EDGE = 0.02  # the content's edges within 2% of the header container's width from its edges
 MIN_COLUMNS = {"cards": 3, "gallery": 3, "ISO": 2}  # per grid, on wide screens
 EVEN_ROWS = ("ISO",)  # grids whose cards in a row must be of one height
+UNFRAMED = ("thumbnails",)  # no frame of its own, and fewer images than columns: only its left edge is checked
+INSET = 2  # px: a grid's columns start and end at its inner edges (a list's indent left on it is a second line)
 TOLERANCE = 1  # px: rounding of fractional layout
 MIN_THUMB = 200  # px: narrower than this, a thumbnail's content can't be read
 # Pages that have more_shots, so a row of images: none found means the template or a class changed
@@ -84,6 +91,21 @@ MEASURE = r"""window.addEventListener("load", () => {
       return {w: Math.round(r.width), h: Math.round(r.height)};
     }));
   out.overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+  // Every visible table in the content: its frame (a .table-wrap with a border on every side) and how far its
+  // columns are from the frame's inner edges (a table that scrolls on a phone is wider than its frame: 0 or less)
+  out.tables = Array.from(document.querySelectorAll("main .content table")).filter((t) => t.getClientRects().length)
+    .map((table) => {
+      const wrap = table.parentElement.classList.contains("table-wrap") ? table.parentElement : null;
+      if (!wrap) return {framed: false};
+      const s = getComputedStyle(wrap), w = wrap.getBoundingClientRect();
+      const sides = ["Top", "Right", "Bottom", "Left"].every((d) => parseFloat(s["border" + d + "Width"]) > 0
+        && s["border" + d + "Style"] !== "none");
+      const cells = Array.from(table.querySelectorAll("tr:first-child > *")).map((c) => c.getBoundingClientRect());
+      const inner = w.left + wrap.clientLeft;
+      return {framed: sides, width: Math.round(w.width),
+        left: Math.round(Math.min(...cells.map((c) => c.left)) - inner),
+        right: Math.round(inner + wrap.clientWidth - Math.max(...cells.map((c) => c.right)))};
+    });
   // The header's container (its content box) and the main content box; the columns of each card grid
   const head = document.querySelector(".topbar__in"), content = document.querySelector("main .content");
   if (head && content) {
@@ -94,13 +116,18 @@ MEASURE = r"""window.addEventListener("load", () => {
     const para = content.querySelector(":scope > p");
     if (para) out.frame.para = Math.round(para.getBoundingClientRect().width);
   }
-  out.grids = Array.from(document.querySelectorAll(".cgrid, .gallery, .isos")).map((grid) => {
+  out.grids = Array.from(document.querySelectorAll(".cgrid, .gallery, .isos, .component__shots")).map((grid) => {
     const items = Array.from(grid.children).filter((el) => el.getClientRects().length)
       .map((el) => el.getBoundingClientRect());
+    // How far in from the grid's inner edges (inside its border) its columns start and end
+    const g = grid.getBoundingClientRect(), inner = g.left + grid.clientLeft;
+    const inset = items.length ? [Math.round(Math.min(...items.map((r) => r.left)) - inner),
+      Math.round(inner + grid.clientWidth - Math.max(...items.map((r) => r.right)))] : [0, 0];
     const rows = {};  // each row's heights, by the row's top
     items.forEach((r) => { (rows[Math.round(r.top)] = rows[Math.round(r.top)] || []).push(Math.round(r.height)); });
-    return {kind: grid.classList.contains("cgrid") ? "cards" : grid.classList.contains("isos") ? "ISO" : "gallery",
-      columns: new Set(items.map((r) => Math.round(r.left))).size, rows: Object.values(rows)};
+    const kind = grid.classList.contains("cgrid") ? "cards" : grid.classList.contains("isos") ? "ISO"
+      : grid.classList.contains("gallery") ? "gallery" : "thumbnails";
+    return {kind, inset, columns: new Set(items.map((r) => Math.round(r.left))).size, rows: Object.values(rows)};
   });
   // The home page's hero: one visible image link to the lightbox (the other theme's is hidden), not covered by
   // the Super badge, and a click on it opens the lightbox with that image alone
@@ -166,11 +193,28 @@ def problems(page, width, data):
                 errors.append(f"{page} @{width}: the text is {frame['para']}px wide, the content {content}px "
                               f"(within 2%)")
         for grid in data.get("grids", []):
-            least = MIN_COLUMNS[grid["kind"]]
+            least = MIN_COLUMNS.get(grid["kind"], 0)
             if grid["columns"] < least:
                 errors.append(f"{page} @{width}: the {grid['kind']} grid has {grid['columns']} columns "
                               f"(at least {least} at this width)")
+    content = round(data["frame"]["cright"] - data["frame"]["cleft"]) if data.get("frame") else None
+    for table in data.get("tables", []):
+        if not table["framed"]:
+            errors.append(f"{page} @{width}: a table has no frame (a .table-wrap with a border on every side)")
+            continue
+        if abs(table["left"]) > INSET or table["right"] > INSET:
+            errors.append(f"{page} @{width}: a table's columns end {table['left']}px and {table['right']}px inside "
+                          f"its frame (at most {INSET}px)")
+        if width in WIDE and content and content - table["width"] > EDGE * content:
+            errors.append(f"{page} @{width}: a table's frame is {table['width']}px wide, the content {content}px "
+                          f"(within 2%)")
     for grid in data.get("grids", []):
+        left, right = grid.get("inset", (0, 0))
+        if grid["kind"] in UNFRAMED:
+            right = 0  # a row of 2 or 3 thumbnails ends before the edge, and nothing draws that edge
+        if abs(left) > INSET or abs(right) > INSET:
+            errors.append(f"{page} @{width}: the {grid['kind']} grid's columns are {left}px and {right}px inside its "
+                          f"edges (at most {INSET}px)")
         if grid["kind"] in EVEN_ROWS:
             for heights in grid.get("rows", []):
                 if max(heights) - min(heights) > TOLERANCE:

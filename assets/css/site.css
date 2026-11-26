@@ -12,7 +12,7 @@
   --line: #e6e9ed; --line-box: #dfe3e8; --line-strong: #d0d7de; --line-hover: #c1c9d1; --line-stronger: #afb8c1;
   --accent: #2e8792; --accent-ink: #1f6a73; --on-accent: #ffffff; --amber: #f3e4a8;
   --mono: "Fira Code", ui-monospace, Menlo, Consolas, monospace;
-  --site: 1200px; --gutter: 24px; --measure: 72ch; --frame: 4px;
+  --site: 1200px; --gutter: 24px; --frame: 4px;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -123,8 +123,16 @@ h2 { font-weight: 600; }
 .content code { padding: .05em .3em; border: 1px solid var(--line); border-radius: var(--frame); background: var(--surface); font-size: .9em; }
 .content pre { overflow-x: auto; padding: .875rem 1rem; border: 1px solid var(--line); border-radius: var(--frame); background: var(--surface); font-size: .85rem; line-height: 1.5; }
 .content pre code { padding: 0; border: 0; background: none; font-size: inherit; }
-.content table { width: 100%; border-collapse: collapse; font-size: .85rem; display: block; overflow-x: auto; }
-.content th, .content td { padding: .4rem .75rem .4rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+/* A table in its frame (render-table.html, profiles.html): one border on all four sides, dividers between rows
+   and columns only, the columns across the whole width; the frame scrolls sideways on a phone */
+.content .table-wrap { margin: 1rem 0; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--frame); }
+.content table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.content th, .content td { padding: .45rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.content :is(th, td) + :is(th, td) { border-left: 1px solid var(--line); }
+.content tbody tr:last-child > td { border-bottom: 0; }
+.content th { background: var(--surface); }
+/* The shortcut tables, one per section: the same column split in all of them */
+.content .keys th:first-child { width: 62%; }
 .content th { color: var(--accent); font-weight: 400; }
 .content kbd { padding: .05em .35em; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: var(--frame); background: var(--surface); font-family: inherit; font-size: .85em; color: var(--ink); }
 .content img { max-width: 100%; height: auto; border: 1px solid var(--line-strong); border-radius: var(--frame); }
@@ -356,6 +364,8 @@ html.lb-open { overflow: hidden; }
 .chapters__all { margin-top: auto; padding-top: 12px; color: var(--muted); font-size: 13px; text-decoration: none; }
 .chapters__all:hover { color: var(--link-hover); }
 
+/* .content ul's list indent must not reach the grid: it would push the cells in, a second line on the left */
+.content .cgrid { padding: 0; }
 .cgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); margin: 0; padding: 0; list-style: none; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; }
 .cgrid__cell { display: flex; flex-direction: column; gap: 10px; padding: 28px; background: var(--paper); box-shadow: 0 0 0 .5px var(--line); }
 .cgrid__cell .icon { color: var(--accent); }

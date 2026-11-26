@@ -253,7 +253,25 @@ class Parser:
                     seen.add(key)
                     kept.append(bind)
             entry["binds"] = list(reversed(kept))
-        return [e for e in self.entries if e["binds"]]
+        return join_same_description([e for e in self.entries if e["binds"]])
+
+
+def join_same_description(entries):
+    """A mesma descrição na mesma seção e no mesmo modo é uma linha só, com as teclas de todas, na posição da
+    primeira, como a Ajuda faz (join_same_description em help-logic, #440 do sway-desktop): o Super+F1 do
+    keys/base.conf e o Super+/ do perfil, cada um sob o seu ##, viram "Super+F1 ou Super+/"."""
+    first, joined = {}, []
+    for entry in entries:
+        if entry["description"] is None:
+            joined.append(entry)
+            continue
+        key = (entry["section"], entry["mode"], entry["description"])
+        if key in first:
+            joined[first[key]]["binds"].extend(entry["binds"])
+        else:
+            first[key] = len(joined)
+            joined.append(entry)
+    return joined
 
 
 # --- As teclas (keys.rs) ---

@@ -138,9 +138,10 @@ class CheckLayoutTests(unittest.TestCase):
                       "(its edges 0px and 600px inside it)", result.stdout)
         self.assertNotIn("@1200: the content", result.stdout)
 
-    def grid(self, cols, cls="cgrid", path="en-us/components"):
+    def grid(self, cols, cls="cgrid", path="en-us/components", padding="0"):
         cards = "".join(f'<li style="height:40px">{i}</li>' for i in range(8))
-        style = f"display:grid;grid-template-columns:repeat({cols},1fr);list-style:none;padding:0"
+        style = (f"display:grid;grid-template-columns:repeat({cols},1fr);list-style:none;padding:0 0 0 {padding};"
+                 "border:1px solid #888")
         return self.run_on(path=path, body=f'<ul class="{cls}" style="{style}">{cards}</ul>'
                            .replace("<ul", '<div class="content"><ul').replace("</ul>", "</ul></div>"))
 
@@ -259,6 +260,46 @@ body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px
         result = self.prose(".content p { max-width: 600px; }")
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertIn("en-us/guide/config @1920: the text is 600px wide, the content 1200px (within 2%)", result.stdout)
+
+    def test_a_card_grid_with_its_columns_inset_on_one_side_fails(self):
+        # A list's indent left on the grid: the cells start 20px in, a second line on the left only
+        result = self.grid(3, padding="20px")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components @1200: the cards grid's columns are 20px and 0px inside its edges "
+                      "(at most 2px)", result.stdout)
+
+    def table(self, wrap=True, css=""):
+        rows = "".join(f"<tr><td>Action {i}</td><td>Super+{i}</td></tr>" for i in range(4))
+        table = f"<table><thead><tr><th>Action</th><th>Shortcut</th></tr></thead><tbody>{rows}</tbody></table>"
+        if wrap:
+            table = f'<div class="table-wrap">{table}</div>'
+        html = ("<!doctype html><html><head><style>" + FRAME +
+                ".table-wrap { overflow-x: auto; border: 1px solid #888; } table { width: 100%; border-collapse: collapse; }"
+                + css + "</style></head><body><header><div class=\"topbar__in\"></div></header><main><div class=\"content\">"
+                + table + "</div></main></body></html>")
+        return self.run_on(path="en-us/shortcuts", html=html)
+
+    def test_a_framed_table_across_the_content_passes(self):
+        result = self.table()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_table_without_a_frame_fails(self):
+        result = self.table(wrap=False)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1200: a table has no frame (a .table-wrap with a border on every side)",
+                      result.stdout)
+
+    def test_a_table_narrower_than_its_frame_fails(self):
+        # display: block keeps the table box wide while its rows shrink to their text
+        result = self.table(css="table { display: block; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1200: a table's columns end", result.stdout)
+
+    def test_a_frame_narrower_than_the_content_fails_on_wide_screens(self):
+        result = self.table(css=".table-wrap { max-width: 500px; box-sizing: border-box; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1440: a table's frame is 500px wide, the content 1200px (within 2%)",
+                      result.stdout)
 
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
