@@ -116,7 +116,7 @@ h2 { font-weight: 600; }
 /* The content takes the header's container, like the home page: prose keeps a readable measure, the wide
    blocks (grids, the video, code, tables, tabs, rows of images) take the whole width */
 .content { color: var(--ink-soft); }
-.content :is(p, h2, h3, h4, blockquote), .content > :is(ul, ol, dl):not([class]) { max-width: var(--measure); }
+.content :is(p, h2, h3, h4, blockquote, .component__features), .content > :is(ul, ol, dl):not([class]) { max-width: var(--measure); }
 .content h2 { margin: 2.75rem 0 .875rem; font-size: 14px; color: var(--accent); }
 .content h2::before { content: "## "; color: var(--accent); }
 .content h3 { margin: 2rem 0 .5rem; font-size: 1.05rem; color: var(--ink); }
