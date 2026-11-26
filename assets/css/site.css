@@ -12,7 +12,7 @@
   --line: #e6e9ed; --line-box: #dfe3e8; --line-strong: #d0d7de; --line-hover: #c1c9d1; --line-stronger: #afb8c1;
   --accent: #2e8792; --accent-ink: #1f6a73; --on-accent: #ffffff; --amber: #f3e4a8;
   --mono: "Fira Code", ui-monospace, Menlo, Consolas, monospace;
-  --site: 1200px; --gutter: 24px; --measure: 72ch; --frame: 4px;
+  --site: 1200px; --gutter: 24px; --frame: 4px;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
