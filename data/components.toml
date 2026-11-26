@@ -1754,6 +1754,8 @@ id = "displays"
 group = "apps"
 icon = "monitor"
 shot = "displays"
+crop = true
+more_shots = ["displays-confirm"]
 bin = "swaydesk-displays"
 src = "rust/displays"
 tech = "rust"
@@ -1767,6 +1769,7 @@ unit = true
   [components.pt-br]
   name = "Telas"
   text = "As telas num mapa, para arrastar, com a resolução, a taxa, a escala e a rotação de cada uma, e se ela fica ligada. Uma mudança se desfaz sozinha em 15 segundos, se você não a mantiver. Cada conjunto de monitores guarda o seu layout, aplicado quando você pluga ou despluga uma tela, e a tela do notebook desliga com a tampa fechada e um monitor ligado. A chave desliga só esses perfis automáticos; o app continua."
+  more_alts = ["Depois de Aplicar: manter as novas configurações, ou voltar sozinho às anteriores após a contagem"]
   features = [
     "Arraste as telas no mapa para organizá-las; as bordas se encaixam.",
     "Para cada tela: *Ligada*, *Resolução*, *Taxa de atualização*, *Escala* e *Rotação*, com os modos espelhados.",
@@ -1784,6 +1787,7 @@ unit = true
   [components.en-us]
   name = "Displays"
   text = "Your screens on a map, to drag around, with each one's resolution, refresh rate, scale and rotation, and whether it's on. A change undoes itself after 15 seconds unless you keep it. Each set of monitors keeps its own layout, applied when you plug or unplug a screen, and the laptop screen turns off with the lid closed and an external monitor on. The key turns off only these automatic profiles; the app stays."
+  more_alts = ["After Apply: keep the new settings, or go back to the previous ones on its own when the countdown ends"]
   features = [
     "Drag the screens on the map to arrange them; their edges snap together.",
     "For each screen: *On*, *Resolution*, *Refresh rate*, *Scale* and *Rotation*, flipped modes included.",
@@ -1801,6 +1805,7 @@ unit = true
   [components.es]
   name = "Pantallas"
   text = "Tus pantallas en un mapa, para arrastrarlas, con la resolución, la frecuencia de actualización, la escala y la rotación de cada una, y si está encendida. Un cambio se deshace solo después de 15 segundos, a menos que lo conserves. Cada conjunto de monitores guarda su propia disposición, que se aplica cuando conectas o desconectas una pantalla, y la pantalla de la laptop se apaga con la tapa cerrada y un monitor externo encendido. La clave desactiva solo estos perfiles automáticos; la aplicación se queda."
+  more_alts = ["Después de Aplicar: mantener la nueva configuración, o volver sola a la anterior al terminar la cuenta atrás"]
   features = [
     "Arrastra las pantallas en el mapa para ordenarlas; sus bordes se ajustan entre sí.",
     "Para cada pantalla: *Encendida*, *Resolución*, *Frecuencia de actualización*, *Escala* y *Rotación*, con los modos volteados.",
