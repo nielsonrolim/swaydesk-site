@@ -12,15 +12,25 @@
   const caption = dialog.querySelector(".lightbox__caption");
   const prev = dialog.querySelector("[data-lb=prev]");
   const next = dialog.querySelector("[data-lb=next]");
-  const total = links.length;
-  const many = total > 1;
-  prev.hidden = next.hidden = !many;
+  // Só os links visíveis entram no carrossel: a imagem do tema que não está em uso fica de fora (ela volta se o
+  // tema mudar, pois a lista se refaz a cada abertura)
+  let shown = links;
+  let total = links.length;
+  let many = total > 1;
+  const refresh = () => {
+    shown = links.filter((link) => link.getClientRects().length > 0);
+    if (!shown.length) shown = links;
+    total = shown.length;
+    many = total > 1;
+    prev.hidden = next.hidden = !many;
+  };
 
   let current = -1;   // a imagem aberta, ou -1
   let pushed = false; // abrimos com pushState: fechar volta no histórico
   let opener = null;  // o link que abriu, para devolver o foco
 
   const captionOf = (link) => {
+    if (link.dataset.caption) return link.dataset.caption.trim();
     const fig = link.closest("figure");
     const text = fig && fig.querySelector("figcaption");
     const thumb = link.querySelector("img");
@@ -32,11 +42,11 @@
     const i = m ? parseInt(m[1], 10) - 1 : -1;
     return i >= 0 && i < total ? i : -1;
   };
-  const preload = (i) => { const pre = new Image(); pre.src = links[(i + total) % total].href; };
+  const preload = (i) => { const pre = new Image(); pre.src = shown[(i + total) % total].href; };
 
   const show = (i) => {
     current = (i + total) % total;
-    const link = links[current];
+    const link = shown[current];
     const text = captionOf(link);
     img.classList.remove("is-new");
     void img.offsetWidth; // reinicia a animação (só com prefers-reduced-motion: no-preference)
@@ -50,7 +60,7 @@
 
   const open = (i, push) => {
     if (!dialog.open) {
-      opener = links[i];
+      opener = shown[i];
       document.documentElement.classList.add("lb-open");
       dialog.showModal();
     }
@@ -79,10 +89,11 @@
 
   const go = (step) => { if (many && current >= 0) open(current + step, false); };
 
-  links.forEach((link, i) => link.addEventListener("click", (event) => {
+  links.forEach((link) => link.addEventListener("click", (event) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    open(i, true);
+    if (!dialog.open) refresh();
+    open(shown.indexOf(link), true);
   }));
 
   dialog.addEventListener("click", (event) => {
@@ -117,12 +128,14 @@
   }, { passive: true });
 
   window.addEventListener("popstate", () => {
+    if (!dialog.open) refresh();
     const i = indexOfHash();
     if (i >= 0) { open(i, false); pushed = !!(history.state && history.state.lightbox); }
     else if (dialog.open) finish();
   });
 
   // Um link com #shot-N abre direto
+  refresh();
   const initial = indexOfHash();
   if (initial >= 0) open(initial, false);
 })();

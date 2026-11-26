@@ -38,6 +38,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent-ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a[data-lightbox] { cursor: zoom-in; }
 ::selection { background: var(--amber); color: #14110f; }
 
 .skip { position: absolute; left: -9999px; top: 1rem; z-index: 50; padding: .5rem 1rem; border: 1px solid var(--line-stronger); border-radius: var(--frame); background: var(--paper); color: var(--ink); }
@@ -112,7 +113,10 @@ main:focus { outline: none; }
 main > .prompt:first-child { margin-top: .5rem; }
 h1 { margin: 0 0 .875rem; font-size: clamp(36px, 5vw, 60px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
 h2 { font-weight: 600; }
-.content { max-width: var(--measure); color: var(--ink-soft); }
+/* The content takes the header's container, like the home page: prose keeps a readable measure, the wide
+   blocks (grids, the video, code, tables, tabs, rows of images) take the whole width */
+.content { color: var(--ink-soft); }
+.content :is(p, h2, h3, h4, blockquote), .content > :is(ul, ol, dl):not([class]) { max-width: var(--measure); }
 .content h2 { margin: 2.75rem 0 .875rem; font-size: 14px; color: var(--accent); }
 .content h2::before { content: "## "; color: var(--accent); }
 .content h3 { margin: 2rem 0 .5rem; font-size: 1.05rem; color: var(--ink); }
@@ -141,6 +145,11 @@ h2 { font-weight: 600; }
 .content figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.5rem; }
 .gallery figure { margin: 0; }
+/* Even cells, like the component thumbnails: a 16:9 frame, the shape of nearly every shot, so none is cropped; the two
+   other shapes are cut from the top right, where the bar popups are. The lightbox shows each one whole */
+.gallery figure > a { display: block; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--surface); }
+.gallery figure > a:hover { border-color: var(--line-hover); }
+.content .gallery img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top right; border: 0; border-radius: 0; }
 .gallery figcaption { margin-top: .5rem; color: var(--muted); font-size: .75rem; }
 
 .component { display: grid; grid-template-columns: minmax(0, 15rem) 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
@@ -152,9 +161,9 @@ h2 { font-weight: 600; }
 .component__meta { color: var(--muted); font-size: .75rem; }
 .component__features { margin: .25rem 0 .75rem; padding-left: 1.25rem; }
 .component__shot--crop img { width: auto; max-width: 100%; }
-/* A page's images in one row: wider than the text column, up to the site's width, never past the window */
+/* A page's images in one row, across the content's width */
 .component__shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: .75rem;
-  width: max(100%, min(1100px, calc(100vw - 2 * var(--gutter) - 16px))); margin: 0 0 1.25rem; }
+  margin: 0 0 1.25rem; }
 .component__thumb { margin: 0; }
 .component__thumb a { display: block; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--frame); background: var(--surface); }
 .component__thumb a:hover { border-color: var(--line-hover); }
@@ -305,8 +314,10 @@ html.lb-open { overflow: hidden; }
 .hero__shot { position: relative; flex: 1 1 560px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
 .shot-frame { padding: 6px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface); }
 .shot-frame img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 3px; }
+.shot-frame a { border-radius: 3px; }
+.shot-frame img { display: block; }
 .hero__caption { color: var(--muted); font-size: 12px; }
-.hero__badge { position: absolute; left: -14px; bottom: 56px; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface-2); color: var(--link); font-size: 12px; }
+.hero__badge { pointer-events: none; position: absolute; left: -14px; bottom: 56px; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface-2); color: var(--link); font-size: 12px; }
 .hero__badge kbd, .kbd { padding: 1px 7px; border: 1px solid var(--line-stronger); border-bottom-width: 2px; border-radius: 3px; font-family: inherit; font-size: inherit; }
 
 .factstrip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -400,6 +411,14 @@ a.cgrid__name:hover { color: var(--accent); text-decoration-color: currentColor;
 .crumbs { margin: 0 0 .5rem; font-size: .85rem; }
 .component--page { display: block; padding-top: 0; border-bottom: 0; }
 .component--page .component__shot { display: block; margin: 0 0 1rem; }
+/* A page with one image: the text and the image side by side, as on the home page */
+@media (min-width: 64rem) {
+  .component--page:has(> .component__shot) { display: grid; grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+    column-gap: 2.5rem; align-items: start; }
+  .component--page:has(> .component__shot) > .component__name { grid-column: 1 / -1; }
+  .component--page > .component__shot { grid-column: 2; grid-row: 2; justify-self: start; margin: 0; }
+  .component--page > .component__body { grid-column: 1; grid-row: 2; }
+}
 .component__name { display: flex; align-items: center; gap: .5rem; margin-top: 0; }
 .component__name .icon { color: var(--accent); }
 .cgroup { margin: 0 0 1rem; color: var(--ink-soft); }

@@ -23,8 +23,9 @@
 </div>
 <figure class="hero__shot">
 <div class="shot-frame">
-{{- with resources.Get "images/shots/desktop.webp" | fingerprint }}<img class="only-dark" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}">{{ end }}
-{{- with resources.Get "images/shots/desktop-light.webp" | fingerprint }}<img class="only-light" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}">{{ end }}
+{{- /* Each theme's image opens bigger in the lightbox; the hidden one stays out of its list */}}
+{{- with resources.Get "images/shots/desktop.webp" | fingerprint }}<a class="only-dark" href="{{ .RelPermalink }}" data-lightbox data-caption="{{ $h.caption_dark }}"><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}"></a>{{ end }}
+{{- with resources.Get "images/shots/desktop-light.webp" | fingerprint }}<a class="only-light" href="{{ .RelPermalink }}" data-lightbox data-caption="{{ $h.caption_light }}"><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $h.alt }}"></a>{{ end }}
 </div>
 <figcaption class="hero__caption"><span class="only-dark">{{ $h.caption_dark }}</span><span class="only-light">{{ $h.caption_light }}</span></figcaption>
 <div class="hero__badge" aria-hidden="true"><kbd>Super</kbd><span class="muted">{{ $h.badge }}</span></div>

@@ -24,16 +24,22 @@ body { margin: 0; font: 16px/1.5 monospace; }
 .cmd { display: flex; align-items: %(align)s; gap: 6px; }
 .cmd pre { flex: 1; margin: 0; padding: 12px; }
 .cmd__copy { padding: 4px; }
+%(frame)s
 %(extra)s
 """
 
+# The site's frame: the header's container and main, both centred at the site's width, and the content box
+FRAME = ".topbar__in, main { box-sizing: border-box; max-width: 1248px; margin: 0 auto; padding: 0 24px; }"
+
 PAGE = """<!doctype html><html><head><meta charset="utf-8"><style>%(css)s</style></head><body>
+<header><div class="topbar__in">logo</div></header><main><div class="content">
 <div class="distros" data-tabs data-label="Distro">
 <section class="distro" id="a"><h3 class="distro__title">%(first)s</h3>
 <div class="cmd" data-copy="Copy"><pre><code>sudo apt install x</code></pre></div></section>
 <section class="distro" id="b"><h3 class="distro__title">B</h3>
 <div class="cmd" data-copy="Copy"><pre><code>sudo apt install x</code></pre></div></section>
 </div>
+</div></main>
 <script src="/js/install.js"></script>
 </body></html>"""
 
@@ -45,6 +51,7 @@ class CheckLayoutTests(unittest.TestCase):
         self.root = pathlib.Path(self.tmp.name)
         (self.root / "js").mkdir()
         shutil.copy(REPO / "static/js/install.js", self.root / "js/install.js")
+        shutil.copy(REPO / "static/js/lightbox.js", self.root / "js/lightbox.js")
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -52,7 +59,7 @@ class CheckLayoutTests(unittest.TestCase):
     def run_on(self, sibling="0", align="stretch", extra="", first="A", html=None, path="en-us/install", body=""):
         page = self.root / path
         page.mkdir(parents=True, exist_ok=True)
-        css = CSS % {"sibling": sibling, "align": align, "extra": extra}
+        css = CSS % {"sibling": sibling, "align": align, "extra": extra, "frame": FRAME}
         text = html or PAGE % {"css": css, "first": first}
         (page / "index.html").write_text(text.replace("</body>", body + "</body>", 1), encoding="utf-8")
         return subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), path],
@@ -123,6 +130,100 @@ class CheckLayoutTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertIn("A <x> & y", result.stdout)
         self.assertNotIn("Traceback", result.stderr)
+
+    def test_content_narrower_than_the_header_fails_on_wide_screens(self):
+        result = self.run_on(extra=".content { max-width: 600px; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/install @1440: the content isn't as wide as the header's container "
+                      "(its edges 0px and 600px inside it)", result.stdout)
+        self.assertNotIn("@1200: the content", result.stdout)
+
+    def grid(self, cols, cls="cgrid", path="en-us/components"):
+        cards = "".join(f'<li style="height:40px">{i}</li>' for i in range(8))
+        style = f"display:grid;grid-template-columns:repeat({cols},1fr);list-style:none;padding:0"
+        return self.run_on(path=path, body=f'<ul class="{cls}" style="{style}">{cards}</ul>'
+                           .replace("<ul", '<div class="content"><ul').replace("</ul>", "</ul></div>"))
+
+    def test_a_card_grid_of_three_columns_passes(self):
+        result = self.grid(3)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_card_grid_of_two_columns_fails_on_wide_screens(self):
+        result = self.grid(2)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components @1920: the cards grid has 2 columns (at least 3 at this width)",
+                      result.stdout)
+
+    def test_a_gallery_of_two_columns_fails_on_wide_screens(self):
+        result = self.grid(2, cls="gallery", path="en-us/screenshots")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/screenshots @1440: the gallery grid has 2 columns (at least 3 at this width)",
+                      result.stdout)
+
+    def test_a_page_without_tabs_is_not_held_to_the_tab_rule(self):
+        html = ("<!doctype html><html><head><style>" + FRAME + "</style></head><body><header><div class=\"topbar__in\">"
+                "</div></header><main><div class=\"content\"><p>Text</p></div></main></body></html>")
+        result = self.run_on(path="en-us/shortcuts", html=html)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_wide_page_without_the_frame_fails(self):
+        html = "<!doctype html><html><body><p>Text</p></body></html>"
+        result = self.run_on(path="en-us/shortcuts", html=html)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/shortcuts @1440: no header container (.topbar__in) or content box (main .content)",
+                      result.stdout)
+
+    def test_a_gallery_of_uneven_cells_fails(self):
+        # The screenshots' gallery, as the shot shortcode draws it: a figure with the image link and a caption
+        cells = "".join(f'<figure style="margin:0"><a href="#" style="display:block;height:{h}"></a><figcaption>c</figcaption>'
+                        f'</figure>' for h in ("160px", "160px", "220px", "160px"))
+        result = self.run_on(path="en-us/screenshots", body=f'<div class="gallery" style="display:grid;'
+                             f'grid-template-columns:repeat(auto-fill,minmax(250px,1fr))">{cells}</div>')
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/screenshots @1200: the row's thumbnails differ in size", result.stdout)
+
+    def home(self, link=True, badge="pointer-events: none;", both_visible=False):
+        # The home page's hero as the template draws it: one image per theme, the other hidden, the Super badge
+        # over the image's corner, and the lightbox dialog of baseof.html
+        def shot(cls, hidden):
+            img = '<img src="/x.png" alt="Desktop" style="display:block;width:400px;height:225px">'
+            style = "" if not hidden else ' style="display:none"'
+            inner = f'<a class="{cls}" href="/x.png" data-lightbox data-caption="C"{style}>{img}</a>' if link else \
+                f'<div class="{cls}"{style}>{img}</div>'
+            return inner
+        html = f"""<!doctype html><html><head><meta charset="utf-8"><style>
+body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px; }}
+.hero__badge {{ position: absolute; left: 10px; bottom: 20px; width: 120px; height: 30px; background: #333; {badge} }}
+</style></head><body><section class="hero"><figure class="hero__shot"><div class="shot-frame">
+{shot("only-dark", False)}{shot("only-light", not both_visible)}
+</div><figcaption class="hero__caption">Cap</figcaption><div class="hero__badge" aria-hidden="true">Super</div></figure></section>
+<dialog class="lightbox" hidden><figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>
+<p class="lightbox__bar"><span class="lightbox__count"></span> <span class="lightbox__caption"></span></p>
+<button class="lightbox__close" data-lb="close">x</button><button data-lb="prev">p</button><button data-lb="next">n</button></dialog>
+<script src="/js/lightbox.js"></script></body></html>"""
+        return self.run_on(path="en-us", html=html)
+
+    def test_a_hero_that_opens_in_the_lightbox_passes(self):
+        result = self.home()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a_hero_without_a_lightbox_link_fails(self):
+        result = self.home(link=False)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the hero image isn't a lightbox link (found 0 visible a[data-lightbox])",
+                      result.stdout)
+
+    def test_a_badge_that_takes_the_clicks_fails(self):
+        result = self.home(badge="")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the Super badge takes the clicks on the hero image", result.stdout)
+
+    def test_the_hidden_themes_image_stays_out_of_the_lightbox(self):
+        # Both visible means two links in the carousel: the check must see "1 / 2", not "1 / 1"
+        result = self.home(both_visible=True)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us @1200: the hero image isn't a lightbox link (found 2 visible a[data-lightbox])",
+                      result.stdout)
 
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],

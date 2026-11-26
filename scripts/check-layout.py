@@ -3,15 +3,23 @@
 
 The site's CSS can look right in one state and not another: the Install and component pages show their
 per-distro sections as tabs (static/js/install.js), and every hidden panel is still in the DOM. This opens each
-page at 1200 and 390 px and checks that:
+page at 1200, 390, 1440 and 1920 px and checks that:
 - every tab panel's first block starts at the same distance from the tabs as the first panel's;
 - every copy button, in every tab panel, is as tall as the code field next to it;
-- each page reports at least two tabs and one copy block (none means the check measured nothing);
-- a component page's row of images (component__shots) has thumbnails of one size, each at least 200px wide,
+- each page with distro tabs (Install, the component pages) reports at least two tabs and one copy block (none
+  means the check measured nothing);
+- a component page's row of images (component__shots) and the screenshots' gallery have thumbnails of one size,
+  each at least 200px wide,
   and the Dock and login pages, which have more_shots, have one;
-- no page scrolls sideways.
-Without pages, it checks Install and three component pages (a plain install, start_text, a multi-line start) in
-the three languages. The pages are served from a copy of <public dir> on 127.0.0.1; Chrome runs with a temporary
+- no page scrolls sideways;
+- on the home pages, the hero image is one visible lightbox link (the other theme's is hidden), the Super badge
+  over it doesn't take its clicks, and a click opens the lightbox with that image alone ("1 / 1");
+- at 1440 and 1920, the content box (main .content) of every page but the home (the reference: its sections
+  are the header's container) is as wide as the header's container, its edges within 2% of the container's,
+  and every card grid (.cgrid) and gallery (.gallery) has at least 3 columns.
+Without pages, it checks the home pages, Install, three component pages (a plain install, start_text, a
+multi-line start), the screenshots, the components list, the shortcuts and a guide page in the three
+languages. The pages are served from a copy of <public dir> on 127.0.0.1; Chrome runs with a temporary
 HOME and no display or session bus. A missing page, a missing Chrome or a page that doesn't report is an error.
 """
 import functools
@@ -26,9 +34,16 @@ import sys
 import tempfile
 import threading
 
-WIDTHS = (1200, 390)
-PAGES = [f"{lang}/{page}" for lang in ("pt-br", "en-us", "es")
-         for page in ("install", "components/dock", "components/greeter", "components/screenshot")]
+WIDE = (1440, 1920)  # wide screens: the content as wide as the header's container, card grids of 3+ columns
+WIDTHS = (1200, 390) + WIDE
+HOMES = ("pt-br", "en-us", "es")  # the home pages: a hero instead of tabs
+PAGES = list(HOMES) + [f"{lang}/{page}" for lang in HOMES
+                       for page in ("install", "components/dock", "components/greeter", "components/screenshot",
+                                    "screenshots", "components", "shortcuts", "guide/config")]
+# The pages with distro tabs and copy blocks: Install and each component page
+TABBED = re.compile(r"(^|/)(install|components/[^/]+)$")
+EDGE = 0.02  # the content's edges within 2% of the header container's width from its edges
+MIN_COLUMNS = 3
 TOLERANCE = 1  # px: rounding of fractional layout
 MIN_THUMB = 200  # px: narrower than this, a thumbnail's content can't be read
 # Pages that have more_shots, so a row of images: none found means the template or a class changed
@@ -60,12 +75,48 @@ MEASURE = r"""window.addEventListener("load", () => {
   });
   cmds(document);
   // The component pages' rows of images: each thumbnail's box (its link), and whether the page scrolls sideways
-  out.rows = Array.from(document.querySelectorAll(".component__shots")).map((row) =>
-    Array.from(row.querySelectorAll(".component__thumb > a")).map((a) => {
+  out.rows = Array.from(document.querySelectorAll(".component__shots, .gallery")).map((row) =>
+    Array.from(row.querySelectorAll(":scope > figure > a")).map((a) => {
       const r = a.getBoundingClientRect();
       return {w: Math.round(r.width), h: Math.round(r.height)};
     }));
   out.overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+  // The header's container (its content box) and the main content box; the columns of each card grid
+  const head = document.querySelector(".topbar__in"), content = document.querySelector("main .content");
+  if (head && content) {
+    const h = head.getBoundingClientRect(), s = getComputedStyle(head), c = content.getBoundingClientRect();
+    out.frame = {left: h.left + parseFloat(s.paddingLeft), right: h.right - parseFloat(s.paddingRight),
+      cleft: c.left, cright: c.right};
+  }
+  out.grids = Array.from(document.querySelectorAll(".cgrid, .gallery")).map((grid) => ({
+    kind: grid.classList.contains("cgrid") ? "cards" : "gallery",
+    columns: new Set(Array.from(grid.children).filter((el) => el.getClientRects().length)
+      .map((el) => Math.round(el.getBoundingClientRect().left))).size}));
+  // The home page's hero: one visible image link to the lightbox (the other theme's is hidden), not covered by
+  // the Super badge, and a click on it opens the lightbox with that image alone
+  const hero = document.querySelector(".hero__shot");
+  if (hero) {
+    const links = Array.from(hero.querySelectorAll("a[data-lightbox]"))
+      .filter((a) => a.getClientRects().length && a.querySelector("img"));
+    const h = {links: links.length, blocked: false, count: null, open: false};
+    const badge = hero.querySelector(".hero__badge");
+    if (links.length === 1 && badge) {
+      const a = links[0].getBoundingClientRect(), b = badge.getBoundingClientRect();
+      const x1 = Math.max(a.left, b.left), x2 = Math.min(a.right, b.right);
+      const y1 = Math.max(a.top, b.top), y2 = Math.min(a.bottom, b.bottom);
+      if (x2 > x1 && y2 > y1) {
+        const el = document.elementFromPoint((x1 + x2) / 2, (y1 + y2) / 2);
+        h.blocked = !(el && links[0].contains(el));
+      }
+    }
+    if (links.length === 1) {
+      links[0].click();
+      const count = document.querySelector(".lightbox__count");
+      h.count = count ? count.textContent.trim() : null;
+      h.open = !!document.querySelector("dialog.lightbox[open]");
+    }
+    out.hero = h;
+  }
   const el = document.createElement("pre");
   el.id = "__layout";
   el.textContent = JSON.stringify(out);
@@ -88,10 +139,38 @@ def chrome():
 
 def problems(page, width, data):
     errors, tabs = [], data["tabs"]
-    # Every checked page has distro tabs and copy blocks: finding none means a renamed class or a script that
-    # didn't run, never a page without problems
-    if len(tabs) < 2 or not data["cmds"]:
-        return [f"{page} @{width}: measured {len(tabs)} tabs and {len(data['cmds'])} copy blocks "
+    if width in WIDE:
+        frame = data.get("frame")
+        if page.strip("/") in HOMES:
+            pass
+        elif not frame:
+            errors.append(f"{page} @{width}: no header container (.topbar__in) or content box (main .content)")
+        else:
+            span = frame["right"] - frame["left"]
+            inner_left, inner_right = frame["cleft"] - frame["left"], frame["right"] - frame["cright"]
+            if abs(inner_left) > EDGE * span or abs(inner_right) > EDGE * span:
+                errors.append(f"{page} @{width}: the content isn't as wide as the header's container "
+                              f"(its edges {round(inner_left)}px and {round(inner_right)}px inside it)")
+        for grid in data.get("grids", []):
+            if grid["columns"] < MIN_COLUMNS:
+                errors.append(f"{page} @{width}: the {grid['kind']} grid has {grid['columns']} columns "
+                              f"(at least {MIN_COLUMNS} at this width)")
+    if page.strip("/") in HOMES:
+        hero = data.get("hero") or {"links": 0}
+        if hero["links"] != 1:
+            return errors + [f"{page} @{width}: the hero image isn't a lightbox link (found {hero['links']} visible a[data-lightbox])"]
+        if hero["blocked"]:
+            errors.append(f"{page} @{width}: the Super badge takes the clicks on the hero image")
+        if not hero["open"] or hero["count"] != "1 / 1":
+            errors.append(f"{page} @{width}: a click on the hero image doesn't open the lightbox with it alone "
+                          f"(counter: {hero['count']})")
+        return errors
+    # Every page with distro tabs has tabs and copy blocks: finding none means a renamed class or a script
+    # that didn't run, never a page without problems
+    if not TABBED.search(page.strip("/")):
+        tabs = []
+    elif len(tabs) < 2 or not data["cmds"]:
+        return errors + [f"{page} @{width}: measured {len(tabs)} tabs and {len(data['cmds'])} copy blocks "
                 "(expected 2+ tabs and 1+ copy block)"]
     if tabs:
         first = tabs[0]["gap"]
