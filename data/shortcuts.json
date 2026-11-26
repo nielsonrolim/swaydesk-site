@@ -113,6 +113,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -184,17 +188,6 @@
        [
         "Super",
         "Space"
-       ]
-      ]
-     },
-     {
-      "text": "Show this help",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -517,6 +510,11 @@
        [
         "Super",
         "Scroll up"
+       ],
+       [
+        "Swipe",
+        "4 fingers",
+        "→"
        ]
       ]
      },
@@ -533,18 +531,6 @@
         "Swipe",
         "4 fingers",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Go to the previous workspace",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Swipe",
-        "4 fingers",
-        "→"
        ]
       ]
      },
@@ -1057,6 +1043,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Enter"
        ]
       ]
      },
@@ -1092,6 +1082,10 @@
        [
         "Alt",
         "Space"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -1113,6 +1107,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -1154,28 +1152,6 @@
         "Super",
         "Shift",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Open the terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Enter"
-       ]
-      ]
-     },
-     {
-      "text": "Open the launcher",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
        ]
       ]
      },
@@ -1222,17 +1198,6 @@
         "Super",
         "Ctrl",
         "Space"
-       ]
-      ]
-     },
-     {
-      "text": "Show this help",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -1573,6 +1538,11 @@
        [
         "Super",
         "Scroll up"
+       ],
+       [
+        "Swipe",
+        "4 fingers",
+        "→"
        ]
       ]
      },
@@ -1589,18 +1559,6 @@
         "Swipe",
         "4 fingers",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Go to the previous workspace",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Swipe",
-        "4 fingers",
-        "→"
        ]
       ]
      },
@@ -2157,6 +2115,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Q"
        ]
       ]
      },
@@ -2168,6 +2130,10 @@
        [
         "Ctrl",
         "Alt",
+        "E"
+       ],
+       [
+        "Super",
         "E"
        ]
       ]
@@ -2192,6 +2158,10 @@
        [
         "Alt",
         "Space"
+       ],
+       [
+        "Super",
+        "R"
        ]
       ]
      },
@@ -2213,6 +2183,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -2247,39 +2221,6 @@
        [
         "Super",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Open the terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Open the launcher",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "R"
-       ]
-      ]
-     },
-     {
-      "text": "Open the file manager",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "E"
        ]
       ]
      },
@@ -2325,17 +2266,6 @@
        [
         "Super",
         "Space"
-       ]
-      ]
-     },
-     {
-      "text": "Show this help",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -2638,6 +2568,11 @@
        [
         "Super",
         "Scroll up"
+       ],
+       [
+        "Swipe",
+        "4 fingers",
+        "→"
        ]
       ]
      },
@@ -2654,18 +2589,6 @@
         "Swipe",
         "4 fingers",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Go to the previous workspace",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Swipe",
-        "4 fingers",
-        "→"
        ]
       ]
      },
@@ -3131,6 +3054,11 @@
         "Ctrl",
         "Alt",
         "L"
+       ],
+       [
+        "Super",
+        "Alt",
+        "L"
        ]
       ]
      },
@@ -3154,6 +3082,10 @@
        [
         "Ctrl",
         "Alt",
+        "T"
+       ],
+       [
+        "Super",
         "T"
        ]
       ]
@@ -3190,6 +3122,10 @@
        [
         "Alt",
         "Space"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -3211,6 +3147,11 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "Shift",
+        "/"
        ]
       ]
      },
@@ -3247,40 +3188,6 @@
        [
         "Super",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Open the terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "T"
-       ]
-      ]
-     },
-     {
-      "text": "Open the launcher",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
-       ]
-      ]
-     },
-     {
-      "text": "Lock the screen",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Alt",
-        "L"
        ]
       ]
      },
@@ -3338,18 +3245,6 @@
        [
         "Super",
         "Space"
-       ]
-      ]
-     },
-     {
-      "text": "Show this help",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Shift",
-        "/"
        ]
       ]
      }
@@ -3657,6 +3552,11 @@
        [
         "Super",
         "Scroll up"
+       ],
+       [
+        "Swipe",
+        "4 fingers",
+        "→"
        ]
       ]
      },
@@ -3673,18 +3573,6 @@
         "Swipe",
         "4 fingers",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Go to the previous workspace",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Swipe",
-        "4 fingers",
-        "→"
        ]
       ]
      },
@@ -4206,6 +4094,11 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Alt",
+        "Shift",
+        "Enter"
        ]
       ]
      },
@@ -4251,6 +4144,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -4286,18 +4183,6 @@
         "Alt",
         "Shift",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Open the terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Alt",
-        "Shift",
-        "Enter"
        ]
       ]
      },
@@ -4369,17 +4254,6 @@
         "Super",
         "Ctrl",
         "Space"
-       ]
-      ]
-     },
-     {
-      "text": "Show this help",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -4587,6 +4461,11 @@
        [
         "Super",
         "Scroll up"
+       ],
+       [
+        "Swipe",
+        "4 fingers",
+        "→"
        ]
       ]
      },
@@ -4603,18 +4482,6 @@
         "Swipe",
         "4 fingers",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Go to the previous workspace",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Swipe",
-        "4 fingers",
-        "→"
        ]
       ]
      },
@@ -5220,6 +5087,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -5291,17 +5162,6 @@
        [
         "Super",
         "Espaço"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ajuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -5624,6 +5484,11 @@
        [
         "Super",
         "Rolar para cima"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -5640,18 +5505,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir para o workspace anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -6164,6 +6017,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Enter"
        ]
       ]
      },
@@ -6199,6 +6056,10 @@
        [
         "Alt",
         "Espaço"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -6220,6 +6081,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -6261,28 +6126,6 @@
         "Super",
         "Shift",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Enter"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o lançador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
        ]
       ]
      },
@@ -6329,17 +6172,6 @@
         "Super",
         "Ctrl",
         "Espaço"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ajuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -6680,6 +6512,11 @@
        [
         "Super",
         "Rolar para cima"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -6696,18 +6533,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir para o workspace anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -7264,6 +7089,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Q"
        ]
       ]
      },
@@ -7275,6 +7104,10 @@
        [
         "Ctrl",
         "Alt",
+        "E"
+       ],
+       [
+        "Super",
         "E"
        ]
       ]
@@ -7299,6 +7132,10 @@
        [
         "Alt",
         "Espaço"
+       ],
+       [
+        "Super",
+        "R"
        ]
       ]
      },
@@ -7320,6 +7157,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -7354,39 +7195,6 @@
        [
         "Super",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o lançador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "R"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o gerenciador de arquivos",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "E"
        ]
       ]
      },
@@ -7432,17 +7240,6 @@
        [
         "Super",
         "Espaço"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ajuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -7745,6 +7542,11 @@
        [
         "Super",
         "Rolar para cima"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -7761,18 +7563,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir para o workspace anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -8238,6 +8028,11 @@
         "Ctrl",
         "Alt",
         "L"
+       ],
+       [
+        "Super",
+        "Alt",
+        "L"
        ]
       ]
      },
@@ -8261,6 +8056,10 @@
        [
         "Ctrl",
         "Alt",
+        "T"
+       ],
+       [
+        "Super",
         "T"
        ]
       ]
@@ -8297,6 +8096,10 @@
        [
         "Alt",
         "Espaço"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -8318,6 +8121,11 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "Shift",
+        "/"
        ]
       ]
      },
@@ -8354,40 +8162,6 @@
        [
         "Super",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "T"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o lançador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
-       ]
-      ]
-     },
-     {
-      "text": "Bloquear a tela",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Alt",
-        "L"
        ]
       ]
      },
@@ -8445,18 +8219,6 @@
        [
         "Super",
         "Espaço"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ajuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Shift",
-        "/"
        ]
       ]
      }
@@ -8764,6 +8526,11 @@
        [
         "Super",
         "Rolar para cima"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -8780,18 +8547,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir para o workspace anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -9313,6 +9068,11 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Alt",
+        "Shift",
+        "Enter"
        ]
       ]
      },
@@ -9358,6 +9118,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -9393,18 +9157,6 @@
         "Alt",
         "Shift",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir o terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Alt",
-        "Shift",
-        "Enter"
        ]
       ]
      },
@@ -9476,17 +9228,6 @@
         "Super",
         "Ctrl",
         "Espaço"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ajuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -9694,6 +9435,11 @@
        [
         "Super",
         "Rolar para cima"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -9710,18 +9456,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir para o workspace anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -10327,6 +10061,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -10398,17 +10136,6 @@
        [
         "Super",
         "Espacio"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ayuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -10731,6 +10458,11 @@
        [
         "Super",
         "Desplazar hacia arriba"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -10747,18 +10479,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir al espacio de trabajo anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -11271,6 +10991,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Enter"
        ]
       ]
      },
@@ -11306,6 +11030,10 @@
        [
         "Alt",
         "Espacio"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -11327,6 +11055,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -11368,28 +11100,6 @@
         "Super",
         "Shift",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir la terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Enter"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir el lanzador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
        ]
       ]
      },
@@ -11436,17 +11146,6 @@
         "Super",
         "Ctrl",
         "Espacio"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ayuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -11787,6 +11486,11 @@
        [
         "Super",
         "Desplazar hacia arriba"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -11803,18 +11507,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir al espacio de trabajo anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -12371,6 +12063,10 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Super",
+        "Q"
        ]
       ]
      },
@@ -12382,6 +12078,10 @@
        [
         "Ctrl",
         "Alt",
+        "E"
+       ],
+       [
+        "Super",
         "E"
        ]
       ]
@@ -12406,6 +12106,10 @@
        [
         "Alt",
         "Espacio"
+       ],
+       [
+        "Super",
+        "R"
        ]
       ]
      },
@@ -12427,6 +12131,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -12461,39 +12169,6 @@
        [
         "Super",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir la terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir el lanzador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "R"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir el gestor de archivos",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "E"
        ]
       ]
      },
@@ -12539,17 +12214,6 @@
        [
         "Super",
         "Espacio"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ayuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -12852,6 +12516,11 @@
        [
         "Super",
         "Desplazar hacia arriba"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -12868,18 +12537,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir al espacio de trabajo anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -13345,6 +13002,11 @@
         "Ctrl",
         "Alt",
         "L"
+       ],
+       [
+        "Super",
+        "Alt",
+        "L"
        ]
       ]
      },
@@ -13368,6 +13030,10 @@
        [
         "Ctrl",
         "Alt",
+        "T"
+       ],
+       [
+        "Super",
         "T"
        ]
       ]
@@ -13404,6 +13070,10 @@
        [
         "Alt",
         "Espacio"
+       ],
+       [
+        "Super",
+        "D"
        ]
       ]
      },
@@ -13425,6 +13095,11 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "Shift",
+        "/"
        ]
       ]
      },
@@ -13461,40 +13136,6 @@
        [
         "Super",
         "Q"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir la terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "T"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir el lanzador",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "D"
-       ]
-      ]
-     },
-     {
-      "text": "Bloquear la pantalla",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Alt",
-        "L"
        ]
       ]
      },
@@ -13552,18 +13193,6 @@
        [
         "Super",
         "Espacio"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ayuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "Shift",
-        "/"
        ]
       ]
      }
@@ -13871,6 +13500,11 @@
        [
         "Super",
         "Desplazar hacia arriba"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -13887,18 +13521,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir al espacio de trabajo anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
@@ -14420,6 +14042,11 @@
         "Ctrl",
         "Alt",
         "T"
+       ],
+       [
+        "Alt",
+        "Shift",
+        "Enter"
        ]
       ]
      },
@@ -14465,6 +14092,10 @@
        [
         "Super",
         "F1"
+       ],
+       [
+        "Super",
+        "/"
        ]
       ]
      },
@@ -14500,18 +14131,6 @@
         "Alt",
         "Shift",
         "C"
-       ]
-      ]
-     },
-     {
-      "text": "Abrir la terminal",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Alt",
-        "Shift",
-        "Enter"
        ]
       ]
      },
@@ -14583,17 +14202,6 @@
         "Super",
         "Ctrl",
         "Espacio"
-       ]
-      ]
-     },
-     {
-      "text": "Mostrar esta ayuda",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Super",
-        "/"
        ]
       ]
      }
@@ -14801,6 +14409,11 @@
        [
         "Super",
         "Desplazar hacia arriba"
+       ],
+       [
+        "Deslizar",
+        "4 dedos",
+        "→"
        ]
       ]
      },
@@ -14817,18 +14430,6 @@
         "Deslizar",
         "4 dedos",
         "←"
-       ]
-      ]
-     },
-     {
-      "text": "Ir al espacio de trabajo anterior",
-      "raw": false,
-      "locked": false,
-      "chords": [
-       [
-        "Deslizar",
-        "4 dedos",
-        "→"
        ]
       ]
      },
