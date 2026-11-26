@@ -113,10 +113,9 @@ main:focus { outline: none; }
 main > .prompt:first-child { margin-top: .5rem; }
 h1 { margin: 0 0 .875rem; font-size: clamp(36px, 5vw, 60px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
 h2 { font-weight: 600; }
-/* The content takes the header's container, like the home page: prose keeps a readable measure, the wide
-   blocks (grids, the video, code, tables, tabs, rows of images) take the whole width */
+/* The content takes the header's container, like the home page: the text and the wide blocks (grids, the video,
+   code, tables, tabs, rows of images) run across its whole width */
 .content { color: var(--ink-soft); }
-.content :is(p, h2, h3, h4, blockquote), .content > :is(ul, ol, dl):not([class]) { max-width: var(--measure); }
 .content h2 { margin: 2.75rem 0 .875rem; font-size: 14px; color: var(--accent); }
 .content h2::before { content: "## "; color: var(--accent); }
 .content h3 { margin: 2rem 0 .5rem; font-size: 1.05rem; color: var(--ink); }
@@ -132,7 +131,7 @@ h2 { font-weight: 600; }
 .content blockquote { margin: 1rem 0; padding: .25rem 0 .25rem 1rem; border-left: 2px solid var(--accent); color: var(--ink-soft); }
 .content ul { padding-left: 1.25rem; }
 
-.facts { display: grid; gap: .25rem; margin: 0 0 1.375rem; padding: .875rem 0; border-block: 1px solid var(--line); font-size: .85rem; max-width: var(--measure); }
+.facts { display: grid; gap: .25rem; margin: 0 0 1.375rem; padding: .875rem 0; border-block: 1px solid var(--line); font-size: .85rem; }
 .facts div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; }
 .facts dt { color: var(--accent); }
 .facts dd { margin: 0; color: var(--ink-soft); }
@@ -269,7 +268,8 @@ html.lb-open { overflow: hidden; }
 .keys__or, .keys__locked { color: var(--muted); font-size: .8rem; }
 
 /* Página Baixar: um cartão por ISO */
-.isos { display: grid; gap: 1rem; margin: 1rem 0 2rem; }
+/* Two ISO cards per row where they fit (each at least 34rem), one on narrow screens; a row's cards share its height */
+.isos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
 .iso { min-width: 0; padding: 1rem 1.25rem; border: 1px solid var(--line-strong); border-radius: var(--frame); }
 .content .iso__name { margin: 0 0 .5rem; }
 .iso__facts { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem; margin: 0 0 .75rem; font-size: .9rem; }
@@ -278,6 +278,8 @@ html.lb-open { overflow: hidden; }
 .iso__links { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
 .iso__get { display: inline-block; padding: .4rem .9rem; border: 1px solid var(--accent); border-radius: var(--frame); font-weight: 700; }
 .iso__label { margin: .75rem 0 .2rem; color: var(--muted); font-size: .8rem; }
+/* The SHA-256 on one line in a two-per-row card: a slightly smaller code font, still wrapping on a phone */
+.content .iso__sha code { font-size: .78em; }
 .iso__sha { margin: 0; overflow-wrap: anywhere; }
 .iso__sha code { white-space: pre-wrap; }
 .iso__older { margin: .75rem 0 0; color: var(--muted); }
@@ -411,7 +413,7 @@ a.cgrid__name:hover { color: var(--accent); text-decoration-color: currentColor;
 .component--page .component__shot { display: block; margin: 0 0 1rem; }
 /* A page with one image: the text and the image side by side, as on the home page */
 @media (min-width: 64rem) {
-  .component--page:has(> .component__shot) { display: grid; grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+  .component--page:has(> .component__shot) { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: 2.5rem; align-items: start; }
   .component--page:has(> .component__shot) > .component__name { grid-column: 1 / -1; }
   .component--page > .component__shot { grid-column: 2; grid-row: 2; justify-self: start; margin: 0; }
