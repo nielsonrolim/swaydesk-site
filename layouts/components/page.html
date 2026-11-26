@@ -45,6 +45,13 @@
 {{- end }}
 <div class="component__body">
 {{ $.RenderString (dict "display" "block") $c.text }}
+{{- with $c.features }}
+<ul class="component__features">
+{{- range . }}
+<li>{{ $.RenderString . }}</li>
+{{- end }}
+</ul>
+{{- end }}
 {{- with $c.note }}
 {{ $.RenderString (dict "display" "block") . }}
 {{- end }}

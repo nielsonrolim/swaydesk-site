@@ -9,7 +9,8 @@ three language tables with a non-empty name and text, and, when `shot` is set, i
 per-language PAGE_NOTES), since the list shows only its name, text and keys; its `with` names a component that has a
 page. `waybar` is only for the bar, as swaydesk-<name>; `unit` needs a start that includes a snippet; a start_note
 needs a start; start_text (what to do when there's nothing to add to the Sway config) replaces start, in every
-language or none. `crop = true` shows the page's own image, assets/images/components/<id>.webp, which must
+language or none. `features` (the page's feature list) is a non-empty list of non-empty strings, only on a page, in
+every language or none, with the same number of items in each. `crop = true` shows the page's own image, assets/images/components/<id>.webp, which must
 exist (on a card without a page, as a thumbnail in the list); `more_shots` (at most four names of files in that folder, only on a page) adds thumbnails, each with a
 `more_alts` text in every language, and the main image's `shot_caption` in every language. Each [groups.<group>] is a known group with a text in every language. A
 missing, unreadable or malformed file is an error, never a pass.
@@ -103,6 +104,12 @@ def check_component(root, c, number, icons, pages, seen, icon_of):
             errors.append(f"{cid}: {code} more_alts without more_shots")
         elif isinstance(c.get("more_shots"), list) and len(alts or []) != len(c["more_shots"]):
             errors.append(f"{cid}: {code} more_alts has {len(alts or [])} items, more_shots has {len(c['more_shots'])}")
+        if "features" in table:
+            features = table["features"]
+            if not (isinstance(features, list) and features and all(text(f) for f in features)):
+                errors.append(f"{cid}: {code} features must be a non-empty list of non-empty strings")
+            elif not has_page:
+                errors.append(f"{cid}: {code} features on a card without a page")
     for field in ("package", "start", "start_file"):
         if not isinstance(c.get(field, ""), str):
             errors.append(f"{cid}: {field} must be a string")
@@ -113,6 +120,13 @@ def check_component(root, c, number, icons, pages, seen, icon_of):
     with_text = [code for code in LANGS if isinstance(c.get(code), dict) and c[code].get("start_text")]
     if with_text:
         errors += [f"{cid}: start_text missing in {code}" for code in LANGS if code not in with_text]
+    with_features = [code for code in LANGS if isinstance(c.get(code), dict) and "features" in c[code]]
+    if with_features:
+        errors += [f"{cid}: features missing in {code}" for code in LANGS if code not in with_features]
+        counts = [(code, len(c[code]["features"])) for code in with_features if isinstance(c[code]["features"], list)]
+        if len({n for _, n in counts}) > 1:
+            (a, na), (b, nb) = counts[0], next(x for x in counts if x[1] != counts[0][1])
+            errors.append(f"{cid}: features has {na} items in {a} and {nb} in {b} (a translation is missing a line)")
     if not has_page:
         errors += [f"{cid}: {field} on a card without a page" for field in PAGE_FIELDS if c.get(field)]
         target = c.get("with")

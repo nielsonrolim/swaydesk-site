@@ -166,6 +166,7 @@ h2 { font-weight: 600; }
 .component__body p { margin: 0 0 .5rem; }
 .component__keys { color: var(--ink); font-size: .85rem; }
 .component__meta { color: var(--muted); font-size: .75rem; }
+.component__features { margin: .25rem 0 .75rem; padding-left: 1.25rem; }
 .component__shot--crop img { width: auto; max-width: 100%; }
 /* A page's images in one row, across the content's width */
 .component__shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: .75rem;
@@ -175,6 +176,7 @@ h2 { font-weight: 600; }
 .component__thumb a:hover { border-color: var(--line-hover); }
 .component__thumb img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .component__thumb figcaption { margin-top: .4rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
+.component__features li { margin: .2rem 0; }
 .component:not(:has(.component__shot)) { grid-template-columns: 1fr; }
 @media (max-width: 40rem) { .component { grid-template-columns: 1fr; } }
 
