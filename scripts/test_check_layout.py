@@ -138,9 +138,10 @@ class CheckLayoutTests(unittest.TestCase):
                       "(its edges 0px and 600px inside it)", result.stdout)
         self.assertNotIn("@1200: the content", result.stdout)
 
-    def grid(self, cols, cls="cgrid", path="en-us/components"):
+    def grid(self, cols, cls="cgrid", path="en-us/components", padding="0"):
         cards = "".join(f'<li style="height:40px">{i}</li>' for i in range(8))
-        style = f"display:grid;grid-template-columns:repeat({cols},1fr);list-style:none;padding:0"
+        style = (f"display:grid;grid-template-columns:repeat({cols},1fr);list-style:none;padding:0 0 0 {padding};"
+                 "border:1px solid #888")
         return self.run_on(path=path, body=f'<ul class="{cls}" style="{style}">{cards}</ul>'
                            .replace("<ul", '<div class="content"><ul').replace("</ul>", "</ul></div>"))
 
@@ -259,6 +260,13 @@ body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px
         result = self.prose(".content p { max-width: 600px; }")
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertIn("en-us/guide/config @1920: the text is 600px wide, the content 1200px (within 2%)", result.stdout)
+
+    def test_a_card_grid_with_its_columns_inset_on_one_side_fails(self):
+        # A list's indent left on the grid: the cells start 20px in, a second line on the left only
+        result = self.grid(3, padding="20px")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/components @1200: the cards grid's columns are 20px and 0px inside its edges "
+                      "(at most 2px)", result.stdout)
 
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
