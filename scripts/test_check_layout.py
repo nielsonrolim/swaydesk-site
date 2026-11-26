@@ -225,6 +225,41 @@ body {{ margin: 0; }} .hero__shot {{ position: relative; margin: 0; width: 420px
         self.assertIn("en-us @1200: the hero image isn't a lightbox link (found 2 visible a[data-lightbox])",
                       result.stdout)
 
+    def isos(self, cols, heights=("80px", "80px")):
+        # The Download page's ISO cards, as the isos shortcode draws them
+        cards = "".join(f'<article class="iso" style="min-height:{h}">x</article>' for h in heights)
+        style = f"display:grid;grid-template-columns:repeat({cols},1fr);align-items:start"
+        return self.run_on(path="en-us/download", body=f'<div class="isos" style="{style}">{cards}</div>')
+
+    def test_iso_cards_two_per_row_pass(self):
+        result = self.isos(2)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_iso_cards_one_per_row_fail_on_wide_screens(self):
+        result = self.isos(1)
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/download @1920: the ISO grid has 1 columns (at least 2 at this width)", result.stdout)
+
+    def test_iso_cards_of_different_heights_in_a_row_fail(self):
+        result = self.isos(2, heights=("80px", "140px"))
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/download @1440: the ISO grid's cards in a row differ in height (80px and 140px)",
+                      result.stdout)
+
+    def prose(self, css=""):
+        html = ("<!doctype html><html><head><style>" + FRAME + css + "</style></head><body><header><div class=\"topbar__in\">"
+                "</div></header><main><div class=\"content\"><p>" + "Text " * 400 + "</p></div></main></body></html>")
+        return self.run_on(path="en-us/guide/config", html=html)
+
+    def test_prose_across_the_content_passes(self):
+        result = self.prose()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_prose_narrower_than_the_content_fails_on_wide_screens(self):
+        result = self.prose(".content p { max-width: 600px; }")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("en-us/guide/config @1920: the text is 600px wide, the content 1200px (within 2%)", result.stdout)
+
     def test_a_missing_page_fails_with_a_message(self):
         result = subprocess.run([sys.executable, "-I", str(SCRIPT), str(self.root), "nothing/here"],
                                 capture_output=True, text=True, timeout=120)

@@ -16,9 +16,11 @@ page at 1200, 390, 1440 and 1920 px and checks that:
   over it doesn't take its clicks, and a click opens the lightbox with that image alone ("1 / 1");
 - at 1440 and 1920, the content box (main .content) of every page but the home (the reference: its sections
   are the header's container) is as wide as the header's container, its edges within 2% of the container's,
-  and every card grid (.cgrid) and gallery (.gallery) has at least 3 columns.
+  and every card grid (.cgrid) and gallery (.gallery) has at least 3 columns, the ISO cards (.isos) at least 2;
+- the ISO cards in a row are of one height, and the first paragraph under the content box runs across it (within
+  2%): prose takes the whole width too.
 Without pages, it checks the home pages, Install, three component pages (a plain install, start_text, a
-multi-line start), the screenshots, the components list, the shortcuts and a guide page in the three
+multi-line start), the screenshots, the components list, the shortcuts, a guide page and Download in the three
 languages. The pages are served from a copy of <public dir> on 127.0.0.1; Chrome runs with a temporary
 HOME and no display or session bus. A missing page, a missing Chrome or a page that doesn't report is an error.
 """
@@ -39,11 +41,12 @@ WIDTHS = (1200, 390) + WIDE
 HOMES = ("pt-br", "en-us", "es")  # the home pages: a hero instead of tabs
 PAGES = list(HOMES) + [f"{lang}/{page}" for lang in HOMES
                        for page in ("install", "components/dock", "components/greeter", "components/screenshot",
-                                    "screenshots", "components", "shortcuts", "guide/config")]
+                                    "screenshots", "components", "shortcuts", "guide/config", "download")]
 # The pages with distro tabs and copy blocks: Install and each component page
 TABBED = re.compile(r"(^|/)(install|components/[^/]+)$")
 EDGE = 0.02  # the content's edges within 2% of the header container's width from its edges
-MIN_COLUMNS = 3
+MIN_COLUMNS = {"cards": 3, "gallery": 3, "ISO": 2}  # per grid, on wide screens
+EVEN_ROWS = ("ISO",)  # grids whose cards in a row must be of one height
 TOLERANCE = 1  # px: rounding of fractional layout
 MIN_THUMB = 200  # px: narrower than this, a thumbnail's content can't be read
 # Pages that have more_shots, so a row of images: none found means the template or a class changed
@@ -87,11 +90,18 @@ MEASURE = r"""window.addEventListener("load", () => {
     const h = head.getBoundingClientRect(), s = getComputedStyle(head), c = content.getBoundingClientRect();
     out.frame = {left: h.left + parseFloat(s.paddingLeft), right: h.right - parseFloat(s.paddingRight),
       cleft: c.left, cright: c.right};
+    // The first paragraph straight under the content: prose runs across the content's width too
+    const para = content.querySelector(":scope > p");
+    if (para) out.frame.para = Math.round(para.getBoundingClientRect().width);
   }
-  out.grids = Array.from(document.querySelectorAll(".cgrid, .gallery")).map((grid) => ({
-    kind: grid.classList.contains("cgrid") ? "cards" : "gallery",
-    columns: new Set(Array.from(grid.children).filter((el) => el.getClientRects().length)
-      .map((el) => Math.round(el.getBoundingClientRect().left))).size}));
+  out.grids = Array.from(document.querySelectorAll(".cgrid, .gallery, .isos")).map((grid) => {
+    const items = Array.from(grid.children).filter((el) => el.getClientRects().length)
+      .map((el) => el.getBoundingClientRect());
+    const rows = {};  // each row's heights, by the row's top
+    items.forEach((r) => { (rows[Math.round(r.top)] = rows[Math.round(r.top)] || []).push(Math.round(r.height)); });
+    return {kind: grid.classList.contains("cgrid") ? "cards" : grid.classList.contains("isos") ? "ISO" : "gallery",
+      columns: new Set(items.map((r) => Math.round(r.left))).size, rows: Object.values(rows)};
+  });
   // The home page's hero: one visible image link to the lightbox (the other theme's is hidden), not covered by
   // the Super badge, and a click on it opens the lightbox with that image alone
   const hero = document.querySelector(".hero__shot");
@@ -151,10 +161,21 @@ def problems(page, width, data):
             if abs(inner_left) > EDGE * span or abs(inner_right) > EDGE * span:
                 errors.append(f"{page} @{width}: the content isn't as wide as the header's container "
                               f"(its edges {round(inner_left)}px and {round(inner_right)}px inside it)")
+            content = round(frame["cright"] - frame["cleft"])
+            if "para" in frame and content - frame["para"] > EDGE * content:
+                errors.append(f"{page} @{width}: the text is {frame['para']}px wide, the content {content}px "
+                              f"(within 2%)")
         for grid in data.get("grids", []):
-            if grid["columns"] < MIN_COLUMNS:
+            least = MIN_COLUMNS[grid["kind"]]
+            if grid["columns"] < least:
                 errors.append(f"{page} @{width}: the {grid['kind']} grid has {grid['columns']} columns "
-                              f"(at least {MIN_COLUMNS} at this width)")
+                              f"(at least {least} at this width)")
+    for grid in data.get("grids", []):
+        if grid["kind"] in EVEN_ROWS:
+            for heights in grid.get("rows", []):
+                if max(heights) - min(heights) > TOLERANCE:
+                    errors.append(f"{page} @{width}: the {grid['kind']} grid's cards in a row differ in height "
+                                  f"({min(heights)}px and {max(heights)}px)")
     if page.strip("/") in HOMES:
         hero = data.get("hero") or {"links": 0}
         if hero["links"] != 1:
