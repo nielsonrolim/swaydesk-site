@@ -12,22 +12,22 @@
 # When that ISO catches up, drop its `tag` AND the sentence about it in content/*/download.md (first paragraph).
 # `packages`: the version of the packages on OBS, shown in the home page's pill. It can differ from `tag`
 # when a Release only rebuilds the ISOs (0.1.6.1 carried the 0.1.6 packages). The build fails without it.
-tag = "v0.1.8"
-packages = "0.1.8"
+tag = "v0.1.9"
+packages = "0.1.9"
 sums = "SHA256SUMS"
 
 [debian]
 published = true
 name = "Debian 13"
-file = "swaydesk-0.1.8-debian13-amd64.iso"
+file = "swaydesk-0.1.9-debian13-amd64.iso"
 size = "1.7 GB"
-sha256 = "809c40b2b43a31567912a389c35a4ce72be0fa36a77f4908fcbb0c553ed48cc6"
+sha256 = "b885d98f23d6356ad43f58e1aa1f8d5b7a553842c1c1bf176e24035854a04b62"
 secure_boot = true
 
 [arch]
 published = true
 name = "Arch Linux"
-file = "swaydesk-0.1.8-arch-x86_64.iso"
+file = "swaydesk-0.1.9-arch-x86_64.iso"
 size = "1.9 GB"
-sha256 = "88431185fd7afb9bc31fd9cc52089742c9a64617e91fe98ae91eab1fe8485198"
+sha256 = "69a0a0f3278e13dbc072f73679c00f63a309457065b3e45c6b58da68f3970fb1"
 secure_boot = false
