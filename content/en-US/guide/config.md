@@ -63,6 +63,10 @@ power_profiles_in_system = "auto"
 
 # Cursor size in pixels, from 16 to 96 (24 by default)
 cursor_size = 24
+
+# Cursor theme: any installed one (a folder with cursors/). Empty: the automatic one (Bibata on Debian and
+# Ubuntu, Capitaine on Arch)
+cursor_theme = ""
 ```
 
 Programs read the file when they start. After editing it by hand:
@@ -71,6 +75,7 @@ Programs read the file when they start. After editing it by hand:
 - for the file manager, run `swaydesk-desktop-config generate`, so folders opened by other apps go to it too;
 - for the language, the city and the holidays, log out and back in;
 - for `power_profiles_in_system`, nothing: it applies the next time the System popup opens;
+- for `cursor_theme`, `swaydesk-desktop-config apply` (or the Theme app) applies it at once: Sway's cursor, the GTK settings and `gsettings`; a theme that isn't installed only warns, and a `seat … xcursor_theme` line of your own in `~/.config/sway/config.d` still wins;
 - for `cursor_size`, `swaydesk-theme cursor <size>` applies it everywhere at once; `swaydesk-desktop-config apply` applies it to Sway, and the rest at your next login.
 
 A bad value doesn't break anything: that piece just uses the default for that key.
