@@ -4,7 +4,7 @@ prompt: "grep '^## ' keys/*.conf"
 crumb: shortcuts
 description: Todos os atalhos de teclado da sessão Swaydesk.
 ---
-O Swaydesk vem com cinco perfis de atalhos: **Swaydesk** (o padrão, inspirado no KDE Plasma com o Krohnkite), **i3**, **Hyprland**, **niri** e **dwm**. Cada um traz para o Swaydesk as teclas daquele gerenciador de janelas, e todos têm 9 workspaces. Os atalhos que não usam Super com uma letra (o menu da sessão, o terminal, as capturas, as teclas de mídia) são iguais em todos. `Super` é a tecla do logotipo.
+O Swaydesk vem com cinco perfis de atalhos: **Swaydesk** (o padrão, inspirado no KDE Plasma com o Krohnkite), **i3**, **Hyprland**, **niri** e **dwm**. Cada um traz para o Swaydesk as teclas daquele gerenciador de janelas, e todos têm 9 workspaces. Os atalhos que não usam Super com uma letra (o menu da sessão, o terminal, os screenshots, as teclas de mídia) são iguais em todos. `Super` é a tecla do logotipo.
 
 **Escolher um perfil:** na **Ajuda** (`Super`+`F1`), a lista no alto, ao lado da busca, mostra o perfil em uso. Escolha outro e ele vale na hora, sem sair da sessão; a Ajuda passa a mostrar os atalhos novos. Escolher o dwm pede confirmação antes, porque o Mod dele é Alt. Pelo terminal, ponha `shortcuts = "i3"` (ou `swaydesk`, `hyprland`, `niri`, `dwm`) no `~/.config/swaydesk/config.toml` e recarregue o Sway com `swaymsg reload` ou com a tecla de recarregar do perfil, ou entre de novo na sessão.
 
@@ -12,7 +12,7 @@ As tabelas abaixo vêm dos mesmos arquivos e descrições que o app **Ajuda** (`
 
 {{< profiles >}}
 
-**Dentro dos painéis de captura e gravação**, iguais em todos os perfis, as teclas são as iniciais em inglês: `R` região, `S` tela, `W` janela, `Esc` fecha. Na captura, `G` liga ou desliga o Gradia e `D` muda o atraso. Na gravação, `Shift`+tecla grava com o som do sistema, `Ctrl`+tecla com o microfone, e `A` muda o áudio.
+**Dentro dos painéis de screenshot e gravação**, iguais em todos os perfis, as teclas são as iniciais em inglês: `R` região, `S` tela, `W` janela, `Esc` fecha. No de screenshot, `G` liga ou desliga o Gradia e `D` muda o atraso. Na gravação, `Shift`+tecla grava com o som do sistema, `Ctrl`+tecla com o microfone, e `A` muda o áudio.
 
 ## Personalizar atalhos
 

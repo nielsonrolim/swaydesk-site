@@ -1,4 +1,4 @@
-{{- /* Uma captura de assets/images/shots: {{< shot "nome" "legenda" >}}. A legenda também é o texto alternativo. */ -}}
+{{- /* Um screenshot de assets/images/shots: {{< shot "nome" "legenda" >}}. A legenda também é o texto alternativo. */ -}}
 {{- $name := .Get 0 }}{{ $caption := .Get 1 }}
 {{- with resources.Get (printf "images/shots/%s.webp" $name) }}
 {{- $img := . | fingerprint }}

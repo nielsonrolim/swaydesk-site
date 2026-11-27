@@ -111,11 +111,11 @@ Sem uso, o computador:
 
 Ele também bloqueia antes de suspender. A cafeína, na barra, suspende tudo isso enquanto estiver ligada. Fora da sessão do Swaydesk (um Sway puro, com o seu próprio swayidle), ela segura um inibidor de inatividade do Wayland (`swaydesk-caffeinate`) em vez de trocar o swayidle. Com todos os monitores desativados ou desconectados (ou, no Sway 1.12, com a energia desligada), os tempos de inatividade ainda podem disparar. Se a tela não voltar depois de apagar, `Super`+`Shift`+`O` a liga de novo, mesmo bloqueada.
 
-## Capturas e gravação
+## Screenshots e gravação
 
-`Print` captura uma região, e há atalhos para a tela inteira e para uma janela. As capturas vão para `~/Imagens/Screenshots` (a pasta de imagens do seu idioma), para a área de transferência e aparecem numa notificação. Com o Gradia instalado, dá para abrir a captura nele para editar.
+`Print` captura uma região, e há atalhos para a tela inteira e para uma janela. Os screenshots vão para `~/Imagens/Screenshots` (a pasta de imagens do seu idioma), para a área de transferência e aparecem numa notificação. Com o Gradia instalado, dá para abrir o screenshot nele para editar.
 
-`Super`+`Shift`+`E` abre o painel de captura e `Super`+`Shift`+`R` o de gravação, com as opções de atraso e de som. Durante a gravação, a barra mostra o tempo em vermelho; clique nele, ou repita o atalho, para parar. Os vídeos vão para `~/Vídeos/Screencasts`. As teclas dos painéis estão em [atalhos](/pt-br/shortcuts/).
+`Super`+`Shift`+`E` abre o painel de screenshot e `Super`+`Shift`+`R` o de gravação, com as opções de atraso e de som. Durante a gravação, a barra mostra o tempo em vermelho; clique nele, ou repita o atalho, para parar. Os vídeos vão para `~/Vídeos/Screencasts`. As teclas dos painéis estão em [atalhos](/pt-br/shortcuts/).
 
 ## Compartilhar a tela
 
