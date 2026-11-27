@@ -1458,6 +1458,7 @@ start = ""
     "Usa o idioma e o teclado do sistema; um botão no canto mostra o layout, e um clique o troca.",
     "Botões *Suspender*, *Reiniciar* e *Desligar* embaixo à direita.",
     "Relógio e data em todos os monitores; o cartão do formulário fica num monitor só, o de cima à esquerda.",
+    "Ao escolher uma conta, a tela passa para a cor de destaque que esse usuário escolheu no Tema do Desktop (com o `accountsservice`); sem ele, ou em \"Outro usuário…\", fica a cor do `/etc/swaydesk-greeter/config.toml`.",
   ]
   keys = ""
   guide = "guide/first-steps/#a-tela-de-login-do-swaydesk"
@@ -1477,6 +1478,7 @@ start = ""
     "Uses the system's language and keyboard; a corner button shows the layout, and a click switches it.",
     "*Suspend*, *Restart* and *Shut down* buttons at the bottom right.",
     "Clock and date on every monitor; the form card is on one monitor, the top-left one.",
+    "Once an account is selected, the screen takes the accent color that user picked in Desktop Theme (with `accountsservice`); without it, or for \"Other user…\", it keeps the color in `/etc/swaydesk-greeter/config.toml`.",
   ]
   keys = ""
   guide = "guide/first-steps/#the-swaydesk-login-screen"
@@ -1496,6 +1498,7 @@ start = ""
     "Usa el idioma y el teclado del sistema; un botón en la esquina muestra la distribución, y un clic la cambia.",
     "Botones *Suspender*, *Reiniciar* y *Apagar* abajo a la derecha.",
     "Reloj y fecha en cada monitor; la tarjeta del formulario está en un solo monitor, el de arriba a la izquierda.",
+    "Al elegir una cuenta, la pantalla toma el color de acento que ese usuario eligió en Tema del escritorio (con `accountsservice`); sin él, o en \"Otro usuario…\", queda el color de `/etc/swaydesk-greeter/config.toml`.",
   ]
   keys = ""
   guide = "guide/first-steps/#la-pantalla-de-inicio-de-sesión-de-swaydesk"
@@ -1688,6 +1691,7 @@ start = ""
     "Quando o tema escolhido não está instalado, o desktop usa o adw-gtk3-dark, ou o Adwaita-dark sem o adw-gtk-theme.",
     "A cor de destaque também vai para os interruptores, botões principais, caixas de seleção, controles deslizantes e linhas selecionadas dos apps do Swaydesk; um `~/.config/gtk-4.0/gtk.css` seu continua valendo mais.",
     "As janelas abertas do Swaydesk, este app incluído, trocam de *Claro* para *Escuro* (e de volta) na hora.",
+    "O estilo em uso, *Claro* ou *Escuro*, aparece marcado na cor de destaque.",
   ]
   keys = "Na grade de apps"
   guide = "guide/config/"
@@ -1707,6 +1711,7 @@ start = ""
     "When the chosen theme isn't installed, the desktop uses adw-gtk3-dark, or Adwaita-dark without adw-gtk-theme.",
     "The accent color also reaches the switches, suggested buttons, checks, sliders and selected rows of the Swaydesk apps; a `~/.config/gtk-4.0/gtk.css` of your own still wins.",
     "Open Swaydesk windows, this app included, switch between *Light* and *Dark* right away.",
+    "The style in use, *Light* or *Dark*, is shown selected in the accent color.",
   ]
   keys = "In the app grid"
   guide = "guide/config/"
@@ -1726,6 +1731,7 @@ start = ""
     "Cuando el tema elegido no está instalado, el escritorio usa adw-gtk3-dark, o Adwaita-dark sin adw-gtk-theme.",
     "El color de acento también llega a los interruptores, botones principales, casillas, deslizadores y filas seleccionadas de las aplicaciones de Swaydesk; un `~/.config/gtk-4.0/gtk.css` tuyo sigue teniendo prioridad.",
     "Las ventanas abiertas de Swaydesk, esta aplicación incluida, cambian entre *Claro* y *Oscuro* al momento.",
+    "El estilo en uso, *Claro* u *Oscuro*, aparece marcado en el color de acento.",
   ]
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
