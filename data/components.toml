@@ -1699,7 +1699,7 @@ start = ""
     "*Apps padrão*: o navegador, o e-mail, o editor de texto, as imagens, o PDF, o vídeo e a música no seu `~/.config/mimeapps.list`, e o gerenciador de arquivos e o terminal no `config.toml`; o padrão do sistema aparece e nunca é sobrescrito.",
     "*Região*: o idioma (no próximo login), a cidade da previsão do tempo e o país dos feriados; um campo vazio volta ao automático.",
     "*Sobre*: a distribuição, o kernel, o Sway, o processador, a memória, a placa de vídeo e o disco, com *Copiar informações* para relatar um problema (em inglês, sem o nome do aparelho).",
-    "*Rede*, *Bluetooth* e *Som* aparecem quando o `nm-connection-editor`, o Blueman ou o pavucontrol estão instalados, e os abrem.",
+    "*Rede*, *Bluetooth* e *Som* aparecem quando o `nm-connection-editor` (do pacote `network-manager-gnome` no Debian e no Ubuntu), o Blueman ou o pavucontrol estão instalados, e os abrem.",
     "`swaydesk-settings --panel keyboard` abre num painel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); com a janela aberta, troca o painel dela. `--about` imprime o texto do *Copiar informações* no terminal.",
   ]
   keys = "Na grade de apps, como **Configurações**"
@@ -1724,7 +1724,7 @@ start = ""
     "*Default apps*: the browser, mail, text editor, images, PDF, video and music in your `~/.config/mimeapps.list`, and the file manager and terminal in `config.toml`; the system default is shown and never overwritten.",
     "*Region*: the language (at the next login), the weather city and the holidays country; an empty field goes back to automatic.",
     "*About*: the distribution, kernel, Sway, processor, memory, graphics and disk, with *Copy info* for a bug report (in English, without the device name).",
-    "*Network*, *Bluetooth* and *Sound* show up when `nm-connection-editor`, Blueman or pavucontrol are installed, and open them.",
+    "*Network*, *Bluetooth* and *Sound* show up when `nm-connection-editor` (in the `network-manager-gnome` package on Debian and Ubuntu), Blueman or pavucontrol are installed, and open them.",
     "`swaydesk-settings --panel keyboard` opens on a panel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); with the window open, it switches that window's panel. `--about` prints the *Copy info* text in the terminal.",
   ]
   keys = "In the app grid, as **Settings**"
@@ -1749,7 +1749,7 @@ start = ""
     "*Aplicaciones predeterminadas*: el navegador, el correo, el editor de texto, las imágenes, el PDF, el vídeo y la música en tu `~/.config/mimeapps.list`, y el gestor de archivos y la terminal en `config.toml`; el predeterminado del sistema se muestra y nunca se sobrescribe.",
     "*Región*: el idioma (en el próximo inicio de sesión), la ciudad del tiempo y el país de los festivos; un campo vacío vuelve a lo automático.",
     "*Acerca de*: la distribución, el kernel, Sway, el procesador, la memoria, la tarjeta gráfica y el disco, con *Copiar información* para informar de un problema (en inglés, sin el nombre del equipo).",
-    "*Red*, *Bluetooth* y *Sonido* aparecen cuando `nm-connection-editor`, Blueman o pavucontrol están instalados, y los abren.",
+    "*Red*, *Bluetooth* y *Sonido* aparecen cuando `nm-connection-editor` (del paquete `network-manager-gnome` en Debian y Ubuntu), Blueman o pavucontrol están instalados, y los abren.",
     "`swaydesk-settings --panel keyboard` abre en un panel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); con la ventana abierta, cambia su panel. `--about` imprime el texto de *Copiar información* en la terminal.",
   ]
   keys = "En la cuadrícula de aplicaciones, como **Configuración**"
