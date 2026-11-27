@@ -125,7 +125,7 @@ other = "Imagen {{ .old }}; se actualiza a {{ .new }} después de instalar."
 other = "Descargar"
 
 [demo_caption]
-other = "Grabado en una VM ({{ .duration }}, sin sonido, interfaz en inglés); el Bluetooth, la batería y el brillo son simulados."
+other = "Demostración de Swaydesk ({{ .duration }}), grabada en una VM; el Bluetooth, la batería y el brillo son simulados."
 
 [demo_chapters]
 other = "Capítulos ({{ .count }})"

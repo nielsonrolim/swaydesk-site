@@ -3,401 +3,274 @@
 # home = true puts the chapter in the home page's panel (the same chapters in every language).
 
 [pt-br]
-file = "/video/swaydesk-demo-pt-BR.mp4"
-poster = "images/video/demo-pt-BR.webp"
-duration = "5:09"
+file = "/video/swaydesk-demo-0.1.9-pt-BR.mp4"
+poster = "images/video/demo-0.1.9-pt-BR.webp"
+duration = "5:22"
 [[pt-br.chapters]]
-t = 0
-label = "Greeter e login"
+t = 1
+label = "Login"
 home = true
 [[pt-br.chapters]]
-t = 11
-label = "Barra: relógio e calendário"
+t = 9
+label = "A barra"
 home = true
 [[pt-br.chapters]]
-t = 19
-label = "Barra: clima"
+t = 17
+label = "Calendário"
 [[pt-br.chapters]]
-t = 26
-label = "Barra: mídia"
+t = 25
+label = "Clima"
 [[pt-br.chapters]]
-t = 34
-label = "Barra: notificações"
+t = 33
+label = "Mídia"
 [[pt-br.chapters]]
-t = 40
-label = "Barra: sistema"
+t = 41
+label = "Rede"
 [[pt-br.chapters]]
-t = 47
-label = "Barra: brilho e luz noturna"
+t = 49
+label = "Bluetooth"
 [[pt-br.chapters]]
-t = 54
-label = "Barra: cafeína"
+t = 56
+label = "Áudio"
 [[pt-br.chapters]]
-t = 61
-label = "Barra: Bluetooth (BlueZ simulado)"
+t = 65
+label = "Brilho e luz noturna"
 [[pt-br.chapters]]
-t = 68
-label = "Barra: rede"
+t = 79
+label = "Bateria"
 [[pt-br.chapters]]
-t = 75
-label = "Barra: áudio"
+t = 88
+label = "Sistema"
 [[pt-br.chapters]]
-t = 82
-label = "Barra: bateria (bateria simulada, test_power)"
+t = 97
+label = "Cafeína"
 [[pt-br.chapters]]
-t = 89
-label = "Dock"
-home = true
+t = 107
+label = "Área de transferência"
 [[pt-br.chapters]]
-t = 99
+t = 115
+label = "Notificações"
+[[pt-br.chapters]]
+t = 128
 label = "Grade de apps"
 home = true
 [[pt-br.chapters]]
-t = 104
-label = "Grade: busca"
+t = 143
+label = "Lançador"
 [[pt-br.chapters]]
-t = 108
-label = "Grade: calculadora"
+t = 169
+label = "Dock"
+home = true
 [[pt-br.chapters]]
-t = 114
-label = "Grade: arquivos"
-[[pt-br.chapters]]
-t = 122
-label = "Lançador rofi: apps"
-[[pt-br.chapters]]
-t = 130
-label = "Lançador rofi: janelas"
-[[pt-br.chapters]]
-t = 134
-label = "Lançador rofi: área de transferência"
-[[pt-br.chapters]]
-t = 138
-label = "Lançador rofi: web"
-[[pt-br.chapters]]
-t = 144
-label = "Lançador rofi: clique fora fecha"
-[[pt-br.chapters]]
-t = 148
+t = 205
 label = "Alt+Tab"
 home = true
 [[pt-br.chapters]]
-t = 154
-label = "OSD de volume"
+t = 215
+label = "Abas"
+home = true
 [[pt-br.chapters]]
-t = 161
-label = "OSD de brilho (simulado: a VM não tem backlight)"
-[[pt-br.chapters]]
-t = 166
-label = "Histórico da área de transferência"
-[[pt-br.chapters]]
-t = 171
-label = "Notificação"
-[[pt-br.chapters]]
-t = 175
-label = "Não perturbe"
-[[pt-br.chapters]]
-t = 195
+t = 228
 label = "Captura de tela"
 [[pt-br.chapters]]
-t = 204
+t = 243
 label = "Gravação de tela"
 [[pt-br.chapters]]
-t = 220
+t = 260
 label = "Tema do Desktop"
 home = true
 [[pt-br.chapters]]
-t = 222
-label = "Tema: cor de destaque e claro"
+t = 278
+label = "Telas"
 [[pt-br.chapters]]
-t = 236
-label = "Tema: os apps abertos no claro"
+t = 286
+label = "Ajuda"
 [[pt-br.chapters]]
-t = 242
-label = "Tema: escuro e a cor de volta"
-[[pt-br.chapters]]
-t = 254
-label = "Telas (duas telas)"
+t = 303
+label = "Bloqueio"
 home = true
 [[pt-br.chapters]]
-t = 271
-label = "Ajuda: atalhos"
-[[pt-br.chapters]]
-t = 276
-label = "Ajuda: perfil i3"
-[[pt-br.chapters]]
-t = 284
-label = "Ajuda: de volta ao Swaydesk"
-[[pt-br.chapters]]
-t = 293
+t = 310
 label = "Menu da sessão"
-[[pt-br.chapters]]
-t = 298
-label = "Tela de bloqueio"
-home = true
 
 [en-us]
-file = "/video/swaydesk-demo-en-US.mp4"
-poster = "images/video/demo-en-US.webp"
-duration = "4:44"
+file = "/video/swaydesk-demo-0.1.9-en-US.mp4"
+poster = "images/video/demo-0.1.9-en-US.webp"
+duration = "5:29"
 [[en-us.chapters]]
-t = 0
-label = "Greeter and login"
+t = 1
+label = "Login"
 home = true
 [[en-us.chapters]]
-t = 10
-label = "Bar: clock and calendar"
+t = 9
+label = "The bar"
 home = true
 [[en-us.chapters]]
-t = 17
-label = "Bar: weather"
+t = 19
+label = "Calendar"
 [[en-us.chapters]]
-t = 23
-label = "Bar: media"
+t = 27
+label = "Weather"
 [[en-us.chapters]]
-t = 30
-label = "Bar: notifications"
-[[en-us.chapters]]
-t = 36
-label = "Bar: system"
+t = 35
+label = "Media"
 [[en-us.chapters]]
 t = 43
-label = "Bar: brightness and night light"
+label = "Network"
 [[en-us.chapters]]
-t = 49
-label = "Bar: caffeine"
+t = 51
+label = "Bluetooth"
 [[en-us.chapters]]
-t = 55
-label = "Bar: Bluetooth (simulated BlueZ)"
-[[en-us.chapters]]
-t = 62
-label = "Bar: network"
+t = 59
+label = "Audio"
 [[en-us.chapters]]
 t = 68
-label = "Bar: audio"
+label = "Brightness and night light"
 [[en-us.chapters]]
-t = 75
-label = "Bar: battery (simulated battery, test_power)"
+t = 84
+label = "Battery"
 [[en-us.chapters]]
-t = 82
-label = "Dock"
-home = true
+t = 92
+label = "System"
 [[en-us.chapters]]
-t = 90
+t = 101
+label = "Caffeine"
+[[en-us.chapters]]
+t = 111
+label = "Clipboard"
+[[en-us.chapters]]
+t = 118
+label = "Notifications"
+[[en-us.chapters]]
+t = 132
 label = "App grid"
 home = true
 [[en-us.chapters]]
-t = 94
-label = "App grid: search"
+t = 147
+label = "Launcher"
 [[en-us.chapters]]
-t = 98
-label = "App grid: calculator"
+t = 173
+label = "Dock"
+home = true
 [[en-us.chapters]]
-t = 103
-label = "App grid: files"
-[[en-us.chapters]]
-t = 110
-label = "Rofi launcher: apps"
-[[en-us.chapters]]
-t = 117
-label = "Rofi launcher: windows"
-[[en-us.chapters]]
-t = 121
-label = "Rofi launcher: clipboard"
-[[en-us.chapters]]
-t = 125
-label = "Rofi launcher: web"
-[[en-us.chapters]]
-t = 131
-label = "Rofi launcher: clicking outside closes it"
-[[en-us.chapters]]
-t = 134
+t = 210
 label = "Alt+Tab"
 home = true
 [[en-us.chapters]]
-t = 140
-label = "Volume OSD"
+t = 219
+label = "Tabs"
+home = true
 [[en-us.chapters]]
-t = 146
-label = "Brightness OSD (simulated: the VM has no backlight)"
-[[en-us.chapters]]
-t = 150
-label = "Clipboard history"
-[[en-us.chapters]]
-t = 155
-label = "Notification"
-[[en-us.chapters]]
-t = 159
-label = "Do not disturb"
-[[en-us.chapters]]
-t = 178
+t = 233
 label = "Screenshot"
 [[en-us.chapters]]
-t = 187
+t = 249
 label = "Screen recording"
 [[en-us.chapters]]
-t = 201
+t = 268
 label = "Desktop Theme"
 home = true
 [[en-us.chapters]]
-t = 203
-label = "Theme: accent color and light style"
+t = 285
+label = "Displays"
 [[en-us.chapters]]
-t = 216
-label = "Theme: open apps in the light style"
+t = 293
+label = "Help"
 [[en-us.chapters]]
-t = 222
-label = "Theme: dark style and the color back"
-[[en-us.chapters]]
-t = 232
-label = "Displays (two screens)"
-home = true
-[[en-us.chapters]]
-t = 247
-label = "Help: shortcuts"
-[[en-us.chapters]]
-t = 251
-label = "Help: i3 profile"
-[[en-us.chapters]]
-t = 260
-label = "Help: back to Swaydesk"
-[[en-us.chapters]]
-t = 268
-label = "Session menu"
-[[en-us.chapters]]
-t = 273
+t = 310
 label = "Lock screen"
 home = true
+[[en-us.chapters]]
+t = 317
+label = "Session menu"
 
-# Sin un video en español: el de inglés, con los capítulos en español
 [es]
-file = "/video/swaydesk-demo-en-US.mp4"
-poster = "images/video/demo-en-US.webp"
-duration = "4:44"
+file = "/video/swaydesk-demo-0.1.9-es.mp4"
+poster = "images/video/demo-0.1.9-es.webp"
+duration = "5:37"
 [[es.chapters]]
-t = 0
-label = "Pantalla de inicio de sesión"
+t = 1
+label = "Inicio de sesión"
 home = true
 [[es.chapters]]
 t = 10
-label = "Barra: reloj y calendario"
+label = "La barra"
 home = true
 [[es.chapters]]
-t = 17
-label = "Barra: clima"
+t = 18
+label = "Calendario"
 [[es.chapters]]
-t = 23
-label = "Barra: multimedia"
+t = 26
+label = "Clima"
 [[es.chapters]]
-t = 30
-label = "Barra: notificaciones"
-[[es.chapters]]
-t = 36
-label = "Barra: sistema"
+t = 35
+label = "Multimedia"
 [[es.chapters]]
 t = 43
-label = "Barra: brillo y luz nocturna"
+label = "Red"
 [[es.chapters]]
-t = 49
-label = "Barra: cafeína"
+t = 51
+label = "Bluetooth"
 [[es.chapters]]
-t = 55
-label = "Barra: Bluetooth (BlueZ simulado)"
-[[es.chapters]]
-t = 62
-label = "Barra: red"
+t = 59
+label = "Audio"
 [[es.chapters]]
 t = 68
-label = "Barra: audio"
+label = "Brillo y luz nocturna"
 [[es.chapters]]
-t = 75
-label = "Barra: batería (batería simulada, test_power)"
+t = 87
+label = "Batería"
 [[es.chapters]]
-t = 82
+t = 95
+label = "Sistema"
+[[es.chapters]]
+t = 105
+label = "Cafeína"
+[[es.chapters]]
+t = 115
+label = "Portapapeles"
+[[es.chapters]]
+t = 123
+label = "Notificaciones"
+[[es.chapters]]
+t = 136
+label = "Cuadrícula de apps"
+home = true
+[[es.chapters]]
+t = 151
+label = "Lanzador"
+[[es.chapters]]
+t = 180
 label = "Dock"
 home = true
 [[es.chapters]]
-t = 90
-label = "Cuadrícula de aplicaciones"
-home = true
-[[es.chapters]]
-t = 94
-label = "Cuadrícula de aplicaciones: búsqueda"
-[[es.chapters]]
-t = 98
-label = "Cuadrícula de aplicaciones: calculadora"
-[[es.chapters]]
-t = 103
-label = "Cuadrícula de aplicaciones: archivos"
-[[es.chapters]]
-t = 110
-label = "Lanzador rofi: apps"
-[[es.chapters]]
-t = 117
-label = "Lanzador rofi: ventanas"
-[[es.chapters]]
-t = 121
-label = "Lanzador rofi: portapapeles"
-[[es.chapters]]
-t = 125
-label = "Lanzador rofi: web"
-[[es.chapters]]
-t = 131
-label = "Lanzador rofi: un clic fuera lo cierra"
-[[es.chapters]]
-t = 134
+t = 218
 label = "Alt+Tab"
 home = true
 [[es.chapters]]
-t = 140
-label = "Indicador de volumen"
+t = 227
+label = "Pestañas"
+home = true
 [[es.chapters]]
-t = 146
-label = "Indicador de brillo (simulado: la VM no tiene retroiluminación)"
-[[es.chapters]]
-t = 150
-label = "Historial del portapapeles"
-[[es.chapters]]
-t = 155
-label = "Notificación"
-[[es.chapters]]
-t = 159
-label = "No molestar"
-[[es.chapters]]
-t = 178
+t = 241
 label = "Captura de pantalla"
 [[es.chapters]]
-t = 187
+t = 256
 label = "Grabación de pantalla"
 [[es.chapters]]
-t = 201
+t = 273
 label = "Tema del escritorio"
 home = true
 [[es.chapters]]
-t = 203
-label = "Tema: color de acento y estilo claro"
+t = 291
+label = "Pantallas"
 [[es.chapters]]
-t = 216
-label = "Tema: apps abiertas en el estilo claro"
+t = 299
+label = "Ayuda"
 [[es.chapters]]
-t = 222
-label = "Tema: estilo oscuro y el color de vuelta"
-[[es.chapters]]
-t = 232
-label = "Pantallas (dos monitores)"
+t = 317
+label = "Bloqueo"
 home = true
 [[es.chapters]]
-t = 247
-label = "Ayuda: atajos"
-[[es.chapters]]
-t = 251
-label = "Ayuda: perfil i3"
-[[es.chapters]]
-t = 260
-label = "Ayuda: de vuelta a Swaydesk"
-[[es.chapters]]
-t = 268
+t = 324
 label = "Menú de sesión"
-[[es.chapters]]
-t = 273
-label = "Pantalla de bloqueo"
-home = true
