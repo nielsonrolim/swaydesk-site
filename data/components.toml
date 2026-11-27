@@ -1665,6 +1665,98 @@ page = false
   guide = ""
 
 [[components]]
+id = "settings"
+group = "apps"
+icon = "sliders"
+shot = "settings"
+crop = true
+more_shots = ["settings-keyboard", "settings-default-apps", "settings-region"]
+bin = "swaydesk-settings"
+src = "rust/settings"
+tech = "rust"
+off = ""
+page = true
+package = "swaydesk-settings"
+arch_with = ["hwdata", "swaydesk-theme-tool", "swaydesk-displays", "swaydesk-caffeine"]
+optional = ["blueman", "pavucontrol", "power-profiles-daemon"]
+start = ""
+  [components.pt-br]
+  name = "Configurações"
+  text = "Uma janela só, com um painel para cada parte do desktop numa barra lateral: **Aparência**, **Telas**, **Teclado**, **Mouse e touchpad**, **Energia e bloqueio**, **Desktop**, **Apps padrão**, **Região** e **Sobre**. Cada painel grava só as chaves dele, nos mesmos arquivos que você editaria à mão, e mantém os seus comentários."
+  more_alts = [
+    "O painel Teclado, com dois layouts na ordem em que o Super+Espaço os troca",
+    "O painel Apps padrão, com o navegador, o e-mail e os visualizadores de cada tipo de arquivo",
+    "O painel Região, com o idioma, a cidade da previsão do tempo e o país dos feriados",
+  ]
+  shot_caption = "O painel Desktop: os componentes da sessão e os módulos da barra"
+  features = [
+    "*Aparência* e *Telas* são as páginas dos apps [Tema do Desktop](/pt-br/components/theme/) e [Telas](/pt-br/components/displays/), que continuam apps próprios, cada um com o seu pacote; cada painel aparece só com o app dele instalado.",
+    "*Teclado*: os layouts e a ordem deles, a *Tecla de troca*, o atraso e a velocidade da repetição e o *Num Lock ligado* no login; *Usar o teclado do sistema* volta ao teclado da instalação. A tela de login sempre usa o do sistema.",
+    "*Mouse e touchpad*: a velocidade, a *Rolagem natural* e o modo *Canhoto*; com um touchpad, também *Tocar para clicar* e *Desligar ao digitar*. Mostra os valores que o Sway aplica agora.",
+    "Teclado e mouse valem na hora e vão para `~/.config/sway/config.d/80-input.conf`, que vem depois do `50-local.conf` e vale mais que ele.",
+    "*Energia e bloqueio*: depois de quanto tempo bloquear a tela, apagá-la e suspender (na bateria), de *Nunca* a 60 minutos, valendo na hora; com o `power-profiles-daemon`, também o *Perfil de energia*.",
+    "*Desktop* liga e desliga os componentes da sessão e os módulos da barra, escolhe o *Perfil de atalhos* e diz se cada mudança vale na hora ou no próximo login; mostra o que vem do `/etc/swaydesk/config.toml` e o que não está instalado.",
+    "*Apps padrão*: o navegador, o e-mail, o editor de texto, as imagens, o PDF, o vídeo e a música no seu `~/.config/mimeapps.list`, e o gerenciador de arquivos e o terminal no `config.toml`; o padrão do sistema aparece e nunca é sobrescrito.",
+    "*Região*: o idioma (no próximo login), a cidade da previsão do tempo e o país dos feriados; um campo vazio volta ao automático.",
+    "*Sobre*: a distribuição, o kernel, o Sway, o processador, a memória, a placa de vídeo e o disco, com *Copiar informações* para relatar um problema (em inglês, sem o nome do aparelho).",
+    "*Rede*, *Bluetooth* e *Som* aparecem quando o `nm-connection-editor`, o Blueman ou o pavucontrol estão instalados, e os abrem.",
+    "`swaydesk-settings --panel keyboard` abre num painel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); com a janela aberta, troca o painel dela. `--about` imprime o texto do *Copiar informações* no terminal.",
+  ]
+  keys = "Na grade de apps, como **Configurações**"
+  guide = "guide/config/"
+  start_text = "Nada a acrescentar à config do Sway: abra as **Configurações** pelo seu lançador, ou rode `swaydesk-settings`. `man swaydesk-settings` tem os detalhes."
+  [components.en-us]
+  name = "Settings"
+  text = "One window with a panel for each part of the desktop in a sidebar: **Appearance**, **Displays**, **Keyboard**, **Mouse and touchpad**, **Power and lock**, **Desktop**, **Default apps**, **Region** and **About**. Each panel writes only its own keys, in the same files you'd edit by hand, and keeps your comments."
+  more_alts = [
+    "The Keyboard panel, with two layouts in the order Super+Space switches them",
+    "The Default apps panel, with the browser, mail and the viewers for each kind of file",
+    "The Region panel, with the language, the weather city and the holidays country",
+  ]
+  shot_caption = "The Desktop panel: the session's components and the bar's modules"
+  features = [
+    "*Appearance* and *Displays* are the pages of the [Desktop Theme](/en-us/components/theme/) and [Displays](/en-us/components/displays/) apps, which stay apps of their own, each with its own package; each panel shows up only with its app installed.",
+    "*Keyboard*: the layouts and their order, the *Switch key*, the repeat delay and rate, and *Num Lock on* at login; *Use the system keyboard* goes back to the keyboard set at install. The login screen always uses the system one.",
+    "*Mouse and touchpad*: the speed, *Natural scrolling* and *Left-handed*; with a touchpad, also *Tap to click* and *Disable while typing*. It shows the values Sway applies now.",
+    "Keyboard and mouse changes apply at once and go into `~/.config/sway/config.d/80-input.conf`, which comes after `50-local.conf` and wins over it.",
+    "*Power and lock*: how long before the screen locks, turns off and the computer suspends (on battery), from *Never* to 60 minutes, applied at once; with `power-profiles-daemon`, also the *Power profile*.",
+    "*Desktop* turns the session's components and the bar's modules on and off, picks the *Shortcut profile* and says whether each change applies at once or at the next login; it shows what comes from `/etc/swaydesk/config.toml` and what isn't installed.",
+    "*Default apps*: the browser, mail, text editor, images, PDF, video and music in your `~/.config/mimeapps.list`, and the file manager and terminal in `config.toml`; the system default is shown and never overwritten.",
+    "*Region*: the language (at the next login), the weather city and the holidays country; an empty field goes back to automatic.",
+    "*About*: the distribution, kernel, Sway, processor, memory, graphics and disk, with *Copy info* for a bug report (in English, without the device name).",
+    "*Network*, *Bluetooth* and *Sound* show up when `nm-connection-editor`, Blueman or pavucontrol are installed, and open them.",
+    "`swaydesk-settings --panel keyboard` opens on a panel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); with the window open, it switches that window's panel. `--about` prints the *Copy info* text in the terminal.",
+  ]
+  keys = "In the app grid, as **Settings**"
+  guide = "guide/config/"
+  start_text = "Nothing to add to the Sway config: open **Settings** from your launcher, or run `swaydesk-settings`. `man swaydesk-settings` has the details."
+  [components.es]
+  name = "Configuración"
+  text = "Una sola ventana, con un panel para cada parte del escritorio en una barra lateral: **Apariencia**, **Pantallas**, **Teclado**, **Ratón y panel táctil**, **Energía y bloqueo**, **Escritorio**, **Aplicaciones predeterminadas**, **Región** y **Acerca de**. Cada panel escribe solo sus propias claves, en los mismos archivos que editarías a mano, y conserva tus comentarios."
+  more_alts = [
+    "El panel Teclado, con dos distribuciones en el orden en que Super+Espacio las alterna",
+    "El panel Aplicaciones predeterminadas, con el navegador, el correo y los visores de cada tipo de archivo",
+    "El panel Región, con el idioma, la ciudad del tiempo y el país de los festivos",
+  ]
+  shot_caption = "El panel Escritorio: los componentes de la sesión y los módulos de la barra"
+  features = [
+    "*Apariencia* y *Pantallas* son las páginas de las aplicaciones [Tema del escritorio](/es/components/theme/) y [Pantallas](/es/components/displays/), que siguen siendo aplicaciones propias, cada una con su paquete; cada panel aparece solo con su aplicación instalada.",
+    "*Teclado*: las distribuciones y su orden, la *Tecla de cambio*, el retardo y la velocidad de repetición y *Bloq Num activado* al iniciar sesión; *Usar el teclado del sistema* vuelve al teclado de la instalación. La pantalla de inicio de sesión siempre usa el del sistema.",
+    "*Ratón y panel táctil*: la velocidad, el *Desplazamiento natural* y el modo *Zurdo*; con un panel táctil, también *Tocar para hacer clic* y *Desactivar al escribir*. Muestra los valores que Sway aplica ahora.",
+    "Los cambios de teclado y ratón se aplican al instante y van a `~/.config/sway/config.d/80-input.conf`, que viene después de `50-local.conf` y tiene prioridad sobre él.",
+    "*Energía y bloqueo*: cuánto tiempo antes de bloquear la pantalla, apagarla y suspender (con batería), de *Nunca* a 60 minutos, aplicado al instante; con `power-profiles-daemon`, también el *Perfil de energía*.",
+    "*Escritorio* activa y desactiva los componentes de la sesión y los módulos de la barra, elige el *Perfil de atajos* y dice si cada cambio se aplica al instante o en el próximo inicio de sesión; muestra lo que viene de `/etc/swaydesk/config.toml` y lo que no está instalado.",
+    "*Aplicaciones predeterminadas*: el navegador, el correo, el editor de texto, las imágenes, el PDF, el vídeo y la música en tu `~/.config/mimeapps.list`, y el gestor de archivos y la terminal en `config.toml`; el predeterminado del sistema se muestra y nunca se sobrescribe.",
+    "*Región*: el idioma (en el próximo inicio de sesión), la ciudad del tiempo y el país de los festivos; un campo vacío vuelve a lo automático.",
+    "*Acerca de*: la distribución, el kernel, Sway, el procesador, la memoria, la tarjeta gráfica y el disco, con *Copiar información* para informar de un problema (en inglés, sin el nombre del equipo).",
+    "*Red*, *Bluetooth* y *Sonido* aparecen cuando `nm-connection-editor`, Blueman o pavucontrol están instalados, y los abren.",
+    "`swaydesk-settings --panel keyboard` abre en un panel (`appearance`, `displays`, `keyboard`, `mouse`, `power`, `desktop`, `default-apps`, `region`, `about`); con la ventana abierta, cambia su panel. `--about` imprime el texto de *Copiar información* en la terminal.",
+  ]
+  keys = "En la cuadrícula de aplicaciones, como **Configuración**"
+  guide = "guide/config/"
+  start_text = "Nada que añadir a la config de Sway: abre **Configuración** desde tu lanzador, o ejecuta `swaydesk-settings`. `man swaydesk-settings` tiene los detalles."
+
+[[components]]
 id = "theme"
 group = "apps"
 icon = "theme"
@@ -1699,6 +1791,7 @@ start = ""
   keys = "Na grade de apps"
   guide = "guide/config/"
   start_text = "Nada a acrescentar à config do Sway: abra o **Tema do Desktop** pelo seu lançador, ou rode `swaydesk-theme-app`."
+  note = "Também está nas [Configurações](/pt-br/components/settings/), como o painel **Aparência**: a mesma página, sem abrir outra janela."
   [components.en-us]
   name = "Desktop Theme"
   text = "Picks the GTK theme, the icons, the accent color and the cursor size, and applies them all at once, GTK and libadwaita apps included. By default the accent color follows the wallpaper, the daily one included (**Use the wallpaper's color**); picking a color yourself turns that off."
@@ -1719,6 +1812,7 @@ start = ""
   keys = "In the app grid"
   guide = "guide/config/"
   start_text = "Nothing to add to the Sway config: open **Desktop Theme** from your launcher, or run `swaydesk-theme-app`."
+  note = "It's also in [Settings](/en-us/components/settings/), as the **Appearance** panel: the same page, without another window."
   [components.es]
   name = "Tema del escritorio"
   text = "Elige el tema GTK, los iconos, el color de acento y el tamaño del cursor, y los aplica todos a la vez, incluidas las aplicaciones GTK y libadwaita. De forma predeterminada, el color de acento sigue al fondo de pantalla, incluido el del día (**Usar el color del fondo de pantalla**); elegir un color tú mismo lo desactiva."
@@ -1739,6 +1833,7 @@ start = ""
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/"
   start_text = "Nada que añadir a la config de Sway: abre **Tema del escritorio** desde tu lanzador, o ejecuta `swaydesk-theme-app`."
+  note = "También está en [Configuración](/es/components/settings/), como el panel **Apariencia**: la misma página, sin abrir otra ventana."
 
 [[components]]
 id = "portal"
@@ -1824,6 +1919,7 @@ unit = true
   keys = "Na grade de apps"
   guide = "guide/config/#monitores"
   start_note = "O serviço aplica o layout salvo quando as telas mudam, e fechar ou abrir a tampa o aplica de novo."
+  note = "Também está nas [Configurações](/pt-br/components/settings/), como o painel **Telas**: a mesma página, sem abrir outra janela."
   [components.en-us]
   name = "Displays"
   text = "Your screens on a map, to drag around, with each one's resolution, refresh rate, scale and rotation, and whether it's on. A change undoes itself after 15 seconds unless you keep it. Each set of monitors keeps its own layout, applied when you plug or unplug a screen, and the laptop screen turns off with the lid closed and an external monitor on. The key turns off only these automatic profiles; the app stays."
@@ -1844,6 +1940,7 @@ unit = true
   keys = "In the app grid"
   guide = "guide/config/#displays"
   start_note = "The daemon applies the saved layout when screens change, and closing or opening the lid applies it again."
+  note = "It's also in [Settings](/en-us/components/settings/), as the **Displays** panel: the same page, without another window."
   [components.es]
   name = "Pantallas"
   text = "Tus pantallas en un mapa, para arrastrarlas, con la resolución, la frecuencia de actualización, la escala y la rotación de cada una, y si está encendida. Un cambio se deshace solo después de 15 segundos, a menos que lo conserves. Cada conjunto de monitores guarda su propia disposición, que se aplica cuando conectas o desconectas una pantalla, y la pantalla de la laptop se apaga con la tapa cerrada y un monitor externo encendido. La clave desactiva solo estos perfiles automáticos; la aplicación se queda."
@@ -1864,6 +1961,7 @@ unit = true
   keys = "En la cuadrícula de aplicaciones"
   guide = "guide/config/#pantallas"
   start_note = "El servicio aplica la disposición guardada cuando cambian las pantallas, y cerrar o abrir la tapa la vuelve a aplicar."
+  note = "También está en [Configuración](/es/components/settings/), como el panel **Pantallas**: la misma página, sin abrir otra ventana."
 
 [[components]]
 id = "help"
@@ -2104,6 +2202,7 @@ start = ""
   keys = "No terminal"
   guide = "guide/config/"
   start_text = "Nada a acrescentar à config do Sway: são ferramentas de linha de comando. `man swaydesk-theme` e `man swaydesk-desktop-config` listam as opções."
+  note = "Sem editar à mão: os painéis **Desktop**, **Região**, **Energia e bloqueio** e **Apps padrão** das [Configurações](/pt-br/components/settings/) gravam as mesmas chaves do `config.toml`, e mantêm os seus comentários."
   [components.en-us]
   name = "Theme and settings from the terminal"
   text = "Sets the GTK theme, the icons and the accent color from the terminal (`swaydesk-theme`), and writes the files Sway, the bar and the apps read from `~/.config/swaydesk/config.toml`: run `swaydesk-desktop-config apply` after editing it by hand."
@@ -2124,6 +2223,7 @@ start = ""
   keys = "In the terminal"
   guide = "guide/config/"
   start_text = "Nothing to add to the Sway config: they're command-line tools. `man swaydesk-theme` and `man swaydesk-desktop-config` list their options."
+  note = "Without editing by hand: the **Desktop**, **Region**, **Power and lock** and **Default apps** panels of [Settings](/en-us/components/settings/) write the same `config.toml` keys, and keep your comments."
   [components.es]
   name = "Tema y ajustes desde la terminal"
   text = "Aplica el tema GTK, los iconos y el color de acento desde la línea de comandos (`swaydesk-theme`) y escribe, desde `~/.config/swaydesk/config.toml`, los archivos que leen Sway, la barra y las aplicaciones: después de editarlo a mano, ejecuta `swaydesk-desktop-config apply`."
@@ -2144,6 +2244,7 @@ start = ""
   keys = "En la terminal"
   guide = "guide/config/"
   start_text = "Nada que añadir a la config de Sway: son herramientas de línea de comandos. `man swaydesk-theme` y `man swaydesk-desktop-config` listan sus opciones."
+  note = "Sin editar a mano: los paneles **Escritorio**, **Región**, **Energía y bloqueo** y **Aplicaciones predeterminadas** de [Configuración](/es/components/settings/) escriben las mismas claves de `config.toml`, y conservan tus comentarios."
 
 [groups.bar]
 package = "swaydesk-bar"

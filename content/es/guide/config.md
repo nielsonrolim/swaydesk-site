@@ -14,6 +14,8 @@ La configuración de Sway y de la barra viene con el paquete y se actualiza con 
 | `~/.config/swaydesk/displays.json` | Tus pantallas para cada conjunto de monitores, guardadas por la aplicación **Pantallas** |
 | `~/.config/sway-dock/config.toml` | El modo y el tamaño de la dock |
 
+La mayor parte de esto también se cambia sin editar archivos, en [Configuración](/es/components/settings/): cada panel escribe solo sus propias claves en estos mismos archivos y conserva tus comentarios. El teclado y el ratón que elijas ahí van a `~/.config/sway/config.d/80-input.conf`, que tiene prioridad sobre `50-local.conf`.
+
 Antes de la 0.1.4, las carpetas `swaydesk` se llamaban `sway-desktop`: `~/.config/sway-desktop`, y lo mismo en `~/.local/share` y `~/.local/state`. El primer inicio de sesión en la 0.1.4 las mueve a `swaydesk` y deja los nombres antiguos como enlaces a las carpetas nuevas, así que las rutas antiguas siguen funcionando. Si un archivo está en la carpeta antigua y en la nueva, no se mueve nada, la carpeta antigua sigue en uso y el registro de la sesión lo indica (`grep kept: ~/.local/state/sway/sway.log`); combina las dos carpetas a mano para cambiar.
 
 ## Configuración del escritorio
@@ -84,7 +86,7 @@ En una computadora sin batería, el ícono de la batería sale de la barra, y co
 
 ## Desactivar componentes
 
-Todos los componentes de Swaydesk vienen activados, menos el método de entrada ([abajo](#metodo-de-entrada)). Para desactivar uno, pon su clave en `false` en la sección `[enabled]` de `~/.config/swaydesk/config.toml`; los módulos de la barra van en `[enabled.bar]`:
+Todos los componentes de Swaydesk vienen activados, menos el método de entrada ([abajo](#metodo-de-entrada)). El panel **Escritorio** de [Configuración](/es/components/settings/) tiene un interruptor para cada uno. Para desactivar uno a mano, pon su clave en `false` en la sección `[enabled]` de `~/.config/swaydesk/config.toml`; los módulos de la barra van en `[enabled.bar]`:
 
 ```
 [enabled]
