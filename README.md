@@ -1,6 +1,6 @@
 # swaydesk-site
 
-The website of Swaydesk, a complete desktop on top of Sway: <https://swaydesk.nielsonrolim.com>.
+The website of Swaydesk, a complete desktop on top of Sway: <https://swaydesk.org>.
 
 The site is in Brazilian Portuguese (`/pt-br/`) and American English (`/en-us/`). It is built with [Hugo](https://gohugo.io/), with its own templates and no theme, and published on GitHub Pages. It makes no requests to other sites: no web fonts from a CDN, no analytics, no cookies.
 
