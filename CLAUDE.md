@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-The website of Swaydesk, a desktop on top of Sway: <https://swaydesk.nielsonrolim.com>. Static site built with
+The website of Swaydesk, a desktop on top of Sway: <https://swaydesk.org>. Static site built with
 Hugo 0.147, its own templates (no theme), published on GitHub Pages. Three languages, all first-class: Brazilian
 Portuguese (`pt-BR`, the default), American English (`en-US`) and Latin American Spanish (`es`, `es-419` in
 `lang`/`hreflang`), served at `/pt-br/`, `/en-us/` and `/es/`. The root sends `pt*` browsers to Portuguese, `es*`
