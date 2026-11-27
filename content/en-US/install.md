@@ -144,3 +144,5 @@ Swaydesk's own login screen is optional if you already have one (GDM, SDDM, Ligh
 | `swaydesk-archive-keyring` | Debian, Ubuntu and Mint only: the key and the repository, kept up to date |
 
 The packages are version 0.1.9, stable: see the [release notes](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.9) and the [changelog](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). New versions come as updates: on Debian and Ubuntu through `sudo apt upgrade`, `sudo apt full-upgrade` or the app store (GNOME Software), not `apt-get upgrade`, which holds back the packages a new version adds; on Arch through a full `sudo pacman -Syu`.
+
+The source code is on GitHub: [github.com/nielsonrolim/swaydesk](https://github.com/nielsonrolim/swaydesk).

@@ -69,6 +69,9 @@ main.wrap { padding-top: 56px; line-height: 1.7; }
 .topbar__tools { display: flex; align-items: center; gap: 14px; }
 .theme-toggle { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 3px; background: none; color: var(--muted); cursor: pointer; font: inherit; }
 .theme-toggle[hidden] { display: none; }
+/* O link do GitHub, do tamanho do botão do tema */
+.gh-link { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 3px; color: var(--muted); }
+.gh-link:hover { border-color: var(--line-strong); color: var(--ink); }
 .theme-toggle:hover { border-color: var(--line-strong); color: var(--ink); }
 .theme-toggle svg { width: 18px; height: 18px; }
 .theme-toggle .moon, :root[data-theme="dark"] .theme-toggle .sun { display: none; }
@@ -94,7 +97,7 @@ main.wrap { padding-top: 56px; line-height: 1.7; }
 .menu__row { display: flex; align-items: center; gap: 14px; }
 @media (max-width: 1000px) {
   .topbar__in { flex-wrap: nowrap; }
-  .topbar__in > .nav, .topbar__tools > .locale, .topbar__tools > .theme-toggle, .brand__crumb { display: none; }
+  .topbar__in > .nav, .topbar__tools > .locale, .topbar__tools > .theme-toggle, .topbar__tools > .gh-link, .brand__crumb { display: none; }
   .menu { display: block; }
   .brand { min-width: 0; }
   .brand > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -4,6 +4,9 @@
 <div class="footer__about">
 <span class="footer__prompt"><span class="footer__prompt-user">user@swaydesk:~$</span> <span class="cursor" aria-hidden="true"></span></span>
 <p class="independent">{{ i18n "independent" | safeHTML }}</p>
+{{- with site.Params.code_repo }}
+<p class="source">{{ i18n "footer_source" (dict "url" .) | safeHTML }}</p>
+{{- end }}
 <p class="license">{{ i18n "license" | safeHTML }}</p>
 </div>
 <nav class="footer__nav" aria-label="{{ i18n "footer_nav" }}">
