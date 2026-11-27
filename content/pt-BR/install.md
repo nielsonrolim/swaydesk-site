@@ -143,6 +143,6 @@ A tela de login do Swaydesk é opcional se você já tem uma (GDM, SDDM, LightDM
 | `swaydesk-greeter` | A tela de login do Swaydesk, sobre o greetd: opcional com outro gerenciador de login, necessária para entrar no modo gráfico sem um |
 | `swaydesk-archive-keyring` | Só Debian, Ubuntu e Mint: a chave e o repositório, sempre em dia |
 
-Os pacotes estão na versão 0.1.9, estável: veja as [notas do lançamento](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.9) e o [histórico de mudanças](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). As versões novas chegam como atualizações: no Debian e no Ubuntu pelo `sudo apt upgrade`, pelo `sudo apt full-upgrade` ou pela loja de apps (GNOME Software), não pelo `apt-get upgrade`, que segura os pacotes que uma versão nova acrescenta; no Arch por um `sudo pacman -Syu` completo.
+Os pacotes estão na versão 0.1.10, estável: veja as [notas do lançamento](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.10) e o [histórico de mudanças](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). As versões novas chegam como atualizações: no Debian e no Ubuntu pelo `sudo apt upgrade`, pelo `sudo apt full-upgrade` ou pela loja de apps (GNOME Software), não pelo `apt-get upgrade`, que segura os pacotes que uma versão nova acrescenta; no Arch por um `sudo pacman -Syu` completo.
 
 O código-fonte está no GitHub: [github.com/nielsonrolim/swaydesk](https://github.com/nielsonrolim/swaydesk).

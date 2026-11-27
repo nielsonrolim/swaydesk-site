@@ -2,9 +2,9 @@
 title: Download
 prompt: "sha256sum -c --ignore-missing SHA256SUMS"
 crumb: download
-description: Swaydesk's live ISOs, stable version 0.1.9, with an installer.
+description: Swaydesk's live ISOs, stable version 0.1.10, with an installer.
 ---
-Each ISO boots a live Swaydesk session: try it without touching the disk and, if you like it, install it with the **Install Swaydesk** icon in the dock. These are stable ISOs, version 0.1.9. Already have Debian 13 or testing, Ubuntu 26.04, Linux Mint 27 or Arch? Then you don't need an ISO: [install the packages](/en-us/install/) on the system you have. Debian testing, Ubuntu 26.04 and Linux Mint 27 have no Swaydesk ISO; there, Swaydesk comes only through the packages.
+Each ISO boots a live Swaydesk session: try it without touching the disk and, if you like it, install it with the **Install Swaydesk** icon in the dock. These are stable ISOs, version 0.1.10. Already have Debian 13 or testing, Ubuntu 26.04, Linux Mint 27 or Arch? Then you don't need an ISO: [install the packages](/en-us/install/) on the system you have. Debian testing, Ubuntu 26.04 and Linux Mint 27 have no Swaydesk ISO; there, Swaydesk comes only through the packages.
 
 ## Requirements
 
