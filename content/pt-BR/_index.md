@@ -35,7 +35,7 @@ components:
     - {icon: clip, name: "Área de transferência", text: "Histórico do que você copiou."}
     - {icon: lock, name: "Login e bloqueio", text: "Tela de login e tela de bloqueio próprias."}
     - {icon: switch, name: "Alt+Tab", text: "Troca de janelas como você já conhece."}
-    - {icon: capture, name: "Captura e gravação", text: "Screenshots e gravação de tela."}
+    - {icon: capture, name: "Screenshots e gravação", text: "Da tela inteira, de uma região ou de uma janela, e gravação de tela."}
     - {icon: theme, name: "Temas e destaque", text: "Um app para tema, ícones e cor de destaque."}
 shortcuts:
   kicker: "## o que você encontra"

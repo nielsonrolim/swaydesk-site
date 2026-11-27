@@ -22,7 +22,7 @@ enableRobotsTXT = true
       pageRef = "/"
       weight = 1
     [[languages.pt-BR.menus.main]]
-      name = "capturas"
+      name = "screenshots"
       pageRef = "/screenshots"
       weight = 2
     [[languages.pt-BR.menus.main]]

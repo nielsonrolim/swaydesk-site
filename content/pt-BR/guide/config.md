@@ -259,7 +259,7 @@ layer_blur = false      # blur atrás da barra, da dock, dos popups, das notific
 dim_inactive = 0.0      # escurecer as janelas sem o foco, de 0.0 (nada) a 1.0
 ```
 
-O blur atrás da barra, da dock e dos popups vem desligado por padrão, porque apareceu lixo visual numa máquina virtual (virgl). Ligue com `layer_blur = true`. Duas coisas nunca ficam com blur: a camada invisível que fecha os popups quando você clica fora, e a escolha da captura de tela, que precisa mostrar a tela nítida.
+O blur atrás da barra, da dock e dos popups vem desligado por padrão, porque apareceu lixo visual numa máquina virtual (virgl). Ligue com `layer_blur = true`. Duas coisas nunca ficam com blur: a camada invisível que fecha os popups quando você clica fora, e a escolha do screenshot, que precisa mostrar a tela nítida.
 
 ## A tela de login
 

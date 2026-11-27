@@ -20,7 +20,7 @@ other = "Swaydesk: um desktop completo e leve sobre o Sway, para Debian, Ubuntu,
 other = 'Projeto independente, sem afiliação ou endosso do projeto <a href="https://swaywm.org/">Sway</a> ou de seus desenvolvedores.'
 
 [license]
-other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>. Capturas mostram ícones de terceiros sob suas próprias licenças.'
+other = 'Textos e imagens sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">CC BY 4.0</a>. Os screenshots mostram ícones de terceiros sob suas próprias licenças.'
 
 [soon]
 other = "em breve"
@@ -92,7 +92,7 @@ other = "niri"
 other = "dwm"
 
 [profile_dwm_note]
-other = "Perfil dwm: o Mod é Alt, como no dwm, e não Super. Por isso, alguns atalhos dos apps com Alt (como o Alt+F, que abre o menu Arquivo) deixam de chegar a eles. Dois atalhos mudam só aqui: os cartões de janelas (Alt+Tab e Alt+Shift+Tab nos outros perfis) vão para Super+Tab e Super+Shift+Tab, porque Alt+Tab volta ao último workspace; e o lançador (Alt+Space) vai para Super+Space, porque Alt+Space troca o layout das janelas. As ações do Swaydesk que o dwm não tem (notificações, área de transferência, busca de janelas, captura e gravação) ficam em Super. Janela flutuante com o mouse: Alt+arrastar. O layout do teclado: Super+Ctrl+Space."
+other = "Perfil dwm: o Mod é Alt, como no dwm, e não Super. Por isso, alguns atalhos dos apps com Alt (como o Alt+F, que abre o menu Arquivo) deixam de chegar a eles. Dois atalhos mudam só aqui: os cartões de janelas (Alt+Tab e Alt+Shift+Tab nos outros perfis) vão para Super+Tab e Super+Shift+Tab, porque Alt+Tab volta ao último workspace; e o lançador (Alt+Space) vai para Super+Space, porque Alt+Space troca o layout das janelas. As ações do Swaydesk que o dwm não tem (notificações, área de transferência, busca de janelas, screenshots e gravação) ficam em Super. Janela flutuante com o mouse: Alt+arrastar. O layout do teclado: Super+Ctrl+Space."
 
 [keys_action]
 other = "O que faz"

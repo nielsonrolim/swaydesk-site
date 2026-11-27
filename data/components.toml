@@ -1981,13 +1981,13 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
   [components.pt-br]
   name = "Captura de tela"
   text = "Região, tela inteira ou janela, com atraso. Vai para a área de transferência e para `~/Imagens/Screenshots`; com o Gradia, abre para editar."
-  more_alts = ["O aviso depois da captura: um clique abre a imagem", "O painel Gravar tela, com o áudio do sistema", "A gravação em andamento na barra"]
-  shot_caption = "O painel de captura, com um atraso de 3 s"
+  more_alts = ["O aviso depois do screenshot: um clique abre a imagem", "O painel Gravar tela, com o áudio do sistema", "A gravação em andamento na barra"]
+  shot_caption = "O painel de screenshot, com um atraso de 3 s"
   features = [
-    "`Super`+`Shift`+`E` abre o painel de captura: *Região* (`r`), *Tela inteira* (`s`) ou *Janela* (`w`).",
-    "*Atraso* (`d`): agora, 3, 5 ou 10 segundos, só para aquela captura.",
+    "`Super`+`Shift`+`E` abre o painel de screenshot: *Região* (`r`), *Tela inteira* (`s`) ou *Janela* (`w`).",
+    "*Atraso* (`d`): agora, 3, 5 ou 10 segundos, só para aquele screenshot.",
     "Sem o painel: `Print` captura uma região, `Shift`+`Print` a tela, `Super`+`Print` a janela em foco.",
-    "Com o Gradia instalado, *Abrir no Gradia* (`g`), ou `Ctrl` com essas teclas, abre a captura para editar.",
+    "Com o Gradia instalado, *Abrir no Gradia* (`g`), ou `Ctrl` com essas teclas, abre o screenshot para editar.",
     "`Super`+`Shift`+`R` abre o painel de gravação (precisa do wf-recorder), com *Sistema*, *Microfone* ou *Sem áudio* (`a`).",
     "No painel de gravação, `Shift` + tecla grava com o som do sistema, `Ctrl` + tecla com o microfone.",
     "Durante a gravação, a barra mostra um contador; clique nele ou aperte `Super`+`Shift`+`R` para parar.",
@@ -1995,8 +1995,8 @@ start = "bindsym Shift+Print exec swaydesk-capture shot\nbindsym $mod+Shift+r ex
     "Clicar no aviso de *Captura de tela* ou de *Gravação salva*, ou no item dele na central, abre o arquivo no app padrão, se houver.",
   ]
   keys = "`Super`+`Shift`+`E`; `Print`"
-  guide = "guide/desktop/#capturas-e-gravação"
-  start_note = "O painel de captura e o de gravação; os dois também abrem pelo seu lançador. A sessão do Swaydesk os põe em `Super`+`Shift`+`E` e `Super`+`Shift`+`R`, mas a config padrão do Sway usa `Super`+`Shift`+`E` para sair e `Print` para uma captura com o grim, e estas teclas deixam as duas como estão."
+  guide = "guide/desktop/#screenshots-e-gravação"
+  start_note = "O painel de screenshot e o de gravação; os dois também abrem pelo seu lançador. A sessão do Swaydesk os põe em `Super`+`Shift`+`E` e `Super`+`Shift`+`R`, mas a config padrão do Sway usa `Super`+`Shift`+`E` para sair e `Print` para um screenshot com o grim, e estas teclas deixam as duas como estão."
   [components.en-us]
   name = "Screenshot"
   text = "A region, the whole screen or a window, with a delay. It goes to the clipboard and to `~/Pictures/Screenshots`; with Gradia, it opens for editing."
@@ -2051,7 +2051,7 @@ with = "screenshot"
   name = "Gravação de tela"
   text = "Região, tela inteira ou janela, com o som do sistema, o microfone ou sem áudio. O vídeo vai para `~/Vídeos/Screencasts`."
   keys = "`Super`+`Shift`+`R`"
-  guide = "guide/desktop/#capturas-e-gravação"
+  guide = "guide/desktop/#screenshots-e-gravação"
   [components.en-us]
   name = "Screen recording"
   text = "A region, the whole screen or a window, with the system sound, the microphone or no audio. The video goes to `~/Videos/Screencasts`."

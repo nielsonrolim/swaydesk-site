@@ -1,5 +1,5 @@
 ---
-title: Capturas
+title: Screenshots
 prompt: "ls ~/Pictures/swaydesk"
 crumb: screenshots
 description: O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de destaque padrão. Clique numa imagem para vê-la inteira.
@@ -26,7 +26,7 @@ O Swaydesk no Debian 13, com o tema Adwaita escuro e a cor de destaque padrão. 
 {{< shot "battery-charging" "O mesmo, carregando" >}}
 {{< shot "brightness" "Brilho e luz noturna" >}}
 {{< shot "clipboard" "O histórico da área de transferência" >}}
-{{< shot "capture" "O painel de captura de tela" >}}
+{{< shot "capture" "O painel de screenshot" >}}
 {{< shot "session" "O menu de sessão" >}}
 {{< shot "theme" "O app Tema do Desktop" >}}
 {{< shot "launcher-web" "O lançador, na aba Web" >}}

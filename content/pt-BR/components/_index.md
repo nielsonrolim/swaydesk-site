@@ -26,7 +26,7 @@ Quase todo componente pode ser desligado. A última linha de cada um mostra a ch
 | gammastep | A luz noturna |
 | mate-polkit | A janela da senha de administrador (no Debian e no Ubuntu, o lxpolkit também serve) |
 | gnome-text-editor | O botão **Abrir** da Ajuda, que edita o `50-local.conf`; sem ele, a Ajuda abre um editor no terminal. Recomendado no Debian e no Ubuntu; opcional no Arch |
-| grim, slurp e wf-recorder | A captura e a gravação de tela |
+| grim, slurp e wf-recorder | Os screenshots e a gravação de tela |
 | gtklock | O último recurso do bloqueio, se o do Swaydesk não abrir |
 
 As imagens de instalação trazem também uma loja de apps, o GNOME Software, com o Flathub. No Debian, ela também instala e atualiza os pacotes da distro e o firmware; no Arch, cuida dos apps Flatpak, e o aviso do Swaydesk cuida do resto. Pelos pacotes, instale o `gnome-software` você mesmo, se quiser.
