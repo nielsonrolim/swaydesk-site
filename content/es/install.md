@@ -144,3 +144,5 @@ La pantalla de inicio de sesión propia de Swaydesk es opcional si ya tienes una
 | `swaydesk-archive-keyring` | Solo Debian, Ubuntu y Mint: la clave y el repositorio, siempre al día |
 
 Los paquetes son de la versión 0.1.9, estable: mira las [notas de la versión](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.9) y el [registro de cambios](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). Las versiones nuevas llegan como actualizaciones: en Debian y Ubuntu con `sudo apt upgrade`, `sudo apt full-upgrade` o la tienda de aplicaciones (GNOME Software), no con `apt-get upgrade`, que retiene los paquetes que añade una versión nueva; en Arch con un `sudo pacman -Syu` completo.
+
+El código fuente está en GitHub: [github.com/nielsonrolim/swaydesk](https://github.com/nielsonrolim/swaydesk).

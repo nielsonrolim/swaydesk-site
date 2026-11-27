@@ -213,3 +213,9 @@ other = "No <code>~/.config/waybar/config.jsonc</code>, acrescente <code>\"{{ .m
 
 [comp_waybar_note]
 other = "As primeiras linhas do arquivo dizem o que cada clique faz. Os ícones vêm da Symbols Nerd Font, que o pacote traz."
+
+[github]
+other = "Swaydesk no GitHub"
+
+[footer_source]
+other = 'Código-fonte: <a href="{{ .url }}">github.com/nielsonrolim/swaydesk</a>.'

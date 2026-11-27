@@ -9,12 +9,13 @@
 {{- with site.GetPage "/download" }}
 <a class="btn btn--sm" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ i18n "download_btn" }}</a>
 {{- end }}
+{{ partial "github.html" . }}
 {{ partial "theme-toggle.html" . }}
 <details class="menu">
 <summary>{{ lower (i18n "menu") }}</summary>
 <div class="menu__panel">
 {{ partial "nav.html" . }}
-<div class="menu__row">{{ partial "locale.html" . }}{{ partial "theme-toggle.html" . }}</div>
+<div class="menu__row">{{ partial "locale.html" . }}{{ partial "github.html" . }}{{ partial "theme-toggle.html" . }}</div>
 </div>
 </details>
 </div>
