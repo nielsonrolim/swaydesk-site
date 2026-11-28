@@ -14,6 +14,8 @@ The Sway and bar configuration comes with the package and is updated with it. Wh
 | `~/.config/swaydesk/displays.json` | Your screens for each set of monitors, saved by the **Displays** app |
 | `~/.config/sway-dock/config.toml` | The dock mode and size |
 
+Most of this can also be changed without editing a file, in [Settings](/en-us/components/settings/): each panel writes only its own keys in these same files and keeps your comments. The keyboard and mouse you pick there go into `~/.config/sway/config.d/80-input.conf`, which wins over `50-local.conf`.
+
 Before 0.1.4, the `swaydesk` folders were called `sway-desktop`: `~/.config/sway-desktop`, and the same in `~/.local/share` and `~/.local/state`. The first login on 0.1.4 moves them to `swaydesk` and leaves the old names as links to the new folders, so the old paths keep working. If a file is in both the old and the new folder, nothing moves, the old folder stays in use, and the session log says so (`grep kept: ~/.local/state/sway/sway.log`); merge the two folders by hand to switch.
 
 ## Desktop settings
@@ -84,7 +86,7 @@ On a computer without a battery, the battery icon leaves the bar, and with it th
 
 ## Turning components off
 
-Every Swaydesk component starts on, except the input method ([below](#input-method)). To turn one off, set its key to `false` in the `[enabled]` section of `~/.config/swaydesk/config.toml`; the bar modules go in `[enabled.bar]`:
+Every Swaydesk component starts on, except the input method ([below](#input-method)). The **Desktop** panel of [Settings](/en-us/components/settings/) has a switch for each. To turn one off by hand, set its key to `false` in the `[enabled]` section of `~/.config/swaydesk/config.toml`; the bar modules go in `[enabled.bar]`:
 
 ```
 [enabled]
