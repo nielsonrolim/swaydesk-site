@@ -143,6 +143,6 @@ La pantalla de inicio de sesión propia de Swaydesk es opcional si ya tienes una
 | `swaydesk-greeter` | La pantalla de inicio de sesión de Swaydesk, sobre greetd: opcional con otro gestor de inicio de sesión, necesaria para un inicio de sesión gráfico sin uno |
 | `swaydesk-archive-keyring` | Solo Debian, Ubuntu y Mint: la clave y el repositorio, siempre al día |
 
-Los paquetes son de la versión 0.1.10, estable: mira las [notas de la versión](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.1.10) y el [registro de cambios](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). Las versiones nuevas llegan como actualizaciones: en Debian y Ubuntu con `sudo apt upgrade`, `sudo apt full-upgrade` o la tienda de aplicaciones (GNOME Software), no con `apt-get upgrade`, que retiene los paquetes que añade una versión nueva; en Arch con un `sudo pacman -Syu` completo.
+Los paquetes son de la versión 0.2.0, estable: mira las [notas de la versión](https://github.com/nielsonrolim/swaydesk/releases/tag/v0.2.0) y el [registro de cambios](https://github.com/nielsonrolim/swaydesk/blob/main/CHANGELOG.md). Las versiones nuevas llegan como actualizaciones: en Debian y Ubuntu con `sudo apt upgrade`, `sudo apt full-upgrade` o la tienda de aplicaciones (GNOME Software), no con `apt-get upgrade`, que retiene los paquetes que añade una versión nueva; en Arch con un `sudo pacman -Syu` completo.
 
 El código fuente está en GitHub: [github.com/nielsonrolim/swaydesk](https://github.com/nielsonrolim/swaydesk).
